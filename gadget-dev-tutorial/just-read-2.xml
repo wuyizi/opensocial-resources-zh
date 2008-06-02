@@ -92,8 +92,8 @@
       <!-- 用于显示的DOM -->
       <div id='main'>
         <u>我:</u> <span id='me'></span><br>
-        <u>我的朋友:</u><br><ul id='friends'></ul>
-        <u>书架:</u><br><ul id='allBooks'></ul>
+        <u>我的朋友:</u><br><ul style="display:inline;" id='friends'></ul>
+        <u>书架:</u><br><ul style="display:inline;" id='allBooks'></ul>
       </div>
     ]]>
   </Content>
