@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <ModulePrefs title="Just Read - Part 2 - Read a book"
+               author_email="your.email@foo.bar">
+    <Require feature="opensocial-0.7"/>
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[
+      <script type="text/javascript">
+      
+        var viewer;              // 类型：opensocial.Person
+        var viewerFriends;       // 类型：opensocial.Collection
+        var bookList = ['西游记', '三国演义', '水浒传', '红楼梦'];
+
+        /* 显示书架里的书名 */
+		function showAvailableBooks() {
+		  var html = new Array();
+		  var len = bookList.length;
+		  for (var i = 0; i < len; ++i) {
+		    var item = bookList[i];
+		    html.push("<li style='cursor:pointer' onclick=\"onReadBook(\'");
+		    html.push(item);
+		    html.push("\');\"><i>");
+		    html.push(item);
+		    html.push("</i></li>");
+		  }
+		  document.getElementById('allBooks').innerHTML = html.join('');
+		};
+
+
+        /* 处理书名点击响应 */
+        function onReadBook(book) {
+          var books = [];
+          books.push(book);
+          json = gadgets.json.stringify(books);
+
+          /* 发送更新请求
+          var req = opensocial.newDataRequest();
+          req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'books', json));
+          req.send(function(data) {
+            /* 更新后刷新所有数据 */
+            reloadAll();
+          });
+        };
+
+
+        /* 发送 Opensocial API 请求 */
+        function reloadAll() {
+          var req = new opensocial.DataRequest();
+          req.add(req.newFetchPersonRequest('VIEWER'), 'v');
+          req.add(req.newFetchPeopleRequest('VIEWER_FRIENDS'), 'vf');
+          req.send(onReloadAll);
+        }
+
+
+	    /* 处理 Opensocial API 响应 */
+	    function onReloadAll(dataResponse) {
+	
+	      /* 获取数据 */
+	      viewer = dataResponse.get('v').getData() || {};
+	      viewerFriends = dataResponse.get('vf').getData() || {};
+	
+	      /* 显示 VIEWER 名字 */
+	      document.getElementById('me').innerHTML = viewer.getDisplayName();
+	
+	      /* 显示 VIEWER 的朋友 */
+	      var html = new Array();
+	      viewerFriends.each(function(person) {
+	        html.push("<li><b>" + person.getDisplayName() + "</b></li>");
+	      });
+	      document.getElementById('friends').innerHTML = html.join('');
+	      
+	      /* 显示所有 */
+	      showAvailableBooks();
+	    };
+
+
+        /* Gadget 执行入口 */
+        function init() {
+          reloadAll();
+        };
+        gadgets.util.registerOnLoadHandler(init);
+      </script>
+
+      <div id='main'>
+        <u>我:<span id='me'></u><br/>
+        <u>我的朋友:</u><br><ul id='friends'></ul>
+        <u>书架:</u><br><ul id='allBooks'></ul>
+      </div>
+    ]]>
+  </Content>
+</Module>
