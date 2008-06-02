@@ -94,9 +94,9 @@
 
       <!-- 用于显示的DOM -->
       <div id='main'>
-        <u>我：</u> <span id='me'></span><br>
-        <u>我的朋友：</u><br><dl id='friends'></dl>
-        <u>书架：</u><br><dl id='allBooks'></dl>
+        我：<br><span id='me'></span><br>
+        我的朋友：<br><dl id='friends'></dl>
+        书架：<br><dl id='allBooks'></dl>
       </div>
     ]]>
   </Content>
