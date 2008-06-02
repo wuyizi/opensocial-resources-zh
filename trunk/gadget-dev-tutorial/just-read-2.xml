@@ -12,6 +12,7 @@
         var viewerFriends;       // 类型：opensocial.Collection
         var bookList = ['西游记', '三国演义', '水浒传', '红楼梦'];
 
+
         /* 显示书架里的书名 */
 		function showAvailableBooks() {
 		  var html = new Array();
@@ -44,13 +45,27 @@
         };
 
 
+        /* 显示基本信息 */
+        function showBasic() {
+          /* 显示 VIEWER 名字 */
+          document.getElementById('me').innerHTML = "<b>" + viewer.getDisplayName() + "</b>";
+    
+          /* 显示 VIEWER 的朋友 */
+          var html = new Array();
+          viewerFriends.each(function(person) {
+            html.push("<li><b>" + person.getDisplayName() + "</b></li>");
+          });
+          document.getElementById('friends').innerHTML = html.join('');
+        };
+
+
         /* 发送 Opensocial API 请求 */
         function reloadAll() {
           var req = new opensocial.DataRequest();
           req.add(req.newFetchPersonRequest('VIEWER'), 'v');
           req.add(req.newFetchPeopleRequest('VIEWER_FRIENDS'), 'vf');
           req.send(onReloadAll);
-        }
+        };
 
 
 	    /* 处理 Opensocial API 响应 */
@@ -59,18 +74,9 @@
 	      /* 获取数据 */
 	      viewer = dataResponse.get('v').getData() || {};
 	      viewerFriends = dataResponse.get('vf').getData() || {};
-	
-	      /* 显示 VIEWER 名字 */
-	      document.getElementById('me').innerHTML = viewer.getDisplayName();
-	
-	      /* 显示 VIEWER 的朋友 */
-	      var html = new Array();
-	      viewerFriends.each(function(person) {
-	        html.push("<li><b>" + person.getDisplayName() + "</b></li>");
-	      });
-	      document.getElementById('friends').innerHTML = html.join('');
-	      
-	      /* 显示所有 */
+
+	      /* 显示数据 */
+          showBasic();
 	      showAvailableBooks();
 	    };
 
