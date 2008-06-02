@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
   <ModulePrefs title="Just Read - Part 2 - Read a book"
-               author_email="your.email@foo.bar">
+               author_email="your.email@foo.bar"
+               height="700">
     <Require feature="opensocial-0.7"/>
   </ModulePrefs>
   <Content type="html">
