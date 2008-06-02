@@ -20,11 +20,11 @@
           var len = bookList.length;
           for (var i = 0; i < len; ++i) {
             var item = bookList[i];
-            html.push("<li style='cursor:pointer' onclick=\"onReadBook(\'");
+            html.push("<dt style='cursor:pointer' onclick=\"onReadBook(\'");
             html.push(item);
             html.push("\');\"><i>");
             html.push(item);
-            html.push("</i></li>");
+            html.push("</i></dt>");
           }
           document.getElementById('allBooks').innerHTML = html.join('');
         };
@@ -57,7 +57,7 @@
           /* 显示 VIEWER 的朋友 */
           var html = new Array();
           viewerFriends.each(function(person) {
-            html.push("<li><b>" + person.getDisplayName() + "</b></li>");
+            html.push("<dt><b>" + person.getDisplayName() + "</b></dt>");
           });
           document.getElementById('friends').innerHTML = html.join('');
         };
@@ -94,9 +94,9 @@
 
       <!-- 用于显示的DOM -->
       <div id='main'>
-        <u>我:</u> <span id='me'></span><br>
-        <u>我的朋友:</u><br><ul id='friends'></ul>
-        <u>书架:</u><br><ul id='allBooks'></ul>
+        <u>我：</u> <span id='me'></span><br>
+        <u>我的朋友：</u><br><dl id='friends'></dl>
+        <u>书架：</u><br><dl id='allBooks'></dl>
       </div>
     ]]>
   </Content>
