@@ -32,6 +32,9 @@
 
         /* 处理书名点击响应 */
         function onReadBook(book) {
+          
+          alert("我读了" + book);
+          
           var books = [];
           books.push(book);
           json = gadgets.json.stringify(books);
