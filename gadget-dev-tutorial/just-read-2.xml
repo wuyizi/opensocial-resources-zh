@@ -96,7 +96,7 @@
       <div id='main'>
         我：<br><span id='me'></span><br>
         我的朋友：<br><dl id='friends'></dl>
-        书架：<br><dl id='allBooks'></dl>
+        书架：<br><dl style="padding:0px; margin:0px;" id='allBooks'></dl>
       </div>
     ]]>
   </Content>
