@@ -20,7 +20,7 @@
           /* 显示 VIEWER 的朋友 */
           var html = new Array();
           viewerFriends.each(function(person) {
-            html.push("<li><b>" + person.getDisplayName() + "</b></li>");
+            html.push("<dt><b>" + person.getDisplayName() + "</b></dt>");
           });
           document.getElementById('friends').innerHTML = html.join('');
         };
@@ -55,8 +55,8 @@
 
       <!-- 用于显示的DOM -->
       <div id='main'>
-        <u>我:</u> <span id='me'></span><br>
-        <u>我的朋友:</u><br><ul id='friends'></ul>
+        <u>我：</u> <span id='me'></span><br>
+        <u>我的朋友：</u><br><dl id='friends'></dl>
       </div>
     ]]>
   </Content>
