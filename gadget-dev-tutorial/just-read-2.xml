@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
   <ModulePrefs title="Just Read - Part 2 - Read a book"
-               author_email="your.email@foo.bar">
+               author_email="your.email@foo.bar" scrolling="true" height="400">
     <Require feature="opensocial-0.7"/>
-    <Require feature="dynamic-height" />
+    <Require feature="dynamic-height"/>
   </ModulePrefs>
   <Content type="html">
     <![CDATA[
@@ -92,8 +92,8 @@
       <!-- 用于显示的DOM -->
       <div id='main'>
         <u>我:</u> <span id='me'></span><br>
-        <u>我的朋友:</u><br><ul style="display:inline;" id='friends'></ul>
-        <u>书架:</u><br><ul style="display:inline;" id='allBooks'></ul>
+        <u>我的朋友:</u><br><ul id='friends'></ul>
+        <u>书架:</u><br><ul id='allBooks'></ul>
       </div>
     ]]>
   </Content>

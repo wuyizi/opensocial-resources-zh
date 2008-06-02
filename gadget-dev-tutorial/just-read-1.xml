@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
   <ModulePrefs title="Just Read - Part 1 - Friends"
-               author_email="your.email@foo.bar">
+               author_email="your.email@foo.bar" scrolling="true">
     <Require feature="opensocial-0.7"/>
   </ModulePrefs>
   <Content type="html">
@@ -56,7 +56,7 @@
       <!-- 用于显示的DOM -->
       <div id='main'>
         <u>我:</u> <span id='me'></span><br>
-        <u>我的朋友:</u><br><ul style="display:inline;" id='friends'></ul>
+        <u>我的朋友:</u><br><ul id='friends'></ul>
       </div>
     ]]>
   </Content>
