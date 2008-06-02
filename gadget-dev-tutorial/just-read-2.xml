@@ -14,19 +14,19 @@
 
 
         /* 显示书架里的书名 */
-		function showAvailableBooks() {
-		  var html = new Array();
-		  var len = bookList.length;
-		  for (var i = 0; i < len; ++i) {
-		    var item = bookList[i];
-		    html.push("<li style='cursor:pointer' onclick=\"onReadBook(\'");
-		    html.push(item);
-		    html.push("\');\"><i>");
-		    html.push(item);
-		    html.push("</i></li>");
-		  }
-		  document.getElementById('allBooks').innerHTML = html.join('');
-		};
+        function showAvailableBooks() {
+          var html = new Array();
+          var len = bookList.length;
+          for (var i = 0; i < len; ++i) {
+            var item = bookList[i];
+            html.push("<li style='cursor:pointer' onclick=\"onReadBook(\'");
+            html.push(item);
+            html.push("\');\"><i>");
+            html.push(item);
+            html.push("</i></li>");
+          }
+          document.getElementById('allBooks').innerHTML = html.join('');
+        };
 
 
         /* 处理书名点击响应 */
@@ -35,7 +35,7 @@
           books.push(book);
           json = gadgets.json.stringify(books);
 
-          /* 发送更新请求
+          /* 发送更新请求 */
           var req = opensocial.newDataRequest();
           req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'books', json));
           req.send(function(data) {
@@ -68,17 +68,17 @@
         };
 
 
-	    /* 处理 Opensocial API 响应 */
-	    function onReloadAll(dataResponse) {
-	
-	      /* 获取数据 */
-	      viewer = dataResponse.get('v').getData() || {};
-	      viewerFriends = dataResponse.get('vf').getData() || {};
+        /* 处理 Opensocial API 响应 */
+        function onReloadAll(dataResponse) {
+    
+          /* 获取数据 */
+          viewer = dataResponse.get('v').getData() || {};
+          viewerFriends = dataResponse.get('vf').getData() || {};
 
-	      /* 显示数据 */
+          /* 显示数据 */
           showBasic();
-	      showAvailableBooks();
-	    };
+          showAvailableBooks();
+        };
 
 
         /* Gadget 执行入口 */
