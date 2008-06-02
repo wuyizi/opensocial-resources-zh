@@ -82,8 +82,9 @@
         gadgets.util.registerOnLoadHandler(init);
       </script>
 
+      <!-- 用于显示的DOM -->
       <div id='main'>
-        <u>我:<span id='me'></u><br/>
+        <u>我:</u><br/><ul id='me'>[Viewer Name]</ul>
         <u>我的朋友:</u><br><ul id='friends'></ul>
         <u>书架:</u><br><ul id='allBooks'></ul>
       </div>
