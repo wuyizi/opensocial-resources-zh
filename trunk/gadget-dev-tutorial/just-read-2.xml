@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
   <ModulePrefs title="Just Read - Part 2 - Read a book"
-               author_email="your.email@foo.bar" scrolling="true" height="400">
+               author_email="your.email@foo.bar" scrolling="true" height="500">
     <Require feature="opensocial-0.7"/>
     <Require feature="dynamic-height"/>
   </ModulePrefs>
