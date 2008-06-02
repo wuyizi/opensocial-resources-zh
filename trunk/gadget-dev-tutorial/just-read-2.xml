@@ -52,12 +52,12 @@
         /* 显示基本信息 */
         function showBasic() {
           /* 显示 VIEWER 名字 */
-          document.getElementById('me').innerHTML = "<b>" + viewer.getDisplayName() + "</b>";
+          document.getElementById('me').innerHTML = viewer.getDisplayName();
     
           /* 显示 VIEWER 的朋友 */
           var html = new Array();
           viewerFriends.each(function(person) {
-            html.push("<dt><b>" + person.getDisplayName() + "</b></dt>");
+            html.push("<dt>" + person.getDisplayName() + "</dt>");
           });
           document.getElementById('friends').innerHTML = html.join('');
         };
@@ -94,9 +94,9 @@
 
       <!-- 用于显示的DOM -->
       <div id='main'>
-        我：<br><span id='me'></span><br>
-        我的朋友：<br><dl id='friends'></dl>
-        书架：<br><dl style="padding:0px; margin:0px;" id='allBooks'></dl>
+        <b>我：</b><span id='me'></span><br>
+        <b>我的朋友：</b><br><dl id='friends'></dl>
+        <b>书架：</b><br><dl id='allBooks'></dl>
       </div>
     ]]>
   </Content>
