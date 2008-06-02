@@ -41,15 +41,7 @@
           viewer = dataResponse.get('v').getData() || {};
           viewerFriends = dataResponse.get('vf').getData() || {};
     
-          /* 显示 VIEWER 名字 */
-          document.getElementById('me').innerHTML = viewer.getDisplayName();
-    
-          /* 显示 VIEWER 的朋友 */
-          var html = new Array();
-          viewerFriends.each(function(person) {
-            html.push("<li><b>" + person.getDisplayName() + "</b></li>");
-          });
-          document.getElementById('friends').innerHTML = html.join('');
+          showBasic();
         };
 
         /* Gadget 执行入口 */
