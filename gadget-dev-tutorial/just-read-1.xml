@@ -55,7 +55,7 @@
 
       <!-- 用于显示的DOM -->
       <div id='main'>
-        <u>我:</u><br/><ul id='me'>[Viewer Name]</ul>
+        <u>我:</u> <span id='me'></span><br>
         <u>我的朋友:</u><br><ul id='friends'></ul>
       </div>
     ]]>

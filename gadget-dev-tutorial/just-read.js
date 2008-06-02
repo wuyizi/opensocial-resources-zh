@@ -165,7 +165,7 @@ function onReloadAll(data) {
 function init() {
   dom = document.getElementById('dom_handle');
   dom.innerHTML =
-    "<u>Me:</u><br/><ul id='me'>[Viewer Name]</ul>" +
+    "<u>Me:</u> <span id='me'></span>" +
     "<u>My Friends:</u><br><ul id='friends'></ul>" +
     "<u>Books I have read:</u> <a style='cursor:pointer' onclick='onClearBook();return false;'>Click to Clear</a><br><ul id='viewerBooks'></ul>" +
     "<u>Books <b id='ownerName'>[Owner Name]</b> has read:</u><br><ul id='ownerBooks'></ul>" +
