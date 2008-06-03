@@ -54,8 +54,14 @@
         function onReadBook(book) {
           
           alert("我读了" + book);
-          
+
+          var json = viewerBooks['books'];
           var books = [];
+          try  {
+            books = gadgets.json.parse(gadgets.util.unescapeString(json));
+          } catch(e) {
+            books = [];
+          }
           books.push(book);
           json = gadgets.json.stringify(books);
         
