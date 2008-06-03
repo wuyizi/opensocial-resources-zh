@@ -73,7 +73,7 @@
           var html = new Array();
           var len = books.length;
           for (var i = 0; i < len; ++i) {
-            html.push(bookHTML(bookList[i]));
+            html.push(bookHTML(books[i]));
           }
           document.getElementById('ownerBooks').innerHTML = html.join('');
         };
