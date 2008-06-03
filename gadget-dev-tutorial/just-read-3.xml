@@ -88,6 +88,7 @@
           var req = new opensocial.DataRequest();
           req.add(req.newFetchPersonRequest('VIEWER'), 'v');
           req.add(req.newFetchPeopleRequest('VIEWER_FRIENDS'), 'vf');
+          req.add(req.newFetchPersonAppDataRequest('VIEWER', 'books'), 'vd');
           req.send(onReloadAll);
         };
 
@@ -98,6 +99,7 @@
           /* 获取数据 */
           viewer = dataResponse.get('v').getData() || {};
           viewerFriends = dataResponse.get('vf').getData() || {};
+          viewerBooks = data.get('vd').getData()[viewer.getId()] || {};  // {'books':[]}
 
           /* 显示数据 */
           showBasic();
