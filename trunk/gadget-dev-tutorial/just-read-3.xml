@@ -119,7 +119,7 @@
       <div id='main'>
         <b>我：</b><ul><li id='me'></li></ul>
         <b>我的朋友：</b><ul id='friends'></ul>
-        <b>我读过的书：</b> <a style='cursor:pointer' onclick='onClearBook();return false;'>Click to Clear</a><ul id='viewerBooks'></ul>
+        <b>我读过的书：</b><ul id='viewerBooks'></ul>
         <b>书架：</b><ul id='allBooks'></ul>
       </div>
     ]]>
