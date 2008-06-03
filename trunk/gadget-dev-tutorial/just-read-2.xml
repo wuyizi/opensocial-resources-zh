@@ -32,17 +32,17 @@
 
         /* 处理书名点击响应 */
         function onReadBook(book) {
-          
-          alert("我读了" + book);
-          
+
+          /* 串行化新的数据 */
           var books = [];
           books.push(book);
           json = gadgets.json.stringify(books);
-        
+
           /* 发送更新请求 */
           var req = opensocial.newDataRequest();
           req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'books', json));
           req.send(function(dataResponse) {
+            alert("我读了" + book);
             /* 更新后刷新所有数据 */
             reloadAll();
           });
