@@ -57,7 +57,7 @@
           /* 显示 VIEWER 的朋友名字 */
           var html = new Array();
           viewerFriends.each(function(friend) {
-            html.push("<li>" + friend.getDisplayName() + "</li>");
+            html.push(friend.getDisplayName() + ", ");
           });
           document.getElementById('friends').innerHTML = html.join('');
         };
@@ -94,9 +94,12 @@
 
       <!-- 用于显示的DOM -->
       <div id='main'>
-        <b>我：</b><ul><li id='me'></li></ul>
-        <b>我的朋友：</b><ul id='friends'></ul>
-        <b>书架：</b><ul id='allBooks'></ul>
+        <b>我：</b>
+        <p id='me'></p>
+        <b>我的朋友：</b>
+        <p id='friends'></p>
+        <b>书架：</b>
+        <ul id='allBooks'></ul>
       </div>
     ]]>
   </Content>
