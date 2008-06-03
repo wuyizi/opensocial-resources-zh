@@ -156,6 +156,9 @@
             html.push("<li>" + friend.getDisplayName() + "</li>");
           });
           document.getElementById('friends').innerHTML = html.join('');
+          
+          /* 显示 OWNER 的名字 */
+          document.getElementById('ownerName').innerHTML = owner.getDisplayName();
         };
 
 
