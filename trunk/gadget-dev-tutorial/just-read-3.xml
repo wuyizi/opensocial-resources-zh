@@ -37,9 +37,9 @@
 
           /* 解析当前数据 */
           var json = viewerBooks['books'];
-          var books = [];
+          var books;
           try  {
-            books = gadgets.json.parse(gadgets.util.unescapeString(json));
+            books = gadgets.json.parse(gadgets.util.unescapeString(json)) || [];
           } catch(e) {
             books = [];
           }
@@ -58,9 +58,9 @@
 
           /* 解析当前数据 */
           var json = viewerBooks['books'];
-          var books = [];
+          var books;
           try  {
-            books = gadgets.json.parse(gadgets.util.unescapeString(json));
+            books = gadgets.json.parse(gadgets.util.unescapeString(json)) || [];
           } catch(e) {
             books = [];
           }
@@ -130,7 +130,7 @@
 
         function onClearBooks() {
           var req = opensocial.newDataRequest();
-          req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'books'));
+          req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'books', null));
           req.send(function(dataResponse) {
             alert("清空了");
             /* 更新后刷新所有数据 */
