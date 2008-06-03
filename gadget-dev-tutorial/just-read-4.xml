@@ -12,10 +12,10 @@
         var viewer;                   // 类型：opensocial.Person
         var viewerFriends;            // 类型：opensocial.Collection
         var viewerBooks;              // 类型：{'books': json}
-
-        var owner = {};               // 类型：opensocial.Person
-        var onwerBooks = {};          // 类型：{'books': json}
-        var viewerFriendsBooks = {};  // 类型：{id: {'books': json}}
+        
+        var owner;                    // 类型：opensocial.Person
+        var onwerBooks;               // 类型：{'books': json}
+        var viewerFriendsBooks;       // 类型：{id: {'books': json}}
         
         var bookList = ['西游记', '三国演义', '水浒传', '红楼梦'];
 
