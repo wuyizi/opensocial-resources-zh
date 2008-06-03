@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="Just Read - Part 4 - Owner and Others"
+  <ModulePrefs title="Just Read - 4 - Owner and others"
                author_email="your.email@foo.bar" scrolling="true" height="500">
     <Require feature="opensocial-0.7"/>
     <Require feature="dynamic-height"/>
@@ -197,7 +197,7 @@
           showFriendsBooks();
         };
 
-
+        /* 处理清空按钮响应 */
         function onClearBooks() {
           var req = opensocial.newDataRequest();
           req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'books', null));
@@ -223,7 +223,7 @@
         <b>我的朋友：</b>
         <p id='friends'></p>
         <b>我读过的书：</b>
-        <span style='cursor:pointer' onclick='onClearBooks();'>[清空]<span>
+        <u style='cursor:pointer' onclick='onClearBooks();'>[清空]</u>
         <ul id='viewerBooks'></ul>
         <b id='ownerName'></b><b>读过的书：</b>
         <ul id='ownerBooks'></ul>

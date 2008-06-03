@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="Just Read - Part 0 - Empty"
+  <ModulePrefs title="Just Read - 0 - Empty"
                author_email="your.email@foo.bar">
     <Require feature="opensocial-0.7"/>
   </ModulePrefs>

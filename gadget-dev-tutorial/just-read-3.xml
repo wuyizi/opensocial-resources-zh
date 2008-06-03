@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="Just Read - Part 3 - Show my books"
+  <ModulePrefs title="Just Read - 3 - Show my books"
                author_email="your.email@foo.bar" scrolling="true" height="500">
     <Require feature="opensocial-0.7"/>
     <Require feature="dynamic-height"/>
@@ -128,7 +128,7 @@
           showViewerBooks();
         };
 
-
+        /* 处理清空按钮响应 */
         function onClearBooks() {
           var req = opensocial.newDataRequest();
           req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'books', null));
@@ -147,6 +147,7 @@
         gadgets.util.registerOnLoadHandler(init);
       </script>
 
+
       <!-- 用于显示的DOM -->
       <div id='main'>
         <b>我：</b>
@@ -154,7 +155,7 @@
         <b>我的朋友：</b>
         <p id='friends'></p>
         <b>我读过的书：</b>
-        <span style='cursor:pointer' onclick='onClearBooks();'>[清空]<span>
+        <u style='cursor:pointer' onclick='onClearBooks();'>[清空]</u>
         <ul id='viewerBooks'></ul>
         <b>书架：</b>
         <ul id='allBooks'></ul>
