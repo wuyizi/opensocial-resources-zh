@@ -58,12 +58,13 @@
         };
 
 
+        /* 显示对方已读过的书 */
         function showOwnerBooks() {
           /* 解析当前数据 */
           var json = ownerBooks['books'];
           var books = [];
           try  {
-            books = gadgets.json.parse(gadgets.util.unescapeString(json));
+            books = gadgets.json.parse(gadgets.util.unescapeString(json)) || [];
           } catch(e) {
             books = [];
           }
@@ -72,38 +73,35 @@
           var html = new Array();
           var len = books.length;
           for (var i = 0; i < len; ++i) {
-            var item = books[i];
-            html.push("<li><i>");
-            html.push(item);
-            html.push("</i></li>");
+            html.push("<li><i>" + books[i] + "</i></li>");
           }
           document.getElementById('ownerBooks').innerHTML = html.join('');
         };
 
 
+        /* 显示朋友已读过的书 */
         function showFriendsBooks() {
           var html = new Array();
          
+          /* 遍历每个朋友 */
           for (var friendId in viewerFriendsBooks) {
-        
             var data = viewerFriendsBooks[friendId];
             var friend = viewerFriends.getById(friendId);
+            
+            /* 解析数据 */
             var json = data['books'];
             var books = [];
             try  {
-              books = gadgets.json.parse(gadgets.util.unescapeString(json));
+              books = gadgets.json.parse(gadgets.util.unescapeString(json)) || [];
             } catch(e) {
               books = [];
             }
-            html.push("<li><b>");
-            html.push(friend.getDisplayName());
-            html.push("</b><ul>");
+            
+            /* 显示书名 */
+            html.push("<li>" + friend.getDisplayName() + "<ul>");
             var len = books.length;
             for (var i = 0; i < len; ++i) {
-              var item = books[i];
-              html.push("<li><i>");
-              html.push(item);
-              html.push("</i></li>");
+              html.push("<li><i>" + books[i] + "</i></li>");
             }
             html.push("</ul></li>");
           }
