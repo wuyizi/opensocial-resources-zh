@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="Just Read - Part 2 - Read a book"
+  <ModulePrefs title="Just Read - Part 3 - Show read books"
                author_email="your.email@foo.bar" scrolling="true" height="500">
     <Require feature="opensocial-0.7"/>
     <Require feature="dynamic-height"/>
@@ -14,6 +14,7 @@
         var viewerBooks;         // 类型：{'books': [ String,... ]}
 
         var bookList = ['西游记', '三国演义', '水浒传', '红楼梦'];
+
 
         /* 显示书架里的书名 */
         function showAvailableBooks() {
@@ -29,6 +30,7 @@
           }
           document.getElementById('allBooks').innerHTML = html.join('');
         };
+
 
         /* 显示自己已读过的书 */
         function showViewerBooks() {
@@ -46,6 +48,7 @@
           }
           document.getElementById('viewerBooks').innerHTML = html.join('');
         };
+
 
         /* 处理书名点击响应 */
         function onReadBook(book) {
