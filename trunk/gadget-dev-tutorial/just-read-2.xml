@@ -13,18 +13,18 @@
         var viewerFriends;       // 类型：opensocial.Collection
         var bookList = ['西游记', '三国演义', '水浒传', '红楼梦'];
 
+        /* 可点击的书名 */
+        function bookHTML(book) {
+          return "<li style='cursor:pointer' onclick=\"onReadBook(\'" + book + "\');\">" + 
+                 "<i>" + book + "</i></li>";
+        };
 
         /* 显示书架里的书名 */
         function showAvailableBooks() {
           var html = new Array();
           var len = bookList.length;
           for (var i = 0; i < len; ++i) {
-            var item = bookList[i];
-            html.push("<li style='cursor:pointer' onclick=\"onReadBook(\'");
-            html.push(item);
-            html.push("\');\"><i>");
-            html.push(item);
-            html.push("</i></li>");
+            html.push(bookHTML(bookList[i]));
           }
           document.getElementById('allBooks').innerHTML = html.join('');
         };
@@ -95,12 +95,12 @@
 
       <!-- 用于显示的DOM -->
       <div id='main'>
-        <b>我：</b>
-        <p id='me'></p>
-        <b>我的朋友：</b>
-        <p id='friends'></p>
-        <b>书架：</b>
-        <ul id='allBooks'></ul>
+    <b>我：</b>
+    <p id='me'></p>
+    <b>我的朋友：</b>
+    <p id='friends'></p>
+    <b>书架：</b>
+    <ul id='allBooks'></ul>
       </div>
     ]]>
   </Content>
