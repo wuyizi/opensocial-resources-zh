@@ -127,6 +127,7 @@
           showViewerBooks();
         };
 
+
         function onClearBooks() {
           var req = opensocial.newDataRequest();
           req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'books', ''));
@@ -150,7 +151,7 @@
         <b>我：</b><ul><li id='me'></li></ul>
         <b>我的朋友：</b><ul id='friends'></ul>
         <b>我读过的书：</b>
-        <a style='cursor:pointer' onclick='onClearBooks();return false;'>清空</a>
+        [<a style='cursor:pointer' onclick='onClearBooks();return false;'>清空</a>]
         <ul id='viewerBooks'></ul>
         <b>书架：</b><ul id='allBooks'></ul>
       </div>
