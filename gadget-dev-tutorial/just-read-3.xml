@@ -56,23 +56,23 @@
         /* 处理书名点击响应 */
         function onReadBook(book) {
 
-		  /* 解析当前数据 */
-		  var json = viewerBooks['books'];
-		  var books = [];
-		  try  {
-		    books = gadgets.json.parse(gadgets.util.unescapeString(json));
-		  } catch(e) {
-		    books = [];
-		  }
-		
-		  /* 检查是否已经读过 */
-		  var len = books.length;
-		  for (var i = 0; i < len; ++i) {
-		    if (book == books[i]) {
-		      alert("我已经读过" + book + "了");
-		      return;
-		    }
-		  }
+          /* 解析当前数据 */
+          var json = viewerBooks['books'];
+          var books = [];
+          try  {
+            books = gadgets.json.parse(gadgets.util.unescapeString(json));
+          } catch(e) {
+            books = [];
+          }
+        
+          /* 检查是否已经读过 */
+          var len = books.length;
+          for (var i = 0; i < len; ++i) {
+            if (book == books[i]) {
+              alert("我已经读过" + book + "了");
+              return;
+            }
+          }
 
           /* 串行化新的数据 */
           books.push(book);
@@ -127,15 +127,17 @@
           showViewerBooks();
         };
 
-		function onClearBooks = function() {
-		  var req = opensocial.newDataRequest();
-		  req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'books', ''));
-		  req.send(function(dataResponse) {
-		    alert("清空了");
-		    /* 更新后刷新所有数据 */
-		    reloadAll();
-		  });
-		}
+        function onClearBooks() {
+          var req = opensocial.newDataRequest();
+          req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'books', ''));
+          req.send(function(dataResponse) {
+            alert("清空了");
+            /* 更新后刷新所有数据 */
+            reloadAll();
+          });
+        }
+
+
         /* Gadget 执行入口 */
         function init() {
           reloadAll();
