@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="Just Read - Part 1 - Me and my friends"
+  <ModulePrefs title="Just Read - 1 - Me and my friends"
                author_email="your.email@foo.bar" scrolling="true" height="500">
     <Require feature="opensocial-0.7"/>
   </ModulePrefs>
