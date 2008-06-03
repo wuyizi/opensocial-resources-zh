@@ -184,9 +184,9 @@
           viewerFriends = dataResponse.get('vf').getData() || {};
           viewerBooks = dataResponse.get('vd').getData()[viewer.getId()] || {};  // {'books': json}
 
-          owner = data.get('o').getData() || {};
-          ownerBooks = data.get('od').getData()[owner.getId()] || {};  // {'books': json}
-          viewerFriendsBooks = data.get('vfd').getData() || {};  // {id:{'books': json}}
+          owner = dataResponse.get('o').getData() || {};
+          ownerBooks = dataResponse.get('od').getData()[owner.getId()] || {};  // {'books': json}
+          viewerFriendsBooks = dataResponse.get('vfd').getData() || {};  // {id:{'books': json}}
           
           /* 显示数据 */
           showBasic();
