@@ -38,11 +38,11 @@
           var books = [];
           books.push(book);
           json = gadgets.json.stringify(books);
-
+        
           /* 发送更新请求 */
           var req = opensocial.newDataRequest();
           req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'books', json));
-          req.send(function(data) {
+          req.send(function(dataResponse) {
             /* 更新后刷新所有数据 */
             reloadAll();
           });
