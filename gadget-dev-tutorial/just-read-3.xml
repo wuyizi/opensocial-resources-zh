@@ -130,7 +130,7 @@
 
         function onClearBooks() {
           var req = opensocial.newDataRequest();
-          req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'books', ''));
+          req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'books'));
           req.send(function(dataResponse) {
             alert("清空了");
             /* 更新后刷新所有数据 */
