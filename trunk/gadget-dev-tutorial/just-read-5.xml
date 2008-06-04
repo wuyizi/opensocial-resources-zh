@@ -17,7 +17,6 @@
         var ownerBooks;               // 类型：{'books': json}
         var viewerFriendsBooks;       // 类型：{id: {'books': json}}
 
-        var viewerActivities;         // 类型：opensocial.Collection
         var viewerFriendsActivities;  // 类型：opensocial.Collection
         
         var bookList = ['西游记', '三国演义', '水浒传', '红楼梦'];
@@ -167,9 +166,9 @@
         /* 显示新活动 */
         function showActivities() {
           var html = new Array();
-          viewerActivities.each(function(activity){
+          viewerFriendsActivities.each(function(activity){
             var title = activity.getField(opensocial.Activity.Field.TITLE);
-            var time = new Date(activity.getField(opensocial.Activity.Field.POSTED_TIME));
+            var time = new Date(activity.getField(opensocial.Activity.Field.POSTED_TIME)).toLocaleString();
             var userId = activity.getField(opensocial.Activity.Field.USER_ID);
             var name;
             if (userId == viewer.getId()) {
@@ -177,16 +176,9 @@
             } else {
               name = viewerFriends.getId(userId).getDisplayName();
             }
-            html.push("<li>(" + time.toLocaleString() + ") " + name + " " +  
-                      activity.getField(opensocial.Activity.Field.TITLE) + "</li>");
+            html.push("<li>(" + time + ") " + name + " " + title + "</li>");
           });
-          document.getElementById('viewerActivities').innerHTML = html.join('');
-          
-          html = new Array();
-          viewerFriendsActivities.each(function(friendActivity){
-            html.push("<li>" + friendActivity.getField(opensocial.Activity.Field.TITLE) + "</li>");
-          });
-          document.getElementById('friendsActivities').innerHTML = html.join('');          
+          document.getElementById('activities').innerHTML = html.join('');
         };
 
 
@@ -218,11 +210,7 @@
           req.add(req.newFetchPersonAppDataRequest('OWNER', 'books'), 'od');
           req.add(req.newFetchPersonAppDataRequest('VIEWER_FRIENDS', 'books'), 'vfd');
 
-          var params = {};
-          //params[opensocial.DataRequest.ActivityRequestFields.APP_ID] = '*';
-
-          req.add(req.newFetchActivitiesRequest('VIEWER', params), 'va');
-          req.add(req.newFetchActivitiesRequest('VIEWER_FRIENDS', params), 'vfa');
+          req.add(req.newFetchActivitiesRequest('VIEWER_FRIENDS'), 'vfa');
 
           req.send(onReloadAll);
         };
@@ -240,7 +228,6 @@
           ownerBooks = dataResponse.get('od').getData()[owner.getId()] || {};  // {'books': json}
           viewerFriendsBooks = dataResponse.get('vfd').getData() || {};  // {id:{'books': json}}
 
-          viewerActivities = dataResponse.get('va').getData()['activities'];
           viewerFriendsActivities = dataResponse.get('vfa').getData()['activities'];
 
           /* 显示数据 */
@@ -286,10 +273,8 @@
         <ul id='friendsBooks'></ul>
         <b>书架：</b>
         <ul id='allBooks'></ul>
-        <b>我的读书活动：</b>
-        <ul id='viewerActivities'></ul>
-        <b>朋友的读书活动：</b>
-        <ul id='friendsActivities'></ul>
+        <b>读书活动更新：</b>
+        <ul id='activities'></ul>
       </div>
     ]]>
   </Content>
