@@ -143,9 +143,7 @@
             alert("我读了" + book);
             /* 发送新活动请求 */
             postReadActivity(book);
-          });
-
-          
+          });          
         };
 
 
@@ -165,22 +163,24 @@
 
         /* 显示新活动 */
         function showActivities() {
-          var html = new Array();
+          
           var activities = viewerFriendsActivities['activities'];
           if (!activities || !activities.each) return;
           
           /* 显示每个活动 */
+          var html = new Array();
           activities.each(function(activity){
             var title = activity.getField(opensocial.Activity.Field.TITLE);
-            var time = new Date(Number(activity.getField(opensocial.Activity.Field.POSTED_TIME))).toLocaleString();
+            var time = activity.getField(opensocial.Activity.Field.POSTED_TIME);
             var userId = activity.getField(opensocial.Activity.Field.USER_ID);
-            var name;
+            var localTime = new Date(Number(time)).toLocalString();
+            var userName;
             if (userId == viewer.getId()) {
-              name = "我";
-            } else {
-              name = viewerFriends.getById(userId).getDisplayName();
+              userName = "我";
+            } else if (viewerFriends.getById(userId)) {
+              userName = viewerFriends.getById(userId).getDisplayName();
             }
-            html.push("<li>(" + time + ") " + name + title + "</li>");
+            html.push("<li>(" + localTime + ") " + userName + title + "</li>");
           });
           document.getElementById('activities').innerHTML = html.join('');
         };
@@ -201,8 +201,8 @@
           /* 显示 OWNER 的名字 */
           document.getElementById('ownerName').innerHTML = owner.getDisplayName();
         };
-
-
+    
+    
         /* 发送 Opensocial API 请求 */
         function reloadAll() {
           var req = new opensocial.DataRequest();
@@ -213,16 +213,16 @@
           req.add(req.newFetchPersonRequest('OWNER'), 'o');
           req.add(req.newFetchPersonAppDataRequest('OWNER', 'books'), 'od');
           req.add(req.newFetchPersonAppDataRequest('VIEWER_FRIENDS', 'books'), 'vfd');
-
+    
           req.add(req.newFetchActivitiesRequest('VIEWER_FRIENDS'), 'vfa');
 
           req.send(onReloadAll);
         };
-
-
+    
+    
         /* 处理 Opensocial API 响应 */
         function onReloadAll(dataResponse) {
-    
+
           /* 获取数据 */
           viewer = dataResponse.get('v').getData() || {};
           viewerFriends = dataResponse.get('vf').getData() || {};
@@ -233,7 +233,7 @@
           viewerFriendsBooks = dataResponse.get('vfd').getData() || {};  // {id:{'books': json}}
 
           viewerFriendsActivities = dataResponse.get('vfa').getData(); // {'activities': opensocial.Collection}
-
+    
           /* 显示数据 */
           showBasic();
           showAvailableBooks();
