@@ -123,7 +123,7 @@
           } catch(e) {
             books = [];
           }
-        
+
           /* 检查是否已经读过 */
           var len = books.length;
           for (var i = 0; i < len; ++i) {
@@ -145,7 +145,7 @@
             /* 更新后刷新所有数据 */
             reloadAll();
           });
-          
+
           postReadActivity(book);
         };
 
@@ -154,12 +154,9 @@
           var params = {};
           params[opensocial.Activity.Field.TITLE] = title;
           var activity = opensocial.newActivity(params)
-          opensocial.requestCreateActivity(activity, opensocial.CreateActivityPriority.HIGH, 
-              function(responseItem) {
-                alert(responseItem);
-              });
+          opensocial.requestCreateActivity(activity, opensocial.CreateActivityPriority.HIGH, function() {});
         };
-        
+
         function showActivities() {
           var html = new Array();
           console.info(viewerActivities);
@@ -197,11 +194,8 @@
           req.add(req.newFetchPersonAppDataRequest('OWNER', 'books'), 'od');
           req.add(req.newFetchPersonAppDataRequest('VIEWER_FRIENDS', 'books'), 'vfd');
 
-          var params = {};
-          params[opensocial.DataRequest.ActivityRequestFields.APP_ID] = '*';
-
-          req.add(req.newFetchActivitiesRequest('VIEWER', params), 'va');
-          req.add(req.newFetchActivitiesRequest('VIEWER_FRIENDS', params), 'vfa');
+          req.add(req.newFetchActivitiesRequest('VIEWER'), 'va');
+          req.add(req.newFetchActivitiesRequest('VIEWER_FRIENDS'), 'vfa');
 
           req.send(onReloadAll);
         };
@@ -209,7 +203,7 @@
 
         /* 处理 Opensocial API 响应 */
         function onReloadAll(dataResponse) {
-    
+
           /* 获取数据 */
           viewer = dataResponse.get('v').getData() || {};
           viewerFriends = dataResponse.get('vf').getData() || {};
