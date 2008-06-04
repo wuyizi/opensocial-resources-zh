@@ -168,7 +168,7 @@
           var html = new Array();
           viewerFriendsActivities.each(function(activity){
             var title = activity.getField(opensocial.Activity.Field.TITLE);
-            var time = new Date(activity.getField(opensocial.Activity.Field.POSTED_TIME)).toLocaleString();
+            var time = new Date(Number(activity.getField(opensocial.Activity.Field.POSTED_TIME))).toLocaleString();
             var userId = activity.getField(opensocial.Activity.Field.USER_ID);
             var name;
             if (userId == viewer.getId()) {
@@ -176,7 +176,7 @@
             } else {
               name = viewerFriends.getId(userId).getDisplayName();
             }
-            html.push("<li>(" + time + ") " + name + " " + title + "</li>");
+            html.push("<li>(" + time + ") " + name + title + "</li>");
           });
           document.getElementById('activities').innerHTML = html.join('');
         };
