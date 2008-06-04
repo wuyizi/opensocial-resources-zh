@@ -17,8 +17,8 @@
         var onwerBooks;               // 类型：{'books': json}
         var viewerFriendsBooks;       // 类型：{id: {'books': json}}
 
-        var viewerActivities;
-        var viewerFriendsActivities;
+        var viewerActivities;         // 类型：opensocial.Collection
+        var viewerFriendsActivities;  // 类型：opensocial.Collection
         
         var bookList = ['西游记', '三国演义', '水浒传', '红楼梦'];
 
@@ -137,36 +137,42 @@
           books.push(book);
           json = gadgets.json.stringify(books);
 
-          /* 发送更新请求 */
+          /* 发送更新数据请求 */
           var req = opensocial.newDataRequest();
           req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'books', json));
           req.send(function(dataResponse) {
             alert("我读了" + book);
-            /* 更新后刷新所有数据 */
-            reloadAll();
+            /* 发送新活动请求 */
+            postReadActivity(book);
           });
 
-          postReadActivity(book);
+          
         };
 
+
+        /* 发送新活动请求 */
         function postReadActivity(book) {
           var title = "读了" + book;
           var params = {};
           params[opensocial.Activity.Field.TITLE] = title;
           var activity = opensocial.newActivity(params)
           opensocial.requestCreateActivity(activity, opensocial.CreateActivityPriority.HIGH, 
-              function() {});
+              function() {
+                /* 更新后刷新所有数据 */
+                reloadAll();
+              });
         };
-        
+
+
+        /* 显示新活动 */
         function showActivities() {
           var html = new Array();
-          window['vv'] = viewerActivities;
-          console.info(viewerActivities);
           viewerActivities.each(function(activity){
             html.push(activity.getField(opensocial.Activity.Field.TITLE));
           });
           document.getElementById('activities').innerHTML = html.join('');
         };
+
 
         /* 显示基本信息 */
         function showBasic() {
@@ -218,8 +224,8 @@
           ownerBooks = dataResponse.get('od').getData()[owner.getId()] || {};  // {'books': json}
           viewerFriendsBooks = dataResponse.get('vfd').getData() || {};  // {id:{'books': json}}
 
-          viewerActivities = dataResponse.get('va').getData();
-          viewerFriendsActivities = dataResponse.get('vfa').getData();
+          viewerActivities = dataResponse.get('va').getData()['activities'];
+          viewerFriendsActivities = dataResponse.get('vfa').getData()['activities'];
 
           /* 显示数据 */
           showBasic();
