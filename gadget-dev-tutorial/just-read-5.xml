@@ -152,7 +152,7 @@
 
         /* 发送新活动请求 */
         function postReadActivity(book) {
-          var title = "读了" + book;
+          var title = viewer.getDisplayName() + "读了" + book;
           var params = {};
           params[opensocial.Activity.Field.TITLE] = title;
           var activity = opensocial.newActivity(params)
