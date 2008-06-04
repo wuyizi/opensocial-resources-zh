@@ -6,6 +6,9 @@ var owner;                    // 类型：opensocial.Person
 var onwerBooks;               // 类型：{'books': json}
 var viewerFriendsBooks;       // 类型：{id: {'books': json}}
 
+var viewerActivities;
+var viewerFriendsActivities;
+
 var bookList = ['西游记', '三国演义', '水浒传', '红楼梦'];
 
 /* 可点击的书名 */
@@ -158,6 +161,12 @@ function showBasic() {
   
   /* 显示 OWNER 的名字 */
   document.getElementById('ownerName').innerHTML = owner.getDisplayName();
+  
+  output(viewerActivities);
+  /*
+  viewerActivities.each(function(activity){
+    output(activity.getField(opensocial.Activity.Field.TITLE));
+  });*/
 };
 
 
@@ -172,6 +181,8 @@ function reloadAll() {
   req.add(req.newFetchPersonAppDataRequest('OWNER', 'books'), 'od');
   req.add(req.newFetchPersonAppDataRequest('VIEWER_FRIENDS', 'books'), 'vfd');
 
+  req.add(req.newFetchActivitiesRequest('VIEWER'), 'va')
+  req.add(req.newFetchActivitiesRequest('VIEWER_FRIENDS'), 'vfa')
   req.send(onReloadAll);
 };
 
@@ -187,6 +198,9 @@ function onReloadAll(dataResponse) {
   owner = dataResponse.get('o').getData() || {};
   ownerBooks = dataResponse.get('od').getData()[owner.getId()] || {};  // {'books': json}
   viewerFriendsBooks = dataResponse.get('vfd').getData() || {};  // {id:{'books': json}}
+  
+  viewerActivities = dataResponse.get('va').getData();
+  viewerFriendsActivities = dataResponse.get('vfa').getData();
   
   /* 显示数据 */
   showBasic();

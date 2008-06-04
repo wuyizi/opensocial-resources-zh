@@ -16,6 +16,9 @@
         var owner;                    // 类型：opensocial.Person
         var onwerBooks;               // 类型：{'books': json}
         var viewerFriendsBooks;       // 类型：{id: {'books': json}}
+
+        var viewerActivities;
+        var viewerFriendsActivities;
         
         var bookList = ['西游记', '三国演义', '水浒传', '红楼梦'];
 
@@ -153,6 +156,14 @@
           var activity = opensocial.newActivity(params)
           opensocial.requestCreateActivity(activity, opensocial.CreateActivityPriority.HIGH, function() {});
         };
+        
+        function showActivities() {        
+          var html = new Array();
+          viewerActivities.each(function(activity){
+            html.push(activity.getField(opensocial.Activity.Field.TITLE));
+          });
+          document.getElementById('activities').innerHTML = html.join('');
+        };
 
         /* 显示基本信息 */
         function showBasic() {
@@ -182,6 +193,9 @@
           req.add(req.newFetchPersonAppDataRequest('OWNER', 'books'), 'od');
           req.add(req.newFetchPersonAppDataRequest('VIEWER_FRIENDS', 'books'), 'vfd');
 
+          req.add(req.newFetchActivitiesRequest('VIEWER'), 'va');
+          req.add(req.newFetchActivitiesRequest('VIEWER_FRIENDS'), 'vfa');
+
           req.send(onReloadAll);
         };
 
@@ -197,13 +211,17 @@
           owner = dataResponse.get('o').getData() || {};
           ownerBooks = dataResponse.get('od').getData()[owner.getId()] || {};  // {'books': json}
           viewerFriendsBooks = dataResponse.get('vfd').getData() || {};  // {id:{'books': json}}
-          
+
+          viewerActivities = dataResponse.get('va').getData();
+          viewerFriendsActivities = dataResponse.get('vfa').getData();
+
           /* 显示数据 */
           showBasic();
           showAvailableBooks();
           showViewerBooks();
           showOwnerBooks();
           showFriendsBooks();
+          showActivities();
         };
 
         /* 处理清空按钮响应 */
@@ -240,6 +258,9 @@
         <ul id='friendsBooks'></ul>
         <b>书架：</b>
         <ul id='allBooks'></ul>
+        
+        <b>我的活动更新：</b>
+        <ul id='activities'></ul>
       </div>
     ]]>
   </Content>
