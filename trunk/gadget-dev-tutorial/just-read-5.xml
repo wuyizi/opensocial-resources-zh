@@ -178,7 +178,7 @@
             if (userId == viewer.getId()) {
               name = "我";
             } else {
-              name = viewerFriends.getId(userId).getDisplayName();
+              name = viewerFriends.getById(userId).getDisplayName();
             }
             html.push("<li>(" + time + ") " + name + title + "</li>");
           });
