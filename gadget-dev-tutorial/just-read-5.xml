@@ -14,7 +14,7 @@
         var viewerBooks;              // 类型：{'books': json}
         
         var owner;                    // 类型：opensocial.Person
-        var onwerBooks;               // 类型：{'books': json}
+        var ownerBooks;               // 类型：{'books': json}
         var viewerFriendsBooks;       // 类型：{id: {'books': json}}
 
         var viewerActivities;         // 类型：opensocial.Collection
@@ -170,7 +170,13 @@
           viewerActivities.each(function(activity){
             html.push("<li>" + activity.getField(opensocial.Activity.Field.TITLE) + "</li>");
           });
-          document.getElementById('activities').innerHTML = html.join('');
+          document.getElementById('viewerActivities').innerHTML = html.join('');
+          
+          html = new Array();
+          viewerFriendsActivities.each(function(friendActivity){
+            html.push("<li>" + friendActivity.getField(opensocial.Activity.Field.TITLE) + "</li>");
+          });
+          document.getElementById('friendsActivities').innerHTML = html.join('');          
         };
 
 
@@ -270,9 +276,10 @@
         <ul id='friendsBooks'></ul>
         <b>书架：</b>
         <ul id='allBooks'></ul>
-        
-        <b>我的活动更新：</b>
-        <ul id='activities'></ul>
+        <b>我的读书活动：</b>
+        <ul id='viewerActivities'></ul>
+        <b>朋友的读书活动：</b>
+        <ul id='friendsActivities'></ul>
       </div>
     ]]>
   </Content>
