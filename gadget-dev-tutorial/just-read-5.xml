@@ -159,7 +159,7 @@
 
         function showActivities() {
           var html = new Array();
-          window['va'] = viewerActivities;
+          window.vva = viewerActivities;
           console.info(viewerActivities);
           viewerActivities.each(function(activity){
             html.push(activity.getField(opensocial.Activity.Field.TITLE));
