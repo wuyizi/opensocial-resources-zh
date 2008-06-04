@@ -17,7 +17,7 @@
         var ownerBooks;               // 类型：{'books': json}
         var viewerFriendsBooks;       // 类型：{id: {'books': json}}
 
-        var viewerFriendsActivities;  // 类型：opensocial.Collection
+        var viewerFriendsActivities;  // 类型：{'activities': opensocial.Collection}
         
         var bookList = ['西游记', '三国演义', '水浒传', '红楼梦'];
 
@@ -166,7 +166,11 @@
         /* 显示新活动 */
         function showActivities() {
           var html = new Array();
-          viewerFriendsActivities.each(function(activity){
+          var activities = viewerFriendsActivities['activities'];
+          if (!activities || !activities.each) return;
+          
+          /* 显示每个活动 */
+          activities.each(function(activity){
             var title = activity.getField(opensocial.Activity.Field.TITLE);
             var time = new Date(Number(activity.getField(opensocial.Activity.Field.POSTED_TIME))).toLocaleString();
             var userId = activity.getField(opensocial.Activity.Field.USER_ID);
@@ -228,7 +232,7 @@
           ownerBooks = dataResponse.get('od').getData()[owner.getId()] || {};  // {'books': json}
           viewerFriendsBooks = dataResponse.get('vfd').getData() || {};  // {id:{'books': json}}
 
-          viewerFriendsActivities = dataResponse.get('vfa').getData()['activities'];
+          viewerFriendsActivities = dataResponse.get('vfa').getData(); // {'activities': opensocial.Collection}
 
           /* 显示数据 */
           showBasic();
