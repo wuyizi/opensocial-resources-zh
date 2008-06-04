@@ -193,8 +193,11 @@
           req.add(req.newFetchPersonAppDataRequest('OWNER', 'books'), 'od');
           req.add(req.newFetchPersonAppDataRequest('VIEWER_FRIENDS', 'books'), 'vfd');
 
-          req.add(req.newFetchActivitiesRequest('VIEWER'), 'va');
-          req.add(req.newFetchActivitiesRequest('VIEWER_FRIENDS'), 'vfa');
+          var params = {};
+          params[opensocial.DataRequest.ActivityRequestFields.APP_ID] = '*';
+
+          req.add(req.newFetchActivitiesRequest('VIEWER', params), 'va');
+          req.add(req.newFetchActivitiesRequest('VIEWER_FRIENDS', params), 'vfa');
 
           req.send(onReloadAll);
         };
