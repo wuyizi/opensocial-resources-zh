@@ -168,7 +168,7 @@
         function showActivities() {
           var html = new Array();
           viewerActivities.each(function(activity){
-            html.push(activity.getField(opensocial.Activity.Field.TITLE));
+            html.push("<li>" + activity.getField(opensocial.Activity.Field.TITLE) + "</li>");
           });
           document.getElementById('activities').innerHTML = html.join('');
         };
@@ -203,7 +203,7 @@
           req.add(req.newFetchPersonAppDataRequest('VIEWER_FRIENDS', 'books'), 'vfd');
 
           var params = {};
-          params[opensocial.DataRequest.ActivityRequestFields.APP_ID] = '*';
+          //params[opensocial.DataRequest.ActivityRequestFields.APP_ID] = '*';
 
           req.add(req.newFetchActivitiesRequest('VIEWER', params), 'va');
           req.add(req.newFetchActivitiesRequest('VIEWER_FRIENDS', params), 'vfa');
