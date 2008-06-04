@@ -159,6 +159,7 @@
         
         function showActivities() {        
           var html = new Array();
+          alert(viewerActivities);
           viewerActivities.each(function(activity){
             html.push(activity.getField(opensocial.Activity.Field.TITLE));
           });
