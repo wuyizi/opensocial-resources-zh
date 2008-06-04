@@ -154,12 +154,15 @@
           var params = {};
           params[opensocial.Activity.Field.TITLE] = title;
           var activity = opensocial.newActivity(params)
-          opensocial.requestCreateActivity(activity, opensocial.CreateActivityPriority.HIGH, function() {});
+          opensocial.requestCreateActivity(activity, opensocial.CreateActivityPriority.HIGH, 
+              function(responseItem) {
+                alert(responseItem);
+              });
         };
         
-        function showActivities() {        
+        function showActivities() {
           var html = new Array();
-          alert(viewerActivities);
+          console.info(viewerActivities);
           viewerActivities.each(function(activity){
             html.push(activity.getField(opensocial.Activity.Field.TITLE));
           });
