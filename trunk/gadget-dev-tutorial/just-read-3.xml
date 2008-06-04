@@ -116,7 +116,7 @@
 
         /* 处理 Opensocial API 响应 */
         function onReloadAll(dataResponse) {
-    
+
           /* 获取数据 */
           viewer = dataResponse.get('v').getData() || {};
           viewerFriends = dataResponse.get('vf').getData() || {};
