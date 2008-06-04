@@ -152,7 +152,7 @@
 
         /* 发送新活动请求 */
         function postReadActivity(book) {
-          var title = viewer.getDisplayName() + "读了" + book;
+          var title = "读了" + book;
           var params = {};
           params[opensocial.Activity.Field.TITLE] = title;
           var activity = opensocial.newActivity(params)
@@ -168,7 +168,17 @@
         function showActivities() {
           var html = new Array();
           viewerActivities.each(function(activity){
-            html.push("<li>" + activity.getField(opensocial.Activity.Field.TITLE) + "</li>");
+            var title = activity.getField(opensocial.Activity.Field.TITLE);
+            var time = new Date(activity.getField(opensocial.Activity.Field.POSTED_TIME));
+            var userId = activity.getField(opensocial.Activity.Field.USER_ID);
+            var name;
+            if (userId == viewer.getId()) {
+              name = "我";
+            } else {
+              name = viewerFriends.getId(userId).getDisplayName();
+            }
+            html.push("<li>(" + time.toLocaleString() + ") " + name + " " +  
+                      activity.getField(opensocial.Activity.Field.TITLE) + "</li>");
           });
           document.getElementById('viewerActivities').innerHTML = html.join('');
           
