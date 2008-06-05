@@ -23,8 +23,9 @@ class OutputPage(webapp.RequestHandler):
     # 返回格式是JSON
     ret = []
     for book in books:
-      ret.append("'" + book.title + "'")
-    output = "{bookList: [" + ",".join(ret) + "]}"
+      ret.append("\"" + book.title + "\"")
+    output = "[" + ", ".join(ret) + "]"
+    self.response.headers['Content-Type'] = 'text/plain'
     self.response.out.write(output)
 
 class InputPage(webapp.RequestHandler):
