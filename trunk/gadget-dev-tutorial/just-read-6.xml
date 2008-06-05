@@ -254,14 +254,14 @@
           });
         };
 
-        /* 请求第三方网站的书籍列表
+        /* 请求第三方网站的书籍列表 */
         function requestBookList(url) {
           var params = {};
           params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
           gadgets.io.makeRequest(url, onBookListResponse, params);
         };
 
-        /* 处理第三方网站的相应
+        /* 处理第三方网站的相应 */
         function onBookListResponse(data) {
           if (data.data && data.data.length) {
             // 用收到的数据覆盖预设的书籍列表
