@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="Just Read - 5 - Reading activities"
+  <ModulePrefs title="Just Read - 6 - Remote Booklist"
                author_email="your.email@foo.bar" scrolling="true" height="500">
     <Require feature="opensocial-0.7"/>
     <Require feature="dynamic-height"/>
@@ -262,7 +262,7 @@
 
         function onBookListResponse(data) {
           window['books'] = data;
-          
+          window['bd'] = eval(data.text);
            if (data.data && data.data.length) {
              
            }
