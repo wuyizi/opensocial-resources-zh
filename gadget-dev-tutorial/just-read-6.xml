@@ -261,14 +261,17 @@
         }
 
         function onBookListResponse(data) {
+          window['books'] = data;
+          
            if (data.data && data.data.length) {
-             globalBookList = data.data;
+             
            }
         }
 
         /* Gadget 执行入口 */
         function init() {
           reloadAll();
+          requestBookList("http://hack-a-thon.appspot.com/out");
         };
         gadgets.util.registerOnLoadHandler(init);
 
