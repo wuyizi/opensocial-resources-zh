@@ -173,7 +173,6 @@
             var title = activity.getField(opensocial.Activity.Field.TITLE);
             var time = activity.getField(opensocial.Activity.Field.POSTED_TIME);
             var userId = activity.getField(opensocial.Activity.Field.USER_ID);
-            console.info(time);
             var localTime = new Date(Number(time)).toLocaleString();
             var userName;
             if (userId == viewer.getId()) {
