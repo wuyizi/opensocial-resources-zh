@@ -255,12 +255,13 @@
         };
 
         /* 请求第三方网站的书籍列表 */
-        function requestBookList(url) {
+        function requestBookList() {
+          var url = "http://hack-a-thon.appspot.com/out?c=20";
           var params = {};
           params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
           gadgets.io.makeRequest(url, onBookListResponse, params);
         };
-
+        
         /* 处理第三方网站的相应 */
         function onBookListResponse(data) {
           if (data.data && data.data.length) {
@@ -269,12 +270,14 @@
           }
           reloadAll();
         };
-
+        
         /* Gadget 执行入口 */
         function init() {
-          requestBookList("http://hack-a-thon.appspot.com/out");
+          /* 获取上架书籍列表 */
+          requestBookList();
         };
         gadgets.util.registerOnLoadHandler(init);
+
 
       </script>
 
