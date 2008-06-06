@@ -17,6 +17,7 @@
         var ownerBooks;               // 类型：{'books': json}
         var viewerFriendsBooks;       // 类型：{id: {'books': json}}
 
+        var viewerActivities;
         var viewerFriendsActivities;  // 类型：{'activities': opensocial.Collection}
         
         var bookList = ['西游记', '三国演义', '水浒传', '红楼梦'];
@@ -164,7 +165,7 @@
         /* 显示新活动 */
         function showActivities() {
           
-          var activities = viewerFriendsActivities['activities'];
+          var activities = viewerActivities['activities'];
           if (!activities || !activities.each) return;
           
           /* 显示每个活动 */
@@ -213,7 +214,8 @@
           req.add(req.newFetchPersonRequest('OWNER'), 'o');
           req.add(req.newFetchPersonAppDataRequest('OWNER', 'books'), 'od');
           req.add(req.newFetchPersonAppDataRequest('VIEWER_FRIENDS', 'books'), 'vfd');
-    
+          
+          req.add(req.newFetchActivitiesRequest('VIEWER'), 'va');
           req.add(req.newFetchActivitiesRequest('VIEWER_FRIENDS'), 'vfa');
 
           req.send(onReloadAll);
@@ -232,6 +234,7 @@
           ownerBooks = dataResponse.get('od').getData()[owner.getId()] || {};  // {'books': json}
           viewerFriendsBooks = dataResponse.get('vfd').getData() || {};  // {id:{'books': json}}
 
+          viewerActivities = dataResponse.get('va').getData();
           viewerFriendsActivities = dataResponse.get('vfa').getData(); // {'activities': opensocial.Collection}
     
           /* 显示数据 */
