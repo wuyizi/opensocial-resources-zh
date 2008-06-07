@@ -14,6 +14,8 @@
         };
         gadgets.util.registerOnLoadHandler(init);
       </script>
+
+      <!-- 用于显示的DOM -->
       <div id='main'>
       </div>
     ]]>
