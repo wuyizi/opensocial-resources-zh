@@ -14,47 +14,43 @@
         var myComments;           // {'c': json}
         var allComments;          // {id: {'c': json}}
 
-        function commentHTML(text) {
-          return "<li>" + text + "</li>";
+        function commentHTML(p, cs) {
+          var html = new Array();
+          html.push("<li>" + p.getDisplayName() + "<ul>");
+          var len = cs.length;
+          for (var i = 0; i < len; ++i) {
+            html.push("<li>" + cs[i] + "</li>");
+          }
+          html.push("</ul></li>");
+          return html.join('');
+        };
+        
+        function parseData(data) {
+          var json = data['c'];
+          var cs = [];
+          try  {
+            cs = gadgets.json.parse(gadgets.util.unescapeString(json)) || [];
+          } catch(e) {
+            cs = [];
+          }
+          return cs;
         };
 
         function showComments() {
           var html = new Array();
-          
           for (var friendId in allComments) {
-            var data = allComments[friendId];
-            var friend = myFriends.getById(friendId);
-            var json = data['c'];
-            var cs = [];
-            try  {
-              cs = gadgets.json.parse(gadgets.util.unescapeString(json)) || [];
-            } catch(e) {
-              cs = [];
-            }
-            html.push("<li>" + friend.getDisplayName() + "<ul>");
-            var len = cs.length;
-            for (var i = 0; i < len; ++i) {
-              html.push(commentHTML(cs[i]));
-            }
-            html.push("</ul></li>");
+            html.push(commentHTML(myFriends.getById(friendId), allComments[friendId]));
           }
+          html.push(commentHTML(me, myComments));
           document.getElementById('comments').innerHTML = html.join('');
         };
 
         function onSubmit() {
           var textArea = document.getElementById('content');
           var c = textArea.value;
-          var json = myComments['c'];
-          var cs;
-          try  {
-            cs = gadgets.json.parse(gadgets.util.unescapeString(json)) || [];
-          } catch(e) {
-            cs = [];
-          }
-
+          var cs = parseData(myComments);
           cs.push(c);
           json = gadgets.json.stringify(cs);
-
           var req = opensocial.newDataRequest();
           req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'c', json));
           req.send(function(dataResponse) {
@@ -63,14 +59,13 @@
           });          
         };
         function postReadActivity(c) {
-          var title = "发布了评论";
+          if (c.length > 10) c = c.substring(0, 10) + "...";
+          var title = "发布了评论:" + c;
           var params = {};
           params[opensocial.Activity.Field.TITLE] = title;
           var activity = opensocial.newActivity(params)
           opensocial.requestCreateActivity(activity, opensocial.CreateActivityPriority.HIGH, 
-              function() {
-                reloadAll();
-              });
+              function() { reloadAll(); });
         };
 
         function showBasic() {
@@ -91,7 +86,6 @@
           myFriends = dataResponse.get('vf').getData() || {};
           myComments = dataResponse.get('vd').getData()[me.getId()] || {};  // {'c': json}
           allComments = dataResponse.get('vfd').getData() || {};  // {id:{'c': json}}
-          allComments[me.getId()] = myComments;
           showBasic();
           showComments();
         };
