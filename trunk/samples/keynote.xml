@@ -20,6 +20,7 @@
 
         function showComments() {
           var html = new Array();
+          
           for (var friendId in allComments) {
             var data = allComments[friendId];
             var friend = myFriends.getById(friendId);
@@ -90,6 +91,7 @@
           myFriends = dataResponse.get('vf').getData() || {};
           myComments = dataResponse.get('vd').getData()[me.getId()] || {};  // {'c': json}
           allComments = dataResponse.get('vfd').getData() || {};  // {id:{'c': json}}
+          allComments[me.getId()] = myComments;
           showBasic();
           showComments();
         };
