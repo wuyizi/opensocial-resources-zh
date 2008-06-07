@@ -16,8 +16,6 @@
         var owner;                    // 类型：opensocial.Person
         var ownerBooks;               // 类型：{'books': json}
         var viewerFriendsBooks;       // 类型：{id: {'books': json}}
-
-        var viewerFriendsActivities;  // 类型：{'activities': opensocial.Collection}
         
         var bookList = ['西游记', '三国演义', '水浒传', '红楼梦'];
 
@@ -161,31 +159,6 @@
         };
 
 
-        /* 显示新活动 */
-        function showActivities() {
-          
-          var activities = viewerFriendsActivities['activities'];
-          if (!activities || !activities.each) return;
-          
-          /* 显示每个活动 */
-          var html = new Array();
-          activities.each(function(activity){
-            var title = activity.getField(opensocial.Activity.Field.TITLE);
-            var time = activity.getField(opensocial.Activity.Field.POSTED_TIME);
-            var userId = activity.getField(opensocial.Activity.Field.USER_ID);
-            var localTime = new Date(Number(time)).toLocaleString();
-            var userName;
-            if (userId == viewer.getId()) {
-              userName = "我";
-            } else if (viewerFriends.getById(userId)) {
-              userName = viewerFriends.getById(userId).getDisplayName();
-            }
-            html.push("<li>(" + localTime + ") " + userName + title + "</li>");
-          });
-          document.getElementById('activities').innerHTML = html.join('');
-        };
-
-
         /* 显示基本信息 */
         function showBasic() {
           /* 显示 VIEWER 名字 */
@@ -214,8 +187,6 @@
           req.add(req.newFetchPersonAppDataRequest('OWNER', 'books'), 'od');
           req.add(req.newFetchPersonAppDataRequest('VIEWER_FRIENDS', 'books'), 'vfd');
 
-          req.add(req.newFetchActivitiesRequest('VIEWER_FRIENDS'), 'vfa');
-
           req.send(onReloadAll);
         };
 
@@ -232,7 +203,6 @@
           ownerBooks = dataResponse.get('od').getData()[owner.getId()] || {};  // {'books': json}
           viewerFriendsBooks = dataResponse.get('vfd').getData() || {};  // {id:{'books': json}}
 
-          viewerFriendsActivities = dataResponse.get('vfa').getData(); // {'activities': opensocial.Collection}
 
           /* 显示数据 */
           showBasic();
@@ -240,7 +210,6 @@
           showViewerBooks();
           showOwnerBooks();
           showFriendsBooks();
-          showActivities();
         };
 
         /* 处理清空按钮响应 */
@@ -296,8 +265,6 @@
         <ul id='friendsBooks'></ul>
         <b>书架：</b>
         <ul id='allBooks'></ul>
-        <b>读书活动更新：</b>
-        <ul id='activities'></ul>
       </div>
     ]]>
   </Content>
