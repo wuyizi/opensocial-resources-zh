@@ -14,7 +14,8 @@
         var myComments;           // {'c': json}
         var allComments;          // {id: {'c': json}}
 
-        function commentHTML(p, cs) {
+        function commentHTML(p, data) {
+          var cs = parseData(data);
           var html = new Array();
           html.push("<li>" + p.getDisplayName() + "<ul>");
           var len = cs.length;
