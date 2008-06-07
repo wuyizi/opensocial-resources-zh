@@ -95,12 +95,12 @@
 
       <!-- 用于显示的DOM -->
       <div id='main'>
-    <b>我：</b>
-    <p id='me'></p>
-    <b>我的朋友：</b>
-    <p id='friends'></p>
-    <b>书架：</b>
-    <ul id='allBooks'></ul>
+        <b>我：</b>
+        <p id='me'></p>
+        <b>我的朋友：</b>
+        <p id='friends'></p>
+        <b>书架：</b>
+        <ul id='allBooks'></ul>
       </div>
     ]]>
   </Content>
