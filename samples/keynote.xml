@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <ModulePrefs title="Keynote Demo"
+               author_email="your.email@foo.bar" scrolling="true" height="500">
+    <Require feature="opensocial-0.7"/>
+    <Require feature="dynamic-height"/>
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[
+      <script type="text/javascript">
+
+        var me;                   // opensocial.Person
+        var myFriends;            // opensocial.Collection
+        var myComments;           // {'c': json}
+        var allComments;          // {id: {'c': json}}
+
+        function commentHTML(text) {
+          return "<li>" + text + "</li>";
+        };
+
+        function showComments() {
+          var html = new Array();
+          for (var friendId in allComments) {
+            var data = allComments[friendId];
+            var friend = myFriends.getById(friendId);
+            var json = data['c'];
+            var cs = [];
+            try  {
+              cs = gadgets.json.parse(gadgets.util.unescapeString(json)) || [];
+            } catch(e) {
+              cs = [];
+            }
+            html.push("<li>" + friend.getDisplayName() + "<ul>");
+            var len = cs.length;
+            for (var i = 0; i < len; ++i) {
+              html.push(commentHTML(cs[i]));
+            }
+            html.push("</ul></li>");
+          }
+          document.getElementById('comments').innerHTML = html.join('');
+        };
+
+        function onSubmit() {
+          var textArea = document.getElementById('content');
+          var c = textArea.value;
+          var json = myComments['c'];
+          var cs;
+          try  {
+            cs = gadgets.json.parse(gadgets.util.unescapeString(json)) || [];
+          } catch(e) {
+            cs = [];
+          }
+
+          cs.push(c);
+          json = gadgets.json.stringify(cs);
+
+          var req = opensocial.newDataRequest();
+          req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'c', json));
+          req.send(function(dataResponse) {
+            alert("发布成功");
+            postReadActivity(c);
+          });          
+        };
+        function postReadActivity(c) {
+          var title = "发布了评论";
+          var params = {};
+          params[opensocial.Activity.Field.TITLE] = title;
+          var activity = opensocial.newActivity(params)
+          opensocial.requestCreateActivity(activity, opensocial.CreateActivityPriority.HIGH, 
+              function() {
+                reloadAll();
+              });
+        };
+
+        function showBasic() {
+
+        };
+    
+        function reloadAll() {
+          var req = new opensocial.DataRequest();
+          req.add(req.newFetchPersonRequest('VIEWER'), 'v');
+          req.add(req.newFetchPeopleRequest('VIEWER_FRIENDS'), 'vf');
+          req.add(req.newFetchPersonAppDataRequest('VIEWER', 'c'), 'vd');
+          req.add(req.newFetchPersonAppDataRequest('VIEWER_FRIENDS', 'c'), 'vfd');
+          req.send(onReloadAll);
+        };
+        function onReloadAll(dataResponse) {
+          window['data'] = dataResponse;
+          me = dataResponse.get('v').getData() || {};
+          myFriends = dataResponse.get('vf').getData() || {};
+          myComments = dataResponse.get('vd').getData()[me.getId()] || {};  // {'c': json}
+          allComments = dataResponse.get('vfd').getData() || {};  // {id:{'c': json}}
+          showBasic();
+          showComments();
+        };
+
+        function init() {
+          reloadAll();
+        };
+        gadgets.util.registerOnLoadHandler(init);
+      </script>
+
+      <!-- 用于显示的DOM -->
+      <div id='main'>
+        <b>评论这篇文章</b>
+        <textarea id='content'></textarea>
+        <button onclick="onSubmit()">发布</button>
+        <b>朋友们对文章的评论</b>
+        <ul id='comments'></ul>
+      </div>
+     ]]>
+  </Content>
+</Module>
+
+
