@@ -124,7 +124,13 @@
           showBasic();
           showComments();
         };
-
+        function onClear() {
+          var req = opensocial.newDataRequest();
+          req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'c', null));
+          req.send(function(dataResponse) {
+            reloadAll();
+          });
+        };
         function init() {
           reloadAll();
         };
@@ -133,7 +139,7 @@
 
       <!-- 用于显示的DOM -->
       <div id='main'>
-        <div class=title>评论这篇文章 </div>
+        <div class=title onclick="onClear()">评论这篇文章 </div>
         <div class=section><textarea id='content' col=20></textarea>
          <button onclick="onSubmit()" col=30>发布</button>
         </div>
