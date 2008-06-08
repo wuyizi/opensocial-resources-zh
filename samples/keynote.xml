@@ -86,6 +86,7 @@
           req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'c', json));
           req.send(function(dataResponse) {
             alert("发布成功");
+            textArea.innerHTML = "";
             postReadActivity(c);
           });          
         };
