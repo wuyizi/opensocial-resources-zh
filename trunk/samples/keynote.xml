@@ -25,9 +25,13 @@
           font-family:arial,黑体;
           margin-bottom:5px;
         }
-        .comment {
+        .section ul {
+          padding:0px;
+        }
+        .section ul li {
+          list-style:outside circle;
+          marker-offset: 3px;
           font-size:small;
-          margin:5px;
         }
       </style>
       <script type="text/javascript">
@@ -43,7 +47,7 @@
           html.push("<div class=section>" + p.getDisplayName() + "<ul>");
           var len = cs.length;
           for (var i = 0; i < len; ++i) {
-            html.push("<li class=comment>" + cs[i] + "</li>");
+            html.push("<li>" + cs[i] + "</li>");
           }
           html.push("</ul></div>");
           return html.join('');
