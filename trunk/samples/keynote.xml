@@ -49,6 +49,7 @@
 
         function commentHTML(p, data) {
           var cs = parseData(data);
+          if (cs == null || cs.length == 0) return "";
           var html = new Array();
           html.push("<div class=person>" + p.getDisplayName() + "说：<ul>");
           var len = cs.length;
