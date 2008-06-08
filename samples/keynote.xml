@@ -15,11 +15,14 @@
           font-family:arial,黑体;
           color:#666;
         }
+        .section {
+          margin:5px 0px 0px 5px;
+        }
         .button {
           font-size:small;
           height:15px;
         }
-        .section {
+        .person {
           font-size:small;
           font-weight:bold;
           font-family:arial,黑体;
@@ -27,10 +30,10 @@
           padding:3px;
           border:1px dash #CCC;
         }
-        .section ul {
+        .person ul {
           margin:0px;
         }
-        .section ul li {
+        .person ul li {
           font-weight:normal;
           list-style:outside circle;
           marker-offset: 3px;
@@ -47,7 +50,7 @@
         function commentHTML(p, data) {
           var cs = parseData(data);
           var html = new Array();
-          html.push("<div class=section>" + p.getDisplayName() + "说：<ul>");
+          html.push("<div class=person>" + p.getDisplayName() + "说：<ul>");
           var len = cs.length;
           for (var i = 0; i < len; ++i) {
             html.push("<li>" + cs[i] + "</li>");
@@ -131,12 +134,12 @@
       <!-- 用于显示的DOM -->
       <div id='main'>
         <div class=title>评论这篇文章 </div>
-        <div><textarea id='content' col=20></textarea>
+        <div class=section><textarea id='content' col=20></textarea>
          <button onclick="onSubmit()" col=30>发布</button>
         </div>
         <hr>
         <div class=title>大家对文章的评论</div>
-        <div id='comments'></div>
+        <div class=section id='comments'></div>
         <hr>
       </div>
      ]]>
