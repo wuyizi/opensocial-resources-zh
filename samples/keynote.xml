@@ -7,6 +7,21 @@
   </ModulePrefs>
   <Content type="html">
     <![CDATA[
+    
+      <style type="text/css">
+        .title {
+          font-size:x-small;
+          font-weight:bold;
+          font-family:arial,黑体;
+          color:#666;
+        }
+        .section {
+          margin-bottom:5px;
+        }
+        .comment {
+          margin:5px;
+        }
+      </style>
       <script type="text/javascript">
 
         var me;                   // opensocial.Person
@@ -17,12 +32,12 @@
         function commentHTML(p, data) {
           var cs = parseData(data);
           var html = new Array();
-          html.push("<li>" + p.getDisplayName() + "<ul>");
+          html.push("<div class=section>" + p.getDisplayName() + "<br>");
           var len = cs.length;
           for (var i = 0; i < len; ++i) {
-            html.push("<li>" + cs[i] + "</li>");
+            html.push("<div class=comment>" + cs[i] + "</div>");
           }
-          html.push("</ul></li>");
+          html.push("</div>");
           return html.join('');
         };
         
@@ -99,11 +114,11 @@
 
       <!-- 用于显示的DOM -->
       <div id='main'>
-        <b>评论这篇文章</b>
-        <textarea id='content'></textarea>
-        <button onclick="onSubmit()">发布</button>
-        <b>朋友们对文章的评论</b>
-        <ul id='comments'></ul>
+        <div class=title>评论这篇文章  <button onclick="onSubmit()">发布</button></div>
+        <div class=section><textarea id='content' col=20></textarea></div>
+
+        <div class=title>朋友们对文章的评论</div>
+        <div class=section id='comments'></div>
       </div>
      ]]>
   </Content>
