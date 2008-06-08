@@ -101,7 +101,7 @@
             html.push("<li>" + friend.getDisplayName() + "<ul>");
             var len = books.length;
             for (var i = 0; i < len; ++i) {
-              html.push(bookHTML(bookList[i]));
+              html.push(bookHTML(books[i]));
             }
             html.push("</ul></li>");
           }
