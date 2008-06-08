@@ -89,7 +89,6 @@
           var req = opensocial.newDataRequest();
           req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'c', json));
           req.send(function(dataResponse) {
-            alert("发布成功");
             textArea.value = "";
             postReadActivity(c);
           });          
