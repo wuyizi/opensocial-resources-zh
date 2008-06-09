@@ -1,0 +1,1612 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html class="pageview" >
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+
+
+/* default css */
+
+table {
+  font-size: 1em;
+  line-height: inherit;
+}
+
+
+div, address, ol, ul, li, option, select { 
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+p {
+  margin: 0px;
+}
+
+body {
+  margin: 6px;
+  padding: 0px;
+  font-family: Verdana, sans-serif;
+  font-size: 10pt;
+  background-color: #ffffff;
+}
+
+
+@media screen {
+  html.pageview {
+    background-color: #f3f3f3 !important;
+  }
+
+  
+    
+  body { 
+    min-height: 1100px; 
+  }
+  * html body { 
+    height: 1100px; 
+  }
+  .pageview body {
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 2px solid #bbb;
+    border-bottom: 2px solid #bbb;
+    width: 648px !important;
+    margin: 15px auto 25px !important;
+    padding: 40px 50px; 
+  }
+  /* IE6 */
+  * html.pageview body {
+    overflow-x: auto;
+  }
+  
+  
+}
+
+
+h6 { font-size: 10pt }
+h5 { font-size: 11pt }
+h4 { font-size: 12pt }
+h3 { font-size: 13pt }
+h2 { font-size: 14pt }
+h1 { font-size: 16pt }
+
+blockquote {padding: 10px; border: 1px #DDD dashed }
+
+a img {border: 0}
+
+.pb {height: 1px}
+
+div.google_header, div.google_footer {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+
+/* Table of contents */
+.editor div.writely-toc {
+  background-color: #f3f3f3;
+  border: 1px solid #ccc;
+}
+.writely-toc > ol {
+  padding-left: 1.5em;
+  font-weight: bold;
+}
+ol.writely-toc-subheading {
+  padding-left: 1em;
+  font-weight: normal;
+}
+.writely-toc-none {
+  list-style-type: none;
+}
+.writely-toc-decimal {
+  list-style-type: decimal;
+}
+.writely-toc-upper-alpha {
+  list-style-type: upper-alpha;
+}
+.writely-toc-lower-alpha {
+  list-style-type: lower-alpha;
+}
+.writely-toc-upper-roman {
+  list-style-type: upper-roman;
+}
+.writely-toc-lower-roman {
+  list-style-type: lower-roman;
+}
+.writely-toc-disc {
+  list-style-type: disc;
+}
+
+/* end default css */
+
+
+  /* default print css */
+  
+  @media print {
+    body { 
+      padding: 0; 
+      margin: 0; 
+    }
+
+    div.google_header, div.google_footer {
+      display: block;
+      min-height: 0;
+      border: none;
+    }
+
+    div.google_header {
+      flow: static(header);
+    }
+
+    /* used to insert page numbers */
+    div.google_header::before, div.google_footer::before {
+      position: absolute;
+      top: 0;
+    }
+
+    div.google_footer {
+      flow: static(footer);
+    }
+
+    /* always consider this element at the start of the doc */
+    div#google_footer {
+      flow: static(footer, start);
+    }
+
+    span.google_pagenumber {
+      content: counter(page);
+    }
+
+    span.google_pagecount {
+      content: counter(pages);
+    }
+
+    /* Table of contents */
+    #WritelyTableOfContents a::after {
+      content: leader('.') target-counter(attr(href), page);
+      font-style: normal;
+    }
+  }
+
+  @page {
+    @top {
+      content: flow(header);
+    }
+    @bottom {
+      content: flow(footer);
+    }
+  }
+  /* end default print css */
+ 
+
+/* custom css */
+
+
+/* end custom css */
+
+
+
+  /* ui edited css */
+  
+  body {
+    font-family: Verdana;
+    
+    font-size: 10.0pt;
+    line-height: normal;
+    background-color: #ffffff;
+  }
+  /* end ui edited css */
+
+
+
+/* editor CSS */
+.editor a:visited {color: #551A8B}
+.editor table.zeroBorder {border: 1px dotted gray}
+.editor table.zeroBorder td {border: 1px dotted gray}
+.editor table.zeroBorder th {border: 1px dotted gray}
+
+
+.editor div.google_header, .editor div.google_footer {
+  border: 2px #DDDDDD dashed;
+  position: static;
+  width: 100%;
+  min-height: 2em;
+}
+
+.editor .misspell {background-color: yellow}
+
+
+.editor .pb {
+  border-top: 1px dashed #C0C0C0; 
+  border-bottom: 1px dashed #C0C0C0
+}
+.editor .writely-comment {
+  font-size: 9pt; 
+  line-height: 1.4; 
+  padding: 1px; 
+  border: 1px dashed #C0C0C0
+}
+/* end editor CSS */
+</style>
+
+
+<base target="_top">
+
+</head>
+
+<body
+    
+    revision="cgvbkgh7_235hp3cmkdx:844">
+
+<a id=u.4o name=Top></a>
+<div id=x02e8>
+  <b id=cyom><font id=e5k1 size=5><br id=x02e13>
+  代码实验室</font></b><br id=sv:l1>
+  <h1 class=page_title id=c6pk0>
+    <span class=Apple-style-span id=sv:l><span class=Apple-style-span id=sv:l2 style=FONT-SIZE:21px><span class=Apple-style-span id=sv:l3 style=FONT-SIZE:18px>使用
+    Opensocial
+    客户端接口进行小应用的</span><span id=isrs><span class=Apple-style-span id=sv:l4 style=FONT-SIZE:18px>开发</span></span></span></span>
+  </h1>
+  <div class=g-unit id=y8bp>
+    <div id=j87o style=TEXT-ALIGN:right>
+      <i id=m7rx>(based on
+      <span class=Apple-style-span id=binq style="border-collapse:separate; COLOR:#000000; FONT-FAMILY:Helvetica; FONT-SIZE:13px; FONT-VARIANT:normal; LETTER-SPACING:normal; LINE-HEIGHT:normal; TEXT-INDENT:0px; TEXT-TRANSFORM:none; WHITE-SPACE:normal; WORD-SPACING:0px"><i id=jcsc>Dan
+      Holevoet's Tutorial)</i></span></i><br id=binq0>
+    </div>
+    <div id=sv:l5 style=TEXT-ALIGN:right>
+      <span class=Apple-style-span id=sv:l6><i id=dq6n>Yizi Wu, Opensocial
+      Team&nbsp;</i></span><br id=xzvx>
+    </div>
+  </div>
+  <h2 class=g-unit id=c6pk5>
+    定义<br id=bd:l>
+  </h2>
+  <div class=g-unit id=y8bp1>
+    <b id=y8bp2>Container: </b>平台容器，指具有用户系统的社区平台，比如 myspace.cn，qq.com，tianya.cn
+    等，平台提供用户，为小应用带来访问流量。<b id=qi250><br id=k3zq>
+    </b>
+  </div>
+  <div class=g-unit id=y8bp3>
+    &nbsp;
+  </div>
+  <div class=g-unit id=y8bp5>
+    <b id=y8bp6>Gadget:</b>
+    小工具/小应用，可以运行在各种平台上，提供游戏，娱乐，社交以及各种其他应用，吸引用户使用，使用户更愿意长久呆在平台上。<br id=lnmb1>
+    <br id=lnmb3>
+  </div>
+  <h2 class=g-unit id=c6pk5>
+    概述<br id=nvty>
+  </h2>
+  <p class=g-unit id=c6pk7>
+    这个教程将详细介绍如果创建一个 Opensocial 的小应用，将包括朋友的获取，数据的交互，活动的更新，以及外部数据的获取等等。更多的教程和信息请访问
+    <a href=http://code.google.com/p/opensocial-resources/ id=ad8i title=http://code.google.com/p/opensocial-resources/>Opensocial资源项目主页</a>(英文)
+    以及&nbsp;<a href=http://code.google.com/intl/zh-CN/apis/opensocial/docs/index.html id=nirh title=http://code.google.com/intl/zh-CN/apis/opensocial/docs/index.html>Opensocial
+    参考文档</a>&nbsp;。
+  </p>
+  <p class=g-unit id=c6pk7>
+    <br id=l.rc>
+  </p>
+  <h2 class=g-unit id=y8bp7>
+    <a id=ba:l name=小应用(Gadget)的基本概念></a>小应用(Gadget)的基本概念
+  </h2>
+  <p class=g-unit id=c6pk13>
+    小应用程序是由一段 XML 文件描述，一般我们把这个称作 Gadget Spec 。以下就展示的是一段 "Hello World" &nbsp;小应用
+    (<a href=http://opensocial-resources.googlecode.com/svn/samples/tutorial/branches/io/helloworld.xml id=ls18 title=http://opensocial-resources.googlecode.com/svn/samples/tutorial/branches/io/helloworld.xml>helloworld.xml</a>)，具体的代码就是这样：<a href=http://opensocial-resources.googlecode.com/svn/samples/tutorial/branches/io/helloworld.xml id=c6pk26 title=原始代码><code id=rc:-9><span class=Apple-style-span id=b_qz style=FONT-FAMILY:Verdana><br id=g4dt>
+</span></code></a>
+  </p>
+  <blockquote class=g-unit id=aeuc style="COLOR:#38761d; BACKGROUND-COLOR:#f3f3f3">
+    <font id=rhn0><span class=Apple-style-span id=oj2r style=FONT-FAMILY:Tahoma>&lt;?xml
+    version="1.0" encoding="UTF-8" ?&gt;<br id=rc:->
+    &lt;Module&gt;<br id=rc:-0>
+    &nbsp; &lt;ModulePrefs title="Hello World!"&gt;<br id=rc:-1>
+    &nbsp;&nbsp;&nbsp; &lt;Require
+    feature="</span><span class=Apple-style-span id=zzph><b id=g.40><span class=Apple-style-span id=oj2r0 style=FONT-FAMILY:Tahoma>opensocial-0.7</span></b></span><span class=Apple-style-span id=oj2r1 style=FONT-FAMILY:Tahoma>"
+    /&gt;<br id=rc:-2>
+    &nbsp; &lt;/ModulePrefs&gt;<br id=rc:-3>
+    &nbsp; &lt;Content type="html"&gt;<br id=rc:-4>
+    &nbsp;&nbsp;&nbsp; &lt;![CDATA[<br id=rc:-5>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hello, world!<br id=rc:-6>
+    &nbsp;&nbsp;&nbsp; ]]&gt;<br id=rc:-7>
+    &nbsp; &lt;/Content&gt;<br id=rc:-8>
+    &lt;/Module&gt;</span></font>
+  </blockquote>
+  <p class=g-unit id=c6pk28>
+    <br id=zzph0>
+  </p>
+  <p class=g-unit id=c6pk28>
+    在这段程序中，有几个重要的 XML 标签描述了这个 Gadget 的各个组成部分，告诉平台服务器上，哪些信息是什么，程序在哪里，怎么运行。详细请看
+    <a href=http://code.google.com/intl/zh-CN/apis/gadgets/docs/dev_guide.html id=yvoa title=http://code.google.com/intl/zh-CN/apis/gadgets/docs/dev_guide.html>Gadget
+    开发指南</a>。
+  </p>
+  <br id=este>
+  <b id=n-r_0><code id=c6pk31><span class=Apple-style-span id=b_qz0 style=FONT-FAMILY:Verdana><span id=q253 style=COLOR:#38761d>&lt;Module&gt;</span><br id=este0>
+</span></code></b>
+  <div id=este1 style=MARGIN-LEFT:40px>
+    表示这个 XML 文件描述的是一个 Gagdet 。<br id=este2>
+  </div>
+  <p class=g-unit id=c6pk28>
+  </p>
+  <div class=g-unit id=y8bp8>
+    <br id=este3>
+    <b id=n-r_1><code id=c6pk33><span class=Apple-style-span id=b_qz1 style=FONT-FAMILY:Verdana><span id=q2530 style=COLOR:#38761d>&lt;ModulePrefs&gt;</span><br id=este4>
+</span></code></b>
+    <div id=este5 style=MARGIN-LEFT:40px>
+      包括一些附加的信息，比如 Gadget 的标题，作者，文字描述等等。<br id=este6>
+      <br id=w4lc>
+    </div>
+    <div id=este7 style=MARGIN-LEFT:40px>
+    </div>
+  </div>
+  <p class=g-unit id=c6pk28 style=COLOR:#38761d>
+    <b id=q2531><code id=c6pk35><span class=Apple-style-span id=b_qz2 style=FONT-FAMILY:Verdana>&lt;Require feature="opensocial-0.7" /&gt;</span></code></b>
+  </p>
+  <div id=q2532 style=MARGIN-LEFT:40px>
+    表示这个 Gadget 会使用 Opensocial API 0.7 的功能。还可以添加其他&lt;Require&gt;
+    标签让平台提供更多的功能以供这个 Gadget 使用。<br id=q2533>
+  </div>
+  <br id=zwl61>
+  <p class=g-unit id=c6pk28 style=COLOR:#38761d>
+    <b id=dy5f><code id=c6pk37><span class=Apple-style-span id=b_qz3 style=FONT-FAMILY:Verdana>&lt;Content type="html"&gt;</span></code></b>
+  </p>
+  <p class=g-unit id=c6pk28 style=MARGIN-LEFT:40px>
+    表示这个 Gadget 中的内容类型是基于HTML的。一般来说对于大部分 Opensocial 平台来说推荐使用这种类型，但像 iGoogle
+    这样的平台容器，还支持其他类型的 Gadget 。
+  </p>
+  <p class=g-unit id=c6pk28>
+    <br id=zwl64>
+  </p>
+  <p class=g-unit id=c6pk28 style=COLOR:#38761d>
+    <b id=xxor1><code id=c6pk39><span class=Apple-style-span id=b_qz4 style=FONT-FAMILY:Verdana>&lt;![CDATA[…]]&gt;</span></code></b>
+  </p>
+  <p class=g-unit id=c6pk28 style=MARGIN-LEFT:40px>
+    是 Gadget 的主要内容，包含了一段 HTML，CSS 和 Javascript 代码，形式就像一个正常网页中 &lt;body&gt; 内的部分。
+  </p>
+  <br id=q2534>
+  <br id=q2535>
+  <div class=g-unit id=tj8h>
+  </div>
+  <div class=g-unit id=y8bp10>
+    <br id=l.rc1>
+  </div>
+  <div class=g-unit id=y8bp10>
+    <span class=Apple-style-span id=l.rc2 style=FONT-SIZE:19px><b id=txrj><a id=cze8 name=第一次运行Gadget></a>第一次运行Gadget</b></span>
+  </div>
+  <h3 class=g-unit id=xt770>
+    <a id=e9k7 name=将_Gadget_Spec_XML_文件上传到公共的网址></a>将 Gadget Spec XML
+    文件上传到公共的网址
+  </h3>
+  <p class=g-unit id=c6pk60>
+    Gadget Spec XML
+    文件完成了以后，必须上传到公共的网址，平台服务器才可以读取并运行或者呈现出来。如果放在局域网或者内网中，平台服务器将无法读取这个
+    Gadget。刚才讲过的
+    <a href=http://opensocial-resources.googlecode.com/svn/samples/tutorial/branches/io/helloworld.xml id=ls18 title=http://opensocial-resources.googlecode.com/svn/samples/tutorial/branches/io/helloworld.xml>helloworld.xml</a>
+    已经存在于公共网址上，因此可以被各种平台呈现。
+  </p>
+  <div class=g-unit id=y8bp12>
+    <br id=mdi:>
+  </div>
+  <p class=g-unit id=c6pk60>
+    有很多办法找到公共的地方承载 Gadget Spec，Google 对开发者提供了两个办法。下面一步一步来说明，请您先登录您的 Google 帐号。<br id=pp3n>
+  </p>
+  <div class=g-unit id=y8bp13>
+    <br id=vkpi>
+  </div>
+  <a href=http://code.google.com/apis/gadgets/docs/legacy/gs.html#Scratchpad id=c6pk66></a>
+  <div class=g-unit id=y8bp14>
+    <ul id=c6pk64>
+      <li id=c6pk65>
+        <a href=http://fusion.google.com/add?moduleurl=gge.xml id=c6pk66 title=http://fusion.google.com/add?moduleurl=gge.xml>Google
+        Gadget Editor</a> <code class=url id=c6pk70><span class=Apple-style-span id=b_qz5 style=FONT-FAMILY:Verdana>[ <span class=Apple-style-span id=c9tj style=COLOR:#741b47><span class=Apple-style-span id=c9tj0><span id=rsof><b id=vgek>rurl.org/sca</b></span></span></span> ] </span></code>是一个 iGoogle Gadget。登录 Google
+        后打开这个链接，就可以开始编辑Gadget 的 XML 文件，然后保存成一个公开的 URL，您的 Gadget 就可以使用了。请把
+        helloworld.xml 的内容复制粘贴替换Gadget编辑器中的代码，另存为其他文件进行测试。其中存好的 XML 文件的 URL
+        在编辑框的右上角。<br id=tc40>
+      </li>
+    </ul>
+    <div id=kwta style="PADDING:1em 0pt; TEXT-ALIGN:center">
+    </div>
+    <ul id=c6pk64>
+      <li id=c6pk68>
+        <a href=http://code.google.com/hosting/ id=c6pk69 title=http://code.google.com/hosting/>Google
+        Code: Project Hosting</a> <code class=url id=c6pk70><span class=Apple-style-span id=b_qz5 style=FONT-FAMILY:Verdana>[ <span class=Apple-style-span id=c9tj style=COLOR:#741b47><span class=Apple-style-span id=c9tj0><b id=n3_->code.google.com/hosting/</b></span></span> ]</span></code> 提供免费的项目托管服务。开发者可以自由的创建任何开源项目，上传下载文件，以及
+        SVN 控制版本。如果您的 Gadget 程序规模庞大，需要多人协作开发，这是个更好的选择。在这里我们不准备详细说明 Google Code
+        项目托管如何使用。
+      </li>
+    </ul>
+  </div>
+  <p class="g-section g-tpl-210" id=c6pk60>
+    <br id=mdi:0>
+  </p>
+  <p class="g-section g-tpl-210" id=c6pk60>
+    当然，对于拥有自己服务器的开发者来说，将 Gadget 文件挂在自己服务器上是更好的选择。当完成 Gadget 文件上传后，确认可以通过浏览器输入
+    URL 的形式访问。
+  </p>
+  <br id=ixo0>
+  在以下的 Gadget 开发演示中，请大家使用 Google Gadget Editor 来保存 Gadget XML
+  文件。最简单的办法就是在本地用随便一个编辑器编写代码，然后贴到 Google Gadget Editor 中保存链接，再加入平台进行测试。<br id=njx1>
+  <br id=njx10>
+  <div id=njx11 style=TEXT-ALIGN:left>
+    <img id=qakh src="http://opensocial-resources-zh.googlecode.com/svn/trunk/gadget-dev-tutorial/images/gge.png" style="WIDTH:436px; HEIGHT:218px">
+  </div>
+  <div id=k:lx1 style=TEXT-ALIGN:center>
+    <div id=k:lx4 style=TEXT-ALIGN:left>
+      <br id=k:lx5>
+    </div>
+  </div>
+  <div class="g-section g-tpl-210" id=xx1e>
+  </div>
+  <h3 class="g-section g-tpl-210" id=xt771>
+    <a id=kzei name=申请测试平台帐号></a>申请测试平台帐号
+  </h3>
+  <div class="g-section g-tpl-210" id=xx1e0>
+    我们主要使用 sandbox.orkut.com 作为我们这个演示的平台，详细信息请查看
+    <a href=http://code.google.com/intl/zh-CN/apis/orkut/ id=r43q title=http://code.google.com/intl/zh-CN/apis/orkut/>Orkut
+    开发文档</a> 。当然大家还可以自由的使用 myspace.cn，hi5.com 或者 iGoogle sandbox 等已经发布沙盒测试环境的平台。<br id=vi230>
+    <br id=vi231>
+    如果您打算在 sandbox.orkut.com 上进行调试，您也可以使用以下测试帐号：<br id=ogwa>
+    <br id=ogwa0>
+    <div id=gi7p style=MARGIN-LEFT:40px>
+      <b id=ca:2> os.test001@gmail.com<br id=jddl>
+      os.test002@gmail.com<br id=jddl0>
+      os.test003@gmail.com<br id=jddl1>
+      os.test04@gmail.com<br id=jddl2>
+      os.test005@gmail.com<br id=jddl3>
+      os.test006@gmail.com<br id=jddl4>
+      os.test07@gmail.com<br id=jddl5>
+      os.test8@gmail.com<br id=jddl6>
+      os.test009@gmail.com<br id=jddl7>
+      os.test010@gmail.com</b><br id=jddl8>
+    </div>
+    <br id=jddl9>
+    密码都是：<b id=ca:20>0pens0cial</b>&nbsp; (注意，两个 0 都是<b id=jddl10>零</b>）。<br id=jddl11>
+    <br id=jddl12>
+    这些帐号都是我们临时设置的，确保可以在这几个平台中使用。<br id=outf>
+    <br id=outf0>
+    您也可以使用其他平台自己有的帐号或者新申请一个帐号，申请流程个不一样，这里举 sandbox.orkut.com
+    为例。请根据下列流程进行注册和进入测试环境。<br id=bf4r>
+    <br id=bf4r0>
+    首先，sandbox.orkut.com 目前还是受限的，必须先申请才能登录。如果您还没有 orkut 帐号，请先使用您的 Google 帐号登录
+    www.orkut.com 并接受条款，简单的填写信息。当您有了 orkut 帐号后，请在此
+    <a href=http://code.google.com/support/opensocialsignup/ id=q6q9 title=http://code.google.com/support/opensocialsignup/>申请页面</a>
+    提交申请，我们工作人员会即使为您开通，请留意您所使用的信箱。<br id=njx12>
+    <br id=njx13>
+    <div id=njx14 style=TEXT-ALIGN:left>
+      <img id=njx15 src="http://opensocial-resources-zh.googlecode.com/svn/trunk/gadget-dev-tutorial/images/sb-signup.png" style="WIDTH:531px; HEIGHT:397px">
+    </div>
+    <br id=rv.e0>
+    开通后，登录 sandbox.orkut.com，在左侧栏 <b id=g9po>应用程序 </b>中点击<b id=g9po0> 编辑</b>
+    ，在如下的<b id=g9po0> 编辑应用程序</b> 页面中，可以看到直接以网址添加应用程序的地址输入框。如果没有开通 sandbox 权限，登录
+    orkut 是看不到这个框的。<br id=i-980>
+    <div id=kkll style="PADDING:1em 0pt; TEXT-ALIGN:left">
+      <img id=f6cd src="http://opensocial-resources-zh.googlecode.com/svn/trunk/gadget-dev-tutorial/images/add-apps.png" style="WIDTH:533px; HEIGHT:450px">
+    </div>
+    图中的用户已经添加了很多小应用程序了。<br id=z70l2>
+    <br id=xwgl>
+  </div>
+  <h3 class="g-section g-tpl-210" id=pi952>
+    <a id=oxqp name=添加周围的人为好友></a>添加周围的人为好友<br id=q475>
+  </h3>
+  <p class="g-section g-tpl-210" id=c6pk107>
+    在接下来的环节中将演示如何在 Gadget 中利用平台上的朋友关系来互动，如果您的帐号是刚注册的，请互相添加前后左右的人为朋友。
+  </p>
+  <p class="g-section g-tpl-210" id=c6pk107 style=TEXT-ALIGN:right>
+    <img id=tl8e src="http://opensocial-resources-zh.googlecode.com/svn/trunk/gadget-dev-tutorial/images/add-friend.png" style="MARGIN:1em 1em 0pt 0em; WIDTH:129px; HEIGHT:91px; FLOAT:left">
+  </p>
+  <p class="g-section g-tpl-210" id=c6pk107>
+    <br id=nivt>
+  </p>
+  <p class="g-section g-tpl-210" id=c6pk107>
+  </p>
+  <p class="g-section g-tpl-210" id=c6pk107>
+  </p>
+  <p class="g-section g-tpl-210" id=c6pk107>
+  </p>
+  <p class="g-section g-tpl-210" id=c6pk107 style=TEXT-ALIGN:right>
+  </p>
+  <p class="g-section g-tpl-210" id=c6pk107>
+    如何邀请好友每个平台也不一样，这里列举 sandbox.orkut.com 为例。<br id=b6bk>
+  </p>
+  <p class="g-section g-tpl-210" id=c6pk107>
+    <br id=bu1s>
+  </p>
+  <p class="g-section g-tpl-210" id=c6pk107>
+    只要简单的在 <b id=kmp4>主页 </b>的左侧栏最下面的 <b id=v..l0>邀请朋友</b>
+    框里面输入对方的邮箱地址，之后按照提示做就可以了。如果您对测试环境有任何问题，请随时举手请附近的工作人员来解
+  </p>
+  <p class="g-section g-tpl-210" id=c6pk107 style=TEXT-ALIGN:right>
+  </p>
+  决。<br id=nivt0>
+  <br id=nivt1>
+  <p class="g-section g-tpl-210" id=c6pk107>
+    如果您使用那十个 os.test*** 的测试帐号，这些帐号已经是互相为朋友了。
+  </p>
+  <br id=azrt>
+  <p class="g-section g-tpl-210" id=c6pk107>
+    <br id=wo:q>
+  </p>
+  <h2 class="g-section g-tpl-210" id=y8bp17>
+    <a id=wtyl name=第一次编写Gadget></a>第一次编写Gadget
+  </h2>
+  <p class="g-section g-tpl-210" id=c6pk121>
+    从现在开始，我们来讲讲如何写一个具有社交功能的小应用。以下的教程将逐步展示一个叫做 "Just Read"
+    的小应用程序。在教程的末尾，您可以看到这个小应用有如下的功能：
+  </p>
+  <p class="g-section g-tpl-210" id=c6pk121>
+    &nbsp;
+  </p>
+  <div class="g-section g-tpl-210" id=xx1e1>
+    <ul id=c6pk122>
+      <li id=c6pk123>
+        获取图书列表
+      </li>
+      <li id=c6pk124>
+        自己读书
+      </li>
+      <li id=c6pk125>
+        看别人读了哪些书
+      </li>
+      <li id=c6pk125>
+        看朋友都读了哪些书
+      </li>
+      <li id=c6pk125>
+        看到朋友读书的互动更新
+      </li>
+      <li id=c6pk125>
+        提供新书上架<br id=ws:3>
+        <br id=k0.5>
+        <br id=ws:30>
+      </li>
+    </ul>
+  </div>
+  <h3 id=c6pk127>
+  </h3>
+  <h3 id=c6pk127>
+    <b id=upr70><a id=klhm name=内嵌_Javascript_与外链_Javascript></a>内嵌 Javascript
+    与外链 Javascript</b>
+  </h3>
+  请注意，小的 Gadget 用内嵌的 Javascript 语句比较好，因为可以在源文件上改改就能调试。但大型的 Gadget 可能有几百上千行的
+  Javascript 语句，最好将其压缩后放在单独的 .js
+  文件中，然后在&nbsp;<span class=Apple-style-span id=kyg7 style=COLOR:#38761d>&lt;![CDATA[
+  ...
+  ]]&gt;&nbsp;</span>中以&nbsp;<span class=Apple-style-span id=kyg70 style=COLOR:#38761d>&lt;script
+  src=...&gt;&nbsp;</span>的 形式载入。因为一般来说，Container 平台会缓存 Gadget 的 XML
+  文件在自己的服务器上，这样并不利于开发者，因为开发者不能及时得到自己改动后的效果。解决方案就是尽量不改动 Gadget 的 XML
+  文件，而把代码都集中在外部的 .js 文件中，这样用户将直接从浏览器去访问这些 .js
+  文件，就不会被服务器缓存了，开发者随时可以用刷新浏览器缓存的办法在开发过程中得到即时的效果。<br id=ocgd>
+  <br id=ocgd0>
+  在这个教程的所有例子里都没有用到外链的 Javascript。请访问
+  <a href=http://code.google.com/p/opensocial-resources/source/browse id=j4mw title=http://code.google.com/p/opensocial-resources/source/browse>Opensocial
+  资源项目中的其他示例</a>。<br id=k0.50>
+  <br id=k0.51>
+  <br id=k0.52>
+  <h3 id=c6pk127>
+    <a id=x5ha name=示例_0：从头开始></a>示例 0：从头开始
+  </h3>
+  我们从空白开始。
+  <p id=w0._>
+    &nbsp;
+  </p>
+  <p id=w0._0>
+    请建立一个新的 XML 文件，比如就叫 "<font color=#38761d id=kyfm>just-read-您的名字.xml"</font>
+    ，之所以要在 xml 文件名中写您的名字，是为了避免大家都在用一样名字的 XML 文件，不好区分。
+  </p>
+  <p id=sg1->
+    &nbsp;
+  </p>
+  <p id=sg1-0>
+    首先按照之前讲的模板给这个Gadget指定一个标题，作者信息，高度等等信息，并且指定要使用 Opensocial API
+    0.7。在&nbsp;<span class=Apple-style-span id=lt4r style=COLOR:#38761d>&lt;![CDATA[...]]&gt;&nbsp;</span>中的内容是空的，因此这个
+    Gadget 什么都不会显示，以下部分会逐步添加 HTML 和 Javascript 代码。
+  </p>
+  <p id=sg1-0>
+    <br id=zb0d>
+  </p>
+  <p id=sg1-0>
+    建立一个程序入口方法，当 Gadget 载入完毕之后，将调用这个函数。比如我们规定 Gadget 载入完之后马上显示一句话：
+  </p>
+  <blockquote class=g-unit id=aeuc style="COLOR:#38761d; BACKGROUND-COLOR:#f3f3f3; FONT-FAMILY:Tahoma">
+    <p id=pdf70>
+      <font id=rhn01><span class=Apple-style-span id=oq3.>&lt;?xml version="1.0"
+      encoding="UTF-8"?&gt;<br id=c6pk131>
+      &lt;Module&gt;<br id=c6pk132>
+      &nbsp; &lt;ModulePrefs title="Just Read&nbsp;-&nbsp;Part 0 - Empty"&nbsp;<br id=lc:e>
+      </span><span class=Apple-style-span id=f:qc><span class=Apple-style-span id=oq3.0>&nbsp;&nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      author_email="your.email@foo.bar"</span></span><span class=Apple-style-span id=ur3r><span class=Apple-style-span id=oq3.1>&nbsp;height="500"&gt;</span></span></font>
+    </p>
+    <p id=pdf70>
+      <font id=rhn01><span class=Apple-style-span id=oq3.2>&nbsp;&nbsp;&nbsp;
+      &lt;Require feature="opensocial-0.7"/&gt;<br id=c6pk134>
+      &nbsp; &lt;/ModulePrefs&gt;<br id=c6pk135>
+      &nbsp; &lt;Content type="html"&gt;<br id=c6pk136>
+      &nbsp;&nbsp;&nbsp; &lt;![CDATA[</span></font>
+    </p>
+    <p id=pdf70>
+      <font id=rhn01><span class=Apple-style-span id=oq3.2><br id=cuhx>
+      </span></font>
+    </p>
+    <p id=pdf70>
+      <font id=rhn01><span class=Apple-style-span id=oq3.3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span></font><span class=Apple-style-span id=oq3.29>&lt;script
+      type="text/javascript"&gt;<br id=n3bb6>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>/* Gadget 执行入口 */<br id=zeh0>
+      <b id=fgeb>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; function
+      init() {<br id=nu1w0>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+      document.getElementById("main").innerHTML =
+      "<font id=rhn01><span class=Apple-style-span id=oq3.3>啥都还没有";</span></font><br id=nu1w5>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };</b>
+    </p>
+    <p id=tx_.>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+      <b id=xia0>gadgets.util.registerOnLoadHandler(init);</b>
+    </p>
+    <p id=pdf70>
+      <span class=Apple-style-span id=oq3.29>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &lt;/script&gt;</span>
+    </p>
+    <p id=pdf70>
+      <span class=Apple-style-span id=oq3.29><br id=c3gy>
+      </span>
+    </p>
+    <p id=pdf70>
+      <span class=Apple-style-span id=oq3.29>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &lt;!-- 用于显示的DOM --&gt;<br id=cuhx0>
+      </span>
+    </p>
+    <p id=pdf70>
+      <span class=Apple-style-span id=oq3.29> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><b id=uaa7><span class=Apple-style-span id=oq3.30>&lt;div
+      id='main'&gt;<br id=n3bb11>
+      &nbsp;&nbsp; &nbsp; &nbsp;&lt;/div&gt;</span></b>
+    </p>
+    <p id=pdf70>
+      <font id=rhn01><span class=Apple-style-span id=oq3.4>&nbsp;&nbsp;&nbsp;
+      ]]&gt;<br id=c6pk138>
+      &nbsp; &lt;/Content&gt;<br id=c6pk139>
+      &lt;/Module&gt;</span></font>
+    </p>
+  </blockquote>
+  <p class=sidebox id=q:og>
+  </p>
+  <div id=uzex style="PADDING:1em 0pt; TEXT-ALIGN:left">
+  </div>
+  <p class=sidebox id=q:og>
+  </p>
+  <p class=sidebox id=c307>
+    源文件：<a href=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-0.xml id=vzd2 title=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-0.xml>just-read-0.xml</a>
+    <span id=hwu8 style=COLOR:#000000>[
+    <b id=ubd0><span id=kd:s style=COLOR:#741b47>rurl.org/sgs</span></b>
+    ]</span>
+  </p>
+  <div id=uzex style="PADDING:1em 0pt; TEXT-ALIGN:left">
+    <img id=ws:31 src="http://opensocial-resources-zh.googlecode.com/svn/trunk/gadget-dev-tutorial/images/g0.png" style="WIDTH:383px; HEIGHT:105px">
+  </div>
+  <p class=sidebox id=c307>
+  </p>
+  <br id=j8da>
+  <h3 id=c6pk148>
+    <a id=qkjn name=示例_1：我和我的朋友></a>示例 1：我和我的朋友
+  </h3>
+  <p id=c6pk149>
+  </p>
+  首先来看看自己在平台中都有哪些朋友。获取朋友式最简单的操作。现在我们开始看如何载入数据。首先是先在入口方法中指定调用一个加载数据的方法
+  <span id=gzwr style=COLOR:#38761d>reloadAll </span>。
+  <blockquote class=g-unit id=aeuc style="COLOR:#38761d; BACKGROUND-COLOR:#f3f3f3">
+    <span class=Apple-style-span id=oq3.5 style=FONT-FAMILY:Tahoma>/* Gadget
+    执行入口 */<br id=ed8t>
+    function init() {<br id=ed8t0>
+    &nbsp; <b id=ed8t1>reloadAll();</b><br id=ed8t2>
+    };<br id=ed8t3>
+    </span>gadgets.util.registerOnLoadHandler(init);<br id=zhsj>
+  </blockquote>
+  <p id=c6pk149>
+  </p>
+  <p id=ud03>
+    <br id=zhsj0>
+  </p>
+  <p id=ud03>
+    在一个正在运行的 Gadget 里，有两个角色需要区分：
+  </p>
+  <ul id=bze0>
+    <li id=bze00>
+      <span class=Apple-style-span id=xjwg style=COLOR:#38761d>VIEWER
+      </span>是正在观看这个 Gadget 的人，通常就是浏览器前的用户。一般都使用第一人称“我”。
+    </li>
+    <li id=bze01>
+      <span class=Apple-style-span id=xjwg0 style=COLOR:#38761d>OWNER
+      </span>是呈现这个 Gadget 的页面的主人，是正被
+      <span class=Apple-style-span id=t98j style=COLOR:#38761d>VIEWER
+      </span>观看的人，一般使用第三人称直呼其名。
+    </li>
+  </ul>
+  <p id=ztmp>
+    &nbsp;
+  </p>
+  <p id=ztmp0>
+    比如张三击了李四的主页，上面有个 Gadget，那么 Gadget 程序里的
+    <span class=Apple-style-span id=t98j0 style=COLOR:#38761d>VIEWER
+    </span>就是张三，<span class=Apple-style-span id=t98j1 style=COLOR:#38761d>OWNER
+    </span>就是李四。很多时候用户会看自己的主页，这是
+    <span class=Apple-style-span id=t98j2 style=COLOR:#38761d>VIEWER ==
+    OWNER</span>，这是可以根据这个判断给出不同的界面，比如显示各种需要用户自己配置的元素，而当
+    <span class=Apple-style-span id=t98j3 style=COLOR:#38761d>VIEWER </span>和
+    <span class=Apple-style-span id=t98j4 style=COLOR:#38761d>OWNER
+    </span>不同时，显示只能观看的元素。<br id=mq.1>
+  </p>
+  <div id=mq.10 style=TEXT-ALIGN:center>
+  </div>
+  <p id=ztmp0>
+  </p>
+  <div id=n8yz style="PADDING:1em 0pt; TEXT-ALIGN:left; MARGIN-LEFT:160px">
+    <div id=nqln style="PADDING:1em 0pt; TEXT-ALIGN:left">
+      <img id=bkjx src="http://opensocial-resources-zh.googlecode.com/svn/trunk/gadget-dev-tutorial/images/viewer_owner.png" style="WIDTH:299px; HEIGHT:159px">
+    </div>
+  </div>
+  另一个关键字串是
+  "<span id=zhsj1 style=COLOR:#38761d>VIEWER_FRIENDS</span>"，是一个组代号，在上面的例子中表示张三的所有朋友。因此请求结果将是一个集合。详细请参见关于
+  <a href=http://code.google.com/intl/zh-CN/apis/opensocial/docs/0.7/reference/opensocial.Collection.html id=k.33 title=http://code.google.com/intl/zh-CN/apis/opensocial/docs/0.7/reference/opensocial.Collection.html>Collection</a>
+  的定义与说明。<br id=e8sc0>
+  <br id=e8sc1>
+  那么，我们先来看如何发送一个获取自己朋友的请求。在这里我们先请求自己的用户信息和自己的朋友列表。请参见关于
+  <a href=http://code.google.com/intl/zh-CN/apis/opensocial/docs/0.7/reference/opensocial.DataRequest.html id=vf5q title=http://code.google.com/intl/zh-CN/apis/opensocial/docs/0.7/reference/opensocial.DataRequest.html>DataRequest</a>
+  的定义与说明。<br id=sv4p>
+  <blockquote class=g-unit id=aeuc style="COLOR:#38761d; BACKGROUND-COLOR:#f3f3f3">
+    <span class=Apple-style-span id=oq3.5 style=FONT-FAMILY:Tahoma>/* 发送
+    Opensocial API 请求 */<br id=zeh00>
+    function reloadAll() {<br id=sv4p0>
+    &nbsp; var req = new opensocial.DataRequest();<br id=sv4p1>
+    </span><span class=Apple-style-span id=pddi0><b id=txrj1><span class=Apple-style-span id=oq3.6 style=FONT-FAMILY:Tahoma>&nbsp;
+    req.add(req.newFetchPersonRequest('VIEWER'), 'v');<br id=sv4p2>
+    &nbsp; req.add(req.newFetchPeopleRequest('VIEWER_FRIENDS'),
+    'vf');</span></b></span><span class=Apple-style-span id=oq3.7 style=FONT-FAMILY:Tahoma><br id=sv4p3>
+    </span><b id=uhjr0><span class=Apple-style-span id=oq3.8 style=FONT-FAMILY:Tahoma>&nbsp;
+    </span></b><span class=Apple-style-span id=jpze><b id=q13b><span class=Apple-style-span id=oq3.9 style=FONT-FAMILY:Tahoma>req.send(onReloadAll);</span></b></span><span class=Apple-style-span id=oq3.10 style=FONT-FAMILY:Tahoma><br id=sv4p4>
+    }</span>
+  </blockquote>
+  <br id=j6v-9>
+  <p id=c6pk166>
+    发送请求的命令中指定了 Callback
+    方法，当平台的服务器返回数据结果之后，就执行这个方法。这个方法可以把数据结果显示出来，或者执行更多的数据请求操作。请参见关于&nbsp;<a href=http://code.google.com/intl/zh-CN/apis/opensocial/docs/0.7/reference/opensocial.DataResponse.html id=hji4 title=http://code.google.com/intl/zh-CN/apis/opensocial/docs/0.7/reference/opensocial.DataResponse.html>DataResponse</a>&nbsp;和&nbsp;<a href=http://code.google.com/intl/zh-CN/apis/opensocial/docs/0.7/reference/opensocial.ResponseItem.html id=n-ba title=http://code.google.com/intl/zh-CN/apis/opensocial/docs/0.7/reference/opensocial.ResponseItem.html>ResponseItem</a>&nbsp;的定义与说明。
+  </p>
+  <p id=c6pk166>
+    <br id=g6e->
+  </p>
+  <p id=c6pk166>
+    我们定义了两个全局的变量
+    <span class=Apple-style-span id=xjwg1 style=COLOR:#38761d>viewer </span>和
+    <span class=Apple-style-span id=xjwg2 style=COLOR:#38761d>viewerFriends</span>，以便这些数据可以后面其他方法使用。以下这段代码说明了如何处理获得的数据，以及将自己和朋友的名字显示出来：
+  </p>
+  <p id=c6pk166>
+  </p>
+  <blockquote class=g-unit id=aeuc style="COLOR:#38761d; BACKGROUND-COLOR:#f3f3f3">
+    <span class=Apple-style-span id=oq3.11 style=FONT-FAMILY:Tahoma>var
+    viewer;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    // 类型：opensocial.Person<br id=srl1>
+    var viewerFriends;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //
+    类型：opensocial.Collection<br id=srl10>
+    <br id=srl11>
+    // ...<br id=tks20>
+    <br id=jic_>
+    <br id=tks21>
+    /* 显示基本信息 */<br id=srl12>
+    </span><span class=Apple-style-span id=tks22 style=COLOR:#000000>
+    <p id=c6pk166 style=MARGIN:0px>
+      <span class=Apple-style-span id=tks23 style=COLOR:#38761d><span class=Apple-style-span id=oq3.12 style=FONT-FAMILY:Tahoma>function
+      showBasic() {</span></span>
+    </p>
+    <p id=c6pk166 style=MARGIN:0px>
+      <span class=Apple-style-span id=tks24 style=COLOR:#38761d><span class=Apple-style-span id=oq3.13 style=FONT-FAMILY:Tahoma><br id=jic_0>
+      &nbsp;&nbsp;/* 显示 VIEWER 名字 */</span></span>
+    </p>
+    <p id=c6pk166 style=MARGIN:0px>
+      <span class=Apple-style-span id=tks26 style=COLOR:#38761d><span class=Apple-style-span id=oq3.14 style=FONT-FAMILY:Tahoma>&nbsp;&nbsp;document.getElementById('me').innerHTML
+      =
+      </span><span class=Apple-style-span id=xorp><b id=g.400><span class=Apple-style-span id=oq3.15 style=FONT-FAMILY:Tahoma>viewer.getDisplayName()</span></b></span><span class=Apple-style-span id=oq3.16 style=FONT-FAMILY:Tahoma>;</span></span>
+    </p>
+    <p id=c6pk166 style=MARGIN:0px>
+      <span class=Apple-style-span id=jic_1 style=COLOR:#38761d><span class=Apple-style-span id=oq3.17 style=FONT-FAMILY:Tahoma><br id=jic_2>
+      &nbsp;&nbsp;/* 显示 VIEWER 的朋友名字 */</span></span>
+    </p>
+    <p id=c6pk166 style=MARGIN:0px>
+      <span class=Apple-style-span id=tks29 style=COLOR:#38761d><span class=Apple-style-span id=oq3.18 style=FONT-FAMILY:Tahoma>&nbsp;&nbsp;var
+      html = new Array();</span></span>
+    </p>
+    <p id=c6pk166 style=MARGIN:0px>
+      <span class=Apple-style-span id=tks210 style=COLOR:#38761d><span class=Apple-style-span id=oq3.19 style=FONT-FAMILY:Tahoma>&nbsp;&nbsp;viewerFriends.each(function(friend)
+      {</span></span>
+    </p>
+    <p id=c6pk166 style=MARGIN:0px>
+      <span class=Apple-style-span id=tks211 style=COLOR:#38761d><span class=Apple-style-span id=oq3.20 style=FONT-FAMILY:Tahoma>&nbsp;&nbsp;
+      &nbsp;html.push(</span><span class=Apple-style-span id=xorp0><b id=g.401><span class=Apple-style-span id=oq3.21 style=FONT-FAMILY:Tahoma>friend.getDisplayName()</span></b></span><span class=Apple-style-span id=oq3.22 style=FONT-FAMILY:Tahoma>
+      + ", ");</span></span>
+    </p>
+    <p id=c6pk166 style=MARGIN:0px>
+      <span class=Apple-style-span id=tks212 style=COLOR:#38761d><span class=Apple-style-span id=oq3.23 style=FONT-FAMILY:Tahoma>&nbsp;&nbsp;});</span></span>
+    </p>
+    <p id=c6pk166 style=MARGIN:0px>
+      <span class=Apple-style-span id=tks213 style=COLOR:#38761d><span class=Apple-style-span id=oq3.24 style=FONT-FAMILY:Tahoma>&nbsp;&nbsp;document.getElementById('friends').innerHTML
+      = html.join('');</span></span>
+    </p>
+    <p id=c6pk166 style=MARGIN:0px>
+      <span class=Apple-style-span id=tks214 style=COLOR:#38761d><span class=Apple-style-span id=oq3.25 style=FONT-FAMILY:Tahoma>};</span></span>
+    </p>
+    </span><span class=Apple-style-span id=oq3.26 style=FONT-FAMILY:Tahoma><br id=o:u51>
+    <br id=zeh01>
+    /* 处理 Opensocial API 响应 */<br id=esp7>
+    function onReloadAll(dataResponse) {<br id=esp70>
+    <br id=jic_3>
+    &nbsp;&nbsp;/* 获取数据 */<br id=esp72>
+    </span><b id=jldn><span class=Apple-style-span id=oq3.27 style=FONT-FAMILY:Tahoma>&nbsp;
+    viewer = dataResponse.get('v').getData() || {};<br id=esp73>
+    &nbsp; viewerFriends = dataResponse.get('vf').getData() || {};<br id=uxvr>
+    </span></b><span class=Apple-style-span id=oq3.28 style=FONT-FAMILY:Tahoma><br id=jic_4>
+    &nbsp;&nbsp;/* 显示数据 */<br id=esp75>
+    &nbsp;&nbsp;showBasic();<br id=esp714>
+    };</span>
+  </blockquote>
+  <p id=c6pk166>
+    <br id=u.4r>
+  </p>
+  <p id=c6pk181>
+    我们还需在 Gadget 中定义页面元素用于显示，我们在 Gadget 的 XML 文件中添加相应的 HTML 语句：
+  </p>
+  <blockquote class=g-unit id=aeuc style="COLOR:#38761d; BACKGROUND-COLOR:#f3f3f3">
+    <span class=Apple-style-span id=oq3.29 style=FONT-FAMILY:Tahoma>&lt;?xml
+    version="1.0" encoding="UTF-8"?&gt;<br id=n3bb>
+    &lt;Module&gt;<br id=n3bb0>
+    &nbsp; &lt;ModulePrefs title="Just Read - Part 1 - Me and My Friends"<br id=lc:e0>
+    &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; author_email="your.email@foo.bar" height="500"&gt;<br id=n3bb1>
+    &nbsp;&nbsp;&nbsp; &lt;Require feature="opensocial-0.7"/&gt;<br id=n3bb2>
+    &nbsp; &lt;/ModulePrefs&gt;<br id=n3bb3>
+    &nbsp; &lt;Content type="html"&gt;<br id=n3bb4>
+    &nbsp;&nbsp;&nbsp; &lt;![CDATA[<br id=n3bb5>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;script type="text/javascript"&gt;<br id=n3bb6>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* ...省略... */<br id=n3bb7>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/script&gt;<br id=n3bb8>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span><span class=Apple-style-span id=oq3.30 style=FONT-FAMILY:Tahoma>&lt;div
+    id='main'&gt;</span><b id=uaa7><span class=Apple-style-span id=oq3.30 style=FONT-FAMILY:Tahoma><br id=n3bb9>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;b&gt;我：&lt;/b&gt;<br id=cd2y>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p id='me'&gt;&lt;/p&gt;<br id=qv:e0>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;b&gt;我的朋友：&lt;/b&gt;<br id=qv:e1>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p id='friends'&gt;&lt;/p&gt;<br id=n3bb11>
+    </span></b><span class=Apple-style-span id=oq3.30 style=FONT-FAMILY:Tahoma>
+    &nbsp;&nbsp; &nbsp;
+    &nbsp;&lt;/div&gt;</span><span class=Apple-style-span id=oq3.31 style=FONT-FAMILY:Tahoma><br id=n3bb12>
+    &nbsp;&nbsp;&nbsp; ]]&gt;<br id=n3bb13>
+    &nbsp; &lt;/Content&gt;<br id=n3bb14>
+    &lt;/Module&gt;</span>
+  </blockquote>
+  <pre id=f2vo style=FONT-FAMILY:Verdana><span class=Apple-style-span id=b_qz6>源文件： </span><a href=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-1.xml id=npm4 title=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-1.xml><span class=Apple-style-span id=b_qz7>just-read-1.xml</span></a> <span id=hwu8 style=COLOR:#000000><span class=Apple-style-span id=b_qz9>[ </span><b id=ubd0><span id=kd:s style=COLOR:#741b47><span class=Apple-style-span id=b_qz10>rurl.org/sgu</span></span></b><span class=Apple-style-span id=b_qz11> ]<br id=dhp6>
+<div id=j48d style="PADDING:1em 0pt; TEXT-ALIGN:left"><img id=wtsy src="http://opensocial-resources-zh.googlecode.com/svn/trunk/gadget-dev-tutorial/images/g1.png" style="WIDTH:383px; HEIGHT:189px"><br id=zj5t>
+<br id=zj5t0>
+</div></span></span></pre>
+  <pre id=f2vo style=FONT-FAMILY:Verdana><span id=hwu8 style=COLOR:#000000><span class=Apple-style-span id=b_qz11><h3 id=zj5t1><a id=j6v4 name=示例_2：读一本书></a>示例 2：读一本书</h3></span></span></pre>
+  现在，我们来实现如何读一本书的功能。简单的讲，读一本书就是在关于我的某个存储空间里记录一下我读了叫某个名字的书。在这一节里，我们会讲如何使用
+  Opensocial API 来存储和读取关于 Gadget 和用户的数据。<br id=c5bh>
+  <p id=c6pk206>
+    <br id=tc_y>
+  </p>
+  在这一节我们简单的用一个数组来表示，同时显示出来，并且每个书名都可以点击。首先我们在用于显示的 div 中加上：
+  <blockquote class=g-unit id=aeuc style="COLOR:#38761d; BACKGROUND-COLOR:#f3f3f3">
+    <span class=Apple-style-span id=eyjx1 style=FONT-FAMILY:Tahoma>&lt;div
+    id='main'&gt;<br id=n3bb9>
+    &nbsp;&nbsp;&nbsp; &lt;b&gt;我：&lt;/b&gt;<br id=w-cb>
+    &nbsp;&nbsp;&nbsp; &lt;p id='me'&gt;&lt;/p&gt;<br id=w-cb0>
+    &nbsp;&nbsp;&nbsp; &lt;b&gt;我的朋友：&lt;/b&gt;<br id=w-cb1>
+    &nbsp;&nbsp;&nbsp; &lt;p id='friends'&gt;&lt;/p&gt;<b id=w-cb2><br id=w-cb3>
+    &nbsp;&nbsp;&nbsp; &lt;b&gt;书架：&lt;/b&gt;<br id=w-cb4>
+    &nbsp;&nbsp;&nbsp; &lt;ul id='allBooks'&gt;&lt;/ul&gt;</b><br id=n3bb11>
+    &lt;/div&gt;<br id=oqxh>
+    </span>
+  </blockquote>
+  <p id=c6pk208 style=MARGIN:0px>
+    <br id=oqxh0>
+  </p>
+  <p id=c6pk208 style=MARGIN:0px>
+    我们先使用一个数组来保存书籍列表，然后我们加上一个
+    <span class=Apple-style-span id=a6y.0 style="FONT-FAMILY:Verdana; COLOR:#38761d">showAvailableBooks</span>
+    <span class=Apple-style-span id=c65g style=COLOR:#38761d><span class=Apple-style-span id=c65g0 style=COLOR:#000000>方法显示这些书的名字。</span></span>
+  </p>
+  <blockquote class=g-unit id=aeuc style="COLOR:#38761d; BACKGROUND-COLOR:#f3f3f3">
+    <span class=Apple-style-span id=kl4k><b id=dq6n0><span class=Apple-style-span id=a6y. style=FONT-FAMILY:Tahoma>var
+    bookList = ['西游记', '三国演义', '水浒传',
+    '红楼梦'];</span></b></span><span class=Apple-style-span id=a6y.0 style=FONT-FAMILY:Tahoma><br id=qhgx0>
+    <br id=ose0>
+    /* 可点击的书名 */<br id=ose00>
+    function bookHTML(book) {<br id=ose01>
+    &nbsp; return "&lt;li style='cursor:pointer'
+    <b id=vqnz>onclick=\"onReadBook</b>(\'" + book + "\');\"&gt;" +<br id=ose02>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "&lt;i&gt;" +
+    book + "&lt;/i&gt;&lt;/li&gt;";<br id=ose03>
+    };<br id=ose04>
+    <br id=er45>
+    /* 显示书架里的书名 */<br id=qhgx1>
+    function
+    </span><span class=Apple-style-span id=a6y.0 style=FONT-FAMILY:Tahoma>showAvailableBooks</span><span class=Apple-style-span id=a6y.0 style=FONT-FAMILY:Tahoma>()
+    {<br id=qhgx2>
+    &nbsp; var html = new Array();<br id=qhgx3>
+    &nbsp; var len = bookList.length;<br id=qhgx4>
+    &nbsp; for (var i = 0; i &lt; len; ++i) {<br id=qhgx5>
+    &nbsp;&nbsp;&nbsp;
+    <b id=ose05>html.push(bookHTML(bookList[i]));</b><br id=qhgx11>
+    &nbsp; }<br id=qhgx12>
+    &nbsp; document.getElementById('allBooks').innerHTML = html.join('');<br id=qhgx13>
+    };<br id=smvx1>
+    </span>
+  </blockquote>
+  <pre id=f2vo><span class=Apple-style-span id=ebhf style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><br id=q95a>
+相应的在 <span id=q95a0 style="FONT-FAMILY:Verdana; COLOR:#38761d">onReloadAll </span>方法中添加对</span><span class=Apple-style-span id=a6y.0 style="FONT-FAMILY:Verdana; COLOR:#38761d"> showAvailableBooks</span><span class=Apple-style-span id=c65g style=COLOR:#38761d><span class=Apple-style-span id=c65g0 style=COLOR:#000000><span id=vlns style=COLOR:#38761d> <span id=q95a1 style=COLOR:#000000>的调用：<br id=q95a2>
+</span></span></span></span></pre>
+  <blockquote class=g-unit id=aeuc style="COLOR:#38761d; BACKGROUND-COLOR:#f3f3f3">
+    <span class=Apple-style-span id=kl4k><span class=Apple-style-span id=a6y. style=FONT-FAMILY:Tahoma>function
+    onReloadAll(dataResponse) {<br id=vxzs>
+    <br id=vxzs0>
+    &nbsp; // ...<br id=vxzs1>
+    <br id=vxzs2>
+    &nbsp; /* 显示数据 */<br id=vxzs3>
+    &nbsp; showBasic();<br id=vxzs4>
+    &nbsp; <b id=vxzs5>showAvailableBooks();</b><br id=vxzs6>
+    };</span></span><span class=Apple-style-span id=a6y.0 style=FONT-FAMILY:Tahoma><br id=smvx1>
+    </span>
+  </blockquote>
+  <br id=id:2>
+  在<span class=Apple-style-span id=ebhf style="FONT-FAMILY:Verdana; WHITE-SPACE:normal">响应点击事件的&nbsp;<span class=Apple-style-span id=ffl90 style=COLOR:#38761d>onReadBook&nbsp;</span>方法中，调用了&nbsp;<span class=Apple-style-span id=bk4j style=COLOR:#38761d>newUpdatePersonAppDataRequest&nbsp;</span>这个
+  API 来向平台写入新的数据，内容就是一个用 JSON 串行化了的数组，表示我读了那几本书，存到这个 Gadget 的存储空间中，已当前用户 ID
+  和一个给定的字串进行索引</span><span class=Apple-style-span id=ebhf style="FONT-FAMILY:Verdana; WHITE-SPACE:normal">（在这里用
+  'books'，别的数据可以添加别的字串）</span><span class=Apple-style-span id=ebhf style="FONT-FAMILY:Verdana; WHITE-SPACE:normal">：<br id=ebhf1>
+  </span>
+  <pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><blockquote class=g-unit id=aeuc style="BORDER:1px dashed #dddddd; PADDING:10px; BACKGROUND-COLOR:#f3f3f3"><span class=Apple-style-span id=bk4j0 style=COLOR:#38761d><span class=Apple-style-span id=a6y.1 style=FONT-FAMILY:Tahoma>/* 处理书名点击响应 */<br id=vugx>
+function onReadBook(book) {<br id=vugx0>
+&nbsp; <br id=a-e3>
+&nbsp; /* 串行化新的数据 */<br id=apsw>
+&nbsp;&nbsp;var books = [];<br id=apsw0>
+&nbsp;&nbsp;books.push(book);<br id=apsw1>
+&nbsp;&nbsp;<b id=a-e30>json = gadgets.json.stringify(books);</b><br id=bk4j1>
+<br id=pwnf>
+&nbsp; /* 发送更新请求 */<br id=pwnf0>
+&nbsp;&nbsp;var req = opensocial.newDataRequest();<br id=p1vm>
+&nbsp;&nbsp;</span><span class=Apple-style-span id=iiud><b id=c:6b><span class=Apple-style-span id=a6y.2 style=FONT-FAMILY:Tahoma>req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'books', json));</span></b></span><span class=Apple-style-span id=a6y.3 style=FONT-FAMILY:Tahoma><br id=p1vm0>
+&nbsp;&nbsp;req.send(function(dataResponse) {<br id=a-e31>
+&nbsp;&nbsp;&nbsp; alert("我读了" + book);<br id=p1vm1>
+&nbsp;&nbsp; &nbsp;/* 更新后刷新所有数据 */<br id=p1vm2>
+&nbsp;&nbsp; &nbsp;reloadAll();<br id=p1vm3>
+&nbsp;&nbsp;});<br id=p1vm4>
+};</span></span></blockquote><div id=br:e3><span class=Apple-style-span id=b_qz6 style=FONT-FAMILY:Verdana>源文件： </span><a href=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-2xml id=npm4 title=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-2.xml><span class=Apple-style-span id=b_qz7 style=FONT-FAMILY:Verdana>just-read-2.xml</span></a> <span class=Apple-style-span id=b_qz9 style=FONT-FAMILY:Verdana>[ </span><b id=ubd0><span id=kd:s style=COLOR:#741b47><span class=Apple-style-span id=b_qz10 style=FONT-FAMILY:Verdana>rurl.org/sgv</span></span></b> ]<br id=wtsy0>
+<div id=ajw1 style="PADDING:1em 0pt; TEXT-ALIGN:left"><img id=likz src="http://opensocial-resources-zh.googlecode.com/svn/trunk/gadget-dev-tutorial/images/g2.png" style="WIDTH:383px; HEIGHT:287px"></div><span class=Apple-style-span id=br:e4 style=COLOR:#38761d><span class=Apple-style-span id=zmux style=COLOR:#000000><br id=id:21>
+</span></span><pre id=f2vo style=FONT-FAMILY:Verdana><span id=hwu8 style=COLOR:#000000><span class=Apple-style-span id=b_qz11><h3 id=c6pk205><a id=ktwy name=示例_3：自己读过的书></a>示例 3：自己读过的书</h3></span></span></pre>接下来我们开始编写获取和显示已经读过哪些书籍的列表，否则在之前的 Gadget 里面，点击一本书之后不会有任何变化，因为在 <span id=jzii style=COLOR:#38761d>reloadAll </span>方法中并没有请求朋友以外的其他数据。<br id=v44m>
+<br id=v44m0>
+那么首先，我们先定义一个全局的变量保存已读书籍的，然后在 <span id=sfug style=COLOR:#38761d>reloadAll </span>中添加发送请求 Gadget 在平台上所存的数据的代码，以及在 <span id=jzii0 style=COLOR:#38761d>onReloadAll </span>中添加相应的获取数据的代码：<span class=Apple-style-span id=c65g style=COLOR:#38761d><span class=Apple-style-span id=c65g0 style=COLOR:#000000><span id=vlns style=COLOR:#38761d><span id=q95a1 style=COLOR:#000000><br id=q95a2>
+</span></span></span></span><blockquote class=g-unit id=aeuc style="COLOR:#38761d; BACKGROUND-COLOR:#f3f3f3"><span class=Apple-style-span id=kl4k style=FONT-FAMILY:Tahoma><span class=Apple-style-span id=a6y.>var viewer;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* 类型：opensocial.Person&nbsp; */<br id=uzwx>
+var viewerFriends;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* 类型：opensocial.Collection&nbsp; */<br id=uzwx0>
+<b id=uzwx1>var viewerBooks;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> /* 类型：{'books': json }&nbsp; */<br id=m0lq>
+<br id=uzwx2>
+// ...<br id=uzwx3>
+<br id=m0lq0>
+/* 发送 Opensocial API 请求 */<br id=f06->
+function reloadAll() {<br id=f06-0>
+&nbsp; var req = new opensocial.DataRequest();<br id=f06-1>
+&nbsp; req.add(req.newFetchPersonRequest('VIEWER'), 'v');<br id=f06-2>
+&nbsp; req.add(req.newFetchPeopleRequest('VIEWER_FRIENDS'), 'vf');<br id=f06-3>
+&nbsp; <b id=f06-4>req.add(req.newFetchPersonAppDataRequest('VIEWER', 'books'), 'vd');</b><br id=f06-5>
+&nbsp; req.send(onReloadAll);<br id=f06-6>
+};<br id=f06-7>
+<br id=f06-8>
+<br id=f06-9>
+/* 处理 Opensocial API 响应 */<br id=f06-10>
+function onReloadAll(dataResponse) {<br id=f06-11>
+<br id=f06-12>
+&nbsp; /* 获取数据 */<br id=f06-13>
+&nbsp; viewer = dataResponse.get('v').getData() || {};<br id=f06-14>
+&nbsp; viewerFriends = dataResponse.get('vf').getData() || {};<br id=f06-15>
+&nbsp; <b id=f06-16>viewerBooks = dataResponse.get('vd').getData()[viewer.getId()] || {};</b><br id=f06-17>
+<br id=f06-18>
+&nbsp; /* 显示数据 */<br id=f06-19>
+&nbsp; showBasic();<br id=f06-20>
+&nbsp; showAvailableBooks();<br id=f06-21>
+&nbsp; <b id=uz:t>showViewerBooks();</b><br id=f06-22>
+};</span></span><span class=Apple-style-span id=a6y.0 style=FONT-FAMILY:Tahoma><br id=smvx1>
+</span></blockquote><br id=um7i1>
+在添加一段显示已读书籍的 <span id=eorv style="COLOR:#38761d; FONT-FAMILY:Verdana">showViewerBooks </span>代码。其中要注意变量 <span id=jzii1 style=COLOR:#38761d>viewerBooks </span>的类型，从平台返回的是事先串行化成 JSON 格式之后的数据，因此要进行解析。<br id=e7jm>
+<pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><blockquote class=g-unit id=aeuc style="BORDER:1px dashed #dddddd; PADDING:10px; BACKGROUND-COLOR:#f3f3f3"><span class=Apple-style-span id=bk4j0 style=COLOR:#38761d><span class=Apple-style-span id=a6y.1 style=FONT-FAMILY:Tahoma>/* 显示自己已读过的书 */<br id=g0jb>
+function showViewerBooks() {<br id=g0jb0>
+<br id=ca0i>
+&nbsp; /* 解析当前数据 */<br id=g0jb1>
+&nbsp; <b id=ql6.>var json = viewerBooks['books'];</b><br id=g0jb2>
+&nbsp; var books = [];<br id=g0jb3>
+&nbsp; try&nbsp; {<br id=g0jb4>
+&nbsp;&nbsp;&nbsp; <b id=g0jb5>books = gadgets.json.parse(gadgets.util.unescapeString(json)) || [];</b><br id=g0jb6>
+&nbsp; } catch(e) {<br id=g0jb7>
+&nbsp;&nbsp;&nbsp; books = [];<br id=g0jb8>
+&nbsp; }<br id=ca0i0>
+<br id=ca0i1>
+&nbsp; var html = new Array();<br id=g0jb9>
+&nbsp; var len = books.length;<br id=g0jb10>
+&nbsp; for (var i = 0; i &lt; len; ++i) {<br id=g0jb11>
+&nbsp;&nbsp;&nbsp; html.push("&lt;li&gt;&lt;i&gt;" + books[i] + "&lt;/i&gt;&lt;/li&gt;");<br id=g0jb12>
+&nbsp; }<br id=g0jb13>
+&nbsp; document.getElementById('viewerBooks').innerHTML = html.join('');<br id=g0jb14>
+};</span></span></blockquote><div id=br:e3><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><br id=t0ri>
+在处理书名点击相应的 <span id=mh0o style="FONT-FAMILY:Verdana; COLOR:#38761d">onReadBook </span>方法里，要把下次点击输入的书名进行和已有的已读列表进行比较，如果没有重复则附加在列表中，再像之前那样向平台发送数据存储请求：</span></pre></span><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><blockquote class=g-unit id=aeuc style="BORDER:1px dashed #dddddd; PADDING:10px; BACKGROUND-COLOR:#f3f3f3; FONT-FAMILY:Tahoma"><span class=Apple-style-span id=bk4j0 style=COLOR:#38761d><span class=Apple-style-span id=a6y.1>/* 处理书名点击响应 */<br id=vugx>
+function onReadBook(book) {<br id=vugx0>
+<br id=apsw>
+<b id=rzmf>&nbsp; /* 解析当前数据 */<br id=fbf:>
+&nbsp; var json = viewerBooks['books'];<br id=fbf:0>
+&nbsp; var books = [];<br id=fbf:1>
+&nbsp; try&nbsp; {<br id=fbf:2>
+&nbsp;&nbsp;&nbsp; books = gadgets.json.parse(gadgets.util.unescapeString(json)) || [];<br id=fbf:3>
+&nbsp; } catch(e) {<br id=fbf:4>
+&nbsp;&nbsp;&nbsp; books = [];<br id=fbf:5>
+&nbsp; }<br id=fbf:6>
+<br id=fbf:7>
+&nbsp; /* 检查是否已经读过 */<br id=fbf:8>
+&nbsp; var len = books.length;<br id=fbf:9>
+&nbsp; for (var i = 0; i &lt; len; ++i) {<br id=fbf:10>
+&nbsp;&nbsp;&nbsp; if (book == books[i]) {<br id=fbf:11>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alert("我已经读过" + book + "了");<br id=fbf:12>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return;<br id=fbf:13>
+&nbsp;&nbsp;&nbsp; }<br id=fbf:14>
+&nbsp; }</b><br id=bk4j1>
+<br id=z4l_>
+&nbsp; /* 串行化新的数据 */<br id=wnfp>
+&nbsp; books.push(book);<br id=wnfp0>
+&nbsp; json = gadgets.json.stringify(books);<br id=wnfp1>
+<br id=pwnf>
+&nbsp;&nbsp;/* 发送更新请求 */<br id=pwnf0>
+&nbsp;&nbsp;var req = opensocial.newDataRequest();<br id=p1vm>
+&nbsp;&nbsp;</span><span class=Apple-style-span id=iiud><span class=Apple-style-span id=a6y.2>req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'books', json));</span></span><span class=Apple-style-span id=a6y.3><br id=p1vm0>
+&nbsp;&nbsp;req.send(function(dataResponse) {<br id=j4hd>
+&nbsp;&nbsp;&nbsp; alert("我读了" + book);<br id=p1vm1>
+&nbsp;&nbsp; &nbsp;/* 更新后刷新所有数据 */<br id=p1vm2>
+&nbsp;&nbsp; &nbsp;reloadAll();<br id=p1vm3>
+&nbsp;&nbsp;});<br id=p1vm4>
+};</span></span></blockquote><div id=br:e3><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><br id=t0ri0>
+最后在底部的 div 内加入已读书列表的<span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal">指定显示的区域</span>，同时再添加一个可以清空已读书列表的按钮：<br id=id:20>
+<blockquote class=g-unit id=aeuc style="COLOR:#38761d; BACKGROUND-COLOR:#f3f3f3"><span class=Apple-style-span id=eyjx1 style=FONT-FAMILY:Tahoma>&lt;div id='main'&gt;<br id=n3bb9>
+&nbsp; &lt;b&gt;我：&lt;/b&gt;<br id=rjoy>
+&nbsp; &lt;p id='me'&gt;&lt;/p&gt;<br id=rjoy0>
+&nbsp; &lt;b&gt;我的朋友：&lt;/b&gt;<br id=rjoy1>
+&nbsp; &lt;p id='friends'&gt;&lt;/p&gt;<br id=rjoy2>
+<b id=rjoy3>&nbsp; &lt;b&gt;我读过的书：&lt;/b&gt;<br id=rjoy4>
+&nbsp; &lt;u style='cursor:pointer' onclick='onClearBooks();'&gt;[清空]&lt;/u&gt;<br id=rjoy5>
+&nbsp; &lt;ul id='viewerBooks'&gt;&lt;/ul&gt;</b><br id=rjoy6>
+&nbsp; &lt;b&gt;书架：&lt;/b&gt;<br id=rjoy7>
+&nbsp; &lt;ul id='allBooks'&gt;&lt;/ul&gt;<br id=n3bb11>
+&lt;/div&gt;<br id=oqxh>
+</span></blockquote><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><br id=p-nw>
+那么清空按钮的响应方法可以写成：(注：0.8版本新增了更直接的删除API)</span><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><blockquote class=g-unit id=aeuc style="COLOR:#38761d; BACKGROUND-COLOR:#f3f3f3"><span class=Apple-style-span id=eyjx1 style=FONT-FAMILY:Tahoma>function onClearBooks() {<br id=c:ou>
+&nbsp; var req = opensocial.newDataRequest();<br id=c:ou0>
+&nbsp; <b id=c:ou1>req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'books', null));</b><br id=c:ou2>
+&nbsp; req.send(function(dataResponse) {<br id=x5uw>
+&nbsp;&nbsp;&nbsp; </span><span id=bevg style=FONT-FAMILY:Tahoma>alert("清空了");</span><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Tahoma; WHITE-SPACE:normal"><span class=Apple-style-span id=bk4j0 style=COLOR:#38761d><span class=Apple-style-span id=a6y.3><br id=r3p3>
+&nbsp; &nbsp; /* 更新后刷新所有数据 */</span></span></span><br id=c:ou3 style=FONT-FAMILY:Tahoma>
+<span class=Apple-style-span id=eyjx1 style=FONT-FAMILY:Tahoma><span id=bevg0 style=FONT-FAMILY:Tahoma>&nbsp; &nbsp; reloadAll();</span><br id=c:ou4 style=FONT-FAMILY:Tahoma>
+<span id=bevg1 style=FONT-FAMILY:Tahoma>&nbsp; });</span><br id=c:ou5 style=FONT-FAMILY:Tahoma>
+<span id=bevg2 style=FONT-FAMILY:Tahoma>}</span><br id=oqxh>
+</span></blockquote></span></pre></span></pre></span></pre></span></pre></span><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><span class=Apple-style-span id=b_qz6>源文件： </span><a href=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-3.xml id=npm4 title=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-3.xml><span class=Apple-style-span id=b_qz7>just-read-3.xml</span></a> <span class=Apple-style-span id=b_qz9>[ </span><b id=ubd0><span id=kd:s style=COLOR:#741b47><span class=Apple-style-span id=b_qz10>rurl.org/sgw </span></span></b>]<br id=likz0>
+<div id=wh7t style="PADDING:1em 0pt; TEXT-ALIGN:left"><img id=fiix src="http://opensocial-resources-zh.googlecode.com/svn/trunk/gadget-dev-tutorial/images/g3.png" style="WIDTH:383px; HEIGHT:260px"></div><br id=likz2>
+</span></pre></span></span></pre></span></pre><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><h3 id=c6pk205><a id=clbb name=示例_4：别人读过的书></a><span id=xm1a style=FONT-FAMILY:Verdana>示例 4：别人读过的书</span></h3></span></pre>接下来，我们再来给 Gadget 添加更多的内容。<br id=lv4o>
+<br id=wmrm>
+前面讲过<span id=d.yr style=COLOR:#38761d><span id=d.yr0 style=COLOR:#000000>，</span>VIEWER </span>仅代表自己，也就是浏览页面的人，因此不管是谁在自己的页面上放置了 <span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><a href=http://opensocial-resources-zh.googlecode.com/svn/trunk/gadget-dev-tutorial/just-read-3.xml id=npm4 title=just-read-3.xml><span class=Apple-style-span id=b_qz7 style=FONT-FAMILY:Verdana>just-read-3.xml</span></a></span> 这个 Gadget，看到的人都只能看到同样的东西。一个页面的所有者在 Gadget 中叫 <span id=ltjg style=COLOR:#38761d>OWNER</span> ，我们也可以让 Gadget 显示 <span id=d.yr1 style=COLOR:#38761d>OWNER </span>读过的书，这样，你去谁的主页就可以看到谁在看什么书，同时和自己看的书进行对比。<br id=d4sm>
+<br id=d4sm0>
+另外，我也可以在我的 Gadget 中同时列出我的朋友的信息，只要用 <span id=hnuq style=COLOR:#38761d>VIEWER_FRIENDS</span> 去请求数据，就能得到自己所有的朋友都看过什么书。<br id=awes>
+<br id=awes0>
+首先，我们添加对新数据的获取和处理代码。请注意 <span id=l5y3 style=COLOR:#38761d>viewerFriendsBooks </span>变量的类型格式，是一个用朋友 id 作为 key 的对象。<br id=oynk>
+<span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><blockquote class=g-unit id=aeuc style="COLOR:#38761d; BACKGROUND-COLOR:#f3f3f3"><span class=Apple-style-span id=kl4k style=FONT-FAMILY:Tahoma><span class=Apple-style-span id=a6y.>var viewer;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 类型：opensocial.Person<br id=kqcy>
+var viewerFriends;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 类型：opensocial.Collection<br id=kqcy0>
+var viewerBooks;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 类型：{'books': json}<br id=kqcy1>
+<b id=kqcy3>var owner;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 类型：opensocial.Person<b id=kqcy3><br id=kqcy4>
+var ownerBooks;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; </b>// 类型：{'books': json}<b id=kqcy3><br id=kqcy5>
+var viewerFriendsBooks; &nbsp;</b> // 类型：{id: {'books': json}}<br id=m0lq>
+<br id=uzwx2>
+// ...<br id=uzwx3>
+<br id=m0lq0>
+/* 发送 Opensocial API 请求 */<br id=f06->
+function reloadAll() {<br id=f06-0>
+&nbsp; var req = new opensocial.DataRequest();<br id=f06-1>
+&nbsp; req.add(req.newFetchPersonRequest('VIEWER'), 'v');<br id=f06-2>
+&nbsp; req.add(req.newFetchPeopleRequest('VIEWER_FRIENDS'), 'vf');<br id=f06-3>
+&nbsp; req.add(req.newFetchPersonAppDataRequest('VIEWER', 'books'), 'vd');<br id=emvp>
+<b id=emvp0>&nbsp; req.add(req.newFetchPersonRequest('OWNER'), 'o');<br id=emvp1>
+&nbsp; req.add(req.newFetchPersonAppDataRequest('OWNER', 'books'), 'od');<br id=emvp2>
+&nbsp; req.add(req.newFetchPersonAppDataRequest('VIEWER_FRIENDS', 'books'), 'vfd');<br id=f06-5>
+</b>&nbsp; req.send(onReloadAll);<br id=f06-6>
+};<br id=f06-7>
+<br id=f06-8>
+<br id=f06-9>
+/* 处理 Opensocial API 响应 */<br id=f06-10>
+function onReloadAll(dataResponse) {<br id=f06-11>
+<br id=f06-12>
+&nbsp; /* 获取数据 */<br id=f06-13>
+&nbsp; viewer = dataResponse.get('v').getData() || {};<br id=f06-14>
+&nbsp; viewerFriends = dataResponse.get('vf').getData() || {};<br id=f06-15>
+&nbsp; viewerBooks = dataResponse.get('vd').getData()[viewer.getId()] || {};<br id=f06-17>
+<b id=lcp60>&nbsp; owner = dataResponse.get('o').getData() || {};<br id=lcp61>
+&nbsp; ownerBooks = dataResponse.get('od').getData()[owner.getId()] || {};<br id=lcp62>
+&nbsp; viewerFriendsBooks = dataResponse.get('vfd').getData() || {};<br id=lcp63>
+</b><br id=f06-18>
+&nbsp; /* 显示数据 */<br id=f06-19>
+&nbsp; showBasic();<br id=f06-20>
+&nbsp; showAvailableBooks();<br id=f06-21>
+&nbsp; showViewerBooks();<br id=slh1>
+<b id=s:oi>&nbsp; showOwnerBooks();<br id=slh10>
+&nbsp; showFriendsBooks();<br id=slh11>
+</b>};</span></span></blockquote></span><br id=nw5w>
+然后我们再添加显示的方法 <span id=suos style=COLOR:#38761d>showOwnerBooks </span>和 <span id=suos0 style=COLOR:#38761d>showFriendsBooks </span>：<br id=e7jm>
+<pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><blockquote class=g-unit id=aeuc style="BORDER:1px dashed #dddddd; PADDING:10px; BACKGROUND-COLOR:#f3f3f3"><span class=Apple-style-span id=bk4j0 style=COLOR:#38761d><span class=Apple-style-span id=a6y.1 style=FONT-FAMILY:Tahoma>/* 显示基本信息 */<br id=pnmx>
+function showBasic() {<br id=pnmx0>
+&nbsp; // ...<br id=pnmx2>
+<b id=pnmx4>&nbsp; /* 显示 OWNER 的名字 */<br id=pnmx5>
+&nbsp; document.getElementById('ownerName').innerHTML = owner.getDisplayName();<br id=pnmx6>
+</b>};<br id=pnmx7>
+<br id=pnmx8>
+/* 显示对方已读过的书 */<br id=j7.5>
+function showOwnerBooks() {<br id=j7.50>
+&nbsp; /* 解析当前数据 */<br id=j7.51>
+&nbsp; <b id=ql6.0>var json = ownerBooks['books'];</b><br id=j7.52>
+&nbsp; var books = [];<br id=j7.53>
+&nbsp; try&nbsp; {<br id=j7.54>
+&nbsp;&nbsp;&nbsp; books = gadgets.json.parse(gadgets.util.unescapeString(json)) || [];<br id=j7.55>
+&nbsp; } catch(e) {<br id=j7.56>
+&nbsp;&nbsp;&nbsp; books = [];<br id=j7.57>
+&nbsp; }<br id=j7.58>
+&nbsp; <br id=j7.59>
+&nbsp; /* 显示书名 */<br id=j7.510>
+&nbsp; var html = new Array();<br id=j7.511>
+&nbsp; var len = books.length;<br id=j7.512>
+&nbsp; for (var i = 0; i &lt; len; ++i) {<br id=j7.513>
+&nbsp;&nbsp;&nbsp; html.push(bookHTML(books[i]));<br id=j7.514>
+&nbsp; }<br id=j7.515>
+&nbsp; document.getElementById('ownerBooks').innerHTML = html.join('');<br id=j7.516>
+};<br id=j7.517>
+<br id=j7.519>
+/* 显示朋友已读过的书 */<br id=j7.520>
+function showFriendsBooks() {<br id=j7.521>
+&nbsp; var html = new Array();<br id=j7.522>
+&nbsp;<br id=j7.523>
+&nbsp; /* 遍历每个朋友 */<br id=j7.524>
+&nbsp; for (var friendId in viewerFriendsBooks) {<br id=j7.525>
+<b id=ql6.1>&nbsp;&nbsp;&nbsp; var data = viewerFriendsBooks[friendId];<br id=j7.526>
+&nbsp;&nbsp;&nbsp; var friend = viewerFriends.getById(friendId);</b><br id=j7.527>
+&nbsp;&nbsp; &nbsp;<br id=j7.528>
+&nbsp;&nbsp;&nbsp; /* 解析数据 */<br id=j7.529>
+&nbsp;&nbsp;&nbsp; var json = data['books'];<br id=j7.530>
+&nbsp;&nbsp;&nbsp; var books = [];<br id=j7.531>
+&nbsp;&nbsp;&nbsp; try&nbsp; {<br id=j7.532>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; books = gadgets.json.parse(gadgets.util.unescapeString(json)) || [];<br id=j7.533>
+&nbsp;&nbsp;&nbsp; } catch(e) {<br id=j7.534>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; books = [];<br id=j7.535>
+&nbsp;&nbsp;&nbsp; }<br id=j7.536>
+&nbsp;&nbsp; &nbsp;<br id=j7.537>
+&nbsp;&nbsp;&nbsp; /* 显示书名 */<br id=j7.538>
+&nbsp;&nbsp;&nbsp; html.push("&lt;li&gt;" + friend.getDisplayName() + "&lt;ul&gt;");<br id=j7.539>
+&nbsp;&nbsp;&nbsp; var len = books.length;<br id=j7.540>
+&nbsp;&nbsp;&nbsp; for (var i = 0; i &lt; len; ++i) {<br id=j7.541>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; html.push(bookHTML(books[i]));<br id=j7.542>
+&nbsp;&nbsp;&nbsp; }<br id=j7.543>
+&nbsp;&nbsp;&nbsp; html.push("&lt;/ul&gt;&lt;/li&gt;");<br id=j7.544>
+&nbsp; }<br id=j7.545>
+&nbsp; document.getElementById('friendsBooks').innerHTML = html.join('');<br id=j7.546>
+};</span></span></blockquote><div id=br:e3><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><br id=wy.3>
+以及<span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal">指定显示的区域</span>：<br id=id:20>
+<blockquote class=g-unit id=aeuc style="COLOR:#38761d; BACKGROUND-COLOR:#f3f3f3"><span class=Apple-style-span id=eyjx1 style=FONT-FAMILY:Tahoma>&lt;div id='main'&gt;<br id=n3bb9>
+&nbsp; &lt;b&gt;我：&lt;/b&gt;<br id=vi_u>
+&nbsp; &lt;p id='me'&gt;&lt;/p&gt;<br id=vi_u0>
+&nbsp; &lt;b&gt;我的朋友：&lt;/b&gt;<br id=vi_u1>
+&nbsp; &lt;p id='friends'&gt;&lt;/p&gt;<br id=vi_u2>
+&nbsp; &lt;b&gt;我读过的书：&lt;/b&gt;<br id=vi_u3>
+&nbsp; &lt;u style='cursor:pointer' onclick='onClearBooks();'&gt;[清空]&lt;/u&gt;<br id=vi_u4>
+&nbsp; &lt;ul id='viewerBooks'&gt;&lt;/ul&gt;<br id=vi_u5>
+<b id=vi_u6>&nbsp; &lt;b id='ownerName'&gt;&lt;/b&gt;&lt;b&gt;读过的书：&lt;/b&gt;<br id=vi_u7>
+&nbsp; &lt;ul id='ownerBooks'&gt;&lt;/ul&gt;<br id=vi_u8>
+&nbsp; &lt;b&gt;我的朋友读过的书：&lt;/b&gt;<br id=vi_u9>
+&nbsp; &lt;ul id='friendsBooks'&gt;&lt;/ul&gt;</b><br id=vi_u10>
+&nbsp; &lt;b&gt;书架：&lt;/b&gt;<br id=vi_u11>
+&nbsp; &lt;ul id='allBooks'&gt;&lt;/ul&gt;<br id=n3bb11>
+&lt;/div&gt;<br id=oqxh>
+</span></blockquote></span><span id=bb47 style=FONT-FAMILY:Verdana>源文件： </span><a href=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-0.xml id=pl7t style=FONT-FAMILY:Verdana title=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-4.xml>just-read-4.xml</a><span id=bb470 style=FONT-FAMILY:Verdana> [ </span><b id=bb471 style=FONT-FAMILY:Verdana><span id=bb472 style=COLOR:#741b47>rurl.org/sgx</span></b><span id=bb473 style=FONT-FAMILY:Verdana> ]<br id=fiix0>
+<div id=omhd style="PADDING:1em 0pt; TEXT-ALIGN:left"><img id=ig:h src="http://opensocial-resources-zh.googlecode.com/svn/trunk/gadget-dev-tutorial/images/g4.png" style="WIDTH:383px; HEIGHT:337px"></div><br id=tq53>
+</span></pre></span></pre></span></pre></span></pre></span></pre></span></div></span></pre></span></pre><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo style=FONT-FAMILY:Verdana><span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><h3 id=c6pk205><a id=ypk2 name=示例_5：大家的读书活动></a>示例 5：大家的读书活动</h3></span></pre>接下来，我们还需要让我和我的朋友可以互动起来，让大家都互相知道自己看了什么书。我们的方法是向自己的活动序列发布自己的新活动，同时读取别人的活动序列。现在，我们就让这个 Gadget 实现这个功能。<br id=lv4o>
+<br id=wmrm>
+首先，我们在每次点击读书的动作 <span id=n6i: style=COLOR:#38761d>onReadBook </span>的最后，把原来读完了就 <span id=y_._ style=COLOR:#38761d>reloadAll </span>刷新界面改为先调用 <span id=q_e0 style=COLOR:#38761d>postReadActivity </span>来发布一个新的活动</span>，然后再刷新界面：<span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><blockquote class=g-unit id=aeuc style="COLOR:#38761d; BACKGROUND-COLOR:#f3f3f3"><span class=Apple-style-span id=eyjx1 style=FONT-FAMILY:Tahoma>/* 处理书名点击响应 */<br id=if46>
+function onReadBook(book) {<br id=if460>
+&nbsp; // ... <br id=if4623>
+&nbsp; /* 发送更新数据请求 */<br id=if4624>
+&nbsp; var req = opensocial.newDataRequest();<br id=if4625>
+&nbsp; req.add(req.newUpdatePersonAppDataRequest('VIEWER', 'books', json));<br id=if4626>
+&nbsp; req.send(function(dataResponse) {<br id=if4627>
+&nbsp;&nbsp;&nbsp; alert("我读了" + book);<br id=if4628>
+<b id=du4v>&nbsp;&nbsp;&nbsp; /* 发送新活动请求 */<br id=if4629>
+&nbsp;&nbsp;&nbsp; postReadActivity(book);</b><br id=if4630>
+&nbsp; });  <br id=if4633>
+};<br id=if4634>
+<br id=if4635>
+<br id=if4636>
+/* 发送新活动请求 */<br id=if4637>
+function postReadActivity(book) {<br id=if4638>
+&nbsp; var title = "读了" + book;<br id=if4639>
+&nbsp; var params = {};<br id=if4640>
+&nbsp; params[opensocial.Activity.Field.TITLE] = title;<br id=if4641>
+&nbsp; <b id=jio9>var activity = opensocial.newActivity(params);</b><br id=if4642>
+&nbsp; <b id=h4cn>opensocial.requestCreateActivity(activity, opensocial.CreateActivityPriority.HIGH, <br id=if4643>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; function() {<br id=if4644>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* 更新后刷新所有数据 */<br id=if4645>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reloadAll();<br id=if4646>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });</b><br id=if4647>
+};</span></blockquote></span></pre></span></pre></span></pre></span></pre></span></pre></span></span></pre></span></pre></span></pre></span></pre></span><br id=t-rp1>
+<span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal">一个活动对象的主要内容就是 TITLE 域，这里只填入了一段“读了什么书”的字串。其实还有使用模板来创建复杂的显示样式。详细请参考 <a href=http://code.google.com/intl/zh-CN/apis/opensocial/docs/0.7/reference/opensocial.Activity.html id=yc8o title=Activity>Activity</a> 的定义与用法。<br id=brff>
+<br id=brff0>
+然后我们在平台的查看自己活动更新的栏目里，就可以看到自己的更新。这时候如果你的朋友也用这个 Gadget 读了一本书，你也可以看到他的活动更新。<br id=bidx>
+</span></pre></span></pre></span></pre></div></span></pre></div></span></pre></div></span></pre>
+  <span id=vysz style=FONT-FAMILY:Verdana>源文件：
+  <a href=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-5.xml id=hg:u title=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-5.xml>just-read-5.xml</a>
+  [ <b id=k7tg><span id=k7tg0 style=COLOR:#741b47>rurl.org/sgy</span></b> ]<br id=ig:h0>
+  <div id=pson style="PADDING:1em 0pt; TEXT-ALIGN:left">
+    <img id=e_qi src="http://opensocial-resources-zh.googlecode.com/svn/trunk/gadget-dev-tutorial/images/g5.png" style="WIDTH:464px; HEIGHT:473px">
+  </div>
+  </span>
+  <p id=c6pk581 style=FONT-FAMILY:Verdana>
+  </p>
+  <br id=yhgp style=FONT-FAMILY:Verdana>
+  <h3 id=c6pk701>
+    <a id=ab-m name=示例_6：书架的更新></a>示例 6：书架的更新<br id=yhgp0>
+  </h3>
+  <p id=c6pk702>
+    弄到现在，大家一定发现了怎么读来读去都还是那几本书，很没劲。但书架是一个全局的信息，并不能写进某个用户的个人数据里。因此需要一个远程的服务器来提供新书上架，替换我们写作
+    Gadget 里面的那个 <span id=kibx style=COLOR:#38761d>bookList
+    </span>数组。接下来，我们来讲讲如何从自己的远程服务器来获取新上架的书籍。
+  </p>
+  <p id=c6pk702>
+    <br id=q.i0>
+  </p>
+  <p id=c6pk702>
+    首先，我们先简单的弄个远程服务器。最简单的办法就是在某个公开网址的地方上传一个文件，里面就是书籍清单，然后不停的覆盖这个文件来更新。这个办法当然比较原始，一般来说，我们希望能有个数据库级别的服务器，可以根据给定的参数进行查询。因此租个带有
+    mysql 的正经服务器将是个很好的解决方案。
+  </p>
+  <p id=c6pk702>
+    <br id=giir>
+  </p>
+  <p id=c6pk702>
+    我们在这里快速介绍一个 Google App Engine 应用服务引擎，只需要少量 Python
+    代码就可以建立一套服务。稍微复杂一点，但又非常方便的办法，并不需要租用服务器。
+  </p>
+  <p id=c6pk702>
+    <br id=nn6h>
+  </p>
+  <h3 id=hpdy>
+  </h3>
+  <h3 id=wz5y>
+    <b id=d5k2><a id=b:18 name=Google_App_Engine_的简单使用></a>Google App Engine
+    的简单使用</b>
+  </h3>
+  <h3 id=hpdy>
+  </h3>
+  <p id=c6pk702>
+    Google App Engine 是一个非常方便的应用服务引擎，我们可以在这里轻松的提供各种数据服务，比如一个书架。下面来讲讲如果将这个服务跑起来。<br id=jei->
+  </p>
+  <p id=c6pk702>
+    <br id=iasf>
+  </p>
+  <p id=c6pk702>
+    在
+    <a href=http://appengine.google.com/ id=gm:0 title=http://appengine.google.com/>http://appengine.google.com/</a>
+    注册，每个手机号只能注册一个帐号。您可以创建一个服务，给取它一个标识符，比如叫
+    <span id=xm2l style=COLOR:#38761d>hack-a-thon</span> ，这样您的服务就会运行在
+    <a href=http://hack-a-thon.appspot.com/ id=ivux title=http://hack-a-thon.appspot.com/>http://hack-a-thon.appspot.com/</a>
+    这个网址。将来可以用自己的域名，但现在还不支持。目前每个账户只能申请三个应用服务实例。
+  </p>
+  <p id=c6pk702>
+    <br id=n2_x>
+  </p>
+  <p id=c6pk702>
+    然后下载并安装
+    <a href=http://www.python.org/download/ id=pfok title="Python 2.5">Python
+    2.5</a> 和
+    <a href=http://code.google.com/appengine/downloads.html id=ev1t title="App Engine SDK">App
+    Engine SDK</a> ，目的是为了可以让您离线开发和调试自己的服务。
+  </p>
+  <p id=c6pk702>
+    <br id=kq-s>
+  </p>
+  <p id=c6pk702>
+    在本地磁盘上建立一个目录，名字和您的服务一样，比如叫
+    <span id=s.e6 style=COLOR:#38761d>c:\appengine\hack-a-thon\</span>
+    。您可以先参照教程建立一个 Helloworld 服务，也可以把这两个文件
+    <a href=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/appengine/hack-a-thon/app.yaml id=hiwj title=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/appengine/hack-a-thon/app.yaml>app.yaml</a>
+    和
+    <a href=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/appengine/hack-a-thon/main.py id=nid: title=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/appengine/hack-a-thon/main.py>main.py</a>
+    下载并放在这个目录中。
+  </p>
+  <p id=c6pk702>
+    <br id=j3zw>
+  </p>
+  <p id=c6pk702>
+    这是 app.yaml 文件，指定服务的名字和所使用的 py 文件。请把 "hack-a-thon"
+    改为您自己申请的服务标识符，在下面的描述中，如果出现 hack-a-thon ，也同样应该改掉。<br id=c222>
+  </p>
+  <p id=c6pk702>
+    <span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal">
+    <pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><blockquote class=g-unit id=aeuc style="COLOR:#38761d; BACKGROUND-COLOR:#f3f3f3"><span class=Apple-style-span id=eyjx1 style=FONT-FAMILY:Tahoma>application: <b id=xm2l0>hack-a-thon</b><br id=x5-r0>
+version: 1<br id=x5-r1>
+runtime: python<br id=x5-r2>
+api_version: 1<br id=x5-r3>
+<br id=x5-r4>
+handlers:<br id=x5-r5>
+- url: /.*<br id=x5-r6>
+&nbsp; script: main.py</span></blockquote></span></pre></span></pre></span></pre></span></pre></span></pre></span></span></pre></span></pre></span></pre></span></pre>
+    </span>
+  </p>
+  源文件：<a href=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/appengine/hack-a-thon/app.yaml id=dk:i title=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/appengine/hack-a-thon/app.yaml>app.yaml</a>
+  [ <b id=vysz0 style=COLOR:#741b47>rurl.org/sh0</b> ]<br id=vysz1>
+  <br id=vysz2>
+  <p id=c6pk702>
+    这是 main.py 文件，描述了三个路径 /in ，/out 和 /clear 分别用于添加书籍，获取书籍和清空书籍。其中 /out 输出的是
+    JSON 格式的数据，可供我们的 Gadget 使用。其中粗体的是和数据库有关的指令。<br id=id:20>
+  </p>
+  <p id=c6pk702>
+    <span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal">
+    <pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><blockquote class=g-unit id=aeuc style="COLOR:#38761d; BACKGROUND-COLOR:#f3f3f3"><span class=Apple-style-span id=eyjx1 style=FONT-FAMILY:Tahoma>#!/usr/bin/python<br id=i_38>
+# -*- coding: UTF-8 -*-<br id=i_380>
+<br id=i_381>
+import wsgiref.handlers<br id=i_382>
+from google.appengine.ext import webapp<br id=i_384>
+<b id=y132>from google.appengine.ext import db</b><br id=i_385>
+<br id=i_386>
+<b id=y1320>class Book(db.Model):<br id=i_387>
+&nbsp; title = db.StringProperty()</b><br id=i_388>
+<br id=hpf->
+class OutputPage(webapp.RequestHandler):<br id=i_3810>
+&nbsp; def get(self):<br id=qmz->
+&nbsp;&nbsp;&nbsp; # 读取参数所指定的返回个数，默认是10个<br id=i_3811>
+&nbsp;&nbsp;&nbsp; count = self.request.get("c")<br id=i_3812>
+&nbsp;&nbsp;&nbsp; if count:<br id=i_3813>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; count = int(count)<br id=i_3814>
+&nbsp;&nbsp;&nbsp; else:<br id=i_3815>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; count = 10<br id=sghn0>
+<br id=sghn1>
+&nbsp;&nbsp;&nbsp; #从数据库中取出数据<br id=i_3816>
+&nbsp;&nbsp;&nbsp; <b id=y1321>books = Book.all().fetch(count, 0)</b><br id=i_3817>
+<br id=sghn2>
+&nbsp;&nbsp;&nbsp; # 返回格式是JSON<br id=pxhb>
+&nbsp;&nbsp;&nbsp; ret = []<br id=i_3819>
+&nbsp;&nbsp;&nbsp; for book in books:<br id=x27f>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ret.append("\"" + book.title + "\"")<br id=x27f0>
+&nbsp;&nbsp;&nbsp; output = "[" + ", ".join(ret) + "]"<br id=x27f1>
+&nbsp;&nbsp;&nbsp; self.response.headers['Content-Type'] = 'text/plain'<br id=x27f2>
+&nbsp;&nbsp;&nbsp; self.response.out.write(output)<br id=i_3824>
+<br id=i_3825>
+class InputPage(webapp.RequestHandler):<br id=i_3827>
+&nbsp; def get(self):<br id=y1y->
+&nbsp;&nbsp;&nbsp; # 输出提供输入的表格<br id=i_3828>
+&nbsp;&nbsp;&nbsp; self.response.out.write("""<br id=i_3829>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;html&gt;&lt;body&gt;&lt;form action="/in" method="post"&gt;<br id=i_3830>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;textarea name="content" rows="10" cols="20"&gt;&lt;/textarea&gt;<br id=i_3831>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;input type="submit" value="添加"&gt;<br id=i_3832>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/form&gt;&lt;/body&gt;&lt;/html&gt;""")<br id=i_3833>
+<br id=i_3834>
+&nbsp; def post(self):<br id=y1y-0>
+&nbsp;&nbsp;&nbsp; # 将内容取出输入数据库<br id=i_3835>
+&nbsp;&nbsp;&nbsp; content = self.request.get('content')<br id=i_3836>
+&nbsp;&nbsp;&nbsp; list = content.splitlines(False)<br id=i_3837>
+&nbsp;&nbsp;&nbsp; for item in list:<br id=i_3838>
+<b id=y1322>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; book = Book()<br id=i_3839>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; book.title = item<br id=i_3840>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; book.put()</b><br id=y1y-1>
+&nbsp;&nbsp;&nbsp; self.redirect('/out')<br id=i_3843>
+<br id=i_3844>
+class ClearPage(webapp.RequestHandler):<br id=i_3845>
+&nbsp; def get(self):<br id=y1y-2>
+&nbsp;&nbsp;&nbsp; # 输出一个按钮<br id=i_3846>
+&nbsp;&nbsp;&nbsp; self.response.out.write("""<br id=i_3847>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;html&gt;&lt;body&gt;&lt;form action="/clear" method="post"&gt;<br id=i_3848>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;input type="submit" value="清空"&gt;<br id=i_3849>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/form&gt;&lt;/body&gt;&lt;/html&gt;""")<br id=i_3850>
+<br id=i_3851>
+&nbsp; def post(self):<br id=y1y-3>
+&nbsp;&nbsp;&nbsp; # 删除所有记录<br id=i_3852>
+<b id=dq.5>&nbsp;&nbsp;&nbsp; books = Book.all()</b><br id=i_3853>
+&nbsp;&nbsp;&nbsp; for book in books:<br id=i_3854>
+<b id=dq.50>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; book.delete()</b><br id=i_3855>
+&nbsp;&nbsp;&nbsp; self.redirect('/in')<br id=i_3856>
+<br id=i_3857>
+class MainPage(webapp.RequestHandler):<br id=i_3858>
+&nbsp; def get(self):<br id=i_3859>
+&nbsp;&nbsp;&nbsp; self.response.out.write("""<br id=i_3860>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;html&gt;&lt;body&gt;<br id=i_3861>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a href="/in"&gt;添加新书&lt;/a&gt;<br id=i_3862>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a href="/out"&gt;查看书架&lt;/a&gt;<br id=i_3863>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a href="/clear"&gt;清空书架&lt;/a&gt;<br id=i_3864>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/body&gt;&lt;/html&gt;""")<br id=i_3865>
+<br id=i_3866>
+def main():<br id=olz1>
+&nbsp; # 服务器主入口<br id=i_3867>
+&nbsp; application = webapp.WSGIApplication([<br id=i0g90>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ('/', MainPage),<br id=i_3868>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ('/in', InputPage),<br id=i_3869>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ('/out', OutputPage),<br id=i_3870>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ('/clear', ClearPage)],<br id=i_3871>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; debug=True)<b id=i0g9><br id=i_3872>
+</b>&nbsp; wsgiref.handlers.CGIHandler().run(application)<br id=i_3873>
+<br id=i_3874>
+if __name__ == "__main__":<br id=i_3875>
+&nbsp; main()<br id=i_3877>
+</span></blockquote></span></pre></span></pre></span></pre></span></pre></span></pre></span></span></pre></span></pre></span></pre></span></pre>
+    </span>
+  </p>
+  <p id=c6pk702 style=FONT-FAMILY:Verdana>
+    <span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal>
+    <pre id=f2vo><span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><pre id=f2vo><span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><pre id=f2vo><span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><pre id=f2vo><span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><pre id=f2vo><span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><pre id=f2vo><span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><pre id=f2vo><span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><pre id=f2vo><span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><pre id=f2vo><span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><pre id=f2vo><span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><pre id=f2vo><span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><pre id=f2vo><span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><pre id=f2vo><span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><pre id=f2vo><span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><pre id=f2vo><span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><span class=Apple-style-span id=b_qz6>源文件：</span></span> <a href=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/appengine/hack-a-thon/main.py id=nid: title=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/appengine/hack-a-thon/main.py>main.py</a> [ <span class=Apple-style-span id=br:e2 style=WHITE-SPACE:normal><b id=ubd0><span id=kd:s style=COLOR:#741b47><span class=Apple-style-span id=b_qz10>rurl.org/sh1 </span></span></b>]</span></pre></span></span></pre></span></pre></span></pre></span></pre></span></pre></span></span></pre></span></pre></span></pre></span></pre></span></pre></span></span></pre></span></pre></span></pre></span></pre>
+    </span>
+  </p>
+  <p id=c6pk702>
+    <span id=j40m> 接下来，在您的本地 c:\appengine 下输入这个命令在本地调试。服务器来以后一般都会在
+    <a href=http://localhost:8080/ id=j40m0>http://localhost:8080/</a>
+    ：</span><br id=r1j:0>
+  </p>
+  <blockquote id=ew621 style="BACKGROUND-COLOR:#000000; COLOR:#ffffff">
+    <font id=n:d51 size=1 style="COLOR:#ffffff; BACKGROUND-COLOR:#000000"><font id=cszx size=2><span id=n:d50 style=FONT-FAMILY:Tahoma>C:\appengine&gt;<b id=ew620>dev_appserver.py
+    hack-a-thon/<br id=h2wz>
+    </b></span></font><font id=knup size=2><span id=n:d52 style=FONT-FAMILY:Tahoma>INFO&nbsp;&nbsp;&nbsp;&nbsp;
+    2008-06-05 16:15:45,625 appcfg.py] Server:
+    appengine.google.com</span></font></font><font id=knup0 size=2><br id=odze2 style=FONT-FAMILY:Tahoma>
+    </font><font id=n:d51 size=2 style="COLOR:#ffffff; BACKGROUND-COLOR:#000000; FONT-FAMILY:Tahoma"><span id=n:d53>INFO&nbsp;&nbsp;&nbsp;&nbsp;
+    2008-06-05 16:15:45,640 appcfg.py] Checking for updates to the
+    SDK.</span></font><font id=knup1 size=2><br id=odze3 style=FONT-FAMILY:Tahoma>
+    </font><font id=n:d51 size=1 style="COLOR:#ffffff; BACKGROUND-COLOR:#000000"><span id=n:d54 style=FONT-FAMILY:Tahoma><font id=knup2 size=2><span id=o05q style=FONT-FAMILY:Tahoma><span id=j40m1>INFO&nbsp;&nbsp;&nbsp;&nbsp;
+    2008-06-05 16:15:47,608 dev_appserver_main.py] Running application
+    hack-a-thon on port 8080:
+    http://localhost:8080</span></span></font></span></font><br id=odze4>
+  </blockquote>
+  <p id=c6pk702>
+    接下来把代码发布到服务器上，请使用这个指令。第一次可能需要您输入 Google 帐号的邮箱和密码。
+  </p>
+  <blockquote id=ew621 style="BACKGROUND-COLOR:#000000; COLOR:#ffffff">
+    <font id=n:d51 size=1 style="COLOR:#ffffff; BACKGROUND-COLOR:#000000"><font id=cszx size=2><span id=n:d50 style=FONT-FAMILY:Tahoma>C:\appengine&gt;<b id=r2wf>appcfg.py
+    update hack-a-thon/</b><br id=r2wf0>
+    Loaded authentication cookies from C:\Documents and
+    Settings\××××/.appcfg_cookies<br id=r2wf1>
+    Scanning files on local disk.<br id=r2wf2>
+    Initiating update.<br id=r2wf3>
+    Cloning 1 application file.<br id=r2wf4>
+    Closing update.<br id=r2wf5>
+    Uploading index definitions.</span></font></font><br id=odze4>
+  </blockquote>
+  <p id=c6pk702>
+    然后，就可以连接到
+    <a href=http://hack-a-thon.appspot.com/ id=dtj3 title=http://hack-a-thon.appspot.com/>http://hack-a-thon.appspot.com/</a>
+    上查看和操作了。目前没有设置权限，更多有关用户权限的信息请查看<a href=http://code.google.com/appengine/docs/users/ id=hwoo title=这里>这里</a>。
+  </p>
+  <p id=c6pk702>
+    <br id=i_tu>
+  </p>
+  <p id=c6pk702>
+    现在我们可以去 <a href=http://hack-a-thon.appspot.com/in id=gout>添加新书</a>
+    页面添加新书，然后去 <a href=http://hack-a-thon.appspot.com/out id=gout0>查看书架</a>
+    看看输出结果。
+  </p>
+  <p id=c6pk702>
+  </p>
+  <div id=y3cz style="PADDING:1em 0pt; TEXT-ALIGN:left">
+    <div id=zm3o style="PADDING:1em 0pt; TEXT-ALIGN:left">
+      <img id=mekb src="http://opensocial-resources-zh.googlecode.com/svn/trunk/gadget-dev-tutorial/images/appengine-in.png" style="WIDTH:337px; HEIGHT:308px">
+    </div>
+    <img id=jgzw0 src="http://opensocial-resources-zh.googlecode.com/svn/trunk/gadget-dev-tutorial/images/appengine-out.png" style="WIDTH:396px; HEIGHT:197px">
+  </div>
+  <br id=e_qi1>
+  这个输出结果页是 JSON 格式的内容，我们在 Gadget 里面添加代码来请求这个页面，然后用这个返回内容覆盖原先我们写在 Gadget
+  里面那个一层不变的 <span id=t61: style=COLOR:#38761d>bookList </span>数组：<br id=wvzx>
+  <p id=c6pk702>
+    <span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal">
+    <pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><blockquote class=g-unit id=aeuc style="COLOR:#38761d; BACKGROUND-COLOR:#f3f3f3"><span class=Apple-style-span id=eyjx1 style=FONT-FAMILY:Tahoma>* 请求第三方网站的书籍列表 */<br id=c4uo>
+function requestBookList() {<br id=kqxl>
+&nbsp; <b id=l0lw><span id=j40m3>var url = "<a href=http://hack-a-thon.appspot.com/out?c=20 id=j40m4>http://hack-a-thon.appspot.com/out?c=20</a>";</span></b><br id=c4uo0>
+&nbsp; var params = {};<br id=c4uo1>
+&nbsp; params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;<br id=c4uo2>
+&nbsp; <b id=kqxl0>gadgets.io.makeRequest(url, onBookListResponse, params);</b><br id=c4uo3>
+};<br id=c4uo4>
+<br id=c4uo5>
+/* 处理第三方网站的相应 */<br id=c4uo6>
+function onBookListResponse(data) {<br id=c4uo7>
+&nbsp; if (data.data &amp;&amp; data.data.length) {<br id=c4uo8>
+&nbsp;&nbsp;&nbsp; // 用收到的数据覆盖预设的书籍列表<br id=c4uo9>
+&nbsp;&nbsp;&nbsp; <b id=itkx>bookList = data.data;</b><br id=c4uo10>
+&nbsp; }<br id=c4uo11>
+&nbsp; <b id=itkx0>reloadAll();</b><br id=c4uo12>
+};<br id=c4uo13>
+<br id=c4uo14>
+/* Gadget 执行入口 */<br id=c4uo15>
+function init() {<br id=c4uo16>
+&nbsp; <b id=k7.u>requestBookList();</b><br id=c4uo17>
+};<br id=di7j>
+</span></blockquote></span></pre></span></pre></span></pre></span></pre></span></pre></span></span></pre></span></pre></span></pre></span></pre>
+    </span>
+  </p>
+  <br id=rffd>
+  源文件，<a href=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-6.xml id=gh1b title=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-6.xml>just-read-6.xml</a>
+  [ <b id=pij9 style=COLOR:#741b47>rurl.org/sgz</b> ]<br id=di0-0>
+  <div id=ab.. style="PADDING:1em 0pt; TEXT-ALIGN:left">
+    <img id=ps9y src="http://opensocial-resources-zh.googlecode.com/svn/trunk/gadget-dev-tutorial/images/g6.png" style="WIDTH:383px; HEIGHT:261px">
+  </div>
+  <br id=szi70>
+  注意，我们已经把 <span id=di7j0 style=COLOR:#38761d>init </span>方法中把入口换成了
+  <span id=di7j1 style=COLOR:#38761d>requestBookList </span>，在响应之后才执行
+  <span id=di7j2 style=COLOR:#38761d>reloadAll </span>。这个 Gadget
+  的可读书目源就可以随时编辑修改，权限都控制在我们手里。<br id=di7j3>
+  <br id=di7j4>
+  <br id=b7rf>
+  <h1 id=ljir>
+    <a id=uo9- name=结语></a> 结语<br id=b7rf0>
+  </h1>
+  <p id=c6pk794>
+    经过六个小程序的演示，这个教程已经快结束了。当然在现在比较成熟的 Opensocial 0.7 版，以及刚刚发布的 0.8
+    版我们还有很多很酷的特性没有演示，比如 Gadget 的不同视图 (PROFILE, CANVAS, HOME)
+    的开发，模板的开发，多语言版本的开发，Flash的开发等等，这些就留给各位开发者去自己发掘了。<br id=dy6j0>
+  </p>
+  <p id=c6pk794>
+  </p>
+  <br id=dy6j1>
+  <p id=c6pk794>
+    <br id=y5ou>
+  </p>
+  <p id=c6pk794>
+    以下列出几个非常有用的文档给各位小应用开发者：
+  </p>
+  <br id=k7-g>
+  <div id=fres style=MARGIN-LEFT:40px>
+    <a href=http://code.google.com/intl/zh-CN/apis/gadgets/docs/dev_guide.html id=q9vh title=http://code.google.com/intl/zh-CN/apis/gadgets/docs/dev_guide.html>Gadget
+    开发指南</a><br id=l83k>
+    <br id=jnsd>
+    <a href=http://code.google.com/intl/zh-CN/apis/opensocial/docs/0.7/devguide.html id=co9s title=http://code.google.com/intl/zh-CN/apis/opensocial/docs/0.7/devguide.html>Opensocial
+    开发指南</a><br id=jz-7>
+    <br id=jz-70>
+    <a href=http://groups.google.com/group/opensocial id=cnt8 title=http://groups.google.com/group/opensocial>Opensocial
+    讨论组</a> (英文)<br id=jnsd0>
+    <br id=k7-g0>
+    <a href=http://code.google.com/appengine/docs/gettingstarted/ id=g30r title=http://code.google.com/appengine/docs/gettingstarted/>App
+    Engine 入门指南</a> (英文)<br id=uzqy>
+    <br id=uzqy0>
+    <a href=http://code.google.com/intl/zh-CN/apis/opensocial/articles/appengine.html id=e-lq title=http://code.google.com/intl/zh-CN/apis/opensocial/articles/appengine.html>利用
+    App Engine 开发 Opensocial 小应用</a> (英文)<br id=l83k0>
+  </div>
+  <p id=c6pk794 style=MARGIN-LEFT:40px>
+    <br id=l83k1>
+  </p>
+  <br id=gvmc>
+  <br id=gvmc0>
+  <br id=fres2 style=FONT-FAMILY:Verdana>
+  <div class=text id=gvmc1>
+    <div id=gvmc2 style="TEXT-ALIGN:left; FONT-FAMILY:Verdana">
+    </div>
+    <div class=notice id=gvmc3 style=FONT-FAMILY:Verdana>
+      <div id=notice style=TEXT-ALIGN:center>
+        <div id=gvmc4 style=TEXT-ALIGN:center>
+          <font id=gvmc5 size=2><span id=rlr3 style=COLOR:#999999> Except as
+          otherwise
+          </span><a href=http://code.google.com/policies.html#restrictions id=gvmc6 style=COLOR:#999999>noted</a><span id=rlr30 style=COLOR:#999999>,
+          the content of this page is licensed under
+          the</span><br id=rlr31 style=COLOR:#999999>
+          <a href=http://creativecommons.org/licenses/by/2.5/ id=gvmc7 rel=license style=COLOR:#999999>Creative
+          Commons Attribution 2.5
+          License</a><span id=rlr32 style=COLOR:#999999>.</span><br id=rlr33>
+          <br id=rlr34>
+          </font>
+        </div>
+      </div>
+    </div>
+    <div id=gvmc8 style="TEXT-ALIGN:center; COLOR:#999999">
+      <div id=gvmc9 style=TEXT-ALIGN:center>
+        ©2008 Google -
+        <a href=http://code.google.com/intl/zh-CN_ALL/ id=gvmc10>代码主页</a> -
+        <a href=http://www.google.com/accounts/TOS id=gvmc11>站点服务条款</a> -
+        <a href=http://www.google.com/privacy.html id=gvmc12>隐私政策</a> -
+        <a href=http://code.google.com/intl/zh-CN_ALL/more/ id=gvmc13>站点目录</a>
+      </div>
+    </div>
+  </div>
+</div></body>
+</html>
