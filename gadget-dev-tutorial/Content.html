@@ -977,7 +977,7 @@ function onReadBook(book) {<br id=vugx0>
 &nbsp;&nbsp; &nbsp;/* 更新后刷新所有数据 */<br id=p1vm2>
 &nbsp;&nbsp; &nbsp;reloadAll();<br id=p1vm3>
 &nbsp;&nbsp;});<br id=p1vm4>
-};</span></span></blockquote><div id=br:e3><span class=Apple-style-span id=b_qz6 style=FONT-FAMILY:Verdana>源文件： </span><a href=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-2xml id=npm4 title=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-2.xml><span class=Apple-style-span id=b_qz7 style=FONT-FAMILY:Verdana>just-read-2.xml</span></a> <span class=Apple-style-span id=b_qz9 style=FONT-FAMILY:Verdana>[ </span><b id=ubd0><span id=kd:s style=COLOR:#741b47><span class=Apple-style-span id=b_qz10 style=FONT-FAMILY:Verdana>rurl.org/sgv</span></span></b> ]<br id=wtsy0>
+};</span></span></blockquote><div id=br:e3><span class=Apple-style-span id=b_qz6 style=FONT-FAMILY:Verdana>源文件： </span><a href=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-2.xml id=npm4 title=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-2.xml><span class=Apple-style-span id=b_qz7 style=FONT-FAMILY:Verdana>just-read-2.xml</span></a> <span class=Apple-style-span id=b_qz9 style=FONT-FAMILY:Verdana>[ </span><b id=ubd0><span id=kd:s style=COLOR:#741b47><span class=Apple-style-span id=b_qz10 style=FONT-FAMILY:Verdana>rurl.org/sgv</span></span></b> ]<br id=wtsy0>
 <div id=ajw1 style="PADDING:1em 0pt; TEXT-ALIGN:left"><img id=likz src="http://opensocial-resources-zh.googlecode.com/svn/trunk/gadget-dev-tutorial/images/g2.png" style="WIDTH:383px; HEIGHT:287px"></div><span class=Apple-style-span id=br:e4 style=COLOR:#38761d><span class=Apple-style-span id=zmux style=COLOR:#000000><br id=id:21>
 </span></span><pre id=f2vo style=FONT-FAMILY:Verdana><span id=hwu8 style=COLOR:#000000><span class=Apple-style-span id=b_qz11><h3 id=c6pk205><a id=ktwy name=示例_3：自己读过的书></a>示例 3：自己读过的书</h3></span></span></pre>接下来我们开始编写获取和显示已经读过哪些书籍的列表，否则在之前的 Gadget 里面，点击一本书之后不会有任何变化，因为在 <span id=jzii style=COLOR:#38761d>reloadAll </span>方法中并没有请求朋友以外的其他数据。<br id=v44m>
 <br id=v44m0>
@@ -1092,7 +1092,7 @@ function onReadBook(book) {<br id=vugx0>
 <div id=wh7t style="PADDING:1em 0pt; TEXT-ALIGN:left"><img id=fiix src="http://opensocial-resources-zh.googlecode.com/svn/trunk/gadget-dev-tutorial/images/g3.png" style="WIDTH:383px; HEIGHT:260px"></div><br id=likz2>
 </span></pre></span></span></pre></span></pre><pre id=f2vo><span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><h3 id=c6pk205><a id=clbb name=示例_4：别人读过的书></a><span id=xm1a style=FONT-FAMILY:Verdana>示例 4：别人读过的书</span></h3></span></pre>接下来，我们再来给 Gadget 添加更多的内容。<br id=lv4o>
 <br id=wmrm>
-前面讲过<span id=d.yr style=COLOR:#38761d><span id=d.yr0 style=COLOR:#000000>，</span>VIEWER </span>仅代表自己，也就是浏览页面的人，因此不管是谁在自己的页面上放置了 <span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><a href=http://opensocial-resources-zh.googlecode.com/svn/trunk/gadget-dev-tutorial/just-read-3.xml id=npm4 title=just-read-3.xml><span class=Apple-style-span id=b_qz7 style=FONT-FAMILY:Verdana>just-read-3.xml</span></a></span> 这个 Gadget，看到的人都只能看到同样的东西。一个页面的所有者在 Gadget 中叫 <span id=ltjg style=COLOR:#38761d>OWNER</span> ，我们也可以让 Gadget 显示 <span id=d.yr1 style=COLOR:#38761d>OWNER </span>读过的书，这样，你去谁的主页就可以看到谁在看什么书，同时和自己看的书进行对比。<br id=d4sm>
+前面讲过<span id=d.yr style=COLOR:#38761d><span id=d.yr0 style=COLOR:#000000>，</span>VIEWER </span>仅代表自己，也就是浏览页面的人，因此不管是谁在自己的页面上放置了 <span class=Apple-style-span id=br:e2 style="FONT-FAMILY:Verdana; WHITE-SPACE:normal"><a href=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-3.xml id=npm4 title=http://opensocial-resources.googlecode.com/svn/samples/tutorial-zh/trunk/just-read-3.xml><span class=Apple-style-span id=b_qz7 style=FONT-FAMILY:Verdana>just-read-3.xml</span></a></span> 这个 Gadget，看到的人都只能看到同样的东西。一个页面的所有者在 Gadget 中叫 <span id=ltjg style=COLOR:#38761d>OWNER</span> ，我们也可以让 Gadget 显示 <span id=d.yr1 style=COLOR:#38761d>OWNER </span>读过的书，这样，你去谁的主页就可以看到谁在看什么书，同时和自己看的书进行对比。<br id=d4sm>
 <br id=d4sm0>
 另外，我也可以在我的 Gadget 中同时列出我的朋友的信息，只要用 <span id=hnuq style=COLOR:#38761d>VIEWER_FRIENDS</span> 去请求数据，就能得到自己所有的朋友都看过什么书。<br id=awes>
 <br id=awes0>
@@ -1574,6 +1574,10 @@ function init() {<br id=c4uo16>
     App Engine 开发 Opensocial 小应用</a> (英文)<br id=l83k0>
   </div>
   <p id=c6pk794 style=MARGIN-LEFT:40px>
+    <br id=l83k1>
+  </p>
+  <p id=c6pk794>
+    更多信息，请查阅 <a href="http://code.google.com/intl/zh-CN" title="http://code.google.com/intl/zh-CN">http://code.google.com/intl/zh-CN</a> 。
     <br id=l83k1>
   </p>
   <br id=gvmc>
