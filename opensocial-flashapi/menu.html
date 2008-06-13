@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+"http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Opensocial Flash API Documentation</title>
+<style>
+<!--
+div {height:40px;}
+img {vertical-align:middle;}
+table tr td {border:0px;}
+a {font-family: Arial,sans-serif;}
+#menu ul {padding-top:0.4em;}
+#menu ul li {display:inline; padding-right:1em;}
+.tab {margin:0px 30px;}
+.link {color:#0000CC; text-decoration:underline;}
+.bold {color:#000000; text-decoration:none; font-weight:bold;}
+-->
+</style>
+</head>
+<body>
+<div style="float:right;">
+    <a href="http://code.google.com/apis/opensocial/" target="_parent"><img style="display:inline; border:0px;" src="os_logo.png"></a>
+</div>
+<div id="menu">
+<ul>
+  <li>
+    <a class=bold id="guide" href="guide.html" target="top_main" onclick="handleClick(this);">Developer's Guide</a></li>
+  <li>
+    <a class=link id="aside" href="actionscript/index.html" target="top_main" onclick="handleClick(this);">Actionscript - Side</a></li>
+  <li>
+    <a class=link id="jside" href="javascript/index.html" target="top_main" onclick="handleClick(this);">Javascript - Side</a></li>
+</ul>
+</div>
+<script>
+function handleClick(el) {
+  el.blur();
+  var guide = document.getElementById("guide");
+  var aside = document.getElementById("aside");
+  var jside = document.getElementById("jside");
+  guide.className = (el == guide ? "bold" : "link");
+  aside.className = (el == aside ? "bold" : "link");
+  jside.className = (el == jside ? "bold" : "link");
+};
+</script>
+</body>
+</html>
