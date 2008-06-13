@@ -5,7 +5,8 @@
     description="Version 0.2 就是一面朋友的墙" 
     title_url="http://www.google.cn"
     author="Yizi Wu"
-    thumbnail="http://www.corp.google.com/~yiziwu/opensocial-flashapi/samples/friendsgrid_thumb.png">
+    author_email="yizi.wu@gmail.com"
+    thumbnail="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-flashapi/samples/friendsgrid_thumb.png">
 
   <Require feature="flash"/>
   <Require feature="views"/>
@@ -16,14 +17,14 @@
 <Content type="html">
 <![CDATA[
 
-<script src="http://www.corp.google.com/~yiziwu/opensocial-flashapi/samples/opensocial-flashapi.js"
+<script src="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-flashapi/samples/opensocial-flashapi.js"
         type="text/javascript"></script>
 
 <div id="flashcontainer" style="text-align: center;"></div>
 
 <script type="text/javascript">
   flashAPI.embedFlash(
-     "http://www.corp.google.com/~yiziwu/opensocial-flashapi/samples/friendsgrid.swf",
+     "http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-flashapi/samples/friendsgrid.swf",
      "flashcontainer", "9", {
       width: "420",
       quality: "high",
