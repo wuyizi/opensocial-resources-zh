@@ -199,6 +199,8 @@
           viewerFriends = dataResponse.get('vf').getData() || {};
           viewerBooks = dataResponse.get('vd').getData()[viewer.getId()] || {};  // {'books': json}
 
+          window['vvv'] = viewer;
+          
           owner = dataResponse.get('o').getData() || {};
           ownerBooks = dataResponse.get('od').getData()[owner.getId()] || {};  // {'books': json}
           viewerFriendsBooks = dataResponse.get('vfd').getData() || {};  // {id:{'books': json}}
