@@ -4,6 +4,8 @@ runtime: python
 api_version: 1
 
 handlers:
+- url: /specs
+  static_dir: specs
+
 - url: /.*
   script: main.py
-
