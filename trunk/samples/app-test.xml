@@ -9,20 +9,28 @@
   <Content type="html">
     <![CDATA[
       <script>
-	    var view;
-        /* Gadget 执行入口 */
+		var viewMaps;
+		var canvasView;
+		var profileView;
+		
+        function changeView() {
+		  if (gadgets.views.getCurrentView() == canvasView) {
+		    gadgets.views.requestNavigateTo(profileView);
+          } else {
+		    gadgets.views.requestNavigateTo(canvasView);
+          }
+		};
         function init() {
-          
-		  
-		  view = gadgets.views.getCurrentView();
-		  console.log(gadgets.views.getParams());
-		  console.log(gadgets.views.getSupportedViews());
-		  document.getElementById("main").innerHTML = "View:" + view.getName();
+          viewMaps = gadgets.views.getSupportedViews();
+		  canvasView = viewMaps[gadgets.views.ViewType.CANVAS];
+		  profileView = viewMaps[gadgets.views.ViewType.PROFILE];
+		  document.getElementById("main").innerHTML = "View:" + gadgets.views.getCurrentView().getName();
         };
         gadgets.util.registerOnLoadHandler(init);
       </script>
 	  <div id="main">
 	  </div>
+	  <div><button onclick="changeView();">Change View</button></div>
      ]]>
   </Content>
 </Module>
