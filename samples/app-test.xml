@@ -22,8 +22,8 @@
 		};
         function init() {
           viewMaps = gadgets.views.getSupportedViews();
-		  canvasView = viewMaps[gadgets.views.ViewType.CANVAS];
-		  profileView = viewMaps[gadgets.views.ViewType.PROFILE];
+		  canvasView = viewMaps['canvas'];
+		  profileView = viewMaps['profile'];
 		  document.getElementById("main").innerHTML = "View:" + gadgets.views.getCurrentView().getName();
         };
         gadgets.util.registerOnLoadHandler(init);
