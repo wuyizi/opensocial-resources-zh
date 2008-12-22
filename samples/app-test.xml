@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <ModulePrefs title="My App Test"
+               author_email="yizi.wu@gmail.com" scrolling="true" height="500">
+    <Require feature="opensocial-0.8"/>
+    <Require feature="dynamic-height"/>
+	<Require feature="views"/>
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[
+      <script>
+        /* Gadget 执行入口 */
+        function init() {
+          document.getElementById("main").innerHTML = "啥都还没有";
+        };
+        gadgets.util.registerOnLoadHandler(init);
+      </script>
+	  <div id="main">
+	  </div>
+     ]]>
+  </Content>
+</Module>
+
+
