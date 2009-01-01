@@ -4,38 +4,38 @@
                author_email="yizi.wu@gmail.com" scrolling="true" height="500">
     <Require feature="opensocial-0.8"/>
     <Require feature="dynamic-height"/>
-	<Require feature="dynamic-height"/>
-	<Require feature="views"/>
+    <Require feature="dynamic-height"/>
+    <Require feature="views"/>
   </ModulePrefs>
   <Content type="html">
     <![CDATA[
       <script>
-		var viewMaps;
-		var canvasView;
-		var profileView;
-		
+        var viewMaps;
+        var canvasView;
+        var profileView;
+        
         function changeView() {
-		  if (gadgets.views.getCurrentView() == canvasView) {
-		    gadgets.views.requestNavigateTo(profileView);
+          if (gadgets.views.getCurrentView() == canvasView) {
+            gadgets.views.requestNavigateTo(profileView);
           } else {
-		    gadgets.views.requestNavigateTo(canvasView);
+            gadgets.views.requestNavigateTo(canvasView);
           }
-		};
-		function changeTitle() {
-		  gadgets.window.setTitle("New Title -- " + (new Date()));
-		};
+        };
+        function changeTitle() {
+          gadgets.window.setTitle("New Title -- " + (new Date()));
+        };
         function init() {
           viewMaps = gadgets.views.getSupportedViews();
-		  canvasView = viewMaps['canvas'];
-		  profileView = viewMaps['profile'];
-		  document.getElementById("main").innerHTML = "View:" + gadgets.views.getCurrentView().getName();
+          canvasView = viewMaps['canvas'];
+          profileView = viewMaps['profile'];
+          document.getElementById("main").innerHTML = "View:" + gadgets.views.getCurrentView().getName();
         };
         gadgets.util.registerOnLoadHandler(init);
       </script>
-	  <div id="main">
-	  </div>
-	  <div><button onclick="changeView();">Change View</button></div>
-	  <div><button onclick="changeTitle();">Change Title</button></div>
+      <div id="main">
+      </div>
+      <div><button onclick="changeView();">Change View</button></div>
+      <div><button onclick="changeTitle();">Change Title</button></div>
      ]]>
   </Content>
 </Module>
