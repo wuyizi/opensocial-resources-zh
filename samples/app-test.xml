@@ -4,7 +4,7 @@
                author_email="yizi.wu@gmail.com" scrolling="true" height="500">
     <Require feature="opensocial-0.8"/>
     <Require feature="dynamic-height"/>
-    <Require feature="dynamic-height"/>
+    <Require feature="settitle"/>
     <Require feature="views"/>
   </ModulePrefs>
   <Content type="html">
