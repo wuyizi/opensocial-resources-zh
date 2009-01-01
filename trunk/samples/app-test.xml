@@ -20,7 +20,6 @@
 		    console.log("Done");
 		  }, 123, 456, null);
 		};
-		
         function changeView() {
           if (gadgets.views.getCurrentView() == canvasView) {
             gadgets.views.requestNavigateTo(profileView);
