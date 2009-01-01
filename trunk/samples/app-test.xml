@@ -6,6 +6,7 @@
     <Require feature="dynamic-height"/>
     <Require feature="settitle"/>
     <Require feature="views"/>
+	<Require feature="virtual-currency"/>
   </ModulePrefs>
   <Content type="html">
     <![CDATA[
@@ -14,6 +15,12 @@
         var canvasView;
         var profileView;
         
+		function requestPay() {
+		  gadgets.virtualcurrency.requestPay(function() {
+		    console.log("Done");
+		  }, 123, 456, null);
+		};
+		
         function changeView() {
           if (gadgets.views.getCurrentView() == canvasView) {
             gadgets.views.requestNavigateTo(profileView);
@@ -36,6 +43,7 @@
       </div>
       <div><button onclick="changeView();">Change View</button></div>
       <div><button onclick="changeTitle();">Change Title</button></div>
+	  <div><button onclick="requestPay();">Request Pay</button></div>
      ]]>
   </Content>
 </Module>
