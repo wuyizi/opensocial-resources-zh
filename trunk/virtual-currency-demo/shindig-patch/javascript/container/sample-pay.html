@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sample: Pay</title>
+<!-- default container look and feel -->
+<link rel="stylesheet" href="gadgets.css">
+<style>
+  .gadgets-gadget-chrome {
+    width: 80%;
+    float: none;
+    margin: auto;
+  }
+  .gadgets-gadget {
+    width: 100%;
+  }
+  .desc {
+    color:#007F00;
+  }
+  .desc script {
+    color:#FF0000;
+  }
+  #pay-counter {
+    width:500px;
+    height:300px;
+    left:100px;
+    top:200px;
+    position:absolute;
+  }
+  #pay-counter iframe {
+    width:500px;
+    height:300px;
+  }
+</style>
+
+<script type="text/javascript" src="/gadgets/js/core:rpc:pay.js?c=1&debug=1"></script>
+<script type="text/javascript" src="util.js"></script>
+<script type="text/javascript" src="gadgets.js"></script>
+<script type="text/javascript">
+
+function output(message) {
+  document.getElementById("output").innerHTML += gadgets.util.escapeString(message) + "<br/>";
+};
+
+var my = {};
+
+my.LayoutManager = function() {
+  gadgets.LayoutManager.call(this);
+};
+my.LayoutManager.inherits(gadgets.LayoutManager);
+my.LayoutManager.prototype.getGadgetChrome = function(gadget) {
+  var chromeId = 'gadget-chrome-' + gadget.id;
+  return chromeId ? document.getElementById(chromeId) : null;
+};
+my.renderGadgets = function() {
+  for (var i = 0; i < my.gadgetSpecUrls.length; ++i) {
+    var gadget = gadgets.container.createGadget(
+        {specUrl: my.gadgetSpecUrls[i], title: ("Sample App - " + i)});
+    gadgets.container.addGadget(gadget);
+    gadgets.container.renderGadget(gadget);
+  }
+};
+
+my.gadgetSpecUrls = [
+  'http://' + window.location.host + '/gadgets/files/container/sample-pay.xml'
+];
+
+my.init = function() {
+  gadgets.container.layoutManager = new my.LayoutManager();
+};
+
+</script>
+</head>
+<body onLoad="my.init();my.renderGadgets()">
+  <center>
+    <h2>Sample: Virtual Currency Paymant (gadgets.pay) </h2>
+    <p class="desc">
+      This page is a container page:<br>
+      <b><script>document.write(window.location.href);</script></b>
+    </p>
+    </center>
+  <div id="gadget-chrome-0" class="gadgets-gadget-chrome"></div>
+
+  <div id="output" style="clear: left;">
+  </div>
+
+  <!-- The counter panel -->
+  <div id="pay-counter" style="display:none;">
+    <iframe name="pay-counter-frame" frameborder=0 src="sample-pay-counter.html"></iframe>
+  </div>
+
+</body>
+</html>
