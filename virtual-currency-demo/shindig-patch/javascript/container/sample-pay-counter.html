@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sample: Pay Counter</title>
+
+<style>
+body, td, div, span, p {
+  font-family:arial,sans-serif;
+}
+body {
+  padding:0px;
+  margin:0px;
+}
+.pay-counter-shadow {
+  filter: alpha(opacity=30);
+  -moz-opacity:.3;
+  opacity:0.3;
+  background-color:#000;
+  width:490px;
+  height:290px;
+  margin:5px 0px 0px 5px;
+  position:absolute;
+  z-index:100;
+}
+.pay-counter-border1 {
+  background-color:#E5ECF9;
+  width:490px;
+  height:290px;
+  position:absolute;
+  z-index:200;
+}
+.pay-counter-border2 {
+  background-color:#FFF;
+  margin:5px;
+  height:280px;
+}
+.pay-counter-content {
+  padding:20px;
+  font-size:13px;
+}
+.caption {
+  font-weight:bold;
+  width:80px;
+  display:inline;
+}
+.desc {
+  color:#007F00;
+}
+</style>
+
+<script type="text/javascript">
+
+/**
+ * @static
+ * @class Provides the UI and logic for the real payment excution on
+ *        container api server. This page is embeded in the parent
+ *        container page as an iframe.
+ *        All functions or logis or names in this page are customizable.
+ *        Indeed containers have to customize them to make the UI consistent.
+ *
+ */
+mycounter =(function() {
+  var parentDiv;
+
+  /**
+   * Switch the popup panel UI.
+   * @param {String} tabId The phase to display.
+   */
+  function switchTab(tabId) {
+    var tabs = ['default-tab', 'acknowledge-tab'];
+    for (var i = 0; i < tabs.length; i++) {
+      if (tabs[i] == tabId) {
+        document.getElementById(tabs[i]).style.display = 'block';
+      } else {
+        document.getElementById(tabs[i]).style.display = 'none';
+      }
+    }
+  };
+
+  /**
+   * Called by the container api server response.
+   * This is an extra ackknowledge tab after the commit action.
+   * So from this UI, the close actions can be made.
+   *
+   * @param {Object} resParams The response parameters set.
+   * @param {Function} callback The callback when the button is clicked.
+   */
+  function showAcknowledge(resParams, callback) {
+    // Generate message box to show the result message. To be customized ...
+    var html = '';
+    switch (resParams['RESPONSE_CODE']) {
+      case 'OK':
+        html = 'Your order is done on container at ' +
+            new Date(resParams['EXECUTED_TIME']).toLocaleString();
+        break;
+      case 'INSUFFICIENT_MONEY':
+        html = '<span style="color:#F00">Not enough money.</span>';
+        break;
+      default:
+        html = '<span style="color:#F00">Unknown error!</span>';
+        break;
+    }
+    document.getElementById('acknowledge-text').innerHTML = html;
+    document.getElementById('acknowledge-close').onclick = callback;
+    switchTab('acknowledge-tab');
+  };
+
+  /**
+     * Draws the pay counter panel UI itself.
+     * (NOTE that this page is a iframe in its parent container window);
+     * Assigns the commit callback and cancel callback to the buttons.
+     * So from this panel, commit or cancel actions can be made.
+     *
+     * @param {Object} reqParams The request parameters set.
+     * @param {Object} resParams The response parameters set.
+     * @param {Function} commitCallback The commit callback in gadgets.paycounter.
+     * @param {Function} cancelCallback The cancel callback in gadgets.paycounter.
+     */
+  function openHook(reqParams, resParams, commitCallback, cancelCallback) {
+    // Set the UI.
+    document.getElementById('default-amount').innerHTML = reqParams['AMOUNT'];
+    document.getElementById('default-message').innerHTML = reqParams['MESSAGE'];
+    document.getElementById('default-appname').innerHTML = reqParams['GADGET_TITLE'];
+    document.getElementById('default-appspec').innerHTML = reqParams['GADGET_SPEC'];
+    document.getElementById('default-commit').onclick = commitCallback;
+    document.getElementById('default-cancel').onclick = cancelCallback;
+    switchTab('default-tab');
+
+    // Set the div in the parent window to visible.
+    parentDiv.style.display = 'block';
+  };
+
+  /**
+   * Called by gadgets.paycounter after the commit button clicked by the user.
+   * This function should send the pay request to container virtual currency
+   * api with Ajax POST.
+   *
+   * Then usually an acknowledge tab will be shown in the  with a botton to
+   * call the callback function.
+   *
+   * @param {Object} reqParams The request parameters set.
+   * @param {Object} resParams The response parameters set.
+   * @param {Function} closeCallback The close callback in gadgets.paycounter.
+   */
+  function commitHook(reqParams, resParams, closeCallback) {
+
+    /*
+       **
+       * Post the money change to api backend server here...
+       *  1. The javascript post the reqParams and resParams to the real
+       *     virtual currency api server.
+       *  2. The server will
+       *     2.1.  Excute the payment and charge the user the amount
+       *           and set RESPONSE_CODE to resParams.
+       *     2.2.  Then fill the resParams with an unique ORDER_ID and
+       *           EXCUTED_TIME and the AMOUNT and PARAMETERS from reqParams.
+       *     2.3.  Sign all fields in resParams using RSA-SHA1 set
+       *           the RESULT_SIG value to resParams.
+       *  3. Call the callback and pass the signed resParams back. So after
+       *     the response parameters return back to browser, it cannot be
+       *     modified otherwise the sig will fail.
+       *
+      postToServer(reqParams, resParams, function(signedResParams){
+        // some additional check..
+        showAcknowledge(signedResParams, closeCallback);
+      });
+    */
+
+    // -- REMOVE THIS PART FOR REAL CONTAINER --
+    // As a sample here call the callback directly.
+    resParams['AMOUNT'] = reqParams['AMOUNT'];
+    resParams['PARAMETERS'] = reqParams['PARAMETERS'];
+    resParams['ORDER_ID'] = 'TODO_ORDER_ID' + resParams['ORDERED_TIME'];
+    if (resParams['AMOUNT'] > 100) {
+      resParams['RESPONSE_CODE'] = 'INSUFFICIENT_MONEY';
+    } else {
+      resParams['RESPONSE_CODE'] = 'OK';
+    }
+    resParams['EXECUTED_TIME'] = new Date().getTime();
+    resParams['RESULT_SIG'] = 'TODO_SIGNATURE_WITH_RSA_SHA1';
+    showAcknowledge(resParams, closeCallback);
+    // -- END OF SAMPLE --
+  };
+
+  /**
+   * Called by gadgets.paycounter after the cancel button was clicked by user.
+   * @param {Object} reqParams The request parameters set.
+   * @param {Object} resParams The response parameters set.
+   * @param {Function} closeCallback The close callback in gadgets.paycounter.
+   */
+  function cancelHook(reqParams, resParams, closeCallback) {
+    // You can also show another acknowledge tab to say the order is canceled.
+    // Here just call the callback and return.
+    closeCallback();
+  };
+
+  /**
+   * Called by gadgets.paycounter when the counter panel is closing.
+   * @param {Object} reqParams The request parameters set.
+   * @param {Object} resParams The response parameters set.
+   */
+  function closeHook(reqParams, resParams) {
+    // Set the div in the parent window to invisible.
+    parentDiv.style.display = 'none';
+  };
+
+  return {
+    /**
+     * Initializes the counter module.
+     * It's called by this page's body.onload() function.
+     * Note the gadgets object is passed from the parent window.
+     */
+    init: function() {
+      // Store the parent node in which there is an iframe holding this page.
+      parentDiv = window.frameElement.parentNode;
+
+      // Initialize the paycounter module with four hooks.
+      // The container need to fully implement these hook functions for
+      // UI/Backend interaction.
+      parent.gadgets.paycounter.init(openHook, commitHook, cancelHook, closeHook);
+    }
+  };
+
+})();
+
+</script>
+</head>
+<body onload="mycounter.init();">
+  <!-- Customize the UI -->
+  <div class="pay-counter-shadow"></div>
+  <div class="pay-counter-border1">
+    <div class="pay-counter-border2">
+      <div class="pay-counter-content">
+        <p class="desc">
+          This panel is in an iframe from another page in the same container domain:<br>
+          <b><script>document.write(window.location.href);</script></b>
+        </p>
+        <div id="default-tab" style="display:block;">
+          <div class="caption">Amount: </div><span id="default-amount"></span><br>
+          <div class="caption">Message: </div><span id="default-message"></span><br>
+          <div class="caption">App Name: </div><span id="default-appname"></span><br>
+          <div class="caption">App Spec: </div><span id="default-appspec"></span><br>
+          <br>
+          <button id="default-commit">Commit</button>
+          <button id="default-cancel">Cancel</button>
+        </div>
+        <div id="acknowledge-tab" style="display:none;">
+          <span id="acknowledge-text"></span>
+          <button id="acknowledge-close">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
