@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Sample: Pay Counter</title>
+<title>Sample: Payment Confirmation</title>
 
 <style>
 body, td, div, span, p {
@@ -52,21 +52,20 @@ body {
 
 /**
  * @static
- * @class Provides the UI and logic for the real payment excution on
- *        container api server. This page is embeded in the parent
- *        container page as an iframe.
- *        All functions or logis or names in this page are customizable.
- *        Indeed containers have to customize them to make the UI consistent.
+ * @class Provides the UI and logic for the real payment execution on the
+ * container server. This page is embedded in the parent container page as an
+ * iframe. All functions and logic in this page can be adapted by the container
+ * to make the UI consistent.
  *
  */
 myProcessorPanel = (function() {
   var parentDiv;
 
   /**
-     * Draws the pay counter panel UI itself.
+     * Draws the payment confirmation panel UI itself.
      * (NOTE that this page is a iframe in its parent container window);
      * Assigns the commit callback and cancel callback to the buttons.
-     * So from this panel, commit or cancel actions can be made.
+     * From this panel, commit or cancel actions can be made.
      *
      * @param {Object} reqParams The request parameters set.
      * @param {Object} resParams The response parameters set.
@@ -92,12 +91,9 @@ myProcessorPanel = (function() {
   /**
    * Called by <code>gadgets.paymentprocessor</code> after the commit button 
    * clicked by the user.
-   *
-   * This function should send the pay request to container virtual currency
-   * api with Ajax POST.
-   *
-   * Then usually an acknowledge tab will be shown in the  with a botton to
-   * call the callback function.
+
+   * This function should send the payment request to the container virtual
+   * currency API with an Ajax POST.
    *
    * @param {String} checkoutUrl The checkout url on for app backend server.
    * @param {Object} reqParams The request parameters set.
@@ -115,10 +111,9 @@ myProcessorPanel = (function() {
     /* * and the container will do a signed fetch to app backend server and
     /* * execute the checkout.
     /* */
-    /* * So the following should be done in server side.  
-    /* * Here use javascript and signed makeRequest to illustrate the logic 
-    /* * flow as a demo. Because from the view of the app backend, it receives
-    /* * requests in the same format.
+    /* * This is entirely MOCK code in JavaScript to illustrate the logic flow
+    /* * of the > container server processing code. The app backend will receive
+    /* * requests in the > same format. 
     /* */
     /* */
     /* */  // The function which do the payment on user's account
@@ -134,7 +129,7 @@ myProcessorPanel = (function() {
     /* */  };
     /* */
     /* */
-    /* */  // 1. Check the amount and user account. Here is just a fack check.
+    /* */  // 1. Check the amount and user account. Here is just a fake check.
     /* */  if (reqParams['AMOUNT'] > 1000) {
     /* */    resParams['RESPONSE_CODE'] = 'INSUFFICIENT_MONEY';
     /* */    closeCallback();
@@ -145,8 +140,8 @@ myProcessorPanel = (function() {
     /* */  // 2. Assign an unique order id
     /* */  resParams['ORDER_ID'] = 'TODO_ORDER_ID_' + resParams['ORDERED_TIME'];
     /* */  
-    /* */  // 3. Due with the app without any backend and sends an empty url.
-    /* */  //    Maybe some insert-coin-game will use an empty checkout url.
+    /* */  // 3. Deals with the case where the app has no backend and uses an
+    /* */  // empty checkout URL.
     /* */  if (checkoutUrl == null || checkoutUrl == '') {
     /* */
     /* */    // Call the real money off function with the AMOUNT
@@ -157,9 +152,9 @@ myProcessorPanel = (function() {
     /* */  }
     /* */
     /* */
-    /* */  // 4. Due with the app with a backend. The container server will 
-    /* */  //    first send a signed fetch to the app backend, and cost user
-    /* */  //    money after the app backend responded.
+    /* */  // 4.  Deal with the app backend. The container server will first
+    /* */  // send a signed fetch to the app backend, and deduct the user's money after
+    /* */  // the app backend responds.
     /* */  var gadgets = parent.gadgets;
     /* */  var params = {};
     /* */  params[gadgets.io.RequestParameters.AUTHORIZATION] = 
@@ -242,7 +237,7 @@ myProcessorPanel = (function() {
   };
 
   /**
-   * Called by gadgets.paymentprocessor when the counter panel is closing.
+   * Called by gadgets.paymentprocessor when the payment panel is closing.
    * @param {Object} reqParams The request parameters set.
    * @param {Object} resParams The response parameters set.
    */
@@ -288,7 +283,7 @@ myProcessorPanel = (function() {
           <div class="caption">Message: </div><span id="default-message"></span><br>
           <div class="caption">App Name: </div><span id="default-appname"></span><br>
           <div class="caption">App Spec: </div><span id="default-appspec"></span><br>
-          <div class="caption">Ordered Time: </div><span id="default-orderedtime"></span><br>
+          <div class="caption">Order Creation Time: </div><span id="default-orderedtime"></span><br>
           <br>
           <button id="default-commit">Commit</button>
           <button id="default-cancel">Cancel</button>

@@ -17,21 +17,21 @@
  */
 
 /**
- * @fileoverview This library augments gadets.payment with functionality
- * to pay virtual currency from a user for an app on container.
+ * @fileoverview his library implements gadgets.payment to handle virtual
+ * currency payment operations between an app and the container.
  */
 
 var gadgets = gadgets || {};
 
 /**
  * @static
- * @class Provides the virtual currecy payment features on app side.
+ * @class Provides the virtual currency payment features on app side.
  * @name gadgets.payment
  */
 gadgets.payment = (function() {
 
   /**
-   * The state indicating if the counter panel is on or off.
+   * The state indicating if the payment confirmation panel is on or off.
    * @type {boolean}
    */
   var isOpened = false;
@@ -44,7 +44,7 @@ gadgets.payment = (function() {
 
   /**
    * Handles the response via rpc from container's payment processor after 
-   * user's action on counter panel and the call the callback function in the 
+   * user's action on payment confirmation panel and then call the callback function in the 
    * app with the response parameters.
    * @param {Object} resParams The response parameters set.
    */
@@ -66,7 +66,7 @@ gadgets.payment = (function() {
     requestPay: function(checkoutUrl, reqParams, opt_callback) {
 
       if (isOpened) {
-        // Shouldn't continue if the counter is already opened.
+        // Shouldn't continue if the payment confirmation panel is already opened.
         try {
           callback({'RESPONSE_CODE': 'PAYMENT_PROCESSOR_ALREADY_OPENED'});
         } finally {
@@ -84,30 +84,30 @@ gadgets.payment = (function() {
 
 gadgets.payment.RequestParameters = gadgets.util.makeEnum([
   "AMOUNT",
+  "MESSAGE",
   "PARAMETERS",
-  "MESSAGE"
 ]);
 
 gadgets.payment.ResponseParameters = gadgets.util.makeEnum([
-  "RESPONSE_CODE",
-  "RESPONSE_MESSAGE",
-  "ORDER_ID",
-  "ORDERED_TIME",
   "COMMITTED_TIME",
   "EXECUTED_TIME",
+  "ORDER_ID",
+  "ORDERED_TIME",
+  "RESPONSE_CODE",
+  "RESPONSE_MESSAGE",
 ]);
 
 gadgets.payment.ResponseCode = gadgets.util.makeEnum([
+  "APP_NETWORK_FAILURE",
+  "APP_LOGIC_ERROR",
   "INSUFFICIENT_MONEY",
   "INVALID_TOKEN",
   "MALFORMED_REQUEST",
-  "APP_NETWORK_FAILURE",
-  "APP_LOGIC_ERROR",
-  "PAYMENT_ERROR",
-  "OK",
-  "PAYMENT_PROCESSOR_ALREADY_OPENED",
   "NOT_IMPLEMENTED",
+  "UNKNOWN_ERROR",
+  "OK",
+  "PAYMENT_ERROR",
+  "PAYMENT_PROCESSOR_ALREADY_OPENED",
   "USER_CANCELLED",
-  "UNKNOWN_ERROR"
 ]);
 

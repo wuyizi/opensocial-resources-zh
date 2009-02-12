@@ -17,8 +17,7 @@
  */
 
 /**
- * @fileoverview Container-side codes as a processor for the virtual currency
- * payment functionality.
+ * @fileoverview Container-side code to process virtual currency payments.
  */
 
 var gadgets = gadgets || {};
@@ -79,7 +78,7 @@ gadgets.paymentprocessor = (function() {
    * app side. Turns on the processor and initializes the reqParams and
    * resParams.
    *
-   * The 'this' in this function is the rpc object, thus contains
+   * The 'this' in this function is the rpc object, which contains
    * some information of the app.
    *
    * @param {String} appCheckoutUrl The checkout url on for app backend server.
@@ -116,7 +115,7 @@ gadgets.paymentprocessor = (function() {
     reqParams['MESSAGE'] = gadgets.util.escapeString(reqParams['MESSAGE']);
     reqParams['FRAME_ID'] = frameId;
 
-        // This part need the gadgets.container service
+    // This part need the gadgets.container service
     if (gadgets.container && gadgets.container.gadgetService) {
       reqParams['GADGET_ID'] =
           gadgets.container.gadgetService.getGadgetIdFromModuleId(frameId);
@@ -162,9 +161,9 @@ gadgets.paymentprocessor = (function() {
     // The committed time is the time when user click the commit button.
     resParams['COMMITTED_TIME'] = new Date().getTime();
 
-    // Call the container's commit event to actual do the virtual currency
+    // Call the container's commit event to actually do the virtual currency
     // change on container backend via Ajax POST.
-    // The resParams's RESPONSE_CODE and EXCUTED_TIME will be set in this event.
+    // The resParams's RESPONSE_CODE and EXECUTED_TIME will be set in this event.
     if (events.commit) {
       events.commit(checkoutUrl, reqParams, resParams, close);
       isCommitted = true;

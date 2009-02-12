@@ -102,7 +102,7 @@
           <tr><td>Parameters: </td><td><input id=parameters value="{type:'Tulip',quantity:5}"></td></tr>
           <tr><td>Checkout Url: </td><td><input id=backend value="http://222.35.143.62/vcdemo/mode-2/app-backend.php"></td></tr>
           </tbody></table>
-          <button onclick="requestPay();">Request Pay</button>
+          <button onclick="requestPay();">Request Payment</button>
         </div>
 
         <div id=res style="display:none">
@@ -112,7 +112,7 @@
           <tr><td>Order ID: </td><td><span id=orderid></span></td></tr>
           <tr><td>Response Code: </td><td><span id=code></span></td></tr>
           <tr><td>Response Message: </td><td><span id=resmsg></span></td></tr>
-          <tr><td>Ordered Time: </td><td><span id=orderedtime></span></td></tr>
+          <tr><td>Order Creation Time: </td><td><span id=orderedtime></span></td></tr>
           <tr><td>Committed Time: </td><td><span id=committedtime></span></td></tr>
           <tr><td>Executed Time: </td><td><span id=executedtime></span></td></tr>
           </tbody></table>
