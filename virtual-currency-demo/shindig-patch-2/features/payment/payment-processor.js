@@ -27,7 +27,7 @@ var gadgets = gadgets || {};
  * @class Provides the virtual currency payment processor features on 
           container side. Handles the payment request from app, prompts the 
           container processor page for user to confirm the payment, and 
-          passes the response back to the app. The container need to implement 
+          passes the response back to the app. The container needs to implement 
           four event functions to fulfill the functionality.
  * @name gadgets.paymentprocessor
  */
@@ -197,7 +197,7 @@ gadgets.paymentprocessor = (function() {
 
   /**
    * Closes the processor panel.
-   * It hide the processor panel itself in the close event.
+   * It hides the processor panel itself in the close event.
    */
   function close() {
     if (!isOpened) {
