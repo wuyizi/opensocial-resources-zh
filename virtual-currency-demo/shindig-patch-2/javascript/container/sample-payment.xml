@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <ModulePrefs title="My App Test"
+               author_email="yizi.wu@gmail.com" scrolling="true">
+    <Require feature="opensocial-0.8"/>
+    <Require feature="dynamic-height"/>
+    <Require feature="settitle"/>
+    <Require feature="views"/>
+    <Require feature="payment"/>
+  </ModulePrefs>
+  <Content type="html" view="default">
+    <![CDATA[
+      <style>
+        #main {
+          font-size:13px;
+        }
+        #main input {
+          width:300px;
+        }
+        .f {
+          border-collapse:collapse;
+          margin-left:10px;
+        }
+        .f tbody tr td {
+          font-size:12px;
+          font-weight:bold;
+          white-space:nowrap;
+          vertical-align:top;
+        }
+        .f tbody tr td span {
+          font-size:10px;
+          white-space:normal;
+        }
+        .desc {
+          color:#007F7F;
+        }
+        </style>
+      <script>
+
+        function requestPay() {
+          var checkoutUrl = document.getElementById('backend').value;
+          var reqParams = {};
+          reqParams[gadgets.payment.RequestParameters.AMOUNT] = document.getElementById('amount').value;
+          reqParams[gadgets.payment.RequestParameters.MESSAGE] = document.getElementById('message').value;
+          reqParams[gadgets.payment.RequestParameters.PARAMETERS] = gadgets.util.escapeString(document.getElementById('parameters').value);
+
+          gadgets.payment.requestPay(checkoutUrl, reqParams, function(resParams) {
+            document.getElementById('res').style.display = 'block';
+            document.getElementById('orderid').innerHTML = resParams[gadgets.payment.ResponseParameters.ORDER_ID];
+            document.getElementById('code').innerHTML = resParams[gadgets.payment.ResponseParameters.RESPONSE_CODE];
+            document.getElementById('resmsg').innerHTML = resParams[gadgets.payment.ResponseParameters.RESPONSE_MESSAGE];
+            document.getElementById('orderedtime').innerHTML = new Date(resParams[gadgets.payment.ResponseParameters.ORDERED_TIME]);
+            document.getElementById('committedtime').innerHTML = new Date(resParams[gadgets.payment.ResponseParameters.COMMITTED_TIME]);
+            document.getElementById('executedtime').innerHTML = new Date(resParams[gadgets.payment.ResponseParameters.EXECUTED_TIME]);
+
+            gadgets.window.adjustHeight();
+          });
+          document.getElementById('res').style.display = 'none';
+
+        };
+
+        function changeTitle() {
+          var title = document.getElementById('title').value;
+          gadgets.window.setTitle(title);
+        };
+
+        function init() {
+          document.getElementById('view').innerHTML = 'Current View: <b>' + gadgets.views.getCurrentView().getName() + '</b>';
+          var req = opensocial.newDataRequest();
+          req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), "req");
+          req.send(function(data) {
+            if (!data.hadError()) {
+              document.getElementById('myname').innerHTML = 'Current Viewer: <b>' + data.get("req").getData().getDisplayName() + '</b>';
+            }
+            gadgets.window.adjustHeight();
+          });
+        };
+        gadgets.util.registerOnLoadHandler(init);
+      </script>
+
+
+      <div id="main">
+        <p class="desc">
+            Here is the app domain inside the gadget iframe, usually different from container domain:<br>
+            <b><script>document.write('http://' + window.location.host + window.location.pathname + location.search.substring(0, 30) + '...');</script></b>
+        </p>
+        <p>
+          <span id="myname"></span>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <span id="view"></span>
+        </p>
+        <!--<p>
+          <input id=title value="New Title">
+          <button onclick="changeTitle();">Change Title</button>
+        </p>-->
+        <hr>
+        <div id=req>
+          <b>Make a Payment Request: </b><br>
+          <table class=f><tbody>
+          <tr><td>Amount: </td><td><input id=amount value=100></td></tr>
+          <tr><td>Message: </td><td><input id=message value="You are ordering some flowers."></td></tr>
+          <tr><td>Parameters: </td><td><input id=parameters value="{type:'Tulip',quantity:5}"></td></tr>
+          <tr><td>Checkout Url: </td><td><input id=backend value="http://222.35.143.62/vcdemo/mode-2/app-backend.php"></td></tr>
+          </tbody></table>
+          <button onclick="requestPay();">Request Pay</button>
+        </div>
+
+        <div id=res style="display:none">
+          <hr>
+          <b>Payment Response: </b><br>
+          <table class=f><tbody>
+          <tr><td>Order ID: </td><td><span id=orderid></span></td></tr>
+          <tr><td>Response Code: </td><td><span id=code></span></td></tr>
+          <tr><td>Response Message: </td><td><span id=resmsg></span></td></tr>
+          <tr><td>Ordered Time: </td><td><span id=orderedtime></span></td></tr>
+          <tr><td>Committed Time: </td><td><span id=committedtime></span></td></tr>
+          <tr><td>Executed Time: </td><td><span id=executedtime></span></td></tr>
+          </tbody></table>
+        </div>
+      </div>
+     ]]>
+  </Content>
+</Module>
+

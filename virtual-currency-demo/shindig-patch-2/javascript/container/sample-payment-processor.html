@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sample: Pay Counter</title>
+
+<style>
+body, td, div, span, p {
+  font-family:arial,sans-serif;
+}
+body {
+  padding:0px;
+  margin:0px;
+}
+.payment-processor-shadow {
+  filter: alpha(opacity=30);
+  -moz-opacity:.3;
+  opacity:0.3;
+  background-color:#000;
+  width:490px;
+  height:290px;
+  margin:5px 0px 0px 5px;
+  position:absolute;
+  z-index:100;
+}
+.payment-processor-border1 {
+  background-color:#E5ECF9;
+  width:490px;
+  height:290px;
+  position:absolute;
+  z-index:200;
+}
+.payment-processor-border2 {
+  background-color:#FFF;
+  margin:5px;
+  height:280px;
+}
+.payment-processor-content {
+  padding:20px;
+  font-size:13px;
+}
+.caption {
+  font-weight:bold;
+  width:80px;
+  display:inline;
+}
+.desc {
+  color:#007F00;
+}
+</style>
+
+<script type="text/javascript">
+
+/**
+ * @static
+ * @class Provides the UI and logic for the real payment excution on
+ *        container api server. This page is embeded in the parent
+ *        container page as an iframe.
+ *        All functions or logis or names in this page are customizable.
+ *        Indeed containers have to customize them to make the UI consistent.
+ *
+ */
+myProcessorPanel = (function() {
+  var parentDiv;
+
+  /**
+     * Draws the pay counter panel UI itself.
+     * (NOTE that this page is a iframe in its parent container window);
+     * Assigns the commit callback and cancel callback to the buttons.
+     * So from this panel, commit or cancel actions can be made.
+     *
+     * @param {Object} reqParams The request parameters set.
+     * @param {Object} resParams The response parameters set.
+     * @param {Function} commitCallback The commit callback in 
+     *                   <code>gadgets.paymentprocessor</code>.
+     * @param {Function} cancelCallback The cancel callback in 
+     *                   <code>gadgets.paymentprocessor</code>.
+     */
+  function openEvent(reqParams, resParams, commitCallback, cancelCallback) {
+    // Set the UI.
+    document.getElementById('default-amount').innerHTML = reqParams['AMOUNT'];
+    document.getElementById('default-message').innerHTML = reqParams['MESSAGE'];
+    document.getElementById('default-appname').innerHTML = reqParams['GADGET_TITLE'];
+    document.getElementById('default-appspec').innerHTML = reqParams['GADGET_SPEC'];
+    document.getElementById('default-orderedtime').innerHTML = new Date(resParams['ORDERED_TIME']);
+    document.getElementById('default-commit').onclick = commitCallback;
+    document.getElementById('default-cancel').onclick = cancelCallback;
+
+    // Set the div in the parent window to visible.
+    parentDiv.style.display = 'block';
+  };
+
+  /**
+   * Called by <code>gadgets.paymentprocessor</code> after the commit button 
+   * clicked by the user.
+   *
+   * This function should send the pay request to container virtual currency
+   * api with Ajax POST.
+   *
+   * Then usually an acknowledge tab will be shown in the  with a botton to
+   * call the callback function.
+   *
+   * @param {String} checkoutUrl The checkout url on for app backend server.
+   * @param {Object} reqParams The request parameters set.
+   * @param {Object} resParams The response parameters set.
+   * @param {Function} closeCallback The close callback in 
+   *                   <code>gadgets.paymentprocessor</code>.
+   */
+  function commitEvent(checkoutUrl, reqParams, resParams, closeCallback) {
+
+    // -- SAMPLE FAKE CODE --
+    
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */  
+    /* * Here the javascript should do an AJAX post to the container 
+    /* * server with chechoutUrl, reqParams, resParams and security token
+    /* * and the container will do a signed fetch to app backend server and
+    /* * execute the checkout.
+    /* */
+    /* * So the following should be done in server side.  
+    /* * Here use javascript and signed makeRequest to illustrate the logic 
+    /* * flow as a demo. Because from the view of the app backend, it receives
+    /* * requests in the same format.
+    /* */
+    /* */
+    /* */  // The function which do the payment on user's account
+    /* */  var paymentFunc = function(reqParams, resParams) {
+    /* */    // Just a fake test to stimulate container server error.
+    /* */    if (reqParams['AMOUNT'] == 555) {
+    /* */      resParams['RESPONSE_CODE'] = 'PAYMENT_ERROR';
+    /* */      resParams['RESPONSE_MESSAGE'] = 'Fake error on container money server.';
+    /* */    } else {
+    /* */      resParams['RESPONSE_CODE'] = 'OK';
+    /* */    }
+    /* */    resParams['EXECUTED_TIME'] = new Date().getTime();
+    /* */  };
+    /* */
+    /* */
+    /* */  // 1. Check the amount and user account. Here is just a fack check.
+    /* */  if (reqParams['AMOUNT'] > 1000) {
+    /* */    resParams['RESPONSE_CODE'] = 'INSUFFICIENT_MONEY';
+    /* */    closeCallback();
+    /* */    return;
+    /* */  }
+    /* */
+    /* */
+    /* */  // 2. Assign an unique order id
+    /* */  resParams['ORDER_ID'] = 'TODO_ORDER_ID_' + resParams['ORDERED_TIME'];
+    /* */  
+    /* */  // 3. Due with the app without any backend and sends an empty url.
+    /* */  //    Maybe some insert-coin-game will use an empty checkout url.
+    /* */  if (checkoutUrl == null || checkoutUrl == '') {
+    /* */
+    /* */    // Call the real money off function with the AMOUNT
+    /* */    paymentFunc(reqParams, resParams);
+    /* */    resParams['RESPONSE_MESSAGE'] = 'This payment is made without app backends.';
+    /* */    closeCallback();
+    /* */    return;
+    /* */  }
+    /* */
+    /* */
+    /* */  // 4. Due with the app with a backend. The container server will 
+    /* */  //    first send a signed fetch to the app backend, and cost user
+    /* */  //    money after the app backend responded.
+    /* */  var gadgets = parent.gadgets;
+    /* */  var params = {};
+    /* */  params[gadgets.io.RequestParameters.AUTHORIZATION] = 
+    /* */      gadgets.io.AuthorizationType.SIGNED;
+    /* */  params[gadgets.io.RequestParameters.CONTENT_TYPE] = 
+    /* */      gadgets.io.ContentType.JSON;
+    /* */  params[gadgets.io.RequestParameters.METHOD] = 
+    /* */      gadgets.io.MethodType.POST;
+    /* */
+    /* */  // Merge reqParams and resParams for the post data to app backend
+    /* */  var postData = resParams;
+    /* */  postData['AMOUNT'] = reqParams['AMOUNT'];
+    /* */  postData['PARAMETERS'] = reqParams['PARAMETERS'];
+    /* */  postData['MESSAGE'] = reqParams['MESSAGE'];
+    /* */  params[gadgets.io.RequestParameters.POST_DATA] = 
+    /* */      gadgets.io.encodeValues(postData);
+    /* */  
+    /* */  if (window.console) {
+    /* */    window.console.info('Object sent to app backend:');
+    /* */    window.console.log(postData);
+    /* */    window.console.log(gadgets.io.encodeValues(postData));
+    /* */  }
+    /* */  
+    /* */  gadgets.io.makeRequest(checkoutUrl, function (obj) {
+    /* */    // Check the app backend response.
+    /* */
+    /* */    if (obj.rc != 200) {
+    /* */      // app backend is not reachable.
+    /* */      resParams['RESPONSE_CODE'] = 'APP_NETWORK_FAILURE';
+    /* */      resParams['RESPONSE_MESSAGE'] = 'Checkout URL replied ' + obj.rc;
+    /* */      closeCallback();
+    /* */      return;
+    /* */    }
+    /* */    
+    /* */    if (window.console) {
+    /* */      window.console.info('Object received from app backend:');
+    /* */      window.console.log(obj);
+    /* */      window.console.log(obj.data);
+    /* */    }
+    /* */
+    /* */    // Copy the two response values from app backend reply.
+    /* */    resParams['RESPONSE_CODE'] = obj.data['RESPONSE_CODE'];
+    /* */    resParams['RESPONSE_MESSAGE'] = obj.data['RESPONSE_MESSAGE'];
+    /* */    
+    /* */    switch(resParams['RESPONSE_CODE']) {
+    /* */      case 'OK':  
+    /* */        // Call the real money off function with the AMOUNT
+    /* */        paymentFunc(reqParams, resParams);
+    /* */        break;
+    /* */
+    /* */      case 'APP_LOGIC_ERROR':
+    /* */        // do something if any
+    /* */        break;
+    /* */
+    /* */      default:
+    /* */        // something unexpected happens
+    /* */        resParams['RESPONSE_CODE'] = 'UNKNOWN_ERROR';
+    /* */        break;
+    /* */    }
+    /* */    closeCallback();
+    /* */  }, params);
+    /* */
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    
+    // -- END OF SAMPLE --
+  };
+
+  /**
+   * Called by <code>gadgets.paymentprocessor</code> after the cancel button 
+   * was clicked by user.
+   * @param {Object} reqParams The request parameters set.
+   * @param {Object} resParams The response parameters set.
+   * @param {Function} closeCallback The close callback in 
+   *                   <code>gadgets.paymentprocessor</code>.
+   */
+  function cancelEvent(reqParams, resParams, closeCallback) {
+    // You can also show another acknowledge tab to say the order is canceled.
+    // Here just call the callback and return.
+    closeCallback();
+  };
+
+  /**
+   * Called by gadgets.paymentprocessor when the counter panel is closing.
+   * @param {Object} reqParams The request parameters set.
+   * @param {Object} resParams The response parameters set.
+   */
+  function closeEvent(reqParams, resParams) {
+    // Set the div in the parent window to invisible.
+    parentDiv.style.display = 'none';
+  };
+
+  return {
+    /**
+     * Initializes the counter module.
+     * It's called by this page's body.onload() function.
+     * Note the gadgets object is passed from the parent window.
+     */
+    init: function() {
+      // Store the parent node in which there is an iframe holding this page.
+      parentDiv = window.frameElement.parentNode;
+
+      // Initialize the paymentprocessor module with four events.
+      // The container need to fully implement these event functions for
+      // UI/Backend interaction.
+      parent.gadgets.paymentprocessor.init(
+          openEvent, commitEvent, cancelEvent, closeEvent);
+    }
+  };
+
+})();
+
+</script>
+</head>
+<body onload="myProcessorPanel.init();">
+  <!-- Customize the UI -->
+  <div class="payment-processor-shadow"></div>
+  <div class="payment-processor-border1">
+    <div class="payment-processor-border2">
+      <div class="payment-processor-content">
+        <p class="desc">
+          This panel is in an iframe from another page in the same container domain:<br>
+          <b><script>document.write(window.location.href);</script></b>
+        </p>
+        <div id="default-tab" style="display:block;">
+          <div class="caption">Amount: </div><span id="default-amount"></span><br>
+          <div class="caption">Message: </div><span id="default-message"></span><br>
+          <div class="caption">App Name: </div><span id="default-appname"></span><br>
+          <div class="caption">App Spec: </div><span id="default-appspec"></span><br>
+          <div class="caption">Ordered Time: </div><span id="default-orderedtime"></span><br>
+          <br>
+          <button id="default-commit">Commit</button>
+          <button id="default-cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
