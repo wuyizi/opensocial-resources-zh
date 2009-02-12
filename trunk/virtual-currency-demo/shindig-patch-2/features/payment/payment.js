@@ -104,10 +104,10 @@ gadgets.payment.ResponseCode = gadgets.util.makeEnum([
   "INVALID_TOKEN",
   "MALFORMED_REQUEST",
   "NOT_IMPLEMENTED",
-  "UNKNOWN_ERROR",
   "OK",
   "PAYMENT_ERROR",
   "PAYMENT_PROCESSOR_ALREADY_OPENED",
+  "UNKNOWN_ERROR",
   "USER_CANCELLED",
 ]);
 
