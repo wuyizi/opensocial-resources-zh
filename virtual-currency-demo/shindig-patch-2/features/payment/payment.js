@@ -63,7 +63,7 @@ gadgets.payment = (function() {
      * @param {Function} opt_callback The function for callback. It takes one
               object as argument, which is the response parameters set.
      */
-    requestPay: function(checkoutUrl, reqParams, opt_callback) {
+    requestPayment: function(checkoutUrl, reqParams, opt_callback) {
 
       if (isOpened) {
         // Shouldn't continue if the payment confirmation panel is already opened.
