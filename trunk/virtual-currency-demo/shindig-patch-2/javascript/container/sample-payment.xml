@@ -37,14 +37,14 @@
         </style>
       <script>
 
-        function requestPay() {
+        function requestPayment() {
           var checkoutUrl = document.getElementById('backend').value;
           var reqParams = {};
           reqParams[gadgets.payment.RequestParameters.AMOUNT] = document.getElementById('amount').value;
           reqParams[gadgets.payment.RequestParameters.MESSAGE] = document.getElementById('message').value;
           reqParams[gadgets.payment.RequestParameters.PARAMETERS] = gadgets.util.escapeString(document.getElementById('parameters').value);
 
-          gadgets.payment.requestPay(checkoutUrl, reqParams, function(resParams) {
+          gadgets.payment.requestPayment(checkoutUrl, reqParams, function(resParams) {
             document.getElementById('res').style.display = 'block';
             document.getElementById('orderid').innerHTML = resParams[gadgets.payment.ResponseParameters.ORDER_ID];
             document.getElementById('code').innerHTML = resParams[gadgets.payment.ResponseParameters.RESPONSE_CODE];
@@ -102,7 +102,7 @@
           <tr><td>Parameters: </td><td><input id=parameters value="{type:'Tulip',quantity:5}"></td></tr>
           <tr><td>Checkout Url: </td><td><input id=backend value="http://222.35.143.62/vcdemo/mode-2/app-backend.php"></td></tr>
           </tbody></table>
-          <button onclick="requestPay();">Request Payment</button>
+          <button onclick="requestPayment();">Request Payment</button>
         </div>
 
         <div id=res style="display:none">
