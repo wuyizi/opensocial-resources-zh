@@ -100,7 +100,7 @@
           <tr><td>Amount: </td><td><input id=amount value=100></td></tr>
           <tr><td>Message: </td><td><input id=message value="You are ordering some flowers."></td></tr>
           <tr><td>Parameters: </td><td><input id=parameters value="{type:'Tulip',quantity:5}"></td></tr>
-          <tr><td>Checkout Url: </td><td><input id=backend value="http://222.35.143.62/vcdemo/mode-2/app-backend.php"></td></tr>
+          <tr><td>Checkout Url: </td><td><input id=backend value="http://www.unickway.org.cn/vcdemo/mode-2/app-backend.php"></td></tr>
           </tbody></table>
           <button onclick="requestPayment();">Request Payment</button>
         </div>
