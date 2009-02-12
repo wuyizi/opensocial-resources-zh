@@ -29,9 +29,9 @@ var gadgets = gadgets || {};
           container processor page for user to confirm the payment, and 
           passes the response back to the app. The container needs to implement 
           four event functions to fulfill the functionality.
- * @name gadgets.paymentprocessor
+ * @name gadgets.PaymentProcessor
  */
-gadgets.paymentprocessor = (function() {
+gadgets.PaymentProcessor = (function() {
 
   /**
    * The state indicating if the processor panel is on or off.
@@ -57,7 +57,7 @@ gadgets.paymentprocessor = (function() {
    * and disposed in the close() function after the callback rpc is called.
    * @type {Object}
    */
-  var resParams;
+  var respParams;
 
   /**
    * The app backend url for checkout the products. Null if no app backend 
@@ -76,7 +76,7 @@ gadgets.paymentprocessor = (function() {
   /**
    * Handles the request called via rpc from gadgets.pay.requestPay on the
    * app side. Turns on the processor and initializes the reqParams and
-   * resParams.
+   * respParams.
    *
    * The 'this' in this function is the rpc object, which contains
    * some information of the app.
@@ -129,9 +129,9 @@ gadgets.paymentprocessor = (function() {
       reqParams['GADGET_SPEC'] = 'Unable to get app specUrl.';
     }
 
-    // Initialize the resParams object.
-    resParams = {};
-    resParams['ORDERED_TIME'] = new Date().getTime();
+    // Initialize the respParams object.
+    respParams = {};
+    respParams['ORDERED_TIME'] = new Date().getTime();
 
     checkoutUrl = appCheckoutUrl;
     
@@ -140,11 +140,11 @@ gadgets.paymentprocessor = (function() {
 
     // Call the container's open event to display the processor panel UI.
     if (events.open) {
-      events.open(reqParams, resParams, commit, cancel);
+      events.open(reqParams, respParams, commit, cancel);
     } else {
       // The open event is not optional.
       // If not set, then close the processor.
-      resParams['RESPONSE_CODE'] = 'NOT_IMPLEMENTED';
+      respParams['RESPONSE_CODE'] = 'NOT_IMPLEMENTED';
       close();
     }
   };
@@ -159,18 +159,18 @@ gadgets.paymentprocessor = (function() {
       return;
     }
     // The committed time is the time when user click the commit button.
-    resParams['COMMITTED_TIME'] = new Date().getTime();
+    respParams['COMMITTED_TIME'] = new Date().getTime();
 
     // Call the container's commit event to actually do the virtual currency
     // change on container backend via Ajax POST.
-    // The resParams's RESPONSE_CODE and EXECUTED_TIME will be set in this event.
+    // The respParams's RESPONSE_CODE and EXECUTED_TIME will be set in this event.
     if (events.commit) {
-      events.commit(checkoutUrl, reqParams, resParams, close);
+      events.commit(checkoutUrl, reqParams, respParams, close);
       isCommitted = true;
     } else {
       // The commit event is not optional.
       // If not set, then close the processor.
-      resParams['RESPONSE_CODE'] = 'NOT_IMPLEMENTED';
+      respParams['RESPONSE_CODE'] = 'NOT_IMPLEMENTED';
       close();
     }
   };
@@ -183,11 +183,11 @@ gadgets.paymentprocessor = (function() {
       return;
     }
 
-    resParams['RESPONSE_CODE'] = 'USER_CANCELLED';
+    respParams['RESPONSE_CODE'] = 'USER_CANCELLED';
 
     // Call the container's cancel event to do some UI change if needed.
     if (events.cancel) {
-      events.cancel(reqParams, resParams, close);
+      events.cancel(reqParams, respParams, close);
     } else {
       // The cancel event is optional.
       // If not set, close the processor directly.
@@ -206,7 +206,7 @@ gadgets.paymentprocessor = (function() {
 
     // Call the container's close event to hide the processor panel.
     if (events.close) {
-      events.close(reqParams, resParams);
+      events.close(reqParams, respParams);
     }
     // The close event is optional. If not set, do nothing.
     // (NOTE that the panel is still visible if do nothing...)
@@ -216,10 +216,10 @@ gadgets.paymentprocessor = (function() {
     try {
       // Call the app back via rpc.
       gadgets.rpc.call(reqParams['FRAME_ID'], 'payment-callback', null,
-                       resParams);
+                       respParams);
     } finally {
       reqParams = null;
-      resParams = null;
+      respParams = null;
     }
   };
 
