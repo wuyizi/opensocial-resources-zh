@@ -68,19 +68,19 @@ myProcessorPanel = (function() {
      * From this panel, commit or cancel actions can be made.
      *
      * @param {Object} reqParams The request parameters set.
-     * @param {Object} resParams The response parameters set.
+     * @param {Object} respParams The response parameters set.
      * @param {Function} commitCallback The commit callback in 
-     *                   <code>gadgets.paymentprocessor</code>.
+     *                   <code>gadgets.PaymentProcessor</code>.
      * @param {Function} cancelCallback The cancel callback in 
-     *                   <code>gadgets.paymentprocessor</code>.
+     *                   <code>gadgets.PaymentProcessor</code>.
      */
-  function openEvent(reqParams, resParams, commitCallback, cancelCallback) {
+  function openEvent(reqParams, respParams, commitCallback, cancelCallback) {
     // Set the UI.
     document.getElementById('default-amount').innerHTML = reqParams['AMOUNT'];
     document.getElementById('default-message').innerHTML = reqParams['MESSAGE'];
     document.getElementById('default-appname').innerHTML = reqParams['GADGET_TITLE'];
     document.getElementById('default-appspec').innerHTML = reqParams['GADGET_SPEC'];
-    document.getElementById('default-orderedtime').innerHTML = new Date(resParams['ORDERED_TIME']);
+    document.getElementById('default-orderedtime').innerHTML = new Date(respParams['ORDERED_TIME']);
     document.getElementById('default-commit').onclick = commitCallback;
     document.getElementById('default-cancel').onclick = cancelCallback;
 
@@ -89,7 +89,7 @@ myProcessorPanel = (function() {
   };
 
   /**
-   * Called by <code>gadgets.paymentprocessor</code> after the commit button 
+   * Called by <code>gadgets.PaymentProcessor</code> after the commit button 
    * clicked by the user.
 
    * This function should send the payment request to the container virtual
@@ -97,17 +97,17 @@ myProcessorPanel = (function() {
    *
    * @param {String} checkoutUrl The checkout url on for app backend server.
    * @param {Object} reqParams The request parameters set.
-   * @param {Object} resParams The response parameters set.
+   * @param {Object} respParams The response parameters set.
    * @param {Function} closeCallback The close callback in 
-   *                   <code>gadgets.paymentprocessor</code>.
+   *                   <code>gadgets.PaymentProcessor</code>.
    */
-  function commitEvent(checkoutUrl, reqParams, resParams, closeCallback) {
+  function commitEvent(checkoutUrl, reqParams, respParams, closeCallback) {
 
     // -- SAMPLE FAKE CODE --
     
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */  
     /* * Here the javascript should do an AJAX post to the container 
-    /* * server with chechoutUrl, reqParams, resParams and security token
+    /* * server with chechoutUrl, reqParams, respParams and security token
     /* * and the container will do a signed fetch to app backend server and
     /* * execute the checkout.
     /* */
@@ -117,36 +117,36 @@ myProcessorPanel = (function() {
     /* */
     /* */
     /* */  // The function which do the payment on user's account
-    /* */  var paymentFunc = function(reqParams, resParams) {
+    /* */  var paymentFunc = function(reqParams, respParams) {
     /* */    // Just a fake test to stimulate container server error.
     /* */    if (reqParams['AMOUNT'] == 555) {
-    /* */      resParams['RESPONSE_CODE'] = 'PAYMENT_ERROR';
-    /* */      resParams['RESPONSE_MESSAGE'] = 'Fake error on container money server.';
+    /* */      respParams['RESPONSE_CODE'] = 'PAYMENT_ERROR';
+    /* */      respParams['RESPONSE_MESSAGE'] = 'Fake error on container money server.';
     /* */    } else {
-    /* */      resParams['RESPONSE_CODE'] = 'OK';
+    /* */      respParams['RESPONSE_CODE'] = 'OK';
     /* */    }
-    /* */    resParams['EXECUTED_TIME'] = new Date().getTime();
+    /* */    respParams['EXECUTED_TIME'] = new Date().getTime();
     /* */  };
     /* */
     /* */
     /* */  // 1. Check the amount and user account. Here is just a fake check.
     /* */  if (reqParams['AMOUNT'] > 1000) {
-    /* */    resParams['RESPONSE_CODE'] = 'INSUFFICIENT_MONEY';
+    /* */    respParams['RESPONSE_CODE'] = 'INSUFFICIENT_MONEY';
     /* */    closeCallback();
     /* */    return;
     /* */  }
     /* */
     /* */
     /* */  // 2. Assign an unique order id
-    /* */  resParams['ORDER_ID'] = 'TODO_ORDER_ID_' + resParams['ORDERED_TIME'];
+    /* */  respParams['ORDER_ID'] = 'TODO_ORDER_ID_' + respParams['ORDERED_TIME'];
     /* */  
     /* */  // 3. Deals with the case where the app has no backend and uses an
     /* */  // empty checkout URL.
     /* */  if (checkoutUrl == null || checkoutUrl == '') {
     /* */
     /* */    // Call the real money off function with the AMOUNT
-    /* */    paymentFunc(reqParams, resParams);
-    /* */    resParams['RESPONSE_MESSAGE'] = 'This payment is made without app backends.';
+    /* */    paymentFunc(reqParams, respParams);
+    /* */    respParams['RESPONSE_MESSAGE'] = 'This payment is made without app backends.';
     /* */    closeCallback();
     /* */    return;
     /* */  }
@@ -164,8 +164,8 @@ myProcessorPanel = (function() {
     /* */  params[gadgets.io.RequestParameters.METHOD] = 
     /* */      gadgets.io.MethodType.POST;
     /* */
-    /* */  // Merge reqParams and resParams for the post data to app backend
-    /* */  var postData = resParams;
+    /* */  // Merge reqParams and respParams for the post data to app backend
+    /* */  var postData = respParams;
     /* */  postData['AMOUNT'] = reqParams['AMOUNT'];
     /* */  postData['PARAMETERS'] = reqParams['PARAMETERS'];
     /* */  postData['MESSAGE'] = reqParams['MESSAGE'];
@@ -183,8 +183,8 @@ myProcessorPanel = (function() {
     /* */
     /* */    if (obj.rc != 200) {
     /* */      // app backend is not reachable.
-    /* */      resParams['RESPONSE_CODE'] = 'APP_NETWORK_FAILURE';
-    /* */      resParams['RESPONSE_MESSAGE'] = 'Checkout URL replied ' + obj.rc;
+    /* */      respParams['RESPONSE_CODE'] = 'APP_NETWORK_FAILURE';
+    /* */      respParams['RESPONSE_MESSAGE'] = 'Checkout URL replied ' + obj.rc;
     /* */      closeCallback();
     /* */      return;
     /* */    }
@@ -196,13 +196,13 @@ myProcessorPanel = (function() {
     /* */    }
     /* */
     /* */    // Copy the two response values from app backend reply.
-    /* */    resParams['RESPONSE_CODE'] = obj.data['RESPONSE_CODE'];
-    /* */    resParams['RESPONSE_MESSAGE'] = obj.data['RESPONSE_MESSAGE'];
+    /* */    respParams['RESPONSE_CODE'] = obj.data['RESPONSE_CODE'];
+    /* */    respParams['RESPONSE_MESSAGE'] = obj.data['RESPONSE_MESSAGE'];
     /* */    
-    /* */    switch(resParams['RESPONSE_CODE']) {
+    /* */    switch(respParams['RESPONSE_CODE']) {
     /* */      case 'OK':  
     /* */        // Call the real money off function with the AMOUNT
-    /* */        paymentFunc(reqParams, resParams);
+    /* */        paymentFunc(reqParams, respParams);
     /* */        break;
     /* */
     /* */      case 'APP_LOGIC_ERROR':
@@ -211,7 +211,7 @@ myProcessorPanel = (function() {
     /* */
     /* */      default:
     /* */        // something unexpected happens
-    /* */        resParams['RESPONSE_CODE'] = 'UNKNOWN_ERROR';
+    /* */        respParams['RESPONSE_CODE'] = 'UNKNOWN_ERROR';
     /* */        break;
     /* */    }
     /* */    closeCallback();
@@ -223,25 +223,25 @@ myProcessorPanel = (function() {
   };
 
   /**
-   * Called by <code>gadgets.paymentprocessor</code> after the cancel button 
+   * Called by <code>gadgets.PaymentProcessor</code> after the cancel button 
    * was clicked by user.
    * @param {Object} reqParams The request parameters set.
-   * @param {Object} resParams The response parameters set.
+   * @param {Object} respParams The response parameters set.
    * @param {Function} closeCallback The close callback in 
-   *                   <code>gadgets.paymentprocessor</code>.
+   *                   <code>gadgets.PaymentProcessor</code>.
    */
-  function cancelEvent(reqParams, resParams, closeCallback) {
+  function cancelEvent(reqParams, respParams, closeCallback) {
     // You can also show another acknowledge tab to say the order is canceled.
     // Here just call the callback and return.
     closeCallback();
   };
 
   /**
-   * Called by gadgets.paymentprocessor when the payment panel is closing.
+   * Called by gadgets.PaymentProcessor when the payment panel is closing.
    * @param {Object} reqParams The request parameters set.
-   * @param {Object} resParams The response parameters set.
+   * @param {Object} respParams The response parameters set.
    */
-  function closeEvent(reqParams, resParams) {
+  function closeEvent(reqParams, respParams) {
     // Set the div in the parent window to invisible.
     parentDiv.style.display = 'none';
   };
@@ -256,10 +256,10 @@ myProcessorPanel = (function() {
       // Store the parent node in which there is an iframe holding this page.
       parentDiv = window.frameElement.parentNode;
 
-      // Initialize the paymentprocessor module with four events.
+      // Initialize the PaymentProcessor module with four events.
       // The container need to fully implement these event functions for
       // UI/Backend interaction.
-      parent.gadgets.paymentprocessor.init(
+      parent.gadgets.PaymentProcessor.init(
           openEvent, commitEvent, cancelEvent, closeEvent);
     }
   };

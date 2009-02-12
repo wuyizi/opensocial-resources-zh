@@ -28,19 +28,19 @@ var gadgets = gadgets || {};
  * @class Provides the virtual currency payment features on app side.
  * @name gadgets.payment
  */
-gadgets.payment = (function() {
+gadgets.Payment = (function() {
 
   /**
    * The state indicating if the payment confirmation panel is on or off.
    * @type {boolean}
    */
-  var isOpened = false;
+  var isOpened_ = false;
 
   /**
    * The callback to the app
    * @type {Function}
    */
-  var callback;
+  var callback_;
 
   /**
    * Handles the response via rpc from container's payment processor after 
@@ -48,10 +48,10 @@ gadgets.payment = (function() {
    * app with the response parameters.
    * @param {Object} resParams The response parameters set.
    */
-  function paymentCallback(resParams) {
-    isOpened = false;
-    if (callback) {
-      callback(resParams);
+  function paymentCallback(respParams) {
+    isOpened_ = false;
+    if (callback_) {
+      callback_(respParams);
     }
   };
 
@@ -65,16 +65,16 @@ gadgets.payment = (function() {
      */
     requestPay: function(checkoutUrl, reqParams, opt_callback) {
 
-      if (isOpened) {
+      if (isOpened_) {
         // Shouldn't continue if the payment confirmation panel is already opened.
         try {
-          callback({'RESPONSE_CODE': 'PAYMENT_PROCESSOR_ALREADY_OPENED'});
+          callback_({'RESPONSE_CODE': 'PAYMENT_PROCESSOR_ALREADY_OPENED'});
         } finally {
           return;
         }
       }
-      isOpened = true;
-      callback = opt_callback;
+      isOpened_ = true;
+      callback_ = opt_callback;
       gadgets.rpc.register('payment-callback', paymentCallback);
       gadgets.rpc.call(null, 'payment', null, checkoutUrl, reqParams);
     }

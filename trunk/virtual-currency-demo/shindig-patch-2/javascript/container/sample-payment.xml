@@ -40,18 +40,18 @@
         function requestPay() {
           var checkoutUrl = document.getElementById('backend').value;
           var reqParams = {};
-          reqParams[gadgets.payment.RequestParameters.AMOUNT] = document.getElementById('amount').value;
-          reqParams[gadgets.payment.RequestParameters.MESSAGE] = document.getElementById('message').value;
-          reqParams[gadgets.payment.RequestParameters.PARAMETERS] = gadgets.util.escapeString(document.getElementById('parameters').value);
+          reqParams[gadgets.Payment.RequestParameters.AMOUNT] = document.getElementById('amount').value;
+          reqParams[gadgets.Payment.RequestParameters.MESSAGE] = document.getElementById('message').value;
+          reqParams[gadgets.Payment.RequestParameters.PARAMETERS] = gadgets.util.escapeString(document.getElementById('parameters').value);
 
-          gadgets.payment.requestPay(checkoutUrl, reqParams, function(resParams) {
+          gadgets.Payment.requestPay(checkoutUrl, reqParams, function(respParams) {
             document.getElementById('res').style.display = 'block';
-            document.getElementById('orderid').innerHTML = resParams[gadgets.payment.ResponseParameters.ORDER_ID];
-            document.getElementById('code').innerHTML = resParams[gadgets.payment.ResponseParameters.RESPONSE_CODE];
-            document.getElementById('resmsg').innerHTML = resParams[gadgets.payment.ResponseParameters.RESPONSE_MESSAGE];
-            document.getElementById('orderedtime').innerHTML = new Date(resParams[gadgets.payment.ResponseParameters.ORDERED_TIME]);
-            document.getElementById('committedtime').innerHTML = new Date(resParams[gadgets.payment.ResponseParameters.COMMITTED_TIME]);
-            document.getElementById('executedtime').innerHTML = new Date(resParams[gadgets.payment.ResponseParameters.EXECUTED_TIME]);
+            document.getElementById('orderid').innerHTML = respParams[gadgets.Payment.ResponseParameters.ORDER_ID];
+            document.getElementById('code').innerHTML = respParams[gadgets.Payment.ResponseParameters.RESPONSE_CODE];
+            document.getElementById('resmsg').innerHTML = respParams[gadgets.Payment.ResponseParameters.RESPONSE_MESSAGE];
+            document.getElementById('orderedtime').innerHTML = new Date(respParams[gadgets.Payment.ResponseParameters.ORDERED_TIME]);
+            document.getElementById('committedtime').innerHTML = new Date(respParams[gadgets.Payment.ResponseParameters.COMMITTED_TIME]);
+            document.getElementById('executedtime').innerHTML = new Date(respParams[gadgets.Payment.ResponseParameters.EXECUTED_TIME]);
 
             gadgets.window.adjustHeight();
           });
