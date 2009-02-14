@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+<ModulePrefs 
+    title="朋友墙"
+    description="Version 0.2 就是一面朋友的墙" 
+    title_url="http://www.google.cn"
+    author="Yizi Wu"
+    author_email="yizi.wu@gmail.com"
+    thumbnail="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-flashapi/samples/friendsgrid_thumb.png">
+
+  <Require feature="flash"/>
+  <Require feature="views"/>
+  <Require feature="dynamic-height"/>
+  <Require feature="analytics"/>
+  <Require feature="opensocial-0.7"/>
+</ModulePrefs>
+<Content type="html">
+<![CDATA[
+
+<script src="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-flashapi/samples/opensocial-flashapi.js"
+        type="text/javascript"></script>
+
+<div id="flashcontainer" style="text-align: center;"></div>
+
+<script type="text/javascript">
+  flashAPI.embedFlash(
+     "http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-flashapi/samples/friendsgrid.swf",
+     "flashcontainer", "9", {
+      width: "420",
+      quality: "high",
+      wmode: "window",
+      allowScriptAccess: "always"
+    });
+</script>
+<script>_IG_Analytics("UA-4069999-1", "/gadgets/friendsgrid");</script>
+
+]]>
+</Content>
+</Module>
