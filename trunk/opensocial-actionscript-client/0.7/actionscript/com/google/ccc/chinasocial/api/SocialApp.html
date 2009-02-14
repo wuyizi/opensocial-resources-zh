@@ -1,0 +1,344 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../../../print.css" type="text/css" media="print">
+<meta content="SocialApp,com.google.ccc.chinasocial.api.SocialApp,api,display,error,getParam,info,setup" name="keywords">
+<title>com.google.ccc.chinasocial.api.SocialApp</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'SocialApp - Opensocial Flash API Documentation';
+				var baseRef = '../../../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">Opensocial Flash API (A wrapper based on the Javascript API)</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../../../all-classes.html')" href="../../../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../../all-classes.html')" href="../../../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../../index-list.html')" href="../../../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../../../index.html?com/google/ccc/chinasocial/api/SocialApp.html&amp;com/google/ccc/chinasocial/api/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;SocialApp</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class SocialApp"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">com.google.ccc.chinasocial.api</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class SocialApp</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">SocialApp <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../../../../images/inherit-arrow.gif"> flash.display.MovieClip</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Subclasses</td><td><a href="sample/SampleApp.html">SampleApp</a></td>
+</tr>
+</table>
+<p></p>
+ The base abstract class for all app's document class which using opensocial 
+ flash API.
+ <p>
+ NOTE: <br>
+ FLEX developers don't need this base class. It is only for Adobe Flash IDE
+ developers.
+ </p>
+ 
+ <p></p>
+<br>
+<span class="label">Example</span>
+<br> <div class='listing'><pre>
+ 
+   // Assumed the SampleAppImpl class is the document class in your .fla file.
+ 
+   public class SampleAppImpl extends SocialApp {
+     private var data:BasicData;
+     private var infoBox:TextField;
+     
+     public function SampleAppImpl() {
+       // Do not auto-start the api.
+       super(["sample"], false);
+     
+       // some init codes..
+     
+       // Create the infobox for debugging output.
+       InfoBox.create(this, someX, someY);
+     
+       // Start the api checking and init data loading.
+       api.start();
+     }
+     public override function setup():void {
+       drawLoadingIcon();
+     }
+     public override function display(data:BasicData):void {
+       this.data = data;
+       // Draw with the loaded data.
+       drawOwner(data.getOwner());
+       drawViewer(data.getViewer());
+     
+       // Request some new data and draw.
+       api.fetchFriends("OWNER_FRIENDS", null, function(ps:Collection):void {
+          var arr:Array = ps.getArray();
+          for (var i:int = 0;i < arr.length; i++) {
+            var p:Person = arr[i];
+            drawPerson(p, i);
+          }
+       });
+     }
+     public override function info(obj:Object):void {
+       InfoBox.info(obj);
+     }
+     public override function error(e:Error):void {
+       InfoBox.info(e);
+     }
+     
+     // Other UI stuff in your app..
+     private function drawPerson(....):void {
+       //...
+     }
+     //...
+   } 
+ </pre></div>
+ 
+ <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="sample/SampleApp.html" target="">com.google.ccc.chinasocial.api.sample.SampleApp</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a><a name="protectedPropertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Properties</div>
+<table id="summaryTableProtectedProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#api">api</a> : <a href="../api/API.html">API</a>
+<div class="summaryTableDescription">
+   The api instance.</div>
+</td><td class="summaryTableOwnerCol">SocialApp</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#SocialApp()">SocialApp</a>(appKeys:Array, autoStart:Boolean = false)</div>
+<div class="summaryTableDescription">
+   Constructor, initializes the API instance.</div>
+</td><td class="summaryTableOwnerCol">SocialApp</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#display()">display</a>(data:<a href="BasicData.html">BasicData</a>):void</div>
+<div class="summaryTableDescription">
+   The hook function for display.</div>
+</td><td class="summaryTableOwnerCol">SocialApp</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#error()">error</a>(e:Error):void</div>
+<div class="summaryTableDescription">
+   This function will be called when an Error occur in API instance.</div>
+</td><td class="summaryTableOwnerCol">SocialApp</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getParam()">getParam</a>(name:String):*</div>
+<div class="summaryTableDescription">
+   Gets parameters from flash element in the HTML context with the "flashvar" 
+   parameter.</div>
+</td><td class="summaryTableOwnerCol">SocialApp</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#info()">info</a>(obj:Object):void</div>
+<div class="summaryTableDescription">
+   For debugging.</div>
+</td><td class="summaryTableOwnerCol">SocialApp</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setup()">setup</a>():void</div>
+<div class="summaryTableDescription">
+   The hook function for setup.</div>
+</td><td class="summaryTableOwnerCol">SocialApp</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="api"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">api</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected var api:<a href="../api/API.html">API</a></code><p>
+   The api instance. 
+   </p></div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="SocialApp()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">SocialApp</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function SocialApp(appKeys:Array, autoStart:Boolean = false)</code><p>
+   Constructor, initializes the API instance. 
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">appKeys</span>:Array</code> &mdash; Keys for this gadget
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">autoStart</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; Automatical start the data initializing... 
+                    If false, call api.start() manually to initialize.
+   </td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="display()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">display</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function display(data:<a href="BasicData.html">BasicData</a>):void</code><p>
+   The hook function for display. Will be called when the initial data loaded.
+   This function should be overriden in the app.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">data</span>:<a href="BasicData.html">BasicData</a></code> &mdash; The basic data set from the initial load. 
+   </td>
+</tr>
+</table>
+</div>
+<a name="error()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">error</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function error(e:Error):void</code><p>
+   This function will be called when an Error occur in API instance. It can 
+   be overriden for better error handling other than an alert box.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:Error</code> &mdash; The error object.
+   </td>
+</tr>
+</table>
+</div>
+<a name="getParam()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getParam</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function getParam(name:String):*</code><p>
+   Gets parameters from flash element in the HTML context with the "flashvar" 
+   parameter.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">name</span>:String</code> &mdash; The name of the param.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>*</code> &mdash; The value of the param.
+   </td>
+</tr>
+</table>
+</div>
+<a name="info()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">info</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function info(obj:Object):void</code><p>
+   For debugging. This function can be overriden if wants output the text 
+   somewhere other than the invisible console (Need to install some add-ons
+   and the flash player debug version to see the console).
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">obj</span>:Object</code> &mdash; The object to trace.
+   </td>
+</tr>
+</table>
+</div>
+<a name="setup()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setup</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setup():void</code><p>
+   The hook function for setup. Will be called when the app is first 
+   constructing before data loading. This funtion should be overriden for 
+   UI initialization before the data RPC is started.
+   </p></div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright">&copy;2008 Google.</center>
+</div>
+</body>
+</html>
+<!--©2008 Google.-->

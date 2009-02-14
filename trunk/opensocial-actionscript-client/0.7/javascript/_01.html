@@ -1,0 +1,3302 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="generator" content="JsDoc Toolkit 1.0">
+	<title>Opensocial Flash API -  Javascript Side</title>
+	<link rel=stylesheet href="default.css" type="text/css" media=screen>
+</head>
+
+<body>
+	<div class="content">
+		<div class="docs">
+		
+			<div class="sectionHead">Library: opensocial-flashapi.js</div>
+			<div class="section overview">
+				<div class="itemTitle">
+					Overview
+				</div>
+				<div>	
+					<div class="desc">A wrapper for opensocial javascript API into actionscript.<p>
+It works with the Opensocial Flash API.In this file, the local var with underscore indicates that this obj is
+a JSON object wappered from opensocial data types.
+</p></div>
+					<div class="itemTags">
+					<ul>
+						<li>source: <a href="src_01.html">opensocial-flashapi.js</a></li>
+					
+						<li>see: <a href="../actionscript/">Actionscript - Side</a></li>
+					
+						<li>see: <a href="http://code.google.com/apis/opensocial/docs/0.7/reference/">http://code.google.com/apis/opensocial/docs/0.7/reference/</a></li>
+					
+						<li>version: 0.7</li>
+					
+						<li>author: yiziwu@google.com (Yizi Wu)</li>
+
+					</ul>
+					</div>
+				</div>
+			</div>
+			
+			<div class="sectionHead">Constructors</div>
+			
+			
+			
+			
+			
+			
+			<div class="section constructor">
+				<div class="itemTitle">
+					<a name="gadgets"></a>
+					
+					
+					gadgets(<span class="signature"></span>)
+					
+				</div>
+				
+				
+					<div class="desc">External namespace for <code>gadgets</code> for internal reference.</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section constructor">
+				<div class="itemTitle">
+					<a name="opensocial"></a>
+					
+					
+					opensocial(<span class="signature"></span>)
+					
+				</div>
+				
+				
+					<div class="desc">External namespace for <code>opensocial</code> for internal reference.</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section constructor">
+				<div class="itemTitle">
+					<a name="flashAPI"></a>
+					
+					
+					flashAPI(<span class="signature"></span>)
+					
+				</div>
+				
+				
+					<div class="desc">Namespace for top-level api functions.</div>
+				
+				
+				
+				
+				
+				
+				
+				<div class="detailHead">methods</div>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.isAPIReady">isAPIReady</a>(objectId)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.embedFlash">embedFlash</a>(swfUrl, swfContainer, opt_playerVersion, opt_params, opt_upgradeMsgHTML)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.getEnvironment">getEnvironment</a>()</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.setStageWidth">setStageWidth</a>(newWidth)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.setStageHeight">setStageHeight</a>(newHeight)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.fetchBasicData">fetchBasicData</a>(reqID, keys, params)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.fetchPeople">fetchPeople</a>(reqID, idSpec, params)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.fetchPerson">fetchPerson</a>(reqID, id, params)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.fetchPersonFriends">fetchPersonFriends</a>(reqID, id, params)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.fetchPersonAppData">fetchPersonAppData</a>(reqID, idSpec, keys)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.updatePersonAppData">updatePersonAppData</a>(reqID, id, key, value)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.fetchActivities">fetchActivities</a>(reqID, id, params)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.createActivity">createActivity</a>(reqID, params, priority)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.getData">getData</a>(dataResponse, key)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.getPerson">getPerson</a>(dataResponse, key)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.getPeople">getPeople</a>(dataResponse, key)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.getPersonAppData">getPersonAppData</a>(dataResponse, key, personId)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.getActivities">getActivities</a>(dataResponse, key)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.checkType">checkType</a>(dataObj)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.wrapFields">wrapFields</a>(dataObj, opt_this)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.wrapParams">wrapParams</a>(rawParams, type)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.isArray">isArray</a>(obj)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.forEach">forEach</a>(array, f, opt_thisObj)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.extractDomain">extractDomain</a>(url)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.cloneObject">cloneObject</a>(obj)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.thisFlash">thisFlash</a>(name)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.debugInspect">debugInspect</a>(obj, opt_prefix, opt_rendered)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.debugExport">debugExport</a>(name, value)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#flashAPI.debugInfo">debugInfo</a>(content)</li>
+					</ul>
+				
+				
+				
+				
+				<div class="detailHead">properties</div>
+				
+					<ul class="details">
+						<li><span class="type">number</span> <a href="#flashAPI.VERSON">VERSON</a></li>
+					</ul>
+				
+					<ul class="details">
+						<li><span class="type">string</span> <a href="#flashAPI.DEFAULT_FLASH_ID">DEFAULT_FLASH_ID</a></li>
+					</ul>
+				
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="section constructor">
+				<div class="itemTitle">
+					<a name="flashAPI.BasicData"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>BasicData(dataResponse)
+					
+					
+				</div>
+				
+				
+					<div class="desc">The basic data set structure.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							opensocial.DataResponse
+						</td>
+						<td>
+							dataResponse
+						</td>
+						<td>
+							The response object from container.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+				<div class="detailHead">properties</div>
+				
+					<ul class="details">
+						<li><span class="type">flashAPI.Person?</span> <a href="#flashAPI.BasicData.viewer">viewer</a></li>
+					</ul>
+				
+					<ul class="details">
+						<li><span class="type">Object.<string, string>?</span> <a href="#flashAPI.BasicData.viewerData">viewerData</a></li>
+					</ul>
+				
+					<ul class="details">
+						<li><span class="type">flashAPI.Collection?</span> <a href="#flashAPI.BasicData.viewerFriends">viewerFriends</a></li>
+					</ul>
+				
+					<ul class="details">
+						<li><span class="type">flashAPI.Person?</span> <a href="#flashAPI.BasicData.owner">owner</a></li>
+					</ul>
+				
+					<ul class="details">
+						<li><span class="type">Object.<string, string>?</span> <a href="#flashAPI.BasicData.ownerData">ownerData</a></li>
+					</ul>
+				
+					<ul class="details">
+						<li><span class="type">flashAPI.Collection?</span> <a href="#flashAPI.BasicData.ownerFriends">ownerFriends</a></li>
+					</ul>
+				
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="section constructor">
+				<div class="itemTitle">
+					<a name="flashAPI.Collection"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>Collection(collection, flashAPIType)
+					
+					
+				</div>
+				
+				
+					<div class="desc">The collection class, wrapped from <code>opensocial.Collection</code>.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							opensocial.Collection
+						</td>
+						<td>
+							collection
+						</td>
+						<td>
+							The original data object.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Function
+						</td>
+						<td>
+							flashAPIType
+						</td>
+						<td>
+							The constuctor of the items in this collection.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+				<div class="detailHead">properties</div>
+				
+					<ul class="details">
+						<li><span class="type">Array</span> <a href="#flashAPI.Collection.array">array</a></li>
+					</ul>
+				
+					<ul class="details">
+						<li><span class="type">number</span> <a href="#flashAPI.Collection.totalSize">totalSize</a></li>
+					</ul>
+				
+					<ul class="details">
+						<li><span class="type">number</span> <a href="#flashAPI.Collection.size">size</a></li>
+					</ul>
+				
+					<ul class="details">
+						<li><span class="type">number</span> <a href="#flashAPI.Collection.offset">offset</a></li>
+					</ul>
+				
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="section constructor">
+				<div class="itemTitle">
+					<a name="flashAPI.Person"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>Person(person)
+					
+					
+				</div>
+				
+				
+					<div class="desc">The person class wrapped from <code>opensocial.Person</code>.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							opensocial.Person
+						</td>
+						<td>
+							person
+						</td>
+						<td>
+							The original data object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+				<div class="detailHead">properties</div>
+				
+					<ul class="details">
+						<li><span class="type">boolean</span> <a href="#flashAPI.Person.isOwner">isOwner</a></li>
+					</ul>
+				
+					<ul class="details">
+						<li><span class="type">boolean</span> <a href="#flashAPI.Person.isViewer">isViewer</a></li>
+					</ul>
+				
+					<ul class="details">
+						<li><span class="type">string</span> <a href="#flashAPI.Person.displayName">displayName</a></li>
+					</ul>
+				
+					<ul class="details">
+						<li><span class="type">string</span> <a href="#flashAPI.Person.id">id</a></li>
+					</ul>
+				
+					<ul class="details">
+						<li><span class="type">Object.<string, string, Array, Object></span> <a href="#flashAPI.Person.fields">fields</a></li>
+					</ul>
+				
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="section constructor">
+				<div class="itemTitle">
+					<a name="flashAPI.Activity"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>Activity(activity)
+					
+					
+				</div>
+				
+				
+					<div class="desc">The activity class wrapped from <code>opensocial.Activity</code>.TODO: setField not supported.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							opensocial.Activity
+						</td>
+						<td>
+							activity
+						</td>
+						<td>
+							The original data object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+				<div class="detailHead">properties</div>
+				
+					<ul class="details">
+						<li><span class="type">string</span> <a href="#flashAPI.Activity.id">id</a></li>
+					</ul>
+				
+					<ul class="details">
+						<li><span class="type">Object.<string, string, Array, Object></span> <a href="#flashAPI.Activity.fields">fields</a></li>
+					</ul>
+				
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			<div class="section constructor">
+				<div class="itemTitle">
+					<a name="flashAPI.Message"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>Message(message)
+					
+					
+				</div>
+				
+				
+					<div class="desc">The message class wrapped from <code>opensocial.Message</code>.TODO: setField not supported.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							opensocial.Message
+						</td>
+						<td>
+							message
+						</td>
+						<td>
+							The original data object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+				<div class="detailHead">properties</div>
+				
+					<ul class="details">
+						<li><span class="type">Object.<string, string, Array, Object></span> <a href="#flashAPI.Message.fields">fields</a></li>
+					</ul>
+				
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			
+			<div class="section constructor">
+				<div class="itemTitle">
+					<a name="flashAPI.SimpleType"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>SimpleType(opt_data)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Wrapped class for all other data types in <code>opensocial</code> namespace.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							Object?
+						</td>
+						<td>
+							opt_data
+						</td>
+						<td>
+							The original data object, can be <code>opensocial.Email</code>, 
+       <code>opensocial.Url</code>, etc.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+				<div class="detailHead">properties</div>
+				
+					<ul class="details">
+						<li><span class="type">Object.<string, string, Array, Object></span> <a href="#flashAPI.SimpleType.fields">fields</a></li>
+					</ul>
+				
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="sectionHead">Functions</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.isAPIReady"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>isAPIReady(<span class="signature">objectId</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Indicates if the opensocial library is loaded. 
+Initialize the <code>opensocial</code> and <code>gadgets</code> namespaces.Initialize the <code>flashAPI.swfObj</code> element. 
+
+The objectId of the swf is defined in gagdet spec. If the swf is embeded by
+calling <code>flashAPI.embededFlash</code> function, the detault objectId 
+will be 'flashAPI.swfObj'.
+
+This function is called by the swf's ExternalInterface continuingly until it
+returns true.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string?
+						</td>
+						<td>
+							objectId
+						</td>
+						<td>
+							The object Id passed from the swf.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							boolean
+						</td>
+						<td>
+							true if all javascripts are loaded.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.embedFlash"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>embedFlash(<span class="signature">swfUrl, swfContainer, opt_playerVersion, opt_params, opt_upgradeMsgHTML</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Because <code>gadgets.flash.embedFlash</code> cannot auto activate it in IE6,
+so here we need a special one.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							swfUrl
+						</td>
+						<td>
+							The swf file's location.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							swfContainer
+						</td>
+						<td>
+							The HTML element id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string?
+						</td>
+						<td>
+							opt_playerVersion
+						</td>
+						<td>
+							Required flash player version.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object.<string, string>?
+						</td>
+						<td>
+							opt_params
+						</td>
+						<td>
+							Flash object's parameters.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string?
+						</td>
+						<td>
+							opt_upgradeMsgHTML
+						</td>
+						<td>
+							The message if the browser's version needs to be upgraded.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.getEnvironment"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>getEnvironment(<span class="signature"></span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Returns the env object for container</div>
+				
+				
+				
+				
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							Object
+						</td>
+						<td>
+							a map of all environment values.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.setStageWidth"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>setStageWidth(<span class="signature">newWidth</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Set the width for the flash stageVery usefull for dynamic loading and view switching.TODO: need some check!</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							number
+						</td>
+						<td>
+							newWidth
+						</td>
+						<td>
+							New width (in pixel) to be applied.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.setStageHeight"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>setStageHeight(<span class="signature">newHeight</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Set the height for the flash stageVery usefull for dynamic loading and view switchingTODO: need some check!</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							number
+						</td>
+						<td>
+							newHeight
+						</td>
+						<td>
+							New height (in pixel) to be applied.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.fetchBasicData"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>fetchBasicData(<span class="signature">reqID, keys, params</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends out the request for basic data set.NOTE:Here we pass JSON string instead of an object to Flash via the callback.See comments of 'handleFetchBasicData' method in the API.as file.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Array.<string>
+						</td>
+						<td>
+							keys
+						</td>
+						<td>
+							The app keys.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object.<string, Object>
+						</td>
+						<td>
+							params
+						</td>
+						<td>
+							A map of PeopleRequestField's names and values.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.fetchPeople"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>fetchPeople(<span class="signature">reqID, idSpec, params</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends out the request for friends of a person.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							idSpec
+						</td>
+						<td>
+							OWNER | VIEWER | OWNER_FRIENDS | VIEWER_FRIENDS | Id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object.<string, Object>
+						</td>
+						<td>
+							params
+						</td>
+						<td>
+							A map of PeopleRequestField's names and values.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.fetchPerson"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>fetchPerson(<span class="signature">reqID, id, params</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends out the request for a person.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							id
+						</td>
+						<td>
+							OWNER | VIEWER | Person Id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object.<string, Object>
+						</td>
+						<td>
+							params
+						</td>
+						<td>
+							A map of PeopleRequestField's names and values.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.fetchPersonFriends"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>fetchPersonFriends(<span class="signature">reqID, id, params</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends out the request for a person and his/her friends.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							id
+						</td>
+						<td>
+							OWNER | VIEWER | Person Id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object.<string, Object>
+						</td>
+						<td>
+							params
+						</td>
+						<td>
+							A map of PeopleRequestField's names and values.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.fetchPersonAppData"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>fetchPersonAppData(<span class="signature">reqID, idSpec, keys</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends out the request for personal app data.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string, Array.<string>
+						</td>
+						<td>
+							idSpec
+						</td>
+						<td>
+							OWNER | VIEWER | Id | Array of Ids.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Array.<string>
+						</td>
+						<td>
+							keys
+						</td>
+						<td>
+							App keys.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.updatePersonAppData"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>updatePersonAppData(<span class="signature">reqID, id, key, value</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends out the update request for personal app data.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							id
+						</td>
+						<td>
+							OWNER | VIEWER | Person Id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							key
+						</td>
+						<td>
+							The data key in this app.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object
+						</td>
+						<td>
+							value
+						</td>
+						<td>
+							New value.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.fetchActivities"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>fetchActivities(<span class="signature">reqID, id, params</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends out the request for personal activities.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							id
+						</td>
+						<td>
+							OWNER | VIEWER | Person Id
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object.<ActivityRequestField.name, Object>
+						</td>
+						<td>
+							params
+						</td>
+						<td>
+							A map of ActivityRequestField's names and values
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.createActivity"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>createActivity(<span class="signature">reqID, params, priority</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends out the update request for new activity.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object.<string, Object>
+						</td>
+						<td>
+							params
+						</td>
+						<td>
+							A map of ActivityRequestField's names and values.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							priority
+						</td>
+						<td>
+							HIGH | LOW.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.getData"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>getData(<span class="signature">dataResponse, key</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Gets data object from resoponse.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							opensocial.DataResponse
+						</td>
+						<td>
+							dataResponse
+						</td>
+						<td>
+							The response object.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							key
+						</td>
+						<td>
+							The data key in the response object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							Object?
+						</td>
+						<td>
+							The data, can be any instance of the opensocial data type,                  or a collection data type.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				<div class="detailHead">exceptions</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							Error
+						</td>
+						<td>
+							When the RPC meets error.
+						</td> 
+					</tr>
+				
+				</table>
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.getPerson"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>getPerson(<span class="signature">dataResponse, key</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Gets person from the response.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							opensocial.DataResponse
+						</td>
+						<td>
+							dataResponse
+						</td>
+						<td>
+							The response object.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							key
+						</td>
+						<td>
+							The data key in the response object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							flashAPI.Person?
+						</td>
+						<td>
+							Wrapped JSON object of an <code>opensocial.Person</code> object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.getPeople"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>getPeople(<span class="signature">dataResponse, key</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Gets multiple people from the response.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							opensocial.DataResponse
+						</td>
+						<td>
+							dataResponse
+						</td>
+						<td>
+							The response object.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							key
+						</td>
+						<td>
+							The data key in the response object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							flashAPI.Collection?
+						</td>
+						<td>
+							Wrapped JSON object of an <code>opensocial.Collection</code> object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.getPersonAppData"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>getPersonAppData(<span class="signature">dataResponse, key, personId</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Gets the user-scope app data from response. The app data is a map withthe keys are the person ids.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							opensocial.DataResponse
+						</td>
+						<td>
+							dataResponse
+						</td>
+						<td>
+							The response object.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							key
+						</td>
+						<td>
+							The data key in the response object.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string?
+						</td>
+						<td>
+							personId
+						</td>
+						<td>
+							The person Id.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							Object.<string, string>?
+						</td>
+						<td>
+							The key-value pairs for the person in this app.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.getActivities"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>getActivities(<span class="signature">dataResponse, key</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Gets multiple activities from the response.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							opensocial.DataResponse
+						</td>
+						<td>
+							dataResponse
+						</td>
+						<td>
+							The response object.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							key
+						</td>
+						<td>
+							The data key in the response object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							flashAPI.Collection?
+						</td>
+						<td>
+							Wrapped JSON object of an <code>opensocial.Collection</code> object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.checkType"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>checkType(<span class="signature">dataObj</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Checks the responded opensocial data structure's type.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							Object?
+						</td>
+						<td>
+							dataObj
+						</td>
+						<td>
+							The original opensocial data object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							Function?
+						</td>
+						<td>
+							the types' constructor.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.wrapFields"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>wrapFields(<span class="signature">dataObj, opt_this</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Wraps the data objects fields to JSON-style objects without any 
+getter/setter functions. Because in actionscript's ExternalInterface cannot 
+use the getFields to get the data correctly.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							Object?
+						</td>
+						<td>
+							dataObj
+						</td>
+						<td>
+							The opensocial data, 
+       e.g. <code>opensocial.Email</code>, <code>opensocial.Person</code>...
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object?
+						</td>
+						<td>
+							opt_this
+						</td>
+						<td>
+							The converted obj for flash.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							Object?
+						</td>
+						<td>
+							the converted obj for flash.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.wrapParams"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>wrapParams(<span class="signature">rawParams, type</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Wraps JOSN-style (raw) params object (from actionscript) keys to opensocial 
+field types.
+TODO: Maybe more field types in the futures. Not neatly imeplemtation here.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							Object.<string, Object>?
+						</td>
+						<td>
+							rawParams
+						</td>
+						<td>
+							The params object from actionscript.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Function?
+						</td>
+						<td>
+							type
+						</td>
+						<td>
+							The field type class constructor.       e.g. <code>opensocial.DataRequest.PeopleRequestFields</code>.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							Object.<Object, Object>?
+						</td>
+						<td>
+							New params with the correct keys.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.isArray"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>isArray(<span class="signature">obj</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Checks if the object is an array.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							Object
+						</td>
+						<td>
+							obj
+						</td>
+						<td>
+							object to be check.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							boolean
+						</td>
+						<td>
+							True if the object is an array.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.forEach"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>forEach(<span class="signature">array, f, opt_thisObj</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Iterates an array, calls the function for each item.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							Array
+						</td>
+						<td>
+							array
+						</td>
+						<td>
+							The array to be iterated.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Function
+						</td>
+						<td>
+							f
+						</td>
+						<td>
+							The function to be applied.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object
+						</td>
+						<td>
+							opt_thisObj
+						</td>
+						<td>
+							The this object for the function.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.extractDomain"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>extractDomain(<span class="signature">url</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Extracts container domain name from url(Referer). e.g. sandbox.orkut.com</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							url
+						</td>
+						<td>
+							The request url.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							The domain.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.cloneObject"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>cloneObject(<span class="signature">obj</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Deeply clones an object.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							Object?
+						</td>
+						<td>
+							obj
+						</td>
+						<td>
+							The original object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							Object?
+						</td>
+						<td>
+							The cloned object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.thisFlash"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>thisFlash(<span class="signature">name</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Get the swf object.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string?
+						</td>
+						<td>
+							name
+						</td>
+						<td>
+							The <object>/<embed> tag's id or name
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							HTMLElement
+						</td>
+						<td>
+							the swf object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.debugInspect"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>debugInspect(<span class="signature">obj, opt_prefix, opt_rendered</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">For debugging, return the object's keys and values.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							Object?
+						</td>
+						<td>
+							obj
+						</td>
+						<td>
+							Any object to be looked into.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string?
+						</td>
+						<td>
+							opt_prefix
+						</td>
+						<td>
+							The prefix string of each output line.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string?
+						</td>
+						<td>
+							opt_rendered
+						</td>
+						<td>
+							The rendered string passing between recursions.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string?
+						</td>
+						<td>
+							A tree-style string to represent the object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.debugExport"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>debugExport(<span class="signature">name, value</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">For debugging, export the local variables to global.
+Only available when DEBUG = true.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							name
+						</td>
+						<td>
+							The name.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object?
+						</td>
+						<td>
+							value
+						</td>
+						<td>
+							The value.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="flashAPI.debugInfo"></a>
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>debugInfo(<span class="signature">content</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">For debugging, output text information to firebug console.
+Only available when DEBUG = true.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							Object?
+						</td>
+						<td>
+							content
+						</td>
+						<td>
+							The content to be logged.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="sectionHead">Objects</div>
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="COMPILED"></a>
+					
+					<span class="type">boolean</span>
+					
+					
+					
+						COMPILED
+					
+				</div>
+				
+				
+					<div class="desc">Flag for JSCompiler.</div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="DEBUG"></a>
+					
+					<span class="type">boolean</span>
+					
+					
+					
+						DEBUG
+					
+				</div>
+				
+				
+					<div class="desc">Set to false for release.</div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.VERSON"></a>
+					
+					<span class="type">number</span>
+					
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>VERSON
+					
+					
+				</div>
+				
+				
+					<div class="desc">The Opensocial Javascript API version.</div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.DEFAULT_FLASH_ID"></a>
+					
+					<span class="type">string</span>
+					
+					
+						<i><a href="#flashAPI" class="type">flashAPI.</a></i>DEFAULT_FLASH_ID
+					
+					
+				</div>
+				
+				
+					<div class="desc">The default flash id embeded in container.</div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.BasicData.viewer"></a>
+					
+					<span class="type">flashAPI.Person?</span>
+					
+					
+						<i><a href="#flashAPI.BasicData" class="type">flashAPI.BasicData.</a></i>viewer
+					
+					
+				</div>
+				
+				
+					<div class="desc"></div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.BasicData.viewerData"></a>
+					
+					<span class="type">Object.<string, string>?</span>
+					
+					
+						<i><a href="#flashAPI.BasicData" class="type">flashAPI.BasicData.</a></i>viewerData
+					
+					
+				</div>
+				
+				
+					<div class="desc"></div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.BasicData.viewerFriends"></a>
+					
+					<span class="type">flashAPI.Collection?</span>
+					
+					
+						<i><a href="#flashAPI.BasicData" class="type">flashAPI.BasicData.</a></i>viewerFriends
+					
+					
+				</div>
+				
+				
+					<div class="desc"></div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.BasicData.owner"></a>
+					
+					<span class="type">flashAPI.Person?</span>
+					
+					
+						<i><a href="#flashAPI.BasicData" class="type">flashAPI.BasicData.</a></i>owner
+					
+					
+				</div>
+				
+				
+					<div class="desc"></div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.BasicData.ownerData"></a>
+					
+					<span class="type">Object.<string, string>?</span>
+					
+					
+						<i><a href="#flashAPI.BasicData" class="type">flashAPI.BasicData.</a></i>ownerData
+					
+					
+				</div>
+				
+				
+					<div class="desc"></div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.BasicData.ownerFriends"></a>
+					
+					<span class="type">flashAPI.Collection?</span>
+					
+					
+						<i><a href="#flashAPI.BasicData" class="type">flashAPI.BasicData.</a></i>ownerFriends
+					
+					
+				</div>
+				
+				
+					<div class="desc"></div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.Collection.array"></a>
+					
+					<span class="type">Array</span>
+					
+					
+						<i><a href="#flashAPI.Collection" class="type">flashAPI.Collection.</a></i>array
+					
+					
+				</div>
+				
+				
+					<div class="desc">All the objects in this collection.</div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.Collection.totalSize"></a>
+					
+					<span class="type">number</span>
+					
+					
+						<i><a href="#flashAPI.Collection" class="type">flashAPI.Collection.</a></i>totalSize
+					
+					
+				</div>
+				
+				
+					<div class="desc">The total size of the larger result set that this collection belongs to.</div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.Collection.size"></a>
+					
+					<span class="type">number</span>
+					
+					
+						<i><a href="#flashAPI.Collection" class="type">flashAPI.Collection.</a></i>size
+					
+					
+				</div>
+				
+				
+					<div class="desc">The size of this collection, which is equal to or less than the total size 
+of the result.</div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.Collection.offset"></a>
+					
+					<span class="type">number</span>
+					
+					
+						<i><a href="#flashAPI.Collection" class="type">flashAPI.Collection.</a></i>offset
+					
+					
+				</div>
+				
+				
+					<div class="desc">The offset of this collection within a larger result set.</div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.Person.isOwner"></a>
+					
+					<span class="type">boolean</span>
+					
+					
+						<i><a href="#flashAPI.Person" class="type">flashAPI.Person.</a></i>isOwner
+					
+					
+				</div>
+				
+				
+					<div class="desc">True if this person is the OWNER</div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.Person.isViewer"></a>
+					
+					<span class="type">boolean</span>
+					
+					
+						<i><a href="#flashAPI.Person" class="type">flashAPI.Person.</a></i>isViewer
+					
+					
+				</div>
+				
+				
+					<div class="desc">True if this person is the VIEWER</div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.Person.displayName"></a>
+					
+					<span class="type">string</span>
+					
+					
+						<i><a href="#flashAPI.Person" class="type">flashAPI.Person.</a></i>displayName
+					
+					
+				</div>
+				
+				
+					<div class="desc">The person's meaningful name for displaying.</div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.Person.id"></a>
+					
+					<span class="type">string</span>
+					
+					
+						<i><a href="#flashAPI.Person" class="type">flashAPI.Person.</a></i>id
+					
+					
+				</div>
+				
+				
+					<div class="desc">The person id.</div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.Person.fields"></a>
+					
+					<span class="type">Object.<string, string, Array, Object></span>
+					
+					
+						<i><a href="#flashAPI.Person" class="type">flashAPI.Person.</a></i>fields
+					
+					
+				</div>
+				
+				
+					<div class="desc">The person's profile fields.</div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.Activity.id"></a>
+					
+					<span class="type">string</span>
+					
+					
+						<i><a href="#flashAPI.Activity" class="type">flashAPI.Activity.</a></i>id
+					
+					
+				</div>
+				
+				
+					<div class="desc">The activity id.</div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.Activity.fields"></a>
+					
+					<span class="type">Object.<string, string, Array, Object></span>
+					
+					
+						<i><a href="#flashAPI.Activity" class="type">flashAPI.Activity.</a></i>fields
+					
+					
+				</div>
+				
+				
+					<div class="desc">The activity content fields.</div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.Message.fields"></a>
+					
+					<span class="type">Object.<string, string, Array, Object></span>
+					
+					
+						<i><a href="#flashAPI.Message" class="type">flashAPI.Message.</a></i>fields
+					
+					
+				</div>
+				
+				
+					<div class="desc">The message contents.</div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			<div class="section object">
+				<div class="itemTitle">
+					<a name="flashAPI.SimpleType.fields"></a>
+					
+					<span class="type">Object.<string, string, Array, Object></span>
+					
+					
+						<i><a href="#flashAPI.SimpleType" class="type">flashAPI.SimpleType.</a></i>fields
+					
+					
+				</div>
+				
+				
+					<div class="desc">The data fields.</div>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</div>
+	</div>
+	<div class="finePrint">
+	Generated by <a href="http://jsdoctoolkit.org/" target="_blank">JsDoc Toolkit</a> 1.3.3 on Sun, 04 May 2008 19:30:18 GMT.
+	</div>
+</body>
+</html>

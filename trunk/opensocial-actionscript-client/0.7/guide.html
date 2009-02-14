@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+"http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Developer's Guide</title>
+<link href="http://code.google.com/css/semantic_headers.css" type="text/css" rel="stylesheet"></link>
+<link href="http://code.google.com/css/codesite.pack.01312008.css" type="text/css" rel="stylesheet"></link>
+</head>
+<body>
+  <div style="font-size:3em; font-weight:bold; font-family: Arial,sans-serif;">
+  Opensocial Flash API
+  </div>
+  <div id="gc-pagecontent" class="g-unit" style="position: relative;">
+  <a name="overview"></a>
+  <h2>Overview</h2>
+  <p>I think we all believe that Flash is a good thing. This is a wrapper interface to make <a href="http://code.google.com/apis/opensocial/" target="_parent">Opensocial Javascript API</a> used in ActionScript 3.0 for Flash/Flex Apps developers. It's called Flash API for short.</p>
+  
+  <a name="concepts"></a>
+  <h2>Key concepts</h2>
+  <p>This Flash API works without any special restriction, but only the standard. The is no requirement on RESTful API or other special support on the Opensocial container. The major goal of this effort is to make a light weight toolkit to let flash developers work on Opensocial projects quickly and conviniently and make their gadgets runs on any standard Opensocial containers. The current version of Opensocial standard is 0.7.</p>
+
+  <p>The key point of the implementation is to use <code>flash.external.ExternalInterface</code> to make the request from ActionScript side (AS-Side for short) to Javascript side (JS-Side for short) and response from JS-Side back to AS-Side.</p>
+
+  <p>Flash/Flex Gadgets developers may want to look at the <a href="actionscript/index.html">AS-Side API Reference</a> for developing. There are some sample codes in the package, which is easy to get start. And this API developers, like me, or maybe you, may want to keep track on the <a href="javascript/index.html">JS-Side API Reference</a> for further developing or upgrading with the standard API. Right now this API is not full functional. There are many things to work.</p>
+
+  <p>In this package, the AS-Side is a .swc Actionscript component file <code>opensocial-flashapi.swc</code> [ <a href="samples/opensocial-flashapi.swc" target="_blank">download</a> ], and the JS-Side is a compiled code lib file <code>opensocial-flashapi.js</code> [ <a href="samples/opensocial-flashapi.js" target="_blank">download</a> ]. (Source code will be open soon.)
+
+  <a name="gettingstart"></a>
+  <h2>Getting start</h2>
+  <ol>
+    <li>
+      <p>Download the <code>opensocial-flashapi.swc</code> file and include in your flash project. This API requires <a href="http://code.google.com/p/as3corelib/" target="_parent">AS3 Corelib</a>, so download and include the corelib's swc file, too.</p>
+    </li>
+    <li>
+      <p>Read the <a href="actionscript/index.html">AS-Side API Reference</a> and implement your gadget with the API component. There are <a href="actionscript/com/google/ccc/chinasocial/api/sample/SampleApp.html">Sample for Flash IDE</a> and <a href="actionscript/com/google/ccc/chinasocial/api/sample/FlexSampleApp.html">Sample for Flex</a>, depending on what kind of application you like to develop. Then build your flash project to a swf file.</p>
+    </li>
+    <li>
+      <p>Upload the swf file to user accessible site. Also make the file <code>opensocial-flashapi.js</code> accessible. You can upload it to a same place with your swf file or find a reference through internet. For developing, these two files can be local.</p>
+    </li>
+    <li>
+      <p>Write a gadget spec with reference to your swf file and the <code>opensocial-flashapi.js</code> file. Here is a typical example of the gadget spec XML file:
+        <pre>
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;Module&gt;
+&lt;ModulePrefs title="Your App Name"&gt;
+  &lt;Require feature="flash"/&gt;
+  &lt;Require feature="views"/&gt;
+  &lt;Require feature="dynamic-height"/&gt;
+  &lt;Require feature="opensocial-0.7"/&gt;
+&lt;/ModulePrefs&gt;
+&lt;Content type="html"&gt;
+&lt;![CDATA[
+  &lt;!--
+    The JS-Side javascript code lib used in the Flash API.
+  --&gt;
+  &lt;script src="http://some-where/opensocial-flashapi.js" type="text/javascript"&gt;&lt;/script&gt;
+
+  &lt;!-- The flash element --&gt;
+  &lt;div id="flashcontainer" style="text-align: center;"&gt;&lt;/div&gt;
+
+  &lt;!-- Embed the swf file --&gt;
+  &lt;script type="text/javascript"&gt;
+    flashAPI.embedFlash(
+      "http://some-where/yourfile.swf",
+      "flashcontainer", "9", {
+        quality: "high",
+        wmode: "window",
+        allowScriptAccess: "always"
+      });
+  &lt;/script&gt;
+]]&gt;
+&lt;/Content&gt;
+&lt;/Module&gt;</pre>
+      </p>
+    </li>
+    <li>
+      <p>Upload to a public accessibe site, say, <code>http://your.site.com/your-app.xml</code>.</p>
+    </li>
+    <li>
+      <p>Login <a href="http://sandbox.orkut.com" target="_parent">sandbox.orkut.com</a> and add this URL <code>http://your.site.com/your-app.xml</code> of this gadget spec to the Apps section and have fun.</p>
+    </li>
+  </ol>
+  </p>
+  
+  <a name="examples"></a>
+  <h2>Examples</h2>
+  <p>Here are two simple flash opensocial gadgets (not the same samples in the package, but sorry they are in Chinese). Add these gadgets to <a href="http://sandbox.orkut.com" target="_parent">sandbox.orkut.com</a> to have a try!</p>
+  
+  <ul>
+    <li>
+      <p><a href="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-flashapi/samples/ego3.xml" target="_blank">Ego III</a> - Display a friends pie with floating profile panels. This gadget was ported from a non-opensocial swf project which required backend to export complicated XML feed.</p>
+    </li>
+    <li>
+      <p><a href="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-flashapi/samples/friendsgrid.xml" target="_blank">Friends Grid</a> - Simply display a friends grid. Click on the profile picture will open the friend's profile page.</p>
+    </li>
+  </ul>
+  
+  <a name="todo"></a>
+  <h2>TODO list</h2>
+  <p>There are several parts of Opensocial standard and Gadgets standard are not supported yet. So we need to work them out in nearly future.</p>
+  <ul>
+    <li>
+      <p><a href="http://code.google.com/apis/opensocial/docs/0.7/devguide.html#Activities" target="_parent">Activity</a> related RPCs (community issues).</p>
+    </li>
+    <li>
+      <p><a href="http://code.google.com/apis/opensocial/docs/0.7/devguide.html#Remote_Content" target="_parent">Remote content request</a> and <a href="http://code.google.com/apis/opensocial/docs/0.7/reference/gadgets.io.html" target="_parant">gadgets.io.*</a> RPCs (security and authentication issues).</p>
+    </li>
+    <li>
+      <p><a href="http://code.google.com/apis/opensocial/docs/0.7/reference/opensocial.html#requestPermission" target="_parent">Permission</a> and <a href="http://code.google.com/apis/opensocial/docs/0.7/reference/opensocial.html#requestShareApp" target="_parant">Apps Sharing</a> related RPCs (authorization issues).</p>
+    </li>
+    <li>
+      <p>Make it externally available or opensourced.</p>
+    </li>
+  </ul>
+  <a name="todo"></a>
+  <h2>Contacts</h2>
+  <ul>
+    <li style="display:inline;"><a href="mailto:yiziwu@google.com">Yizi Wu</a></li>
+    <li style="display:inline;"><a href="mailto:opensocial-china@google.com">Team</a></li>
+  <ul>
+</div>
+<hr>
+<center style="color:#808080; padding:10px;">&copy;2008 Google</center>
+</body>
+</html>
