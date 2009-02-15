@@ -54,7 +54,7 @@ import org.opensocial.client.util.*;
  * @example
  * <listing version="3.0">
  *  
- *   funcion init():void {
+ *   function init():void {
  *     displaySomeStuff();
  * 
  *     var client:OpensocialClient = new OpensocialClient();
@@ -69,7 +69,7 @@ import org.opensocial.client.util.*;
  * 
  *     // start your logic
  *     client.fetchPerson(...);
- *
+ * 
  *   }
  * </listing>
  *  
