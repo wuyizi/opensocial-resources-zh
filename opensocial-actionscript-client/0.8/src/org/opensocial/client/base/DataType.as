@@ -38,7 +38,7 @@ import flash.utils.getQualifiedSuperclassName;
  * 
  * @author yiziwu@google.com (Yizi Wu)
  */
-public class DataType extends BaseType {
+public class DataType implements BaseType {
   /**
    * The wrapped object from Js-side passed by the <code>ExternalInterface</code>.
    * @private

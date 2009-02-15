@@ -31,7 +31,7 @@ package org.opensocial.client.base {
  * 
  * @author yiziwu@google.com (Yizi Wu)
  */
-public class Collection extends BaseType {
+public class Collection implements BaseType {
   /**
    * The wrapped object from Js-side passed by the <code>ExternalInterface</code>.
    * @private

@@ -30,7 +30,7 @@ package org.opensocial.client.base {
  * 
  * @author yiziwu@google.com (Yizi Wu)
  */
-public class ResponseItem extends BaseType {
+public class ResponseItem implements BaseType {
 
   /**
    * <code><j>opensocial.ResponseItem.Error</j></code> constants.
