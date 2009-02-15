@@ -74,7 +74,7 @@ opensocial.flash = (function() {
    * @type {boolean}
    * @private
    */
-  var DEBUG = false;
+  var DEBUG = true;
   
 
   /**
@@ -306,12 +306,12 @@ opensocial.flash = (function() {
         var value = dataObj.getField(key);
         if (value != null) {
           if (isArray(value)) {
-            opt_this['fields'][k] = [];
+            opt_this['fields'][key] = [];
             forEach(value, function(item) {
-              opt_this['fields'][k].push(wrapObject(item));
+              opt_this['fields'][key].push(wrapObject(item));
             });
           } else {
-            opt_this['fields'][k] = wrapObject(value);
+            opt_this['fields'][key] = wrapObject(value);
           }
         }
       }
