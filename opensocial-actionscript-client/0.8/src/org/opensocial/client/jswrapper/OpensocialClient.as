@@ -294,7 +294,6 @@ public class OpensocialClient extends EventDispatcher {
    * @param rawPerson A wrapped <code><j>opensocial.Person</j></code> object from Js-side.
    */
   protected function handleFetchPerson(reqID:String, rawPerson:Object):void {
-    ExternalInterface.call("INFO", "swf:handleFetchPerson" + reqID);
     var person:Person = new Person(rawPerson);
     callbacks_.pop(reqID, new ResponseItem(person));
   }
@@ -327,7 +326,6 @@ public class OpensocialClient extends EventDispatcher {
    *                  object from Js-side.
    */
   protected function handleFetchPeople(reqID:String, rawPeople:Object):void {
-    ExternalInterface.call("INFO", "swf:handleFetchPeople" + reqID);
     var people:Collection = new Collection(rawPeople, Person);
     callbacks_.pop(reqID, new ResponseItem(people));
   }
@@ -487,7 +485,6 @@ public class OpensocialClient extends EventDispatcher {
    * @param reqID Request UID.
    */
   protected function handleRequestCreateActivity(reqID:String):void {
-    ExternalInterface.call("INFO", "swf:handleRequestCreateActivity" + reqID);
     callbacks_.pop(reqID, ResponseItem.SIMPLE_SUCCESS);
   }
 
@@ -623,7 +620,6 @@ public class OpensocialClient extends EventDispatcher {
    * @param error The error object from javascript.
    */
   protected function handleError(reqID:String, error:Object):void {
-    ExternalInterface.call("INFO", "swf:handleError" + reqID);
     if (error != null) {
       var code:String = "";
       if (error["name"] == "OpensocialError") {
