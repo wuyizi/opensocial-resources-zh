@@ -3,7 +3,7 @@
   <ModulePrefs title="My App Test">
     <Require feature="opensocial-0.7"/>
   </ModulePrefs>
-  <Content type="html" view="default">
+  <Content type="html">
 
     <![CDATA[
       gadgets.util.registerOnLoadHandler(init);
