@@ -30,7 +30,7 @@ import flash.utils.flash_proxy;
  * 
  * @author yiziwu@google.com (Yizi Wu)
  */
-public dynamic class ConstType extends Proxy {
+public dynamic class ConstType extends Proxy implements BaseType {
   
   private static var useDefault_:Boolean = false;
   

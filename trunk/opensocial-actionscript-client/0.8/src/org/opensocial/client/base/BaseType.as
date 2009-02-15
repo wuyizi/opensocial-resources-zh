@@ -20,7 +20,7 @@
 package org.opensocial.client.base {
 
 /**
- * The base type for most of opensocial related types in this package.
+ * The base type interface for most of opensocial related types in this package.
  * <p>
  * This is the root class for some reflection usage except the <code>ConstType</code> and 
  * <code>ArrayType</code> series.
@@ -33,7 +33,7 @@ package org.opensocial.client.base {
  * 
  *    As-side: org.opensocial.client.base               Js-side: opensocial namespace
  *   ====================================================================================
- *    BaseType 
+ *    Opensocial 
  *      + Collection                                    opensocial.Collection
  *      + DataRequest                                   opensocial.DataRequest
  *      + ResponseItem                                  opensocial.ResponseItem
@@ -56,17 +56,19 @@ package org.opensocial.client.base {
  *              + Message                               opensocial.Message
  *              + NavigationParameters                  opensocial.NavigationParameters
  * 
- *    ArrayType
+ *      + ArrayType
  * 
- *    ConstType
- *      + [all constants and enum objects]
+ *      + ConstType
+ *          + [all constants and enum objects]
  * 
  * </listing>
  *
  * 
  * @author yiziwu@google.com (Yizi Wu)
  */
-public class BaseType {
+public interface BaseType {
   
+
 }
+
 }

@@ -34,7 +34,7 @@ package org.opensocial.client.base {
  * 
  * @author yiziwu@google.com (Yizi Wu)
  */
-public class DataRequest extends BaseType {
+public class DataRequest implements BaseType {
   /**
    * <code><j>opensocial.DataRequest.SortOrder</j></code> constants.
    * @see http://code.google.com/apis/opensocial/docs/0.8/reference/#opensocial.DataRequest.SortOrder

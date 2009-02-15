@@ -26,7 +26,7 @@ import flash.utils.getQualifiedClassName;
  * 
  * @author yiziwu@google.com (Yizi Wu)
  */
-public dynamic class ArrayType extends Array {
+public dynamic class ArrayType extends Array implements BaseType {
   /**
    * Convert an array of raw object to an array primitives or DataType instances.
    * <p>
