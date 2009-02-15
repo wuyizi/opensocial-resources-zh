@@ -6,6 +6,8 @@
   <Content type="html">
 
     <![CDATA[
+      <script type="javascript">
+
       gadgets.util.registerOnLoadHandler(init);
 
       function init() {
@@ -33,7 +35,7 @@
         html.push('</ul>');
         document.getElementById('friends').innerHTML = html.join('');
       };
-
+      </script>
      ]]>
   </Content>
 </Module>
