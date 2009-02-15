@@ -181,7 +181,7 @@ public class OpensocialClient extends EventDispatcher {
    * @private
    */
   private function checkJavascriptReady():void {
-    var timer:Timer = new Timer(100, 30);
+    var timer:Timer = new Timer(100, 10);
     timer.addEventListener(TimerEvent.TIMER, function(event:TimerEvent):void {
       logger.info("Checking JavaScript status...");
       var jsReady:Boolean = ExternalInterface.call(jsNamespace_ + ".jsReady", 
