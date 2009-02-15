@@ -815,7 +815,7 @@ opensocial.flash = (function() {
       opensocial.requestCreateActivity(activity, priority, function(responseItem) {
         try {
           getDataItem(responseItem);
-          swfObj.handleRequestCreateActivities(reqID);
+          swfObj.handleRequestCreateActivity(reqID);
         } catch (e) {
           handleRpcError(reqID, e);
         }
