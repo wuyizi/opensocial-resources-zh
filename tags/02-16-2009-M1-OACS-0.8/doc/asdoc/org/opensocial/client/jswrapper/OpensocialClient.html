@@ -1,0 +1,1265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../../print.css" type="text/css" media="print">
+<meta content="OpensocialClient,org.opensocial.client.jswrapper.OpensocialClient,logger,fetchActivities,fetchPeople,fetchPerson,fetchPersonAppData,handleError,handleFetchActivities,handleFetchPeople,handleFetchPerson,handleFetchPersonAppData,handleMakeRequest,handleRemovePersonAppData,handleRequestCreateActivity,handleRequestPermission,handleRequestSendMessage,handleRequestShareApp,handleUpdatePersonAppData,makeRequest,registerExternalCallbacks,removePersonAppData,requestCreateActivity,requestPermission,requestSendMessage,requestShareApp,setStageHeight,setStageWidth,start,updatePersonAppData" name="keywords">
+<title>org.opensocial.client.jswrapper.OpensocialClient</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'OpensocialClient - Opensocial Actionscript Client SDK Documentation';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">Opensocial Actionscript Client SDK</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../index-list.html')" href="../../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../../index.html?org/opensocial/client/jswrapper/OpensocialClient.html&amp;org/opensocial/client/jswrapper/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;OpensocialClient</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class OpensocialClient"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">org.opensocial.client.jswrapper</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class OpensocialClient</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">OpensocialClient <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../../../images/inherit-arrow.gif"> flash.events.EventDispatcher</td>
+</tr>
+</table>
+<p></p>
+ Opensocial Actionscript Client SDK - Javascript Wrapper Client.
+ <p>
+ This JSWrapper SDK is used for developers who want to develop flash opensocial apps in 
+ ActionScript 3.0.
+ </p>
+ <p>
+ It's aimed to have no dependency on which container it runs on. It only depents on the 
+ Standard Opensocial Javascript API. It is developed on Shindig based container. So it works best
+ on Shindig. 
+ </p>
+ <p>
+ The main idea for this javascript wrapper client is to setup a interface passing wrapped and 
+ unwrapped opensocial data type between flash and javascript. 
+ </p> 
+ <p>
+ All opensocial data I/O and app control can be handled by this client. An app can simply include 
+ the <code>org.opensocial.client</code> package to the flash project and use this client to make
+ the app social.
+ </p>
+ <p>
+ A typical usage of this client is listing below:
+ </p>
+ <p></p>
+<br>
+<span class="label">Example</span>
+<br> <div class='listing'><pre>
+  
+   function init():void {
+     displaySomeStuff();
+ 
+     var client:OpensocialClient = new OpensocialClient();
+     client.addEventListener(OpensocialEvent.READY, onReady);
+     client.start();
+   }
+ 
+   //...
+   
+   function onReady(event:OpensocialEvent):void {
+     displayOtherStuff();
+ 
+     // start your logic
+     client.fetchPerson(...);
+   }
+ </pre></div>
+  
+ <p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#logger">logger</a> : <a href="../util/Logger.html">Logger</a>
+<div class="summaryTableDescription">
+   Gets the logger instance
+   </div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#OpensocialClient()">OpensocialClient</a>()</div>
+<div class="summaryTableDescription">
+   Opensocial Client constructor, initializing some empty collections and values.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#fetchActivities()">fetchActivities</a>(idSpec:<a href="../base/IdSpec.html">IdSpec</a>, callback:Function = null, params:Object = null):Boolean</div>
+<div class="summaryTableDescription">
+   Sends request to fetch activities for people.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#fetchPeople()">fetchPeople</a>(idSpec:<a href="../base/IdSpec.html">IdSpec</a>, callback:Function = null, params:Object = null):Boolean</div>
+<div class="summaryTableDescription">
+   Sends request to fetch friends.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#fetchPerson()">fetchPerson</a>(id:String, callback:Function = null, params:Object = null):Boolean</div>
+<div class="summaryTableDescription">
+   Sends request to fetch a person.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#fetchPersonAppData()">fetchPersonAppData</a>(idSpec:<a href="../base/IdSpec.html">IdSpec</a>, keys:Array, callback:Function = null, params:Object = null):Boolean</div>
+<div class="summaryTableDescription">
+   Sends request to fetch person app data.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#makeRequest()">makeRequest</a>(url:String, callback:Function = null, opt_params:Object = null):Boolean</div>
+<div class="summaryTableDescription">
+   Sends request to a remote site to get or post data.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#removePersonAppData()">removePersonAppData</a>(id:String, keys:Array, callback:Function = null):Boolean</div>
+<div class="summaryTableDescription">
+   Sends request to remove the person app data.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#requestCreateActivity()">requestCreateActivity</a>(activity:<a href="../base/Activity.html">Activity</a>, priority:String, callback:Function = null):Boolean</div>
+<div class="summaryTableDescription">
+   Sends request to create an activity.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#requestPermission()">requestPermission</a>(permissions:Array, reasonText:String, callback:Function = null):Boolean</div>
+<div class="summaryTableDescription">
+   Sends request to share this app.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#requestSendMessage()">requestSendMessage</a>(recipients:Array, message:<a href="../base/Message.html">Message</a>, callback:Function = null):Boolean</div>
+<div class="summaryTableDescription">
+   Sends request to send a message.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#requestShareApp()">requestShareApp</a>(recipients:Array, reason:<a href="../base/Message.html">Message</a>, callback:Function = null):Boolean</div>
+<div class="summaryTableDescription">
+   Sends request to share this app.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setStageHeight()">setStageHeight</a>(height:Number):Boolean</div>
+<div class="summaryTableDescription">
+   Sets the app's height.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setStageWidth()">setStageWidth</a>(width:Number):Boolean</div>
+<div class="summaryTableDescription">
+   Sets the app's witdh.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#start()">start</a>():void</div>
+<div class="summaryTableDescription">
+   Starts the main process.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#updatePersonAppData()">updatePersonAppData</a>(id:String, key:String, value:Object, callback:Function = null):Boolean</div>
+<div class="summaryTableDescription">
+   Sends request to update the person app data.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+</table>
+</div>
+<a name="protectedMethodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Methods</div>
+<table id="summaryTableProtectedMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#handleError()">handleError</a>(reqID:String, error:Object):void</div>
+<div class="summaryTableDescription">
+   Handles the javascript error and pop the callback.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#handleFetchActivities()">handleFetchActivities</a>(reqID:String, rawActivities:Object):void</div>
+<div class="summaryTableDescription">
+   Callback of fetch person activities.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#handleFetchPeople()">handleFetchPeople</a>(reqID:String, rawPeople:Object):void</div>
+<div class="summaryTableDescription">
+   Callback of fetch people response.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#handleFetchPerson()">handleFetchPerson</a>(reqID:String, rawPerson:Object):void</div>
+<div class="summaryTableDescription">
+   Callback of fetch person response.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#handleFetchPersonAppData()">handleFetchPersonAppData</a>(reqID:String, rawDataSet:Object):void</div>
+<div class="summaryTableDescription">
+   Callback of fetch person app data response.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#handleMakeRequest()">handleMakeRequest</a>(reqID:String, data:Object):void</div>
+<div class="summaryTableDescription">
+   Callback of make request.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#handleRemovePersonAppData()">handleRemovePersonAppData</a>(reqID:String):void</div>
+<div class="summaryTableDescription">
+   Callback of update person app data response.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#handleRequestCreateActivity()">handleRequestCreateActivity</a>(reqID:String):void</div>
+<div class="summaryTableDescription">
+   Callback of create activities request.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#handleRequestPermission()">handleRequestPermission</a>(reqID:String):void</div>
+<div class="summaryTableDescription">
+   Callback of permission request.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#handleRequestSendMessage()">handleRequestSendMessage</a>(reqID:String):void</div>
+<div class="summaryTableDescription">
+   Callback of send message request.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#handleRequestShareApp()">handleRequestShareApp</a>(reqID:String):void</div>
+<div class="summaryTableDescription">
+   Callback of share app request.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#handleUpdatePersonAppData()">handleUpdatePersonAppData</a>(reqID:String):void</div>
+<div class="summaryTableDescription">
+   Callback of update person app data response.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#registerExternalCallbacks()">registerExternalCallbacks</a>():void</div>
+<div class="summaryTableDescription">
+   Registers the external interface callbacks.</div>
+</td><td class="summaryTableOwnerCol">OpensocialClient</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="logger"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">logger</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>logger:<a href="../util/Logger.html">Logger</a></code>&nbsp;&nbsp;[read-write]<p>
+   Gets the logger instance
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get logger():<a href="../util/Logger.html">Logger</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set logger(value:<a href="../util/Logger.html">Logger</a>):void</code>
+<br>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="OpensocialClient()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">OpensocialClient</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function OpensocialClient()</code><p>
+   Opensocial Client constructor, initializing some empty collections and values.
+   </p></div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="fetchActivities()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">fetchActivities</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function fetchActivities(idSpec:<a href="../base/IdSpec.html">IdSpec</a>, callback:Function = null, params:Object = null):Boolean</code><p>
+   Sends request to fetch activities for people. 
+   Js-side.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">idSpec</span>:<a href="../base/IdSpec.html">IdSpec</a></code> &mdash; An <code>IdSpec</code> object.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">callback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash; A fucntion with a parameter of <code>ResponseItem</code>.
+                   The underlying data in the response item is <code>Collection</code>.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">params</span>:Object</code> (default = <code>null</code>)<code></code> &mdash; A <code>Map.&lt;DataRequest.ActivityRequestFields, Object&gt;</code> object.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; True if the request is successfully sent.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://code.google.com/apis/opensocial/docs/0.8/reference/#opensocial.DataRequest.newFetchActivitiesRequest" target="mm_external">opensocial.DataRequest.newFetchActivitiesRequest</a>
+</div>
+</div>
+<a name="fetchPeople()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">fetchPeople</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function fetchPeople(idSpec:<a href="../base/IdSpec.html">IdSpec</a>, callback:Function = null, params:Object = null):Boolean</code><p>
+   Sends request to fetch friends.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">idSpec</span>:<a href="../base/IdSpec.html">IdSpec</a></code> &mdash; An <code>IdSpec</code> object.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">callback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash; A fucntion with a parameter of <code>ResponseItem</code>.
+                   The underlying data in the response item is <code>Collection</code>.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">params</span>:Object</code> (default = <code>null</code>)<code></code> &mdash; A <code>Map.&lt;DataRequest.PeopleRequestField, Object&gt;</code> object.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; True if the request is successfully sent.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://code.google.com/apis/opensocial/docs/0.8/reference/#opensocial.DataRequest.newFetchPeopleRequest" target="mm_external">opensocial.DataRequest.newFetchPeopleRequest</a>
+</div>
+</div>
+<a name="fetchPerson()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">fetchPerson</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function fetchPerson(id:String, callback:Function = null, params:Object = null):Boolean</code><p>
+   Sends request to fetch a person.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:String</code> &mdash; An <code>IdSpec.PersonId</code> value, can be <code>VIEWER</code> or 
+             <code>OWNER</code>.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">callback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash; A fucntion with a parameter of <code>ResponseItem</code>.
+                   The underlying data in the response item is <code>Person</code>.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">params</span>:Object</code> (default = <code>null</code>)<code></code> &mdash; A <code>Map.&lt;DataRequest.PeopleRequestField, Object&gt;</code> object.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; True if the request is successfully sent.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://code.google.com/apis/opensocial/docs/0.8/reference/#opensocial.DataRequest.newFetchPersonRequest" target="mm_external">opensocial.DataRequest.newFetchPersonRequest</a>
+</div>
+</div>
+<a name="fetchPersonAppData()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">fetchPersonAppData</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function fetchPersonAppData(idSpec:<a href="../base/IdSpec.html">IdSpec</a>, keys:Array, callback:Function = null, params:Object = null):Boolean</code><p>
+   Sends request to fetch person app data.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">idSpec</span>:<a href="../base/IdSpec.html">IdSpec</a></code> &mdash; An <code>IdSpec</code> object.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">keys</span>:Array</code> &mdash; Array of key names, ' to represent all.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">callback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash; A fucntion with a parameter of <code>ResponseItem</code>.
+                   The underlying data in the response item is 
+                   <code>Map.&lt;String, Map.&lt;String, Object&gt;&gt;</code>.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">params</span>:Object</code> (default = <code>null</code>)<code></code> &mdash; A <code>Map.&lt;DataRequest.DataRequestField, Object&gt;</code> object.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; True if the request is successfully sent.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://code.google.com/apis/opensocial/docs/0.8/reference/#opensocial.DataRequest.newFetchPersonAppDataRequest" target="mm_external">opensocial.DataRequest.newFetchPersonAppDataRequest</a>
+</div>
+</div>
+<a name="handleError()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">handleError</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function handleError(reqID:String, error:Object):void</code><p>
+   Handles the javascript error and pop the callback.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">reqID</span>:String</code> &mdash; Request UID.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">error</span>:Object</code> &mdash; The error object from javascript.
+   </td>
+</tr>
+</table>
+</div>
+<a name="handleFetchActivities()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">handleFetchActivities</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function handleFetchActivities(reqID:String, rawActivities:Object):void</code><p>
+   Callback of fetch person activities.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">reqID</span>:String</code> &mdash; Request UID.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">rawActivities</span>:Object</code> &mdash; A wrapped 
+                 <code><j>opensocial.Collection.&lt;opensocial.Activity&gt;</j></code> 
+                 object from Js-side.
+   </td>
+</tr>
+</table>
+</div>
+<a name="handleFetchPeople()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">handleFetchPeople</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function handleFetchPeople(reqID:String, rawPeople:Object):void</code><p>
+   Callback of fetch people response.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">reqID</span>:String</code> &mdash; request UID.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">rawPeople</span>:Object</code> &mdash; A wrapped <code><j>opensocial.Collection.&lt;opensocial.Person&gt;</j></code>
+                    object from Js-side.
+   </td>
+</tr>
+</table>
+</div>
+<a name="handleFetchPerson()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">handleFetchPerson</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function handleFetchPerson(reqID:String, rawPerson:Object):void</code><p>
+   Callback of fetch person response.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">reqID</span>:String</code> &mdash; Request UID.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">rawPerson</span>:Object</code> &mdash; A wrapped <code><j>opensocial.Person</j></code> object from Js-side.
+   </td>
+</tr>
+</table>
+</div>
+<a name="handleFetchPersonAppData()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">handleFetchPersonAppData</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function handleFetchPersonAppData(reqID:String, rawDataSet:Object):void</code><p>
+   Callback of fetch person app data response.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">reqID</span>:String</code> &mdash; Request UID.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">rawDataSet</span>:Object</code> &mdash; <code>Map.&lt;String, Map.&lt;String, Object&gt;&gt;</code> object 
+                     from Js-side.
+   </td>
+</tr>
+</table>
+</div>
+<a name="handleMakeRequest()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">handleMakeRequest</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function handleMakeRequest(reqID:String, data:Object):void</code><p>
+   Callback of make request.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">reqID</span>:String</code> &mdash; Request UID.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">data</span>:Object</code> &mdash; Response data object from the remote site. The object format is determined by the
+               content type parameter from the request.
+   </td>
+</tr>
+</table>
+</div>
+<a name="handleRemovePersonAppData()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">handleRemovePersonAppData</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function handleRemovePersonAppData(reqID:String):void</code><p>
+   Callback of update person app data response.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">reqID</span>:String</code> &mdash; Request UID.
+   </td>
+</tr>
+</table>
+</div>
+<a name="handleRequestCreateActivity()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">handleRequestCreateActivity</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function handleRequestCreateActivity(reqID:String):void</code><p>
+   Callback of create activities request.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">reqID</span>:String</code> &mdash; Request UID.
+   </td>
+</tr>
+</table>
+</div>
+<a name="handleRequestPermission()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">handleRequestPermission</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function handleRequestPermission(reqID:String):void</code><p>
+   Callback of permission request.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">reqID</span>:String</code> &mdash; Request UID.
+   </td>
+</tr>
+</table>
+</div>
+<a name="handleRequestSendMessage()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">handleRequestSendMessage</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function handleRequestSendMessage(reqID:String):void</code><p>
+   Callback of send message request.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">reqID</span>:String</code> &mdash; Request UID.
+   </td>
+</tr>
+</table>
+</div>
+<a name="handleRequestShareApp()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">handleRequestShareApp</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function handleRequestShareApp(reqID:String):void</code><p>
+   Callback of share app request.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">reqID</span>:String</code> &mdash; Request UID.
+   </td>
+</tr>
+</table>
+</div>
+<a name="handleUpdatePersonAppData()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">handleUpdatePersonAppData</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function handleUpdatePersonAppData(reqID:String):void</code><p>
+   Callback of update person app data response.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">reqID</span>:String</code> &mdash; Request UID.
+   </td>
+</tr>
+</table>
+</div>
+<a name="makeRequest()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">makeRequest</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function makeRequest(url:String, callback:Function = null, opt_params:Object = null):Boolean</code><p>
+   Sends request to a remote site to get or post data.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">url</span>:String</code> &mdash; The remote site url.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">callback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash; A fucntion with a parameter of <code>ResponseItem</code>.
+                   The underlying data in the response item can be 
+                   <code>String | Object</code> for different content types respectfully.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">opt_params</span>:Object</code> (default = <code>null</code>)<code></code> &mdash; A <code>Map.&lt;GadgetsIo.RequestParameters, Object&gt;</code> object.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; True if the request is successfully sent.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://code.google.com/apis/opensocial/docs/0.8/reference/gadgets/#gadgets.io.makeRequest" target="mm_external">gadgets.io.makeRequest</a>
+<br>
+<a href="http://code.google.com/apis/opensocial/articles/makerequest-0.8.html" target="mm_external">Introduction to makeRequest</a>
+</div>
+</div>
+<a name="registerExternalCallbacks()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">registerExternalCallbacks</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function registerExternalCallbacks():void</code><p>
+   Registers the external interface callbacks. The names are used in the javascript.
+   This method can be overridden by customized client.
+   </p></div>
+<a name="removePersonAppData()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">removePersonAppData</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function removePersonAppData(id:String, keys:Array, callback:Function = null):Boolean</code><p>
+   Sends request to remove the person app data.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:String</code> &mdash; A <code>IdSpec.PersonId</code> value, can only be <code>VIEWER</code>.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">keys</span>:Array</code> &mdash; Array of key names, ' to represent all.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">callback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash; A fucntion with a parameter of <code>ResponseItem</code>.
+                   The underlying data in the response item is null.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; True if the request is successfully sent.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://code.google.com/apis/opensocial/docs/0.8/reference/#opensocial.DataRequest.newRemovePersonAppDataRequest" target="mm_external">opensocial.DataRequest.newRemovePersonAppDataRequest</a>
+</div>
+</div>
+<a name="requestCreateActivity()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">requestCreateActivity</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function requestCreateActivity(activity:<a href="../base/Activity.html">Activity</a>, priority:String, callback:Function = null):Boolean</code><p>
+   Sends request to create an activity.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">activity</span>:<a href="../base/Activity.html">Activity</a></code> &mdash; An <code>Activity</code> object.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">priority</span>:String</code> &mdash; A value of <code>Globals.CreateActivityPriority</code>.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">callback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash; A fucntion with a parameter of <code>ResponseItem</code>.
+                   The underlying data in the response item is null.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; True if the request is successfully sent.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://code.google.com/apis/opensocial/docs/0.8/reference/#opensocial.requestCreateActivity" target="mm_external">opensocial.requestCreateActivity</a>
+</div>
+</div>
+<a name="requestPermission()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">requestPermission</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function requestPermission(permissions:Array, reasonText:String, callback:Function = null):Boolean</code><p>
+   Sends request to share this app.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">permissions</span>:Array</code> &mdash; An array of <code>Globals.Permission</code> values.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">reasonText</span>:String</code> &mdash; A string of reason text.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">callback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash; A fucntion with a parameter of <code>ResponseItem</code>.
+                   The underlying data in the response item is null.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; True if the request is successfully sent.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://code.google.com/apis/opensocial/docs/0.8/reference/#opensocial.requestPermission" target="mm_external">opensocial.requestPermission</a>
+</div>
+</div>
+<a name="requestSendMessage()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">requestSendMessage</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function requestSendMessage(recipients:Array, message:<a href="../base/Message.html">Message</a>, callback:Function = null):Boolean</code><p>
+   Sends request to send a message.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">recipients</span>:Array</code> &mdash; An array of ids, such as OWNER, VIEWER, or person ids in reachable groups.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">message</span>:<a href="../base/Message.html">Message</a></code> &mdash; An <code>Message</code> object.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">callback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash; A fucntion with a parameter of <code>ResponseItem</code>.
+                   The underlying data in the response item is null.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; True if the request is successfully sent.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://code.google.com/apis/opensocial/docs/0.8/reference/#opensocial.requestSendMessage" target="mm_external">opensocial.requestSendMessage</a>
+</div>
+</div>
+<a name="requestShareApp()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">requestShareApp</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function requestShareApp(recipients:Array, reason:<a href="../base/Message.html">Message</a>, callback:Function = null):Boolean</code><p>
+   Sends request to share this app.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">recipients</span>:Array</code> &mdash; An array of ids, such as OWNER, VIEWER, or person ids in reachable groups.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">reason</span>:<a href="../base/Message.html">Message</a></code> &mdash; An <code>Message</code> object.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">callback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash; A fucntion with a parameter of <code>ResponseItem</code>.
+                   The underlying data in the response item is null.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; True if the request is successfully sent.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://code.google.com/apis/opensocial/docs/0.8/reference/#opensocial.requestShareApp" target="mm_external">opensocial.requestShareApp</a>
+</div>
+</div>
+<a name="setStageHeight()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setStageHeight</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setStageHeight(height:Number):Boolean</code><p>
+   Sets the app's height. 
+   This will resize the swf object's height. It will also adjust the iframe's
+   height if the 'dynamicHeight' feature is required.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">height</span>:Number</code> &mdash; The new height.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; False if the feature is not supported.
+   </td>
+</tr>
+</table>
+</div>
+<a name="setStageWidth()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setStageWidth</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setStageWidth(width:Number):Boolean</code><p>
+   Sets the app's witdh. This will resize the swf object's width.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">width</span>:Number</code> &mdash; The new width.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; False if the feature is not supported.
+   </td>
+</tr>
+</table>
+</div>
+<a name="start()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">start</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function start():void</code><p>
+   Starts the main process.
+   
+   </p><p>
+   The main process will first check the availability of <code>ExternalInterface</code> of the 
+   flash player and the javascript in browser.
+   Customized client can override this method.
+   </p>
+   </div>
+<a name="updatePersonAppData()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">updatePersonAppData</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function updatePersonAppData(id:String, key:String, value:Object, callback:Function = null):Boolean</code><p>
+   Sends request to update the person app data.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">id</span>:String</code> &mdash; A <code>IdSpec.PersonId</code> value, can only be <code>VIEWER</code>.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">key</span>:String</code> &mdash; One key name of the data.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">value</span>:Object</code> &mdash; The value to be store, must be a json format.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">callback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash; A fucntion with a parameter of <code>ResponseItem</code>.
+                   The underlying data in the response item is null.
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code> &mdash; True if the request is successfully sent.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://code.google.com/apis/opensocial/docs/0.8/reference/#opensocial.DataRequest.newUpdatePersonAppDataRequest" target="mm_external">opensocial.DataRequest.newUpdatePersonAppDataRequest</a>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright">2009 Opensocial</center>
+</div>
+</body>
+</html>
+<!--2009 Opensocial-->
