@@ -30,12 +30,13 @@ public dynamic class ArrayType extends Array {
   /**
    * Convert an array of raw object to an array primitives or DataType instances.
    * <p>
-   * NOTE: This constructor is internally used. You should not call this constructor directly 
-   * outside this package.
+   * NOTE: This constructor is internally used. Do not call this constructor directly outside 
+   * this package.
    * </p>
    * @param raw The object which is an array from Js-side.
    * @param type The type of each item in this array. Null for primitives, otherwise the type 
-   *             should be subtype of DataType.
+   *             should be subtype of <code>DataType</code>.
+   * @private
    */
   public function ArrayType(rawObj:Object, type:Class = null) {
     if (rawObj == null) {

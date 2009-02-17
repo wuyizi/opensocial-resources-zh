@@ -26,7 +26,10 @@ import flash.utils.flash_proxy;
 /**
  * Base type for all constants and enum objects defined in <code><j>opensocial</j></code> namespace 
  * in JS-side. Each constant type can read the real javacript values runtime if available. 
- * Otherwise each type can use its default value set respectively. 
+ * Otherwise each type can use its default value set respectively.
+ * <p>
+ * TODO: consider moving it ro util package. 
+ * </p>
  * 
  * @author yiziwu@google.com (Yizi Wu)
  */
@@ -62,7 +65,7 @@ public dynamic class ConstType extends Proxy {
   private var typeName_:String = null;
 
   /**
-   * Initialize a constant/enum type with it's javascript name and default value set. 
+   * Initializes a constant/enum type with it's javascript name and default value set. 
    * @param typeName The javascript name of this type.
    * @param defaultValues The default value set of <code>Map.&lt;String, String&gt;</code>.
    */    
@@ -72,7 +75,7 @@ public dynamic class ConstType extends Proxy {
   }
 
   /**
-   * Get the value of a enum object for the name.
+   * Gets the value of a enum object for the name.
    * @param name The enum name.
    * @return The enum object, which is a property of this proxy.
    * @private 

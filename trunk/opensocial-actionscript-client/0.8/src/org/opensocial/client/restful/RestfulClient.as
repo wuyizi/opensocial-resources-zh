@@ -40,7 +40,7 @@ import org.opensocial.client.util.*;
  * client and this restful client will share them.
  * </p>
  */
-public class OpensocialRestfulClient extends EventDispatcher {
+public class RestfulClient extends EventDispatcher {
   // Not implemented yet.
 }
 

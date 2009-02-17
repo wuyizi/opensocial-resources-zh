@@ -30,6 +30,7 @@ public class OpensocialEvent extends Event {
   
   /**
    * For the 'ready' event dispatched when the opensocial environment is ready.
+   * @eventType ready
    */
   public static const READY:String = "ready";
 

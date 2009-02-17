@@ -50,10 +50,11 @@ public class Address extends DataType {
   /**
    * Constructor.
    * <p>
-   * NOTE: This constructor is internally used. You should not call this constructor directly 
-   * outside this package.
+   * NOTE: This constructor is internally used. Do not call this constructor directly outside 
+   * this package.
    * </p>
    * @param rawObj The wrapped object from Js-side passed by the <code>ExternalInterface</code>.
+   * @private
    */
   public function Address(rawObj:Object) {
     super(rawObj);

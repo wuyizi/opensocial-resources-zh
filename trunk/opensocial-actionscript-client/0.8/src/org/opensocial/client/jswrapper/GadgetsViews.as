@@ -22,6 +22,7 @@ package org.opensocial.client.jswrapper {
 import flash.external.ExternalInterface;
 
 import org.opensocial.client.base.ConstType;
+import org.opensocial.client.base.OpensocialError;
 
 /**
  * Wrapper of <code><j>gadgets.views</j></code> namespace in javascript. It contains some useful
@@ -32,7 +33,7 @@ import org.opensocial.client.base.ConstType;
  * 
  * @author yiziwu@google.com (Yizi Wu)
  */
-final public class GadgetsViews {
+public class GadgetsViews extends JsFeature {
   
   /**
    * <code><j>gadgets.views.ViewType</j></code> constants.
@@ -46,7 +47,21 @@ final public class GadgetsViews {
          PREVIEW  : "PREVIEW",
          PROFILE  : "PROFILE"
       });
-  
+
+
+  /**
+   * Default constructor.
+   * <p>
+   * NOTE: This constructor is internally used. Do not call this constructor directly outside 
+   * this package.
+   * </p>
+   * @param client The jswrapper client.
+   * @private
+   */
+  public function GadgetsViews(client:JsWrapperClient) {
+    super(client);
+  }
+
   /**
    * Calls the <code><j>gadgets.views.getCurrentView</j></code> to get the current view
    * name. Null if the 'views' feature is not enabled.
@@ -56,7 +71,8 @@ final public class GadgetsViews {
    * @see http://code.google.com/apis/opensocial/docs/0.8/reference/gadgets/#gadgets.views.View.getName
    *      gadgets.views.View.getName 
    */ 
-  public static function getCurrentView():String {
+  public function getCurrentView():String {
+    assertReady();
     return ExternalInterface.call("gadgets.views.getCurrentView().getName");
   }
 
@@ -68,7 +84,8 @@ final public class GadgetsViews {
    *      gadgets.views.View.isOnlyVisibleGadget
    * 
    */
-  public static function isOnlyVisible():Boolean {
+  public function isOnlyVisible():Boolean {
+    assertReady();
     return ExternalInterface.call("gadgets.views.getCurrentView().isOnlyVisibleGadget");
   }
 
@@ -78,7 +95,8 @@ final public class GadgetsViews {
    * @see http://code.google.com/apis/opensocial/docs/0.8/reference/gadgets/#gadgets.views.getParams
    *      gadgets.views.getParams
    */ 
-  public static function getParams():Object {
+  public function getParams():Object {
+    assertReady();
     return ExternalInterface.call("gadgets.views.getParams");
   }
 

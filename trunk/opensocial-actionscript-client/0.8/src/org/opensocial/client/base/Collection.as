@@ -72,12 +72,12 @@ public class Collection extends BaseType {
   /**
    * Constructor.
    * <p>
-   * NOTE: This constructor is internally used. You should not call this constructor directly 
-   * outside this package.
+   * NOTE: This constructor is internally used. Do not call this constructor directly outside 
+   * this package.
    * </p>
    * @param rawObj The wrapped object from Js-side passed by the <code>ExternalInterface</code>.
    * @param elementType The type of the items in this collection.
-   * @internal
+   * @private
    */
   public function Collection(rawObj:Object, elementType:Class) {
     this.elementType_ = elementType;

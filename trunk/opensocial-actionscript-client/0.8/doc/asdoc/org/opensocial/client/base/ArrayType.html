@@ -55,14 +55,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#ArrayType()">ArrayType</a>(rawObj:Object, type:Class = null)</div>
-<div class="summaryTableDescription">
-   Convert an array of raw object to an array primitives or DataType instances.</div>
-</td><td class="summaryTableOwnerCol">ArrayType</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
 <a class="signatureLink" href="#toFlatString()">toFlatString</a>(delim:String = ", "):String</div>
 <div class="summaryTableDescription">
    Gets an array by the field key and join all items to a flat string.</div>
@@ -75,37 +67,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 showHideInherited();
 --></script>
 <div class="MainContent">
-<a name="constructorDetail"></a>
-<div class="detailSectionHeader">Constructor detail</div>
-<a name="ArrayType()"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">ArrayType</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public function ArrayType(rawObj:Object, type:Class = null)</code><p>
-   Convert an array of raw object to an array primitives or DataType instances.
-   </p><p>
-   NOTE: This constructor is internally used. You should not call this constructor directly 
-   outside this package.
-   </p>
-   <span class="label">Parameters</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20px"></td><td><code><span class="label">rawObj</span>:Object</code> &mdash; The object which is an array from Js-side.
-   </td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">type</span>:Class</code> (default = <code>null</code>)<code></code> &mdash; The type of each item in this array. Null for primitives, otherwise the type 
-               should be subtype of DataType.
-   </td>
-</tr>
-</table>
-</div>
 <a name="methodDetail"></a>
 <div class="detailSectionHeader">Method detail</div>
 <a name="toFlatString()"></a>

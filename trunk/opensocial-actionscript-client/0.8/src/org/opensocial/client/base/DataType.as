@@ -48,10 +48,11 @@ public class DataType extends BaseType {
   /**
    * Constructor.
    * <p>
-   * NOTE: This constructor is internally used. You should not call this constructor directly 
-   * outside this package.
+   * NOTE: This constructor is internally used. Do not call this constructor directly outside 
+   * this package.
    * </p>
    * @param rawObj The wrapped object from Js-side passed by the <code>ExternalInterface</code>.
+   * @private
    */
   public function DataType(rawObj:Object) {
     if (rawObj == null) {
@@ -67,6 +68,15 @@ public class DataType extends BaseType {
     return obj_;
   }
 
+  /**
+   * Get the property in the wrapped object.
+   * <p>
+   * Throw an <code>OpensocialError</code> if the property not exists. 
+   * </p>
+   * @param key The key.
+   * @return The value.
+   * 
+   */  
   protected final function getRawProperty(key:String):* {
     if (key in getRawObj()) {
       return getRawObj()[key];
@@ -75,7 +85,6 @@ public class DataType extends BaseType {
                                  getQualifiedClassName(this) + "'.");
     }
   }
-  
 
   /**
    * For most of the wrapped object from opensocial, there will be a "fields" property.
@@ -97,6 +106,9 @@ public class DataType extends BaseType {
   
   /**
    * Default accessor for all type to get the field value by the field name.
+   * <p>
+   * Throw an <code>OpensocialError</code> if the field not exists. 
+   * </p>
    * @param key The field key, defined in each SomeType.Field class in this package. 
    *            e.g. "NAME", "THUMBNAIL_URL", ...
    * @return The value store in the fields object. Can be a simple string, a 

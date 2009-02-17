@@ -75,10 +75,11 @@ public class MediaItem extends MutableDataType {
   /**
    * Constructor.
    * <p>
-   * NOTE: This constructor is internally used. You should not call this constructor directly 
-   * outside this package.
+   * NOTE: This constructor is internally used. Do not call this constructor directly outside 
+   * this package.
    * </p>
    * @param rawObj The wrapped object from Js-side passed by the <code>ExternalInterface</code>.
+   * @private
    */
   public function MediaItem(rawObj:Object) {
     super(rawObj);

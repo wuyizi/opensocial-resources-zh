@@ -15,9 +15,14 @@
   
   <div id="gc-pagecontent" class="g-unit" style="position: relative; border-left:0px;">
   <a name="updates"></a>
-  <h2>Last Update: 02/16/2009</h2>
-  <dl style="padding-left:2em;">
+  <h2>Last Update: 02/17/2009</h2>
+  <dl style="padding-left:1em;">
+    <dt>02/17/2009</dt><dd>Summitted a refactoring CL to : <ol><li> Broke down the huge <code>OpensocialClient</code> class to a light weight client called <code>JsWrapperClient</code> and several features defined as <code>JsFeature</code> objects. With this structure, the client is more extensible and testable.</li><li> Add the gadgets.rpc wrapped feature. </li><li> Update the <a href="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-actionscript-client/0.8/oacs_0_8.zip" target="_blank">demo zip</a> to current code structure.</li></ol><br>See <a href="sandbox.orkut.com/Main#Application.aspx?appId=849282635573" target="_blank">sample app on orkut</a> as the demo.<br> If you sync to this revision, your exsiting codes will break. But just some renaming will work. Please diff the sample app in the demo zip. Old branch (M1 @r184) is still available <a href="http://opensocial-resources-zh.googlecode.com/svn/tags/02-16-2009-M1-OACS-0.8/" target="_blank">here</a>.</dd>
+    
     <dt>02/16/2009</dt><dd>Cut the existing codes to the first milestone branch <a href="http://opensocial-resources-zh.googlecode.com/svn/tags/02-16-2009-M1-OACS-0.8/" target="_blank">02-16-2009-M1-OACS-0.8</a> (r184).<br> The <a href="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-actionscript-client/0.8/" target="_blank">trunk branch</a> will continue on developing. Codes are not very stable at this stage and some refactoring in <code>jswrapper</code> package is ongoing.</dd>
+    
+    
+
   </dl>
   
   <a name="overview"></a>
@@ -32,7 +37,7 @@
       <p>Checkout the <a href="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-actionscript-client/0.8/src/org/opensocial/client/" target="_blank">source codes</a> and include those packages in your flash project. </p>
     </li>
     <li>
-      <p>Use the <a href="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-actionscript-client/0.8/doc/asdoc/org/opensocial/client/jswrapper/OpensocialClient.html" target="_blank">OpensocialClient</a> object to due with the RPC operations and fill your app with social data. Build your flash project to a SWF file. </p>
+      <p>Use the <a href="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-actionscript-client/0.8/doc/asdoc/org/opensocial/client/jswrapper/JsWrapperClient.html" target="_blank"><code>JsWrapperClient</code></a> object and several <a href="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-actionscript-client/0.8/src/org/opensocial/client/jswrapper/JsFeature.html" target="_blank"><code>JsFeature</code></a> instances(e.g. <a href="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-actionscript-client/0.8/src/org/opensocial/client/jswrapper/Opensocial.html" target="_blank"><code>Opensocial</code></a>, <a href="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-actionscript-client/0.8/src/org/opensocial/client/jswrapper/GadgetsIo.html" target="_blank"><code>GadgetsIo</code></a>) to due with RPC data operations and fill your app with social data. Build your flash project to a SWF file. </p>
     </li>
     <li>
       <p>Take the spec XML listed below and edit it in your case. Then upload the spec, swf file together with the <a href="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-actionscript-client/0.8/doc/jsdoc/src_01.html" target="_blank">opensocial-flashsdk.js</a> file to somewhere publicly accessible. And you app are done.
