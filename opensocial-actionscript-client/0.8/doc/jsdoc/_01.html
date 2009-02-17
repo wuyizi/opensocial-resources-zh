@@ -22,6 +22,9 @@
 <p>
 It works with the Opensocial Actionscript Client SDK lib. In this file, it communicates between 
 swf functions and the gadgets/opensocial javascript API functions. 
+</p>
+<p>
+TODO: Provide a compiled version.
 </p></div>
 					<div class="itemTags">
 					<ul>
@@ -200,6 +203,18 @@ Namespace for top-level api functions.</div>
 						<li><a href="#opensocial.flash.makeRequest">makeRequest</a>(reqID, url, opt_params)</li>
 					</ul>
 				
+					<ul class="details">
+						<li><a href="#opensocial.flash.rpcRegister">rpcRegister</a>(The, The)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.rpcUnregister">rpcUnregister</a>(The)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.rpcCall">rpcCall</a>(reqID, targetId, serviceName, argsArray)</li>
+					</ul>
+				
 				
 				
 				
@@ -208,6 +223,12 @@ Namespace for top-level api functions.</div>
 				
 				
 			</div>
+			
+			
+			
+			
+			
+			
 			
 			
 			
@@ -456,7 +477,7 @@ NOTE: to be deprecated.
 							opt_name
 						</td>
 						<td>
-							The <object>/<embed> tag's id or name
+							The object/embed tag's id or name
 						</td> 
 					</tr>
 				
@@ -779,20 +800,6 @@ switching.</div>
 				
 				
 				
-				<div class="detailHead">returns</div>
-				<table class="params">
-				
-					<tr>
-						<td class="type">
-							boolean
-						</td>
-						<td>
-							True if request is successfully sent.
-						</td> 
-					</tr>
-				
-				</table>
-				
 				
 				
 			</div>
@@ -857,20 +864,6 @@ switching.</div>
 				</table>
 				
 				
-				
-				<div class="detailHead">returns</div>
-				<table class="params">
-				
-					<tr>
-						<td class="type">
-							boolean
-						</td>
-						<td>
-							True if request is successfully sent.
-						</td> 
-					</tr>
-				
-				</table>
 				
 				
 				
@@ -949,20 +942,6 @@ switching.</div>
 				
 				
 				
-				<div class="detailHead">returns</div>
-				<table class="params">
-				
-					<tr>
-						<td class="type">
-							boolean
-						</td>
-						<td>
-							True if request is successfully sent.
-						</td> 
-					</tr>
-				
-				</table>
-				
 				
 				
 			</div>
@@ -1040,20 +1019,6 @@ switching.</div>
 				
 				
 				
-				<div class="detailHead">returns</div>
-				<table class="params">
-				
-					<tr>
-						<td class="type">
-							boolean
-						</td>
-						<td>
-							True if request is successfully sent.
-						</td> 
-					</tr>
-				
-				</table>
-				
 				
 				
 			</div>
@@ -1118,20 +1083,6 @@ switching.</div>
 				</table>
 				
 				
-				
-				<div class="detailHead">returns</div>
-				<table class="params">
-				
-					<tr>
-						<td class="type">
-							boolean
-						</td>
-						<td>
-							True if request is successfully sent.
-						</td> 
-					</tr>
-				
-				</table>
 				
 				
 				
@@ -1199,20 +1150,6 @@ switching.</div>
 				
 				
 				
-				<div class="detailHead">returns</div>
-				<table class="params">
-				
-					<tr>
-						<td class="type">
-							boolean
-						</td>
-						<td>
-							True if request is successfully sent.
-						</td> 
-					</tr>
-				
-				</table>
-				
 				
 				
 			</div>
@@ -1277,20 +1214,6 @@ switching.</div>
 				</table>
 				
 				
-				
-				<div class="detailHead">returns</div>
-				<table class="params">
-				
-					<tr>
-						<td class="type">
-							boolean
-						</td>
-						<td>
-							True if request is successfully sent.
-						</td> 
-					</tr>
-				
-				</table>
 				
 				
 				
@@ -1359,20 +1282,6 @@ switching.</div>
 				
 				
 				
-				<div class="detailHead">returns</div>
-				<table class="params">
-				
-					<tr>
-						<td class="type">
-							boolean
-						</td>
-						<td>
-							True if request is successfully sent.
-						</td> 
-					</tr>
-				
-				</table>
-				
 				
 				
 			</div>
@@ -1420,7 +1329,7 @@ switching.</div>
 						</td>
 						<td>
 							An ID, array of IDs, or a group reference, like
-       VIEWER, OWNER, VIEWER_FRIENDS, OWNER_FRIENDS.
+           VIEWER, OWNER, VIEWER_FRIENDS, OWNER_FRIENDS.
 						</td> 
 					</tr>
 				
@@ -1439,20 +1348,6 @@ switching.</div>
 				</table>
 				
 				
-				
-				<div class="detailHead">returns</div>
-				<table class="params">
-				
-					<tr>
-						<td class="type">
-							boolean
-						</td>
-						<td>
-							True if request is successfully sent.
-						</td> 
-					</tr>
-				
-				</table>
 				
 				
 				
@@ -1520,20 +1415,6 @@ switching.</div>
 				
 				
 				
-				<div class="detailHead">returns</div>
-				<table class="params">
-				
-					<tr>
-						<td class="type">
-							boolean
-						</td>
-						<td>
-							True if request is successfully sent.
-						</td> 
-					</tr>
-				
-				</table>
-				
 				
 				
 			</div>
@@ -1585,13 +1466,13 @@ switching.</div>
 				
 					<tr>
 						<td class="type">
-							Object.<opensocial.io.RequestParameters, Object>?
+							Object.<gadgets.io.RequestParameters, Object>?
 						</td>
 						<td>
 							opt_params
 						</td>
 						<td>
-							
+							Parameters for the request
 						</td> 
 					</tr>
 				
@@ -1599,19 +1480,176 @@ switching.</div>
 				
 				
 				
-				<div class="detailHead">returns</div>
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.rpcRegister"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>rpcRegister(<span class="signature">The, The</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends the rpc register request to container to register a service on this app.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
 				<table class="params">
 				
 					<tr>
 						<td class="type">
-							boolean
+							string
 						</td>
 						<td>
-							True if request is successfully sent.
+							The
+						</td>
+						<td>
+							service to be register.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							The
+						</td>
+						<td>
+							handler function name on the flash object.
 						</td> 
 					</tr>
 				
 				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.rpcUnregister"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>rpcUnregister(<span class="signature">The</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends the rpc unregister request to container.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							The
+						</td>
+						<td>
+							service to be unregister.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.rpcCall"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>rpcCall(<span class="signature">reqID, targetId, serviceName, argsArray</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends the rpc call request to a service on another app or container on the page.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string?
+						</td>
+						<td>
+							targetId
+						</td>
+						<td>
+							The target app id, null to call the parent.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							serviceName
+						</td>
+						<td>
+							The service name registered on the target.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Array.<Object>?
+						</td>
+						<td>
+							argsArray
+						</td>
+						<td>
+							The array of args to be passed to the service.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
 				
 				
 				
@@ -1690,10 +1728,19 @@ switching.</div>
 			
 			
 			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		</div>
 	</div>
 	<div class="finePrint">
-	Generated by <a href="http://jsdoctoolkit.org/" target="_blank">JsDoc Toolkit</a> 1.3.3 on Sat, 14 Feb 2009 14:53:25 GMT.
+	Generated by <a href="http://jsdoctoolkit.org/" target="_blank">JsDoc Toolkit</a> 1.3.3 on Tue, 17 Feb 2009 16:39:15 GMT.
 	</div>
 </body>
 </html>

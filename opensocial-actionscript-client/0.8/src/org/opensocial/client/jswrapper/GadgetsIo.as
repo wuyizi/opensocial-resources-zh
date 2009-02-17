@@ -19,7 +19,11 @@
 
 package org.opensocial.client.jswrapper {
 
+import flash.external.ExternalInterface;
+
 import org.opensocial.client.base.ConstType;
+import org.opensocial.client.base.OpensocialError;
+import org.opensocial.client.base.ResponseItem;
 
 /**
  * Wrapper of <code><j>gadgets.io</j></code> namespace in javascript. It contains some useful static
@@ -28,7 +32,7 @@ import org.opensocial.client.base.ConstType;
  * @see http://code.google.com/apis/opensocial/docs/0.8/reference/gadgets/#gadgets.io gadgets.io
  * @author yiziwu@google.com (Yizi Wu)
  */
-final public class GadgetsIo {
+public class GadgetsIo extends JsFeature {
   /**
    * <code><j>gadgets.io.RequestParameters</j></code> constants.
    * @see http://code.google.com/apis/opensocial/docs/0.8/reference/gadgets/#gadgets.io.RequestParameters
@@ -84,7 +88,30 @@ final public class GadgetsIo {
           SIGNED    : "SIGNED",
           OAUTH     : "OAUTH"
       });
+  
 
+  /**
+   * Default constructor.
+   * <p>
+   * NOTE: This constructor is internally used. Do not call this constructor directly outside 
+   * this package.
+   * </p>
+   * @param client The jswrapper client.
+   * @private
+   */
+  public function GadgetsIo(client:JsWrapperClient) {
+    super(client);
+  }
+
+  
+  /**
+   * Registers the external interface callbacks for this feature. 
+   */
+  override public function registerExternalCallbacks():void {
+    ExternalInterface.addCallback("handleMakeRequest", handleMakeRequest);
+  }
+  
+    
   /**
    * Prepare a makeRequest parameter object of GET method. Keys are defined in 
    * <code>GadgetsIo.RequestParameters</code>.
@@ -113,7 +140,8 @@ final public class GadgetsIo {
     }
     return params;
   }
-  
+
+
   /**
    * Prepare a makeRequest parameter object of POST method. Keys are defined in 
    * <code>GadgetsIo.RequestParameters</code>.
@@ -145,5 +173,42 @@ final public class GadgetsIo {
     }
     return params;
   }
+
+
+  
+    /**
+   * Sends request to a remote site to get or post data.
+   * @param url The remote site url.
+   * @param callback A fucntion with a parameter of <code>ResponseItem</code>.
+   *                 The underlying data in the response item can be 
+   *                 <code>String | Object</code> for different content types respectfully.
+   * @param opt_params A <code>Map.&lt;GadgetsIo.RequestParameters, Object&gt;</code> object.
+   * 
+   * @see http://code.google.com/apis/opensocial/docs/0.8/reference/gadgets/#gadgets.io.makeRequest
+   *      gadgets.io.makeRequest
+   * @see http://code.google.com/apis/opensocial/articles/makerequest-0.8.html 
+   *      Introduction to makeRequest
+   */
+  public function makeRequest(
+      url:String,
+      callback:Function = null,
+      opt_params:Object = null):void {
+    assertReady();
+    var reqID:String = pushCallback(callback);
+    ExternalInterface.call(getJsFuncName("makeRequest"),
+                                  reqID, url, opt_params);
+  }
+
+
+  /**
+   * Callback of make request.
+   * @param reqID Request UID.
+   * @param data Response data object from the remote site. The object format is determined by the
+   *             content type parameter from the request.
+   */
+  protected function handleMakeRequest(reqID:String, data:Object):void {
+    popCallback(reqID, new ResponseItem(data));
+  }
+  
 }
 }

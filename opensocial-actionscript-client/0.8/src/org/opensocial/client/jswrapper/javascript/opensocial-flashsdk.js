@@ -23,6 +23,9 @@
  * It works with the Opensocial Actionscript Client SDK lib. In this file, it communicates between 
  * swf functions and the gadgets/opensocial javascript API functions. 
  * </p>
+ * <p>
+ * TODO: Provide a compiled version.
+ * </p>
  * 
  * @see http://code.google.com/apis/opensocial/docs/0.8/reference/
  * @version 0.8
@@ -178,7 +181,7 @@ opensocial.flash = (function() {
    * @private
    */
   function forEach(array, f, opt_thisObj) {
-    if (!isArray(array)) {
+    if (typeof array.length != 'number') {
       return;
     }
     var l = array.length;
@@ -399,7 +402,7 @@ opensocial.flash = (function() {
    * @param {Error} error The error thrown during the response.
    * @private
    */
-  function handleRpcError(reqID, error) {
+  function handleError(reqID, error) {
     if (DEBUG) {
       INFO(error);
     }
@@ -425,7 +428,7 @@ opensocial.flash = (function() {
  
   /**
    * Gets the swf object.
-   * @param {string?} opt_name The <object>/<embed> tag's id or name
+   * @param {string?} opt_name The object/embed tag's id or name
    * @return {HTMLElement} the swf object.
    * @private
    */
@@ -553,7 +556,7 @@ opensocial.flash = (function() {
   
     /**
      * Get the swf object.
-     * @param {string?} opt_name The <object>/<embed> tag's id or name
+     * @param {string?} opt_name The object/embed tag's id or name
      * @return {HTMLElement} the swf object.
      * @member opensocial.flash
      */
@@ -654,7 +657,6 @@ opensocial.flash = (function() {
      * @param {opensocial.IdSpec.PersonId | string} id OWNER or VIEWER.
      * @param {Object.<opensocial.DataRequest.PeopleRequestField, Object>} opt_params 
      *            A map of <code>opensocial.DataRequest.PeopleRequestField</code> names and values.
-     * @return {boolean} True if request is successfully sent.
      * @member opensocial.flash
      */
     fetchPerson : function(reqID, id, opt_params) {
@@ -665,10 +667,9 @@ opensocial.flash = (function() {
           var person = wrapObject(getData(dataResponse, 'p'));
           swfObj.handleFetchPerson(reqID, person);
         } catch (e) {
-          handleRpcError(reqID, e);
+          handleError(reqID, e);
         }
       });
-      return true;
     },
 
     /**
@@ -678,7 +679,6 @@ opensocial.flash = (function() {
      * @param {Object} idSpec A wrapped <code>opensocial.IdSpec</code> object.
      * @param {Object.<opensocial.DataRequest.PeopleRequestField, Object>} opt_params 
      *            A map of <code>opensocial.DataRequest.PeopleRequestField</code> names and values.
-     * @return {boolean} True if request is successfully sent.
      * @member opensocial.flash
      */
     fetchPeople : function(reqID, idSpec, opt_params) {
@@ -690,10 +690,9 @@ opensocial.flash = (function() {
           var people = wrapObject(getData(dataResponse, 'f'));
           swfObj.handleFetchPeople(reqID, people);
         } catch (e) {
-          handleRpcError(reqID, e);
+          handleError(reqID, e);
         } 
       });
-      return true;
     },
     
     /**
@@ -704,7 +703,6 @@ opensocial.flash = (function() {
      * @param {Array.<string>} keys App keys, '*' for all.
      * @param {Object.<opensocial.DataRequest.DataRequestField, Object>?} opt_params 
      *            A map of <code>opensocial.DataRequest.DataRequestField</code> names and values.
-     * @return {boolean} True if request is successfully sent.
      * @member opensocial.flash
      */
     fetchPersonAppData : function(reqID, idSpec, keys, opt_params) {
@@ -717,10 +715,9 @@ opensocial.flash = (function() {
           //dataSet is a Object.<opensocial.IdSpec.PersonId, Object.<string, Object>> object.
           swfObj.handleFetchPersonAppData(reqID, dataSet);
         } catch (e) {
-          handleRpcError(reqID, e);
+          handleError(reqID, e);
         } 
       });
-      return true;
     },
     
     
@@ -731,7 +728,6 @@ opensocial.flash = (function() {
      * @param {opensocial.IdSpec.PersonId | string} id only VIEWER is valid
      * @param {string} key A data key.
      * @param {Object} value New value.
-     * @return {boolean} True if request is successfully sent.
      * @member opensocial.flash
      */
     updatePersonAppData : function(reqID, id, key, value) {
@@ -742,10 +738,9 @@ opensocial.flash = (function() {
           getData(dataResponse, 'u');
           swfObj.handleUpdatePersonAppData(reqID);
         } catch (e) {
-          handleRpcError(reqID, e);
+          handleError(reqID, e);
         }
       });
-      return true;
     },
     
     
@@ -755,7 +750,6 @@ opensocial.flash = (function() {
      * @param {string} reqID The request id.
      * @param {opensocial.IdSpec.PersonId | string} id only VIEWER is valid
      * @param {Array.<string>} keys App keys, '*' for all.
-     * @return {boolean} True if request is successfully sent.
      * @member opensocial.flash
      */
     removePersonAppData : function(reqID, id, keys) {
@@ -766,13 +760,11 @@ opensocial.flash = (function() {
           getData(dataResponse, 'r');
           swfObj.handleRemovePersonAppData(reqID);
         } catch (e) {
-          handleRpcError(reqID, e);
+          handleError(reqID, e);
         }
       });
-      return true;
     },
-    
-    
+
     /**
      * Sends out the request for personal activities.
      * 
@@ -781,7 +773,6 @@ opensocial.flash = (function() {
      * @param {Object.<opensocial.DataRequest.ActivityRequestField, Object>?} opt_params 
      *            A map of <code>opensocial.DataRequest.ActivityRequestField</code> names and
      *            values.
-     * @return {boolean} True if request is successfully sent.
      * @member opensocial.flash
      */
     fetchActivities : function(reqID, idSpec, opt_params) {
@@ -793,13 +784,11 @@ opensocial.flash = (function() {
           var activities = wrapObject(getData(dataResponse, 'a'));
           swfObj.handleFetchActivities(reqID, activities);
         } catch (e) {
-          handleRpcError(reqID, e);
+          handleError(reqID, e);
         } 
       });
-      return true;
     },
-    
-    
+
     /**
      * Sends out the request to creat an activity.
      * 
@@ -807,7 +796,6 @@ opensocial.flash = (function() {
      * @param {Object} activity A wrapped <code>opensocial.Activity</code> object.
      * @param {opensocial.CreateActivityPriority | string} priority 
      *            An <code>opensocial.CreateActivityPriority</code> value.
-     * @return {boolean} True if request is successfully sent.
      * @member opensocial.flash
      */
     requestCreateActivity : function(reqID, activity, priority) {
@@ -817,13 +805,11 @@ opensocial.flash = (function() {
           getDataItem(responseItem);
           swfObj.handleRequestCreateActivity(reqID);
         } catch (e) {
-          handleRpcError(reqID, e);
+          handleError(reqID, e);
         }
       });
-      return true;
     },
-    
-    
+
     /**
      * Sends out the request to send a message.
      * <p>TODO: <code>opensocial.NavigationParameters opt_params</code> is not implemented.</p>
@@ -832,7 +818,6 @@ opensocial.flash = (function() {
      * @param {Array.<string>} recipients An ID, array of IDs, or a group reference, like
      *            VIEWER, OWNER, VIEWER_FRIENDS, OWNER_FRIENDS.
      * @param {Object} message A wrapped <code>opensocial.Message</code> object.
-     * @return {boolean} True if request is successfully sent.
      * @member opensocial.flash
      */
     requestSendMessage : function(reqID, recipients, message) {
@@ -842,10 +827,9 @@ opensocial.flash = (function() {
           getDataItem(responseItem);
           swfObj.handleRequestSendMessage(reqID);
         } catch (e) {
-          handleRpcError(reqID, e);
+          handleError(reqID, e);
         }
       });
-      return true;
     },
 
     /**
@@ -854,9 +838,8 @@ opensocial.flash = (function() {
      * 
      * @param {string} reqID The request id.
      * @param {Array.<string>} recipients An ID, array of IDs, or a group reference, like
-     *        VIEWER, OWNER, VIEWER_FRIENDS, OWNER_FRIENDS.
+     *            VIEWER, OWNER, VIEWER_FRIENDS, OWNER_FRIENDS.
      * @param {Object} reason A wrapped <code>opensocial.Message</code> object.
-     * @return {boolean} True if request is successfully sent.
      * @member opensocial.flash
      */
     requestShareApp : function(reqID, recipients, reason) {
@@ -866,10 +849,9 @@ opensocial.flash = (function() {
           getDataItem(responseItem);
           swfObj.handleRequestShareApp(reqID);
         } catch (e) {
-          handleRpcError(reqID, e);
+          handleError(reqID, e);
         }
       });
-      return true;
     },
     
     /**
@@ -879,7 +861,6 @@ opensocial.flash = (function() {
      * @param {Array.<opensocial.Permission | string>} permissions An array of 
      *            <code>opensocial.Permission</code> values.
      * @param {string} reason Text of the reason to request the permissions.
-     * @return {boolean} True if request is successfully sent.
      * @member opensocial.flash
      */
     requestPermission : function(reqID, permissions, reason) {
@@ -888,19 +869,18 @@ opensocial.flash = (function() {
           getDataItem(responseItem);
           swfObj.handleRequestPermission(reqID);
         } catch (e) {
-          handleRpcError(reqID, e);
+          handleError(reqID, e);
         }
       });
-      return true;
     },
-    
-    
+
     /**
      * Sends request to a remote site to get or post data.
+     * 
      * @param {string} reqID The request id.
      * @param {string} url The remote site
-     * @param {Object.<opensocial.io.RequestParameters, Object>?} opt_params 
-     * @return {boolean} True if request is successfully sent.
+     * @param {Object.<gadgets.io.RequestParameters, Object>?} opt_params 
+     *            Parameters for the request
      * @member opensocial.flash
      */
     makeRequest : function(reqID, url, opt_params) {
@@ -918,12 +898,77 @@ opensocial.flash = (function() {
           }
           swfObj.handleMakeRequest(reqID, obj.data);
         } catch (e) {
-          handleRpcError(reqID, e);
+          handleError(reqID, e);
         }
       }, opt_params);
-      return true;
+    },
+
+    /**
+     * Sends the rpc register request to container to register a service on this app.
+     * 
+     * @param {string} The service to be register.
+     * @param {string} The handler function name on the flash object.
+     * @member opensocial.flash
+     */
+    rpcRegister : function(serviceName, handlerName) {
+      if (serviceName == null) {
+        gadgets.rpc.registerDefault(swfObj[handlerName]);
+      } else {
+        gadgets.rpc.register(serviceName, function() {
+          try {
+            var args = [];
+            forEach(arguments, function(arg) {
+              args.push(arg);
+            });
+            swfObj[handlerName].apply(swfObj, args);
+          } catch(e) {
+            handleError(null, e);
+          }
+        });
+      }
+    },
+
+    /**
+     * Sends the rpc unregister request to container.
+     * 
+     * @param {string} The service to be unregister.
+     * @member opensocial.flash
+     */
+    rpcUnregister : function(serviceName) {
+      if (serviceName == null) {
+        gadgets.rpc.unregisterDefault();
+      } else {
+        gadgets.rpc.unregister(serviceName);
+      }
+    },
+
+    /**
+     * Sends the rpc call request to a service on another app or container on the page.
+     * 
+     * @param {string} reqID The request id.
+     * @param {string?} targetId The target app id, null to call the parent.
+     * @param {string} serviceName The service name registered on the target.
+     * @param {Array.<Object>?} argsArray The array of args to be passed to the service.
+     * @member opensocial.flash
+     */
+    rpcCall : function(reqID, targetId, serviceName, argsArray) {
+      var reqArgs = [targetId, serviceName, function() {
+        var resArgs = [reqID];
+        forEach(arguments, function(arg) {
+          resArgs.push(arg);
+        });
+        swfObj.handleRpcCall.apply(swfObj, resArgs);
+      }];
+      
+      if (argsArray) {
+        forEach(argsArray, function(arg) {
+          reqArgs.push(arg);
+        });
+      }
+      gadgets.rpc.call.apply(null, reqArgs);
     }
-    
+
+
   };
 })();
 

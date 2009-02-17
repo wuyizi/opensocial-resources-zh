@@ -44,7 +44,10 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <p></p>
  Base type for all constants and enum objects defined in <code><j>opensocial</j></code> namespace 
  in JS-side. Each constant type can read the real javacript values runtime if available. 
- Otherwise each type can use its default value set respectively. 
+ Otherwise each type can use its default value set respectively.
+ <p>
+ TODO: consider moving it ro util package. 
+ </p>
  
  <p></p>
 <br>
@@ -62,7 +65,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#ConstType()">ConstType</a>(typeName:String, defaultValues:Object)</div>
 <div class="summaryTableDescription">
-   Initialize a constant/enum type with it's javascript name and default value set.</div>
+   Initializes a constant/enum type with it's javascript name and default value set.</div>
 </td><td class="summaryTableOwnerCol">ConstType</td>
 </tr>
 <tr class="">
@@ -124,7 +127,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function ConstType(typeName:String, defaultValues:Object)</code><p>
-   Initialize a constant/enum type with it's javascript name and default value set. 
+   Initializes a constant/enum type with it's javascript name and default value set. 
    </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>

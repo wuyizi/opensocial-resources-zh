@@ -1,0 +1,539 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../../print.css" type="text/css" media="print">
+<meta content="JsWrapperClient,org.opensocial.client.jswrapper.JsWrapperClient,callbacks,io,jsNamespace,logger,opensocial,ready,rpc,views,window,addFeature,checkFeature,handleError,loadFeatures,registerExternalCallbacks,start" name="keywords">
+<title>org.opensocial.client.jswrapper.JsWrapperClient</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'JsWrapperClient - Opensocial Actionscript Client SDK Documentation';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">Opensocial Actionscript Client SDK</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../index-list.html')" href="../../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../../index.html?org/opensocial/client/jswrapper/JsWrapperClient.html&amp;org/opensocial/client/jswrapper/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;JsWrapperClient</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class JsWrapperClient"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">org.opensocial.client.jswrapper</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class JsWrapperClient</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">JsWrapperClient <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../../../images/inherit-arrow.gif"> flash.events.EventDispatcher</td>
+</tr>
+</table>
+<p></p>
+ Opensocial Actionscript Client SDK - Javascript Wrapper Client.
+ <p>
+ This JSWrapper SDK is used for developers who want to develop flash opensocial apps in 
+ ActionScript 3.0.
+ </p>
+ <p>
+ It's aimed to have no dependency on which container it runs on. It only depents on the 
+ Standard Opensocial Javascript API. It is developed on Shindig based container. So it works best
+ on Shindig. 
+ </p>
+ <p>
+ The main idea for this javascript wrapper client is to setup a interface passing wrapped and 
+ unwrapped opensocial data type between flash and javascript. 
+ </p> 
+ <p>
+ All opensocial data I/O and app control can be handled by this client. An app can simply include 
+ the <code>org.opensocial.client</code> package to the flash project and use this client to make
+ the app social.
+ </p>
+ <p>
+ A typical usage of this client is listing below:
+ </p>
+ <p></p>
+<br>
+<span class="label">Example</span>
+<br> <div class='listing'><pre>
+  
+   function init():void {
+     displaySomeStuff();
+ 
+     // Initialize Client and start
+     client = new JsWrapperClient();
+     client.loadFeatures("opensocial", "io");
+     client.addEventListener(OpensocialEvent.READY, onReady);
+     client.start();
+   }
+ 
+   //...
+   
+   function onReady(event:OpensocialEvent):void {
+     displayOtherStuff();
+ 
+     // start your logic
+     client.opensocial.fetchPerson(...);
+ 
+   }
+ </pre></div>
+  
+ <p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#callbacks">callbacks</a> : CallbackManager<div class="summaryTableDescription">[read-only]
+   For internal use.</div>
+</td><td class="summaryTableOwnerCol">JsWrapperClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#io">io</a> : <a href="../jswrapper/GadgetsIo.html">GadgetsIo</a>
+<div class="summaryTableDescription">[read-only]
+   Returns the "io" feature 
+   </div>
+</td><td class="summaryTableOwnerCol">JsWrapperClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#jsNamespace">jsNamespace</a> : String<div class="summaryTableDescription">[read-only]
+   Gets the js namespace.</div>
+</td><td class="summaryTableOwnerCol">JsWrapperClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#logger">logger</a> : <a href="../util/Logger.html">Logger</a>
+<div class="summaryTableDescription">
+   Gets the logger instance
+   </div>
+</td><td class="summaryTableOwnerCol">JsWrapperClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#opensocial">opensocial</a> : <a href="../jswrapper/Opensocial.html">Opensocial</a>
+<div class="summaryTableDescription">[read-only]
+   Returns the "opensocial" feature 
+   </div>
+</td><td class="summaryTableOwnerCol">JsWrapperClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ready">ready</a> : Boolean<div class="summaryTableDescription">[read-only]
+   Checks if the client is ready for javascript
+   </div>
+</td><td class="summaryTableOwnerCol">JsWrapperClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#rpc">rpc</a> : <a href="../jswrapper/GadgetsRpc.html">GadgetsRpc</a>
+<div class="summaryTableDescription">[read-only]
+   Returns the "rpc" feature 
+   </div>
+</td><td class="summaryTableOwnerCol">JsWrapperClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#views">views</a> : <a href="../jswrapper/GadgetsViews.html">GadgetsViews</a>
+<div class="summaryTableDescription">[read-only]
+   Returns the "views" feature 
+   </div>
+</td><td class="summaryTableOwnerCol">JsWrapperClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#window">window</a> : <a href="../jswrapper/GadgetsWindow.html">GadgetsWindow</a>
+<div class="summaryTableDescription">[read-only]
+   Returns the "window" feature 
+   </div>
+</td><td class="summaryTableOwnerCol">JsWrapperClient</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#JsWrapperClient()">JsWrapperClient</a>(jsNamespace:String = null)</div>
+<div class="summaryTableDescription">
+   Opensocial Client constructor, initializing some empty collections and values.</div>
+</td><td class="summaryTableOwnerCol">JsWrapperClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#loadFeatures()">loadFeatures</a>(... featureNames):void</div>
+<div class="summaryTableDescription">
+   Load the features with default names.</div>
+</td><td class="summaryTableOwnerCol">JsWrapperClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#start()">start</a>():void</div>
+<div class="summaryTableDescription">
+   Starts the main process.</div>
+</td><td class="summaryTableOwnerCol">JsWrapperClient</td>
+</tr>
+</table>
+</div>
+<a name="protectedMethodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Methods</div>
+<table id="summaryTableProtectedMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addFeature()">addFeature</a>(featureName:String, featureType:Class):void</div>
+<div class="summaryTableDescription">
+   Adds a feature to the client.</div>
+</td><td class="summaryTableOwnerCol">JsWrapperClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#checkFeature()">checkFeature</a>(featureName:String):<a href="../jswrapper/JsFeature.html">JsFeature</a>
+</div>
+<div class="summaryTableDescription">
+   Checks and returns if the feature exists.</div>
+</td><td class="summaryTableOwnerCol">JsWrapperClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#handleError()">handleError</a>(reqID:String, error:Object):void</div>
+<div class="summaryTableDescription">
+   Handles the javascript error and pop the callback if any.</div>
+</td><td class="summaryTableOwnerCol">JsWrapperClient</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#registerExternalCallbacks()">registerExternalCallbacks</a>():void</div>
+<div class="summaryTableDescription">
+   Registers the external interface callbacks for all features.</div>
+</td><td class="summaryTableOwnerCol">JsWrapperClient</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="callbacks"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">callbacks</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>callbacks:CallbackManager</code>&nbsp;&nbsp;[read-only]<p>
+   For internal use.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get callbacks():CallbackManager</code>
+<br>
+</div>
+<a name="io"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">io</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>io:<a href="../jswrapper/GadgetsIo.html">GadgetsIo</a></code>&nbsp;&nbsp;[read-only]<p>
+   Returns the "io" feature 
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get io():<a href="../jswrapper/GadgetsIo.html">GadgetsIo</a></code>
+<br>
+</div>
+<a name="jsNamespace"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">jsNamespace</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>jsNamespace:String</code>&nbsp;&nbsp;[read-only]<p>
+   Gets the js namespace. 
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get jsNamespace():String</code>
+<br>
+</div>
+<a name="logger"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">logger</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>logger:<a href="../util/Logger.html">Logger</a></code>&nbsp;&nbsp;[read-write]<p>
+   Gets the logger instance
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get logger():<a href="../util/Logger.html">Logger</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set logger(value:<a href="../util/Logger.html">Logger</a>):void</code>
+<br>
+</div>
+<a name="opensocial"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">opensocial</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>opensocial:<a href="../jswrapper/Opensocial.html">Opensocial</a></code>&nbsp;&nbsp;[read-only]<p>
+   Returns the "opensocial" feature 
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get opensocial():<a href="../jswrapper/Opensocial.html">Opensocial</a></code>
+<br>
+</div>
+<a name="ready"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ready</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>ready:Boolean</code>&nbsp;&nbsp;[read-only]<p>
+   Checks if the client is ready for javascript
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get ready():Boolean</code>
+<br>
+</div>
+<a name="rpc"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">rpc</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rpc:<a href="../jswrapper/GadgetsRpc.html">GadgetsRpc</a></code>&nbsp;&nbsp;[read-only]<p>
+   Returns the "rpc" feature 
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get rpc():<a href="../jswrapper/GadgetsRpc.html">GadgetsRpc</a></code>
+<br>
+</div>
+<a name="views"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">views</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>views:<a href="../jswrapper/GadgetsViews.html">GadgetsViews</a></code>&nbsp;&nbsp;[read-only]<p>
+   Returns the "views" feature 
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get views():<a href="../jswrapper/GadgetsViews.html">GadgetsViews</a></code>
+<br>
+</div>
+<a name="window"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">window</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>window:<a href="../jswrapper/GadgetsWindow.html">GadgetsWindow</a></code>&nbsp;&nbsp;[read-only]<p>
+   Returns the "window" feature 
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get window():<a href="../jswrapper/GadgetsWindow.html">GadgetsWindow</a></code>
+<br>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="JsWrapperClient()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">JsWrapperClient</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function JsWrapperClient(jsNamespace:String = null)</code><p>
+   Opensocial Client constructor, initializing some empty collections and values.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">jsNamespace</span>:String</code> (default = <code>null</code>)<code></code></td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="addFeature()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addFeature</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected final function addFeature(featureName:String, featureType:Class):void</code><p>
+   Adds a feature to the client. 
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">featureName</span>:String</code> &mdash; The name key of the feature.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">featureType</span>:Class</code> &mdash; The feature type
+   </td>
+</tr>
+</table>
+</div>
+<a name="checkFeature()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">checkFeature</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected final function checkFeature(featureName:String):<a href="../jswrapper/JsFeature.html">JsFeature</a></code><p>
+   Checks and returns if the feature exists. If not, throw an error. 
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">featureName</span>:String</code> &mdash; The name key of the feature
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../jswrapper/JsFeature.html">JsFeature</a></code> &mdash; 
+                        The feature object.
+   
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="handleError()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">handleError</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function handleError(reqID:String, error:Object):void</code><p>
+   Handles the javascript error and pop the callback if any.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">reqID</span>:String</code> &mdash; Request UID.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">error</span>:Object</code> &mdash; The error object from javascript.
+   </td>
+</tr>
+</table>
+</div>
+<a name="loadFeatures()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">loadFeatures</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function loadFeatures(... featureNames):void</code><p>
+   Load the features with default names.
+   </p><p>
+   Here are the possible values:
+   </p>
+   <div class='listing'><pre>
+   
+     "opensocial"
+     "io"
+     "rpc"
+     "views"
+     "windows"
+   </pre></div>
+   <p>
+   If developers like to load other customized features, extend this class and override this 
+   method.
+   </p>
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code>... <span class="label">featureNames</span></code> &mdash; The array of feature names to be loaded. No necessory to load all. 
+                       By default loads all features in this package.
+   </td>
+</tr>
+</table>
+</div>
+<a name="registerExternalCallbacks()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">registerExternalCallbacks</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected function registerExternalCallbacks():void</code><p>
+   Registers the external interface callbacks for all features. 
+   The names are used in the javascript. This method can be overridden by customized client.
+   </p></div>
+<a name="start()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">start</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public final function start():void</code><p>
+   Starts the main process.
+   
+   </p><p>
+   The main process will first check the availability of <code>ExternalInterface</code> of the 
+   flash player and the javascript in browser.
+   Customized client can override this method.
+   </p>
+   </div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright">2009 Opensocial</center>
+</div>
+</body>
+</html>
+<!--2009 Opensocial-->

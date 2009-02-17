@@ -16,23 +16,21 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-
-package org.opensocial.client.jswrapper {
-
-import flash.external.ExternalInterface;
-
-import org.opensocial.client.base.ConstType;
+package org.opensocial.client.base {
 
 /**
- * Wrapper of values in <code><j>opensocial.Environment</j></code> object in javascript.
+ * Wrapper of <code><j>opensocial.Environment</j></code> in javascript.
+ * <p>
+ * This class is just used as a namespace for these constants.
+ * </p>
  * 
  * @see http://code.google.com/apis/opensocial/docs/0.8/reference/#opensocial.Environment 
  *      opensocial.Environment
  * 
  * @author yiziwu@google.com (Yizi Wu)
  */
-final public class Environment {
-
+public class Environment extends BaseType {
+  
   /**
    * <code><j>opensocial.Environment.ObjectType</j></code> constants.
    * @see http://code.google.com/apis/opensocial/docs/0.8/reference/#opensocial.Environment.Field 
@@ -55,27 +53,5 @@ final public class Environment {
           SORT_ORDER    : 'sortOrder',
           FILTER_TYPE   : 'filterType'
       });
-
-  /**
-   * Calls the <code><j>opensocial.Environment.getDomain</j></code> to get the domain of the 
-   * running conatiner.
-   * @return The domain of the container, e.g. orkut.com, 51.com
-   * @see http://code.google.com/apis/opensocial/docs/0.8/reference/#opensocial.Environment.getDomain
-   *      opensocial.Environment.getDomain
-   */ 
-  public static function getDomain():String {
-    return ExternalInterface.call("opensocial.getEnvironment().getDomain");
-  }
-
-  /**
-   * Calls the <code><j>opensocial.Environment.supportsField</j></code> to check if the field
-   * in the type is supported for this container.
-   * @return True if supported.
-   * @see http://code.google.com/apis/opensocial/docs/0.8/reference/#opensocial.Environment.supportsField
-   *      opensocial.Environment.supportsField
-   */ 
-  public static function supportsField(objectType:String, field:String):Boolean {
-    return ExternalInterface.call("opensocial.getEnvironment().supportsField", objectType, field);
-  }
 }
 }

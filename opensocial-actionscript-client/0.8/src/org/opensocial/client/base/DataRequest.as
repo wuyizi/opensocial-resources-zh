@@ -23,7 +23,7 @@ package org.opensocial.client.base {
  * <p>
  * This class is just used as a namespace for these constants.
  * Different from the javascript API, the data request real logic are implemented seperately in
- * <code>org.opensocial.client.jswrapper.OpensocialClient</code> class and restful client 
+ * <code>org.opensocial.client.jswrapper.Opensocial</code> feature class and restful client 
  * class (not exist yet).
  * </p>
  * <p>
