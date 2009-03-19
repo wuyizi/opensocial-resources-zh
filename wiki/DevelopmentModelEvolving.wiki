@@ -1,6 +1,6 @@
-#summary One-sentence summary of this page.
+#summary AS3: !OpenSocial's development model evolving roadmap
 
-= AS3: OpenSocial's development model evolving =
+= AS3: !OpenSocial's development model evolving =
 
 Current (callback mode, all functionalities excepts RESTful api are supported, beta version on code.google.com) - use case:
 {{{
@@ -127,5 +127,3 @@ Future Proposal (event mode, will support RESTful api, target launch TBD) - use 
     // execute
     rpcRequest.send(jsClient);  // rpcRequest.send(resfulClient) will trigger a run-time error since RESTful api may not support this.
 }}}
-
-
