@@ -1,4 +1,4 @@
-#summary AS3: !OpenSocial's development model evolving roadmap
+#summary AS3: OpenSocial's development model evolving roadmap
 
 = AS3: !OpenSocial's development model evolving =
 
