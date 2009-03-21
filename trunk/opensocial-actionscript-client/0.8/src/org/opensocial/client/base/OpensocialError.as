@@ -20,18 +20,29 @@
 package org.opensocial.client.base {
 
 /**
- * Opensocial related errors in this package.
+ * OpenSocial related errors in this package.
  * 
  * @author yiziwu@google.com (Yizi Wu)
  */
-public class OpensocialError extends Error {
+public class OpenSocialError extends Error {
+  
+  protected var code_:String = "";
   
   /**
    * Constructor of the Error. 
    * @param message The error message text.
    */  
-  public function OpensocialError(message:String = "") {
-    super("[Opensocial] " + message, 17785);
+  public function OpenSocialError(message:String = "", code:String = "") {
+    super("[OpenSocial] " + message, 17785);
+    code_ = code;
+  }
+  
+  /**
+   * Returns the code information of this error. 
+   * @return The code.
+   */  
+  public function get code():String {
+    return code_;
   }
 
 }

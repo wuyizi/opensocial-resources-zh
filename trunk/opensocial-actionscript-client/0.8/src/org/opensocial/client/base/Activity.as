@@ -101,5 +101,4 @@ public class Activity extends MutableDataType {
   }
   
 }
-
-} 
+}

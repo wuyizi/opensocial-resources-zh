@@ -19,6 +19,7 @@
 
 package org.opensocial.client.base {
 
+  
 /**
  * Wrapper of <code><j>opensocial.ResponseItem</j></code> object in javascript.
  * <p>
@@ -47,78 +48,86 @@ public class ResponseItem extends BaseType {
           LIMIT_EXCEEDED      : 'limitExceeded'
       });
       
-   /**
-    * A constant item for success request and response but no data return from server. 
-    */ 
-   public static const SIMPLE_SUCCESS:ResponseItem = new ResponseItem();
+  /**
+   * A constant item for success request and response but no data return from server. 
+   */ 
+  public static const SIMPLE_SUCCESS:ResponseItem = new ResponseItem();
 
-   /**
-    * Holds the data object.
-    * @private 
-    */
-   private var data_:* = null;
+  /**
+   * Holds the data object.
+   * @private 
+   */
+  private var data_:* = null;
 
-   /**
-    * Holds the error code.
-    * @private 
-    */
-   private var errorCode_:String = null;
+  /**
+   * Holds the error code.
+   * @private 
+   */
+  private var errorCode_:String = null;
    
-   /**
-    * Holds the error string.
-    * @private 
-    */
-   private var errorMessage_:String = null;
+  /**
+   * Holds the error string.
+   * @private 
+   */
+  private var errorMessage_:String = null;
 
    
-   /**
-    * Constructor to create a response item in client class.
-    * @param data The data object fetched from container. Can be null if no returns.
-    * @param errorCode A value of <code>ResponseItem.Error</code>. Null if no errors.
-    * @param errorMessage A string to describe the error.
-    */
-   public function ResponseItem(data:* = null,
-                                errorCode:String = null,
-                                errorMessage:String = null) {
-     data_ = data;
-     errorCode_ = errorCode;
-     errorMessage_ = errorMessage;
-   }
+  /**
+   * Constructor to create a response item in client class.
+   * If the data param is ResponseItem type, then copy the values.
+   * @param data The data object fetched from container. Can be null if no returns.
+   * @param errorCode A value of <code>ResponseItem.Error</code>. Null if no errors.
+   * @param errorMessage A string to describe the error.
+   */
+  public function ResponseItem(data:* = null,
+                               errorCode:String = null,
+                               errorMessage:String = null) {
+    if (data != null && data is ResponseItem) {
+      data_ = (data as ResponseItem).getData();
+      errorCode_ = (data as ResponseItem).getErrorCode();
+      errorMessage_ = (data as ResponseItem).getErrorMessage();
+    } else {
+      data_ = data;
+      errorCode_ = errorCode;
+      errorMessage_ = errorMessage;
+    }
+  }
 
 
   /**
    * Gets the error code from this response item.
    * @return The error code. 
    */
-   public function getErrorCode():String {
-     return errorCode_;
-   }
+  public function getErrorCode():String {
+    return errorCode_;
+  }
 
 
   /**
    * Gets the error message from this response item.
    * @return The error message. 
    */
-   public function getErrorMessage():String {
-     return errorMessage_;
-   }
+  public function getErrorMessage():String {
+    return errorMessage_;
+  }
 
    
   /**
    * Check it the response item had error.
    * @return Ture if it had error. 
    */
-   public function hadError():Boolean {
-     return errorMessage_ != null;
-   }
+  public function hadError():Boolean {
+    return errorMessage_ != null;
+  }
 
    
   /**
    * Gets the data.
    * @return The data object. 
    */
-   public function getData():* {
-     return data_;
-   }
+  public function getData():* {
+    return data_;
+  }
 }
 }
+

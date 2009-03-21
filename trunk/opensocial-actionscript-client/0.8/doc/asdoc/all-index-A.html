@@ -49,11 +49,32 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("AÂ
    <code><j>opensocial.DataRequest.ActivityRequestFields</j></code> constants.</td>
 </tr>
 <tr>
-<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('org/opensocial/client/jswrapper/class-list.html');" href="org/opensocial/client/jswrapper/JsWrapperClient.html#addFeature()">addFeature</a>(featureName, featureType) &mdash; Method in class org.opensocial.client.jswrapper.<a onclick="javascript:loadClassListFrame('org/opensocial/client/jswrapper/class-list.html');" href="org/opensocial/client/jswrapper/JsWrapperClient.html">JsWrapperClient</a></td>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/AsyncRequest.html#addCompleteHandler()">addCompleteHandler</a>(callback) &mdash; Method in class org.opensocial.client.events.<a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/AsyncRequest.html">AsyncRequest</a></td>
 </tr>
 <tr>
 <td width="20"></td><td>
-   Adds a feature to the client.</td>
+   The quick short-cut for adding a callback function for the request completion.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/OpenSocialDataRequest.html#addCompleteHandler()">addCompleteHandler</a>(callback) &mdash; Method in class org.opensocial.client.events.<a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/OpenSocialDataRequest.html">OpenSocialDataRequest</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+   The quick short-cut for adding a callback function for the request completion.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/RpcRequest.html#addCompleteHandler()">addCompleteHandler</a>(callback) &mdash; Method in class org.opensocial.client.events.<a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/RpcRequest.html">RpcRequest</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+   The quick short-cut for adding a callback function when request succeed.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('org/opensocial/client/core/class-list.html');" href="org/opensocial/client/core/OpenSocialClient.html#addFeature()">addFeature</a>(featureName, isAsync, reqParser, resParser) &mdash; Method in class org.opensocial.client.core.<a onclick="javascript:loadClassListFrame('org/opensocial/client/core/class-list.html');" href="org/opensocial/client/core/OpenSocialClient.html">OpenSocialClient</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+   Adds new feature to this client.</td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('org/opensocial/client/base/class-list.html');" href="org/opensocial/client/base/Address.html">Address</a> &mdash; Class in package <a onclick="javascript:loadClassListFrame('org/opensocial/client/base/class-list.html');" href="org/opensocial/client/base/package-detail.html">org.opensocial.client.base</a></td>
@@ -61,6 +82,13 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("AÂ
 <tr>
 <td width="20"></td><td>
  Wrapper of <code><j>opensocial.Address</j></code> object in javascript.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/RpcService.html#addServiceHandler()">addServiceHandler</a>(callback) &mdash; Method in class org.opensocial.client.events.<a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/RpcService.html">RpcService</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+   The quick short-cut for adding a callback function for the service.</td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('org/opensocial/client/base/class-list.html');" href="org/opensocial/client/base/Collection.html#append()">append</a>(another:<a href="org/opensocial/client/base/Collection.html" onclick="javascript:loadClassListFrame('org/opensocial/client/base./class-list.html');">org.opensocial.client.base:Collection</a>) &mdash; Method in class org.opensocial.client.base.<a onclick="javascript:loadClassListFrame('org/opensocial/client/base/class-list.html');" href="org/opensocial/client/base/Collection.html">Collection</a></td>
@@ -77,14 +105,56 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("AÂ
  Extends from <code>Array</code> to handle wrapped objects array conversion.</td>
 </tr>
 <tr>
-<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('org/opensocial/client/jswrapper/class-list.html');" href="org/opensocial/client/jswrapper/JsFeature.html#assertReady()">assertReady</a>() &mdash; Method in class org.opensocial.client.jswrapper.<a onclick="javascript:loadClassListFrame('org/opensocial/client/jswrapper/class-list.html');" href="org/opensocial/client/jswrapper/JsFeature.html">JsFeature</a></td>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/AsyncRequest.html#assertFeature()">assertFeature</a>(featureName) &mdash; Method in class org.opensocial.client.events.<a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/AsyncRequest.html">AsyncRequest</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+   Checks the feature name.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('org/opensocial/client/jswrapper/class-list.html');" href="org/opensocial/client/jswrapper/JsWrapperClient.html#assertReady()">assertReady</a>() &mdash; Method in class org.opensocial.client.jswrapper.<a onclick="javascript:loadClassListFrame('org/opensocial/client/jswrapper/class-list.html');" href="org/opensocial/client/jswrapper/JsWrapperClient.html">JsWrapperClient</a></td>
 </tr>
 <tr>
 <td width="20"></td><td>
    Asserts the client.ready property.</td>
 </tr>
 <tr>
-<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('org/opensocial/client/jswrapper/class-list.html');" href="org/opensocial/client/jswrapper/GadgetsIo.html#AuthorizationType">AuthorizationType</a> &mdash; Constant static property in class org.opensocial.client.jswrapper.<a onclick="javascript:loadClassListFrame('org/opensocial/client/jswrapper/class-list.html');" href="org/opensocial/client/jswrapper/GadgetsIo.html">GadgetsIo</a></td>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/AsyncRequestEvent.html#ASYNC_COMPLETE">ASYNC_COMPLETE</a> &mdash; Constant static property in class org.opensocial.client.events.<a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/AsyncRequestEvent.html">AsyncRequestEvent</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+   For the 'asyncComplete' event dispatched when the opensocial and io request get responded.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/AsyncRequest.html">AsyncRequest</a> &mdash; Class in package <a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/package-detail.html">org.opensocial.client.events</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+ Event dispatcher for asynchronous requests.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/AsyncRequest.html#AsyncRequest()">AsyncRequest</a>(featureName) &mdash; Constructor in class org.opensocial.client.events.<a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/AsyncRequest.html">AsyncRequest</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+   Constructor of this request event dispatcher.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/AsyncRequestEvent.html">AsyncRequestEvent</a> &mdash; Class in package <a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/package-detail.html">org.opensocial.client.events</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+ Event used for asynchronous remote data requests.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/AsyncRequestEvent.html#AsyncRequestEvent()">AsyncRequestEvent</a>(type, data) &mdash; Constructor in class org.opensocial.client.events.<a onclick="javascript:loadClassListFrame('org/opensocial/client/events/class-list.html');" href="org/opensocial/client/events/AsyncRequestEvent.html">AsyncRequestEvent</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+   Constructor of the event.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('org/opensocial/client/base/class-list.html');" href="org/opensocial/client/base/GadgetsIo.html#AuthorizationType">AuthorizationType</a> &mdash; Constant static property in class org.opensocial.client.base.<a onclick="javascript:loadClassListFrame('org/opensocial/client/base/class-list.html');" href="org/opensocial/client/base/GadgetsIo.html">GadgetsIo</a></td>
 </tr>
 <tr>
 <td width="20"></td><td>

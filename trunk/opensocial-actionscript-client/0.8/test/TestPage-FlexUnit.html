@@ -1,0 +1,37 @@
+<html>
+<head>
+ <title>FlexUnit Test Runner</title>
+ <script language="javascript" src="opensocial-test-util.js"></script>
+</head>
+<body>
+<div id="flashcontainer" style="text-align: center;"></div>
+ <script>
+    window.osTestUtil.loadScripts(loadSwf);
+    function loadSwf() {
+      var container = document.getElementById("flashcontainer");
+      var html = "";
+      if (navigator.plugins &&
+          navigator.mimeTypes &&
+          navigator.mimeTypes.length) {
+        // netscape plugin architecture
+        html = '<embed src="../bin/FlexUnitTestRunner.swf" ' + 
+               'id="flashObj" name="flashObj" type="application/x-shockwave-flash" ' +
+               'width="1000" height="500" quality="high" wwmode="window" ' +
+               'allowScriptAccess="always">';
+      } else {
+        // PC IE
+        html = '<object id="flashObj" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"' +
+                   'width="1000" height="500">' +
+                 '<param name="movie" value="../bin/FlexUnitTestRunner.swf" />' +
+                 '<param name="quality" value="high" />' +
+                 '<param name="allowScriptAccess" value="always" />' +
+                 '<param name="quality" value="high" />' +
+                 '<param name="wmode" value="window" />' +
+               '</object>';
+      }
+      container.innerHTML = html;
+    };
+</script>
+
+</body>
+</html>

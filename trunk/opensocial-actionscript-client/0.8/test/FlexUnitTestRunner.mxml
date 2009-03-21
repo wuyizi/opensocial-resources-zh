@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+                xmlns:flexunit="flexunit.flexui.*" creationComplete="onCreationComplete()"
+                width="1000" height="500">
+  <mx:Script>
+    <![CDATA[
+      import org.opensocial.client.base.*;
+      import flash.system.Security;
+      import flexunit.framework.Test;
+      import flexunit.framework.TestSuite;
+
+      private function onCreationComplete():void {
+        Security.allowDomain("*");
+        testRunner.test = createSuite();
+        testRunner.startTest();
+      }
+
+      private function createSuite():TestSuite {
+        var ts:TestSuite = new TestSuite();
+        ts.addTestSuite(org.opensocial.client.base.ActivityTest);
+        ts.addTestSuite(org.opensocial.client.base.AddressTest);
+        ts.addTestSuite(org.opensocial.client.base.ArrayTypeTest);
+        ts.addTestSuite(org.opensocial.client.base.BodyTypeTest);
+        return ts;
+      }
+
+    ]]>
+  </mx:Script>
+  <flexunit:TestRunnerBase id="testRunner" width="100%" height="100%" />
+</mx:Application>

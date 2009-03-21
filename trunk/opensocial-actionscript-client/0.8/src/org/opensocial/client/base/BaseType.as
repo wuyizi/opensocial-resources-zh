@@ -58,6 +58,8 @@ package org.opensocial.client.base {
  *              + NavigationParameters                  opensocial.NavigationParameters
  * 
  *      + Globals
+ *      + GadgetsIO
+ *      + GadgetsVIew
  * 
  *    + ArrayType
  * 

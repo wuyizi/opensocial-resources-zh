@@ -92,7 +92,7 @@ public class Person extends DataType {
           HAS_APP                 : 'hasApp',                   /* Boolean */
           NETWORK_PRESENCE        : 'networkPresence'           /* Enum.Presence */
       });
-  
+
   /**
    * Constructor.
    * <p>
@@ -146,6 +146,30 @@ public class Person extends DataType {
     //TODO: may not be appropriate.
     return getDisplayName();
   }
+  
+  // ---- Add optional conventional accessors here ----
+  /**
+   * Get the thumbnail url field of the person. Will not throw error if not exists.
+   * @return The thumbnail url if exists.
+   */  
+  public function getThumbnailUrl():String {
+    return getFieldString(Field.THUMBNAIL_URL);
+  }
+  
+  /**
+   * Get the current location field of the person. Will not throw error if not exists.
+   * @return The address string if exists.
+   */  
+  public function getCurrentLocation():String {
+    var address:Address = getFieldData(Person.Field.CURRENT_LOCATION, Address) as Address;
+    if (address != null) {
+      return address.toString();
+    } else {
+      return null;
+    }
+  }
+  
+  
 }
 }
  

@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>Test Page for Opensocial Actionscript Client SDK Package</title>
+  <style>
+    i {color:#AAA;}
+    .n {color:#0C0;}
+  </style>
+</head>
+<body style="font-family:verdana;">
+<script>
+function jsTest() {
+  window.open("../external/jsunit/testRunner.html?autoRun=true&testPage=" + 
+              location.href + "/../TestPage-JsUnit.html", "_blank");
+};
+function flexTest() {
+  window.open("TestPage-FlexUnit.html", "_blank");
+};
+</script>
+<center>
+<h2>
+Test Page for Opensocial Actionscript Client SDK Package.
+</h2>
+<br>
+<p class=n>NOTE: If you are running this test page on your local machine, 
+please read the <a href="README.txt">README</a> file first.</p>
+<br>
+<br>
+<div style="width:600px; text-align:left;">
+  <div><a href="" onclick="flexTest()">Test Actionscript Codes</a></div>
+  <blockquote>
+    <div>Files to test:</div>
+    <pre>src/org/opensocial/client/base/*.as</pre>
+    <pre><i>src/org/opensocial/client/util/*.as</i></pre>
+    <pre><i>src/org/opensocial/client/core/*.as</i></pre>
+    <pre><i>src/org/opensocial/client/events/*.as</i></pre>
+    <pre><i>src/org/opensocial/client/jswrapper/*.as</i></pre>
+    <pre><i>src/org/opensocial/client/restful/*.as</i></pre>
+  </blockquote>
+  
+  <br>
+
+  <div><a href="" onclick="jsTest()">Test Javascript Codes</a></div>
+  <blockquote>
+    <div>Files to test:</div>
+    <pre>src/org/opensocial/client/jswrapper/javascript/opensocial-flashsdk.js
+    </pre>
+  </blockquote>
+
+</div>
+</center>
+</body> 
+</html>

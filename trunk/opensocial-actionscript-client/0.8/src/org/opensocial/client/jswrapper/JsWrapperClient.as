@@ -19,87 +19,83 @@
 
 package org.opensocial.client.jswrapper {
 
-import flash.events.EventDispatcher;
 import flash.events.TimerEvent;
 import flash.external.ExternalInterface;
 import flash.system.Security;
 import flash.utils.Timer;
 
 import org.opensocial.client.base.*;
+import org.opensocial.client.core.*;
+import org.opensocial.client.events.OpenSocialClientEvent;
 import org.opensocial.client.util.*;
 
 /**
- * Opensocial Actionscript Client SDK - Javascript Wrapper Client.
+ * OpenSocial Actionscript Client SDK - Javascript Wrapper Client.
  * <p>
- * This JSWrapper SDK is used for developers who want to develop flash opensocial apps in 
- * ActionScript 3.0.
- * </p>
- * <p>
- * It's aimed to have no dependency on which container it runs on. It only depents on the 
- * Standard Opensocial Javascript API. It is developed on Shindig based container. So it works best
- * on Shindig. 
- * </p>
- * <p>
- * The main idea for this javascript wrapper client is to setup a interface passing wrapped and 
- * unwrapped opensocial data type between flash and javascript. 
+ * This javascript wrapper client is to setup a interface passing wrapped and unwrapped 
+ * opensocial data type between flash and javascript. To achieve this, there is a javascript file
+ * to run together with the OpenSocial Standard Javascript API. This javascript plays a role as 
+ * a bridge. In this package, the codes in javascript are called 'JS-Side', correspodingly codes in 
+ * this client is called 'AS-Side'. 
  * </p> 
  * <p>
- * All opensocial data I/O and app control can be handled by this client. An app can simply include 
- * the <code>org.opensocial.client</code> package to the flash project and use this client to make
- * the app social.
- * </p>
- * <p>
- * A typical usage of this client is listing below:
+ * A typical usage of this javascript wrapper client is listing below:
  * </p>
  * @example
  * <listing version="3.0">
  *  
+ *   var client:JsWrapperClient;
+ *   var opensocial:OpenSocialHelper;
+ * 
  *   function init():void {
  *     displaySomeStuff();
  * 
- *     // Initialize Client and start
+ *     // Initialize the client and start.
  *     client = new JsWrapperClient();
- *     client.loadFeatures("opensocial", "io");
- *     client.addEventListener(OpensocialEvent.READY, onReady);
+ *     client.addEventListener(OpenSocialClientEvent.READY, onReady);
  *     client.start();
+ * 
+ *     // Initialize the helper objects.
+ *     opensocial = new OpenSocialHelper(client);
  *   }
  * 
  *   //...
  *   
- *   function onReady(event:OpensocialEvent):void {
+ *   function onReady(event:OpenSocialEvent):void {
  *     displayOtherStuff();
  * 
- *     // start your logic
- *     client.opensocial.fetchPerson(...);
+ *     // start your logic using callbacks
+ *     opensocial.fetchPerson(..., callback);
  * 
+ *     // Or start your logic using events
+ *     var req:OpenSocialDataRequest = new OpenSocialDataRequest(...);
+ *     req.setParams(...);
+ *     req.addEventListener(..., handler);
+ *     req.send(client);
  *   }
  * </listing>
  *  
  * @author yiziwu@google.com (Yizi Wu)
+ * @author chaowang@google.com (Jacky Wang)
  */
-public class JsWrapperClient extends EventDispatcher {
+public class JsWrapperClient extends OpenSocialClient {
   
   /**
-   * The Opensocial Actionscript Client SDK namespace on JS-side.
+   * The logger for this class.  
+   * @private 
+   */  
+  private static var logger:Logger = new Logger(JsWrapperClient);
+  
+  /**
+   * The OpenSocial Actionscript Client SDK namespace on JS-side.
    * @default "opensocial.flash"
    * @private
    */ 
   private var jsNamespace_:String = "opensocial.flash";
 
-  /**
-   * The callback manager to buffer all the ongoing request callback handlers.
-   * @private
-   */ 
-  private var callbacks_:CallbackManager;
 
   /**
-   * The logger instance.
-   * @private
-   */ 
-  private var logger_:Logger;
-  
-  /**
-   * Indicating if the API is already started to check the javascript.
+   * Indicates if the API is already started to check the javascript.
    * @default false
    * @private
    */ 
@@ -107,28 +103,23 @@ public class JsWrapperClient extends EventDispatcher {
 
 
   /**
-   * Indicating if the API is already initialized and ready for requests.
+   * Indicates if the API is already initialized and ready for requests.
    * @default false
    * @private
    */ 
   private var isReady_:Boolean;
   
-  
-  private var features_:/* String, JsFeature */Object;
-  
-  
-  // ---------------------------------------------------------------------------
-  //     Initializing
-  // ---------------------------------------------------------------------------
+
   /**
-   * Opensocial Client constructor, initializing some empty collections and values.
+   * Javascrip Wrapper Client constructor, initializing some empty collections and values.
+   * @param jsNamespace The javascript namespace used in the Js-Side, null to use the default value.
    */
   public function JsWrapperClient(jsNamespace:String = null) {
+    super();
     
-    // TODO: The security need to be configured.
+     // TODO: The security need to be configured.
     Security.allowDomain("*");
     
-    callbacks_ = new CallbackManager();
     isStarted_ = false;
     isReady_ = false;
     
@@ -137,89 +128,9 @@ public class JsWrapperClient extends EventDispatcher {
     }
   }
   
-
-  /**
-   * Load the features with default names.
-   * <p>
-   * Here are the possible values:
-   * </p>
-   * <listing>
-   * 
-   *   "opensocial"
-   *   "io"
-   *   "rpc"
-   *   "views"
-   *   "windows"
-   * </listing>
-   * <p>
-   * If developers like to load other customized features, extend this class and override this 
-   * method.
-   * </p>
-   * @param featureNames The array of feature names to be loaded. No necessory to load all. 
-   *                     By default loads all features in this package.
-   */  
-  public function loadFeatures(...featureNames):void {
-    features_ = {};
-    
-    if (featureNames == null) {
-      featureNames = ["all"];
-    }
-    try  {
-      for each (var name:String in featureNames) {
-        switch (name) {
-          case "io":
-            addFeature("io", GadgetsIo);
-            break;
-          case 'rpc':
-            addFeature("rpc", GadgetsRpc);
-            break;
-          case 'views':
-            addFeature("views", GadgetsViews);
-            break;
-          case 'window':
-            addFeature("window", GadgetsWindow);
-            break;
-          case 'opensocial':
-            addFeature("opensocial", Opensocial);
-            break;
-          case 'all':
-            addFeature("io", GadgetsIo);
-            addFeature("rpc", GadgetsRpc);
-            addFeature("views", GadgetsViews);
-            addFeature("window", GadgetsWindow);
-            addFeature("opensocial", Opensocial);
-            break;
-        }
-      }
-    } catch (e:Error) {
-      logger.error(e);
-    }
-  }
-  
-  /**
-   * Adds a feature to the client. 
-   * @param featureName The name key of the feature.
-   * @param featureType The feature type
-   */  
-  final protected function addFeature(featureName:String, featureType:Class):void {
-    if (!features_[featureName]) {
-      features_[featureName] = new featureType(this);
-    }
-  }
-  
-  /**
-   * Checks and returns if the feature exists. If not, throw an error. 
-   * @param featureName The name key of the feature
-   * @return The feature object.
-   */  
-  final protected function checkFeature(featureName:String):JsFeature {
-    if (!features_ || !features_[featureName]) {
-      throw new OpensocialError("Feature '" + featureName + "' not loaded.");
-    }
-    return features_[featureName];
-  }
-  
-  
+  // ---------------------------------------------------------------------------
+  //     Initializing Javascript
+  // ---------------------------------------------------------------------------
   /**
    * Starts the main process.
    * 
@@ -233,14 +144,19 @@ public class JsWrapperClient extends EventDispatcher {
     if (isStarted_ || isReady_) return;
     isStarted_ = true;
 
-    if (!ExternalInterface.available) {
-      logger.error(new OpensocialError("ExternalInterface is not available."));
-    } else {
-      // Register external callbacks
-      registerExternalCallbacks();
-      
-      // Check if the javascript is ready in DOM
-      checkJavascriptReady();
+    try {
+      if (!ExternalInterface.available) {
+        logger.error(new OpenSocialError("ExternalInterface is not available."));
+      } else {
+        // Register external callbacks
+        registerSystemCallbacks();
+        
+        // Check if the javascript is ready in DOM
+        checkJavascriptReady();
+      }
+    } catch (e:SecurityError) {
+      logger.error(
+          new OpenSocialError("Scripting Security Error: 'allowScriptAccess' value not correct."));
     }
   }
 
@@ -269,108 +185,22 @@ public class JsWrapperClient extends EventDispatcher {
         
         isReady_ = true;
         
-        dispatchEvent(
-            new OpensocialEvent(OpensocialEvent.READY, 
-                                false, false, event.target.currentCount));
+        dispatchEvent(new OpenSocialClientEvent(
+            OpenSocialClientEvent.CLIENT_READY, false, false, event.target.currentCount));
       }
     });
     
     timer.addEventListener(TimerEvent.TIMER_COMPLETE, function(event:TimerEvent):void {
-      logger.error(new OpensocialError("Retried " + event.target.currentCount + 
+      logger.error(new OpenSocialError("Retried " + event.target.currentCount + 
                                        " time(s) and failed."));
     });
 
     timer.start();
   }
   
-  /**
-   * Registers the external interface callbacks for all features. 
-   * The names are used in the javascript. This method can be overridden by customized client.
-   */
-  protected function registerExternalCallbacks():void {
-
-    // handle errors from javascript
-    ExternalInterface.addCallback("handleError", handleError);
-
-    // allow javascript to call the flash client logger for debugging.
-    ExternalInterface.addCallback("trace", logger.log);
-    
-    // register all features callbacks
-    for each (var feature:JsFeature in features_) {
-      feature.registerExternalCallbacks();
-    }
-
-  }
-
-
   // ---------------------------------------------------------------------------
-  //  Default RPC Callbacks
+  //  Interface for javascript functionality
   // ---------------------------------------------------------------------------
-  /**
-   * Handles the javascript error and pop the callback if any.
-   * @param reqID Request UID.
-   * @param error The error object from javascript.
-   */
-  protected function handleError(reqID:String, error:Object):void {
-    if (error != null) {
-      var code:String = "";
-      if (error["name"] == "OpensocialError") {
-        code = error["code"];
-      }
-      if (reqID == null) {
-        throw new OpensocialError("Error " + error["message"] + 
-                                  "from javascript without handler.");
-      } else {
-        callbacks_.pop(reqID, new ResponseItem(null, code, error["message"]));
-      }
-    } else {
-      if (reqID != null) {
-        callbacks_.drop(reqID);
-      }
-      throw new OpensocialError("Unexpected error callback from javascript.");  
-    }
-  }
-
-  // ---------------------------------------------------------------------------
-  //  Getters and Setters
-  // ---------------------------------------------------------------------------
-
-  /**
-   * For internal use.
-   * @return The callback Manager. 
-   * 
-   */  
-  final internal function get callbacks():CallbackManager {
-    return callbacks_;
-  }
-
-  /**
-   * Gets the logger instance
-   * @return The logger.
-   */
-  final public function get logger():Logger {
-    if (logger_ == null) {
-      // If the logger is not set, creates a dummy logger which logs nothing.
-      logger_ = new Logger();
-    }
-    return logger_;
-  }
-
-  /**
-   * Sets the new logger instance for this client.
-   * @param newLogger a new logger. 
-   */ 
-  final public function set logger(newLogger:Logger):void {
-    logger_ = newLogger;
-  }
-
-  /**
-   * Gets the js namespace. 
-   * @return The namespace on JS-Side.
-   */  
-  final public function get jsNamespace():String {
-    return jsNamespace_;
-  }
 
   /**
    * Checks if the client is ready for javascript
@@ -379,47 +209,158 @@ public class JsWrapperClient extends EventDispatcher {
   final public function get ready():Boolean {
     return isReady_;
   }
-
-  /**
-   * Returns the "io" feature 
-   * @return The "io" feature.
-   */
-  public function get io():GadgetsIo {
-    return checkFeature("io") as GadgetsIo;
-  }
-
-  /**
-   * Returns the "rpc" feature 
-   * @return The "rpc" feature.
-   */
-  public function get rpc():GadgetsRpc {
-    return checkFeature("rpc") as GadgetsRpc;
-  }
   
   /**
-   * Returns the "views" feature 
-   * @return The "views" feature.
+   * Asserts the client.ready property. Throws error if not ready.
    */
-  public function get views():GadgetsViews {
-    return checkFeature("views") as GadgetsViews;
+  final internal function assertReady():void {
+    if (!isReady_) throw new OpenSocialError("The OpenSocial JsWrapper Client is not ready.");
+  }  
+
+  /**
+   * Registers the external interface callbacks for all features. 
+   * The names are used in the javascript. This method can be overridden by customized client.
+   * @private
+   */
+  protected function registerSystemCallbacks():void {
+    // handle errors from javascript
+    ExternalInterface.addCallback("handleError", handleError);
+    // handle async request callback from javascript
+    ExternalInterface.addCallback("handleAsync", handleAsync);
+    // allow javascript to call the flash client logger for debugging.
+    ExternalInterface.addCallback("trace", logger.info);
   }
 
   /**
-   * Returns the "window" feature 
-   * @return The "window" feature.
-   */
-  public function get window():GadgetsWindow {
-    return checkFeature("window") as GadgetsWindow;
+   * Handles the javascript successfully async callback if any. 
+   * @param reqID Request UID in callback manager.
+   * @param args Some arguments from javascript, .
+   * @private
+   */  
+  protected function handleAsync(reqID:String, data:* = null):void {
+    callbacks_.pop(reqID, data);
   }
 
   /**
-   * Returns the "opensocial" feature 
-   * @return The "opensocial" feature.
+   * Handles the javascript error and pop the callback if any.
+   * @param reqID Request UID in callback manager.
+   * @param error The error object from javascript.
+   * @private
    */
-  public function get opensocial():Opensocial {
-    return checkFeature("opensocial") as Opensocial;
+  protected function handleError(reqID:String, error:Object):void {
+    if (error != null) {
+      var code:String = "";
+      if (error["name"] == "OpenSocialError") {
+        code = error["code"];
+      }
+      if (reqID != null) {
+        callbacks_.pop(reqID, new OpenSocialError(error["message"], code));
+      } else {
+        throw new OpenSocialError("Error " + error["message"] + 
+                                  "from javascript without handler.");
+      }
+    } else {
+      if (reqID != null) {
+        callbacks_.drop(reqID);
+      }
+      throw new OpenSocialError("Unexpected error callback from javascript.");  
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  //  Implementation the client interfaces.
+  // ---------------------------------------------------------------------------
+
+  override public function registerCallback(callbackName:String, callback:Function):void {
+    assertReady();
+    callbacks_.push(callback, callbackName);
+    ExternalInterface.addCallback(callbackName, callback);
+  }
+
+
+  override public function unregisterCallback(callbackName:String):void {
+    assertReady();
+    callbacks_.drop(callbackName);
+    // TODO how to remove callbacks from ExternalInterface?
+ 
+  }
+
+
+  override public function callSync(featureName:String, ...params:Array):* {
+    assertReady();
+    var feature:Feature = checkFeature(featureName);
+    var parsedParams:Array = feature.reqParser(params);
+    parsedParams.unshift(jsNamespace_ + "." + featureName);
+    var rawData:* = ExternalInterface.call.apply(null, parsedParams);
+    return feature.resParser(rawData);
+  }
+
+
+  override public function callAsync(featureName:String, handler:Function, ...params:Array):void {
+    assertReady();
+    var feature:Feature = checkFeature(featureName);
+    var callback:Function = function(rawData:*):void {
+      var data:* = feature.resParser(rawData);
+      handler(data);
+    };
+    var reqID:String = callbacks_.push(callback);
+    var parsedParams:Array = feature.reqParser(params);
+    parsedParams.unshift(jsNamespace_ + "." + featureName, reqID);
+    ExternalInterface.call.apply(null, parsedParams);
+  }
+
+
+  /**
+   * @inheritDoc
+   * @private
+   */  
+  override protected function initFeatureBook():void {
+    super.initFeatureBook();
+    
+    var features:Array = [ 
+        [Feature.FETCH_PERSON,            true, "parseParams", "parsePerson"],
+        [Feature.FETCH_PEOPLE,            true, "parseParams", "parsePeopleCollection"],
+        [Feature.FETCH_PERSON_APP_DATA,   true, "parseParams", "parseRawData"],
+        [Feature.UPDATE_PERSON_APP_DATA,  true, "parseParams", "parseEmpty"],
+        [Feature.REMOVE_PERSON_APP_DATA,  true, "parseParams", "parseEmpty"],
+        [Feature.FETCH_ACTIVITIES,        true, "parseParams", "parseActivitiesCollection"],
+        [Feature.REQUEST_CREATE_ACTIVITY, true, "parseParams", "parseEmpty"],
+        [Feature.REQUEST_SEND_MESSAGE,    true, "parseParams", "parseEmpty"],
+        [Feature.REQUEST_SHARE_APP,       true, "parseParams", "parseEmpty"],
+        [Feature.REQUEST_PERMISSION,      true, "parseParams", "parseEmpty"],
+        [Feature.GET_CONTAINER_DOMAIN,    false],
+        [Feature.GET_DOMAIN,              false],
+        [Feature.SUPPORTS_FIELD,          false],
+        
+        [Feature.MAKE_REQUEST,            true, "parseParams", "parseRawData"],
+        
+        [Feature.CALL_RPC,                true],
+        [Feature.RETURN_RPC_SERVICE,      false],
+        [Feature.REGISTER_RPC_SERVICE,    false],
+        [Feature.UNREGISTER_RPC_SERVICE,  false],
+        
+        [Feature.GET_CURRENT_VIEW,        false],
+        [Feature.IS_ONLY_VISIBLE,         false],
+        [Feature.GET_VIEW_PARAMS,         false],
+
+        [Feature.SET_STAGE_HEIGHT,        false],
+        [Feature.SET_STAGE_WIDTH,         false],
+        [Feature.SET_TITLE,               false]
+    ];  
+    
+    
+    for each(var item:Array in features) {
+      var args:Array = [item[0], item[1]];
+      if (item[2]) {
+        args.push(JsWrapperParsers[item[2]]);
+      }
+      if (item[3]) {
+        args.push(JsWrapperParsers[item[3]]);
+      }
+      addFeature.apply(this, args);
+    }
+    
   }
 }
 
 }
-
