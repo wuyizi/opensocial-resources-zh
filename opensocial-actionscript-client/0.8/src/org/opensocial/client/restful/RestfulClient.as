@@ -19,9 +19,8 @@
 
 package org.opensocial.client.restful {
 
-import flash.events.EventDispatcher;
-
 import org.opensocial.client.base.*;
+import org.opensocial.client.core.*;
 import org.opensocial.client.util.*;
 
 /**
@@ -39,9 +38,59 @@ import org.opensocial.client.util.*;
  * utilily classes are <code>org.opensocial.client.util</code> package. Both javascript wrapper 
  * client and this restful client will share them.
  * </p>
+ * 
+ * @author yiziwu@google.com (Yizi Wu)
  */
-public class RestfulClient extends EventDispatcher {
-  // Not implemented yet.
+public class RestfulClient extends OpenSocialClient {
+  
+  /**
+   * Not implemented yet.
+   * @inheritDoc
+   */  
+  public function RestfulClient() {
+    
+  }
+  
+  /**
+   * Not implemented yet.
+   * @inheritDoc
+   */  
+  override public function callSync(featureName:String, ...args:Array):* {
+    
+  }
+
+  /**
+   * Not implemented yet. 
+   * @inheritDoc
+   */    
+  override public function callAsync(featureName:String, callback:Function, ...args:Array):void {
+    
+  }
+  
+  /**
+   * Not implemented yet.
+   * @inheritDoc
+   */ 
+  override public function registerCallback(callbackName:String, callback:Function):void {
+    
+  }
+  
+  /**
+   * Not implemented yet.
+   * @inheritDoc
+   */ 
+  override public function unregisterCallback(callbackName:String):void {
+    
+  }
+
+  /**
+   * Not implemented yet.
+   * @inheritDoc
+   */
+  override protected function initFeatureBook():void {
+    super.initFeatureBook();
+    // addFeature(...)
+  }
 }
 
 }

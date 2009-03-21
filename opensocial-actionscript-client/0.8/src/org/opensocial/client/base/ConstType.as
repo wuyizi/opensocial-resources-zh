@@ -23,6 +23,8 @@ import flash.external.ExternalInterface;
 import flash.utils.Proxy;
 import flash.utils.flash_proxy;
 
+import org.opensocial.client.util.Logger;
+
 /**
  * Base type for all constants and enum objects defined in <code><j>opensocial</j></code> namespace 
  * in JS-side. Each constant type can read the real javacript values runtime if available. 
@@ -34,6 +36,8 @@ import flash.utils.flash_proxy;
  * @author yiziwu@google.com (Yizi Wu)
  */
 public dynamic class ConstType extends Proxy {
+  
+  private static var logger:Logger = new Logger(ConstType);
   
   private static var useDefault_:Boolean = false;
   
@@ -63,28 +67,27 @@ public dynamic class ConstType extends Proxy {
    * @private 
    */  
   private var typeName_:String = null;
-
+  
   /**
    * Initializes a constant/enum type with it's javascript name and default value set. 
    * @param typeName The javascript name of this type.
    * @param defaultValues The default value set of <code>Map.&lt;String, String&gt;</code>.
    */    
   public function ConstType(typeName:String, defaultValues:Object) {
+    
+    
     typeName_ = typeName;
     defaultValues_ = defaultValues;
   }
 
   /**
-   * Gets the value of a enum object for the name.
-   * @param name The enum name.
-   * @return The enum object, which is a property of this proxy.
-   * @private 
-   */    
-  private function getValue(name:String):* {
-    var value:Object;
-    
+   * Gets the working values set for the enums or constants. If the useDefault is false, it will 
+   * depend on the real javascript values via the external interface.  
+   * @return Map of key-value pairs.
+   */  
+  private function getValues():Object {
     if (useDefault_ || !ExternalInterface.available) {
-      value = defaultValues_[name];
+      return defaultValues_;
     } else {
       if (!values_) {
         values_ = ExternalInterface.call("function() {return " + typeName_ + ";}");
@@ -92,18 +95,19 @@ public dynamic class ConstType extends Proxy {
           values_ = defaultValues_;
         }
       }
-      value = values_[name];
+      return values_;
     }
-    return value;
   }
   
+  
+
   /**
    * Proxy method, checks if this enum type has the specific enum item. 
    * @param name The name of the enum item.
    * @return True if it exists.
    */  
   override flash_proxy function hasProperty(name:*):Boolean {
-    if (getValue(name as String)) {
+    if (getValues()[name as String]) {
       return true;
     } else {
       return false;
@@ -116,11 +120,14 @@ public dynamic class ConstType extends Proxy {
    * @return The enum item.
    */  
   override flash_proxy function getProperty(name:*):* {
-    var value:Object = getValue(name);
+    var value:Object = getValues()[name];
     if (value) {
       return value;
     } else {
-      throw new OpensocialError("Undefined constant in " + typeName_ + ":" + name);
+      var e:OpenSocialError = 
+          new OpenSocialError("Undefined constant in " + typeName_ + ":" + name);
+      logger.error(e);
+      throw e;
     }
   }
   
@@ -130,13 +137,62 @@ public dynamic class ConstType extends Proxy {
    * @return Return null if it doesn't exist.
    */  
   public function valueOf(name:String):* {
-    var value:Object = getValue(name.toUpperCase());
+    var value:Object = getValues()[name.toUpperCase()];
     if (value) {
       return value;
     } else {
       return null;
     }
   }
+  
+  /**
+   * Internal buffer array for nextName, nextNameIndex and nextValue implementation.
+   * @private 
+   */  
+  private var itemArray_:Array = null;
+  
+  /**
+   * Proxy method, returns next index of those enumerable properties. 
+   * @param index Starts from 0.
+   * @return The index of the next property.
+   * 
+   */  
+  override flash_proxy function nextNameIndex(index:int):int {
+    // initial call
+    if (index == 0) {
+      itemArray_ = new Array();
+      var values:Object = getValues();
+      for (var key:String in values) {
+        itemArray_.push(key);
+      }
+    }
+    if (index < itemArray_.length) {
+      return index + 1;
+    } else {
+      return 0;
+    }
+  }
+  
+  /**
+   * Proxy method, returns next name of those enumerable properties. 
+   * @param index Starts from 0.
+   * @return The name of the next property.
+   * 
+   */  
+  override flash_proxy function nextName(index:int):String {
+    return itemArray_[index - 1];
+  }
+  
+  
+  /**
+   * Proxy method, returns next value of those enumerable properties. 
+   * @param index index Starts from 0.
+   * @return The value of the next property.
+   */  
+  override flash_proxy function nextValue(index:int):* {
+    return getValues()[itemArray_[index - 1]];
+  }
+  
   
 }
 }

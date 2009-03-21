@@ -22,60 +22,91 @@ package org.opensocial.client.util {
 import flash.utils.getQualifiedClassName;
 
 /**
- * A reference logger funtionality class.
- * Developers can extend this class to do more customize.
+ * A reference logger funtionality class. Its style is from java.util.logging.Logger.
+ * Developers can extend this class to do more customize and use different pinrters.
+ * 
  * @author yiziwu@google.com (Yizi Wu)
  */
 public class Logger {
 
   /**
-   * A hook function to handle info output. It accepts one parameter of string.
+   * A printer instance for info output.
    * If it's not set, by default do nothing.
    * @private
    */ 
-  private var printFunc:Function = null;
+  private static var printer_:IPrinter = null;
 
+  
+  private static var global_:Logger = null;
+  
+  private static var verbose_:int = 0;
+  
+  /**
+   * Static initializer for the Logger.
+   * @param printer The printer instance for the Logger in the app.
+   * @param verbose The verbose param, set to 1 to log the warnings.
+   */ 
+  public static function initialize(printer:IPrinter = null, verbose:int = 0):void {
+    printer_ = printer;
+    verbose_ = verbose;
+    global_ = new Logger();
+  }
+
+  
+  public static function get global():Logger {
+    if (global_ == null) {
+      global_ = new Logger();
+    }
+    return global_;
+  }
+
+  private var class_:Class; 
   /**
    * Constructor for the logger.
+   * @param theClass The class of the logger locates and is logging.
    */ 
-  public function Logger(printer:Function = null) {
-    printFunc = printer;
+  public function Logger(theClass:Class = null) {
+    class_ = theClass;
+  }
+
+  private function print(text:String):void {
+    if (printer_ != null) {
+      printer_.print(text);
+    }
   }
 
   /**
    * Output the content as text.
+   * @param obj The object to be output.
    */
   public function info(obj:Object):void {
-    if (printFunc != null) {
-      printFunc(inspect(obj != null ? obj.toString() : null));
-    }
+    print(inspect(obj != null ? obj.toString() : null, "I"));
   }
-
+  
   /**
-   * Log down the detail of an object.
-   */
-  public function log(obj:Object):void {
-    if (printFunc != null) {
-      printFunc(inspect(obj));
-    }
+   * Log as WARNNING for the message 
+   * @param obj The object to be output.
+   * 
+   */  
+  public function warning(obj:Object):void {
+    if (verbose_ < 1) return;
+    print(inspect(obj != null ? obj.toString() : null, "W"));
   }
 
   /**
    * Log as ERROR for the error object.
+   * @param error The error object to be output.
    */
   public function error(error:Error):void {
-    if (printFunc != null) {
-      printFunc(inspect(error));
-    }
+    print(inspect(error.getStackTrace(), "E"));
   }
-  
+
   /**
-   * For the app instance to set an error callback.
-   * It will output error trace for debugging.
-   * @param handler The error handler function.
+   * Log down the detail of an object.
+   * @param obj The object to be output.
    */
-  public function setPrinter(printer:Function):void {
-    printFunc = printer;
+  public function log(obj:Object):void {
+    print(inspect(obj, "L", class_));
   }
   
   /**
@@ -84,9 +115,12 @@ public class Logger {
    * @param obj The object to be inspected.
    * @return The output string. 
    */  
-  public static function inspect(obj:Object):String {
+  public static function inspect(obj:Object, prefix:String, theClass:Class = null):String {
     var buffer:Array = [];
-    buffer.push("[", new Date().toLocaleTimeString(), "]  ");
+    buffer.push(prefix, " [", new Date().toLocaleTimeString(), "] ");
+    if (theClass != null) {
+      buffer.push(String(theClass), "\n> ");
+    }
     var inspect:Function = function(obj:Object, buffer:Array, opt_prefix:String = ""):void {
       if (obj == null) {
         buffer.push("NULL\n");

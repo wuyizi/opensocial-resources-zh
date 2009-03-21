@@ -19,10 +19,14 @@
 
 package org.opensocial.client.base {
 
-
 /**
- * This class holds package-level constants and methods. 
- * @author yiziwu
+ * This class holds package-level constants and methods of the <code><j>opensocial</j></code> 
+ * namespace.
+ * <p>
+ * This class is just used as a namespace for static constants.
+ * </p>
+ * 
+ * @author yiziwu@google.com (Yizi Wu)
  */
 public class Globals extends BaseType {
   /**
@@ -46,7 +50,7 @@ public class Globals extends BaseType {
         HTML_ESCAPE   : 'htmlEscape',
         NONE          : 'none'
     });
-  
+
   /**
    * <code><j>opensocial.Permission</j></code> constants.
    * @see http://code.google.com/apis/opensocial/docs/0.8/reference/#opensocial.Permission
@@ -56,6 +60,7 @@ public class Globals extends BaseType {
     "opensocial.Permission", {
         VIEWER  : 'viewer'
     });
-  }
+    
+}
 
 }

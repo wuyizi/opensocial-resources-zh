@@ -4,7 +4,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../../../print.css" type="text/css" media="print">
-<meta content="DataType,org.opensocial.client.base.DataType,checkType,getField,getFieldArray,getFieldBoolean,getFieldData,getFieldDataArray,getFieldDate,getFieldNumber,getFieldString,getFields,getRawObj,getRawProperty,hasFields,toString" name="keywords">
+<meta content="DataType,org.opensocial.client.base.DataType,getField,getFieldArray,getFieldBoolean,getFieldData,getFieldDataArray,getFieldDate,getFieldNumber,getFieldString,getFields,getRawObj,getRawProperty,hasFields,toString" name="keywords">
 <title>org.opensocial.client.base.DataType</title>
 </head>
 <body>
@@ -72,14 +72,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#checkType()">checkType</a>(type:Class):Boolean</div>
-<div class="summaryTableDescription">[static]
-   Helper function for checking the sub type.</div>
-</td><td class="summaryTableOwnerCol">DataType</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
 <a class="signatureLink" href="#getField()">getField</a>(key:String):Object</div>
 <div class="summaryTableDescription">
    Default accessor for all type to get the field value by the field name.</div>
@@ -88,7 +80,8 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#getFieldArray()">getFieldArray</a>(key:String):Array</div>
+<a class="signatureLink" href="#getFieldArray()">getFieldArray</a>(key:String):<a href="../base/ArrayType.html">ArrayType</a>
+</div>
 <div class="summaryTableDescription">
    Gets an array by the field key which the elements are primitive types.</div>
 </td><td class="summaryTableOwnerCol">DataType</td>
@@ -113,7 +106,8 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#getFieldDataArray()">getFieldDataArray</a>(key:String, type:Class):Array</div>
+<a class="signatureLink" href="#getFieldDataArray()">getFieldDataArray</a>(key:String, type:Class):<a href="../base/ArrayType.html">ArrayType</a>
+</div>
 <div class="summaryTableDescription">
    Gets an array by the field key.</div>
 </td><td class="summaryTableOwnerCol">DataType</td>
@@ -200,42 +194,17 @@ showHideInherited();
 <div class="MainContent">
 <a name="methodDetail"></a>
 <div class="detailSectionHeader">Method detail</div>
-<a name="checkType()"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">checkType</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public static function checkType(type:Class):Boolean</code><p>
-   Helper function for checking the sub type.
-   </p><span class="label">Parameters</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20px"></td><td><code><span class="label">type</span>:Class</code> &mdash; the sub type to be checked.
-   </td>
-</tr>
-</table>
-<p></p>
-<span class="label">Returns</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20"></td><td><code>Boolean</code> &mdash; True if the parameter is the sub type of <code>DataType</code>.
-   </td>
-</tr>
-</table>
-</div>
 <a name="getField()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">getField</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">getField</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
 </tr>
 </table>
 <div class="detailBody">
 <code>public function getField(key:String):Object</code><p>
    Default accessor for all type to get the field value by the field name.
    </p><p>
-   Throw an <code>OpensocialError</code> if the field not exists. 
+   Throw an <code>OpenSocialError</code> if the field not exists. 
    </p>
    <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -263,7 +232,7 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function getFieldArray(key:String):Array</code><p>
+<code>public function getFieldArray(key:String):<a href="../base/ArrayType.html">ArrayType</a></code><p>
    Gets an array by the field key which the elements are primitive types. 
    </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -276,8 +245,11 @@ showHideInherited();
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>Array</code> &mdash; An array of elements.
-   </td>
+<td width="20"></td><td><code><a href="../base/ArrayType.html">ArrayType</a></code> &mdash; 
+                        An array of elements.
+   
+                        
+                     </td>
 </tr>
 </table>
 </div>
@@ -348,7 +320,7 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function getFieldDataArray(key:String, type:Class):Array</code><p>
+<code>public function getFieldDataArray(key:String, type:Class):<a href="../base/ArrayType.html">ArrayType</a></code><p>
    Gets an array by the field key. 
    </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -368,8 +340,11 @@ showHideInherited();
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>Array</code> &mdash; An array of <code>DataType</code> element.
-   </td>
+<td width="20"></td><td><code><a href="../base/ArrayType.html">ArrayType</a></code> &mdash; 
+                        An array of <code>DataType</code> element.
+   
+                        
+                     </td>
 </tr>
 </table>
 </div>
@@ -493,7 +468,7 @@ showHideInherited();
 <code>protected final function getRawProperty(key:String):*</code><p>
    Get the property in the wrapped object.
    </p><p>
-   Throw an <code>OpensocialError</code> if the property not exists. 
+   Throw an <code>OpenSocialError</code> if the property not exists. 
    </p>
    <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">

@@ -21,12 +21,18 @@ package org.opensocial.client.base {
 
 import flash.utils.getQualifiedClassName;
 
+import org.opensocial.client.util.Logger;
+import org.opensocial.client.util.Utils;
+
 /**
  * Extends from <code>Array</code> to handle wrapped objects array conversion.
  * 
  * @author yiziwu@google.com (Yizi Wu)
  */
 public dynamic class ArrayType extends Array {
+  
+  private static var logger:Logger = new Logger(ArrayType);
+  
   /**
    * Convert an array of raw object to an array primitives or DataType instances.
    * <p>
@@ -39,16 +45,17 @@ public dynamic class ArrayType extends Array {
    * @private
    */
   public function ArrayType(rawObj:Object, type:Class = null) {
-    if (rawObj == null) {
-      throw new OpensocialError("Null raw object in type '" + getQualifiedClassName(this) + "'.");
+    var rawArray:Array = rawObj as Array;
+    if (rawArray == null) {
+      logger.warning("Raw object is null or non-array in type '" + 
+                     getQualifiedClassName(this) + "'.");
+      return;
     }
 
-    if (type != null && !DataType.checkType(type)) {
-      throw new OpensocialError("Element type '" + getQualifiedClassName(type) + 
+    if (type != null && !Utils.isAncestor(DataType, type)) {
+      throw new OpenSocialError("Element type '" + getQualifiedClassName(type) + 
                                 "' mismatched when creating an array.");
     }
-
-    var rawArray:Array = rawObj as Array;
     for each (var item:Object in rawArray) {
       if (type != null) {
         this.push(new type(item));
@@ -64,8 +71,9 @@ public dynamic class ArrayType extends Array {
    * @param delim The delim string.
    * @return A joined string.
    */  
-  public function toFlatString(delim:String = ", "):String {
-    return this.join(delim);
+  public static function flatten(array:Array, delim:String = ", "):String {
+    if (array == null) return "";
+    else return array.join(delim);
   }
 }
 

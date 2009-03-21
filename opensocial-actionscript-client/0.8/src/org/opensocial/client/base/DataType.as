@@ -22,6 +22,9 @@ package org.opensocial.client.base {
 import flash.utils.getQualifiedClassName;
 import flash.utils.getQualifiedSuperclassName;
 
+import org.opensocial.client.util.Logger;
+import org.opensocial.client.util.Utils;
+
 /**
  * Base type wrapped for all opensocial data structure. It's an abstract class logically.
  * 
@@ -39,6 +42,9 @@ import flash.utils.getQualifiedSuperclassName;
  * @author yiziwu@google.com (Yizi Wu)
  */
 public class DataType extends BaseType {
+  
+  private static var logger:Logger = new Logger(DataType);
+  
   /**
    * The wrapped object from Js-side passed by the <code>ExternalInterface</code>.
    * @private
@@ -56,7 +62,10 @@ public class DataType extends BaseType {
    */
   public function DataType(rawObj:Object) {
     if (rawObj == null) {
-      throw new OpensocialError("Null raw object in type '" + getQualifiedClassName(this) + "'.");
+      var e:OpenSocialError = 
+          new OpenSocialError("Null raw object in type '" + getQualifiedClassName(this) + "'.");
+      logger.error(e);
+      throw e;
     }
     this.obj_ = rawObj;
   }
@@ -71,7 +80,7 @@ public class DataType extends BaseType {
   /**
    * Get the property in the wrapped object.
    * <p>
-   * Throw an <code>OpensocialError</code> if the property not exists. 
+   * Throw an <code>OpenSocialError</code> if the property not exists. 
    * </p>
    * @param key The key.
    * @return The value.
@@ -81,8 +90,11 @@ public class DataType extends BaseType {
     if (key in getRawObj()) {
       return getRawObj()[key];
     } else {
-      throw new OpensocialError("Property '" + key + "' does not exist in raw object of type '" + 
-                                 getQualifiedClassName(this) + "'.");
+      var e:OpenSocialError = 
+          new OpenSocialError("Property '" + key + "' does not exist in raw object of type '" + 
+                              getQualifiedClassName(this) + "'");
+      logger.error(e);
+      throw e;
     }
   }
 
@@ -107,7 +119,7 @@ public class DataType extends BaseType {
   /**
    * Default accessor for all type to get the field value by the field name.
    * <p>
-   * Throw an <code>OpensocialError</code> if the field not exists. 
+   * Throw an <code>OpenSocialError</code> if the field not exists. 
    * </p>
    * @param key The field key, defined in each SomeType.Field class in this package. 
    *            e.g. "NAME", "THUMBNAIL_URL", ...
@@ -119,8 +131,9 @@ public class DataType extends BaseType {
     if (key in getFields()) {
       return getFields()[key];
     } else {
-      throw new OpensocialError("Field '" + key + "' does not exist in raw object of type '" + 
-                                getQualifiedClassName(this) + "'.");
+      logger.warning("Field '" + key + "' does not exist in raw object of type '" + 
+                     getQualifiedClassName(this) + "'");
+      return null;
     }
   }
 
@@ -167,19 +180,27 @@ public class DataType extends BaseType {
    * @return A <code>DataType</code> instance.
    */
   public function getFieldData(key:String, type:Class):DataType {
-    if (checkType(type)) {
-      return new type(getField(key));
+    var field:Object = getField(key);
+    if (field == null) {
+      return null;
+    }
+    if (Utils.isAncestor(DataType, type)) {
+      return new type(field);
     } else {
-      throw new OpensocialError("Type '" + getQualifiedClassName(type) + "' mismatched.");
+      var e:OpenSocialError = 
+          new OpenSocialError("Type '" + getQualifiedClassName(type) + "' mismatched.");
+      logger.error(e);
+      throw e;
     }
   }
+
 
   /**
    * Gets an array by the field key which the elements are primitive types. 
    * @param key The field name.
    * @return An array of elements.
    */
-  public function getFieldArray(key:String):Array {
+  public function getFieldArray(key:String):ArrayType {
     return new ArrayType(getField(key));
   }
 
@@ -189,7 +210,7 @@ public class DataType extends BaseType {
    * @param type The element's type in the array. It should be a sub type of <code>DataType</code>. 
    * @return An array of <code>DataType</code> element.
    */
-  public function getFieldDataArray(key:String, type:Class):Array {
+  public function getFieldDataArray(key:String, type:Class):ArrayType {
     return new ArrayType(getField(key), type);
   }
 
@@ -201,15 +222,7 @@ public class DataType extends BaseType {
     return obj_ == null ? null : obj_.toString();
   }
 
-  /**
-   * Helper function for checking the sub type.
-   * @param type the sub type to be checked.
-   * @return True if the parameter is the sub type of <code>DataType</code>.
-   */
-  public static function checkType(type:Class):Boolean {
-    // TODO: test it!
-    return getQualifiedSuperclassName(type) == getQualifiedClassName(DataType);
-  }
+  
 }
 
 }

@@ -21,7 +21,7 @@ package org.opensocial.client.base {
 /**
  * Wrapper of <code><j>opensocial.Environment</j></code> in javascript.
  * <p>
- * This class is just used as a namespace for these constants.
+ * This class is just used as a namespace for static constants.
  * </p>
  * 
  * @see http://code.google.com/apis/opensocial/docs/0.8/reference/#opensocial.Environment 

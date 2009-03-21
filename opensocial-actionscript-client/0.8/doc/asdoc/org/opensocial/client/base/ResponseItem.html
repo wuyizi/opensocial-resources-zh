@@ -69,7 +69,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#ResponseItem()">ResponseItem</a>(data:* = null, errorCode:String = null, errorMessage:String = null)</div>
 <div class="summaryTableDescription">
-    Constructor to create a response item in client class.</div>
+   Constructor to create a response item in client class.</div>
 </td><td class="summaryTableOwnerCol">ResponseItem</td>
 </tr>
 <tr class="">
@@ -122,7 +122,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#SIMPLE_SUCCESS">SIMPLE_SUCCESS</a> : <a href="../base/ResponseItem.html">ResponseItem</a>
 <div class="summaryTableDescription">[static]
-    A constant item for success request and response but no data return from server.</div>
+   A constant item for success request and response but no data return from server.</div>
 </td><td class="summaryTableOwnerCol">ResponseItem</td>
 </tr>
 </table>
@@ -142,26 +142,27 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function ResponseItem(data:* = null, errorCode:String = null, errorMessage:String = null)</code><p>
-    Constructor to create a response item in client class.
-    </p><span class="label">Parameters</span>
+   Constructor to create a response item in client class.
+   If the data param is ResponseItem type, then copy the values.
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">data</span>:*</code> (default = <code>null</code>)<code></code> &mdash; The data object fetched from container. Can be null if no returns.
-    </td>
+   </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">errorCode</span>:String</code> (default = <code>null</code>)<code></code> &mdash; A value of <code>ResponseItem.Error</code>. Null if no errors.
-    </td>
+   </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">errorMessage</span>:String</code> (default = <code>null</code>)<code></code> &mdash; A string to describe the error.
-    </td>
+   </td>
 </tr>
 </table>
 </div>
@@ -265,8 +266,8 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public static const SIMPLE_SUCCESS:<a href="../base/ResponseItem.html">ResponseItem</a></code><p>
-    A constant item for success request and response but no data return from server. 
-    </p></div>
+   A constant item for success request and response but no data return from server. 
+   </p></div>
 <br>
 <br>
 <hr>
