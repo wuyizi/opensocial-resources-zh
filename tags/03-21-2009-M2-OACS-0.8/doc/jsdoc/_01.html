@@ -1,0 +1,1746 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="generator" content="JsDoc Toolkit 1.0">
+	<title>JsDoc: </title>
+	<link rel=stylesheet href="default.css" type="text/css" media=screen>
+</head>
+
+<body>
+	<div class="content">
+		<div class="docs">
+		
+			<div class="sectionHead">Library: opensocial-flashsdk.js</div>
+			<div class="section overview">
+				<div class="itemTitle">
+					Overview
+				</div>
+				<div>	
+					<div class="desc">A wrapper SDK for opensocial javascript API into actionscript.
+<p>
+It works with the Opensocial Actionscript Client SDK lib. In this file, it communicates between 
+swf functions and the gadgets/opensocial javascript API functions. 
+</p>
+<p>
+TODO: Provide a compiled version.
+</p></div>
+					<div class="itemTags">
+					<ul>
+						<li>source: <a href="src_01.html">opensocial-flashsdk.js</a></li>
+					
+						<li>see: http://code.google.com/apis/opensocial/docs/0.8/reference/</li>
+					
+						<li>version: 0.8</li>
+					
+						<li>author: yiziwu@google.com (Yizi Wu)</li>
+					
+					</ul>
+					</div>
+				</div>
+			</div>
+			
+			<div class="sectionHead">Constructors</div>
+			
+			
+			<div class="section constructor">
+				<div class="itemTitle">
+					<a name="gadgets"></a>
+					
+					
+					gadgets(<span class="signature"></span>)
+					
+				</div>
+				
+				
+					<div class="desc">
+External namespace for <code>gadgets</code> for internal reference.</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section constructor">
+				<div class="itemTitle">
+					<a name="opensocial"></a>
+					
+					
+					opensocial(<span class="signature"></span>)
+					
+				</div>
+				
+				
+					<div class="desc">
+External namespace for <code>opensocial</code> for internal reference.</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section constructor">
+				<div class="itemTitle">
+					<a name="opensocial.flash"></a>
+					
+					
+					opensocial.flash(<span class="signature"></span>)
+					
+				</div>
+				
+				
+					<div class="desc">
+Namespace for top-level api functions.</div>
+				
+				
+				
+				
+				
+				
+				
+				<div class="detailHead">methods</div>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.jsReady">jsReady</a>(objectId)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.embedFlash">embedFlash</a>(swfUrl, swfContainer, opt_playerVersion, opt_params, opt_upgradeMsgHTML)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.getFlash">getFlash</a>(opt_name)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.getContainerDomain">getContainerDomain</a>()</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.getCurrentView">getCurrentView</a>()</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.getViewParams">getViewParams</a>()</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.isOnlyVisible">isOnlyVisible</a>()</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.setStageWidth">setStageWidth</a>(newWidth)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.setStageHeight">setStageHeight</a>(newHeight)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.fetchPerson">fetchPerson</a>(reqID, id, opt_params)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.fetchPeople">fetchPeople</a>(reqID, idSpec, opt_params)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.fetchPersonAppData">fetchPersonAppData</a>(reqID, idSpec, keys, opt_params)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.updatePersonAppData">updatePersonAppData</a>(reqID, id, key, value)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.removePersonAppData">removePersonAppData</a>(reqID, id, keys)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.fetchActivities">fetchActivities</a>(reqID, idSpec, opt_params)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.requestCreateActivity">requestCreateActivity</a>(reqID, activity, priority)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.requestSendMessage">requestSendMessage</a>(reqID, recipients, message)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.requestShareApp">requestShareApp</a>(reqID, recipients, reason)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.requestPermission">requestPermission</a>(reqID, permissions, reason)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.makeRequest">makeRequest</a>(reqID, url, opt_params)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.rpcRegister">rpcRegister</a>(The, The)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.rpcUnregister">rpcUnregister</a>(The)</li>
+					</ul>
+				
+					<ul class="details">
+						<li><a href="#opensocial.flash.rpcCall">rpcCall</a>(reqID, targetId, serviceName, argsArray)</li>
+					</ul>
+				
+				
+				
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="sectionHead">Functions</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.jsReady"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>jsReady(<span class="signature">objectId</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Indicates if the opensocial library is loaded and initialize the flash element. 
+<p>
+The objectId of the swf is defined in gagdet spec. If the swf is embeded by calling 
+<code>opensocial.flash.embedFlash</code> function, the detault objectId will be 'flashObj'.
+</p><p>
+This function is called by the swf's <code>ExternalInterface</code> continuingly until it 
+returns true.
+</p></div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string?
+						</td>
+						<td>
+							objectId
+						</td>
+						<td>
+							The object Id passed from the swf.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							boolean
+						</td>
+						<td>
+							true if all javascripts are loaded.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.embedFlash"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>embedFlash(<span class="signature">swfUrl, swfContainer, opt_playerVersion, opt_params, opt_upgradeMsgHTML</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Because <code>gadgets.flash.embedFlash</code> cannot auto activate it in IE6, so here we 
+need a special one.
+<p>
+NOTE: to be deprecated.
+</p></div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							swfUrl
+						</td>
+						<td>
+							The swf file's location.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							swfContainer
+						</td>
+						<td>
+							The HTML element id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string?
+						</td>
+						<td>
+							opt_playerVersion
+						</td>
+						<td>
+							Required flash player version.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object.<string, string>?
+						</td>
+						<td>
+							opt_params
+						</td>
+						<td>
+							Flash object's parameters.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string?
+						</td>
+						<td>
+							opt_upgradeMsgHTML
+						</td>
+						<td>
+							The message if the flashplayer version is too old.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							boolean
+						</td>
+						<td>
+							True if the flash object is successfully embeded.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.getFlash"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>getFlash(<span class="signature">opt_name</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Get the swf object.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string?
+						</td>
+						<td>
+							opt_name
+						</td>
+						<td>
+							The object/embed tag's id or name
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							HTMLElement
+						</td>
+						<td>
+							the swf object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.getContainerDomain"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>getContainerDomain(<span class="signature"></span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Returns the domain from the referer.</div>
+				
+				
+				
+				
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							The domain.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.getCurrentView"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>getCurrentView(<span class="signature"></span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Returns the name of the in gadgets.views static class.</div>
+				
+				
+				
+				
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							gadgets.views.ViewType, string
+						</td>
+						<td>
+							The view name.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.getViewParams"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>getViewParams(<span class="signature"></span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Returns the parameters passed into this gadget for this view.</div>
+				
+				
+				
+				
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							Object.<string, string>
+						</td>
+						<td>
+							The param object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.isOnlyVisible"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>isOnlyVisible(<span class="signature"></span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Indicates if the app is only one gadget on the page or not.</div>
+				
+				
+				
+				
+				
+				
+				
+				<div class="detailHead">returns</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							Boolean
+						</td>
+						<td>
+							True if it's the only one gadget.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.setStageWidth"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>setStageWidth(<span class="signature">newWidth</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sets the width for the flash stage. It is very usefull for dynamic loading and view 
+switching.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							number
+						</td>
+						<td>
+							newWidth
+						</td>
+						<td>
+							New width (in pixel) to be applied.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.setStageHeight"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>setStageHeight(<span class="signature">newHeight</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sets the height for the flash stage. It is very usefull for dynamic loading and view 
+switching.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							number
+						</td>
+						<td>
+							newHeight
+						</td>
+						<td>
+							New height (in pixel) to be applied.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.fetchPerson"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>fetchPerson(<span class="signature">reqID, id, opt_params</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends out the request for a person.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							opensocial.IdSpec.PersonId, string
+						</td>
+						<td>
+							id
+						</td>
+						<td>
+							OWNER or VIEWER.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object.<opensocial.DataRequest.PeopleRequestField, Object>
+						</td>
+						<td>
+							opt_params
+						</td>
+						<td>
+							A map of <code>opensocial.DataRequest.PeopleRequestField</code> names and values.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.fetchPeople"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>fetchPeople(<span class="signature">reqID, idSpec, opt_params</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends out the request for friends of a person.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object
+						</td>
+						<td>
+							idSpec
+						</td>
+						<td>
+							A wrapped <code>opensocial.IdSpec</code> object.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object.<opensocial.DataRequest.PeopleRequestField, Object>
+						</td>
+						<td>
+							opt_params
+						</td>
+						<td>
+							A map of <code>opensocial.DataRequest.PeopleRequestField</code> names and values.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.fetchPersonAppData"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>fetchPersonAppData(<span class="signature">reqID, idSpec, keys, opt_params</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends out the request for personal app data.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object
+						</td>
+						<td>
+							idSpec
+						</td>
+						<td>
+							A wrapped <code>opensocial.IdSpec</code> object.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Array.<string>
+						</td>
+						<td>
+							keys
+						</td>
+						<td>
+							App keys, '*' for all.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object.<opensocial.DataRequest.DataRequestField, Object>?
+						</td>
+						<td>
+							opt_params
+						</td>
+						<td>
+							A map of <code>opensocial.DataRequest.DataRequestField</code> names and values.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.updatePersonAppData"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>updatePersonAppData(<span class="signature">reqID, id, key, value</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends out the update request for personal app data.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							opensocial.IdSpec.PersonId, string
+						</td>
+						<td>
+							id
+						</td>
+						<td>
+							only VIEWER is valid
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							key
+						</td>
+						<td>
+							A data key.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object
+						</td>
+						<td>
+							value
+						</td>
+						<td>
+							New value.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.removePersonAppData"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>removePersonAppData(<span class="signature">reqID, id, keys</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends out the remove request for personal app data.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							opensocial.IdSpec.PersonId, string
+						</td>
+						<td>
+							id
+						</td>
+						<td>
+							only VIEWER is valid
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Array.<string>
+						</td>
+						<td>
+							keys
+						</td>
+						<td>
+							App keys, '*' for all.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.fetchActivities"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>fetchActivities(<span class="signature">reqID, idSpec, opt_params</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends out the request for personal activities.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object
+						</td>
+						<td>
+							idSpec
+						</td>
+						<td>
+							A wrapped <code>opensocial.IdSpec</code> object.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object.<opensocial.DataRequest.ActivityRequestField, Object>?
+						</td>
+						<td>
+							opt_params
+						</td>
+						<td>
+							A map of <code>opensocial.DataRequest.ActivityRequestField</code> names and
+           values.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.requestCreateActivity"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>requestCreateActivity(<span class="signature">reqID, activity, priority</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends out the request to creat an activity.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object
+						</td>
+						<td>
+							activity
+						</td>
+						<td>
+							A wrapped <code>opensocial.Activity</code> object.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							opensocial.CreateActivityPriority, string
+						</td>
+						<td>
+							priority
+						</td>
+						<td>
+							An <code>opensocial.CreateActivityPriority</code> value.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.requestSendMessage"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>requestSendMessage(<span class="signature">reqID, recipients, message</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends out the request to send a message.
+<p>TODO: <code>opensocial.NavigationParameters opt_params</code> is not implemented.</p></div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Array.<string>
+						</td>
+						<td>
+							recipients
+						</td>
+						<td>
+							An ID, array of IDs, or a group reference, like
+           VIEWER, OWNER, VIEWER_FRIENDS, OWNER_FRIENDS.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object
+						</td>
+						<td>
+							message
+						</td>
+						<td>
+							A wrapped <code>opensocial.Message</code> object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.requestShareApp"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>requestShareApp(<span class="signature">reqID, recipients, reason</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends out the request to share the app.
+<p>TODO: <code>opensocial.NavigationParameters opt_params</code> is not implemented.</p></div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Array.<string>
+						</td>
+						<td>
+							recipients
+						</td>
+						<td>
+							An ID, array of IDs, or a group reference, like
+           VIEWER, OWNER, VIEWER_FRIENDS, OWNER_FRIENDS.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object
+						</td>
+						<td>
+							reason
+						</td>
+						<td>
+							A wrapped <code>opensocial.Message</code> object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.requestPermission"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>requestPermission(<span class="signature">reqID, permissions, reason</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends out the request permissions.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Array.<opensocial.Permission, string>
+						</td>
+						<td>
+							permissions
+						</td>
+						<td>
+							An array of 
+           <code>opensocial.Permission</code> values.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reason
+						</td>
+						<td>
+							Text of the reason to request the permissions.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.makeRequest"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>makeRequest(<span class="signature">reqID, url, opt_params</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends request to a remote site to get or post data.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							url
+						</td>
+						<td>
+							The remote site
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Object.<gadgets.io.RequestParameters, Object>?
+						</td>
+						<td>
+							opt_params
+						</td>
+						<td>
+							Parameters for the request
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.rpcRegister"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>rpcRegister(<span class="signature">The, The</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends the rpc register request to container to register a service on this app.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							The
+						</td>
+						<td>
+							service to be register.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							The
+						</td>
+						<td>
+							handler function name on the flash object.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.rpcUnregister"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>rpcUnregister(<span class="signature">The</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends the rpc unregister request to container.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							The
+						</td>
+						<td>
+							service to be unregister.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="section function">
+				<div class="itemTitle">
+					<a name="opensocial.flash.rpcCall"></a>
+					
+						<i><a href="#opensocial.flash" class="type">opensocial.flash.</a></i>rpcCall(<span class="signature">reqID, targetId, serviceName, argsArray</span>)
+					
+					
+				</div>
+				
+				
+					<div class="desc">Sends the rpc call request to a service on another app or container on the page.</div>
+				
+				
+				
+				
+				
+				<div class="detailHead">parameters</div>
+				<table class="params">
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							reqID
+						</td>
+						<td>
+							The request id.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string?
+						</td>
+						<td>
+							targetId
+						</td>
+						<td>
+							The target app id, null to call the parent.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							string
+						</td>
+						<td>
+							serviceName
+						</td>
+						<td>
+							The service name registered on the target.
+						</td> 
+					</tr>
+				
+					<tr>
+						<td class="type">
+							Array.<Object>?
+						</td>
+						<td>
+							argsArray
+						</td>
+						<td>
+							The array of args to be passed to the service.
+						</td> 
+					</tr>
+				
+				</table>
+				
+				
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class="sectionHead">Objects</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</div>
+	</div>
+	<div class="finePrint">
+	Generated by <a href="http://jsdoctoolkit.org/" target="_blank">JsDoc Toolkit</a> 1.3.3 on Tue, 17 Feb 2009 16:39:15 GMT.
+	</div>
+</body>
+</html>

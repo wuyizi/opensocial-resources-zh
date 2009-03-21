@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+"http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Developer's Guide</title>
+<link href="http://code.google.com/css/semantic_headers.css" type="text/css" rel="stylesheet"></link>
+<link href="http://code.google.com/css/codesite.pack.01312008.css" type="text/css" rel="stylesheet"></link>
+</head>
+<body style="font-family: Verdana;">
+  <div style="font-size:3em; font-weight:bold; font-family: Verdana;">
+  Opensocial Actionscript Client SDK (OASC-0.8)
+  </div>
+  
+  
+  <div id="gc-pagecontent" class="g-unit" style="position: relative; border-left:0px;">
+  <a name="updates"></a>
+  <h2>Last Update: 02/17/2009</h2>
+  <dl style="padding-left:1em;">
+    <dt>02/17/2009</dt><dd>Summitted a refactoring CL (r187) to : <ol><li> Broke down the huge <code>OpensocialClient</code> class to a light weight client called <code>JsWrapperClient</code> and several features defined as <code>JsFeature</code> objects. With this structure, the client is more extensible and testable.</li><li> Add the gadgets.rpc wrapped feature. </li><li> Update the <a href="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-actionscript-client/0.8/oacs_0_8.zip" target="_blank">demo zip</a> to current code structure.</li></ol><br>See <a href="http://sandbox.orkut.com/Main#Application.aspx?appId=849282635573" target="_blank">sample app on orkut</a> as the demo.<br> If you sync to this revision, your exsiting codes will break. But just some renaming will work. Please diff the sample app in the demo zip. Old branch (M1 @r184) is still available <a href="http://opensocial-resources-zh.googlecode.com/svn/tags/02-16-2009-M1-OACS-0.8/" target="_blank">here</a>.</dd>
+    
+    <dt>02/16/2009</dt><dd>Cut the existing codes to the first milestone branch <a href="http://opensocial-resources-zh.googlecode.com/svn/tags/02-16-2009-M1-OACS-0.8/" target="_blank">02-16-2009-M1-OACS-0.8</a> (r184).<br> The <a href="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-actionscript-client/0.8/" target="_blank">trunk branch</a> will continue on developing. Codes are not very stable at this stage and some refactoring in <code>jswrapper</code> package is ongoing.</dd>
+    
+    
+
+  </dl>
+  
+  <a name="overview"></a>
+  <h2>Overview</h2>
+  <p>We all believe that Flash is a good thing. This is a client SDK to make <a href="http://code.google.com/apis/opensocial/" target="_parent">Opensocial API</a> used in ActionScript 3.0 for Flash or Flex Apps. It's called <b>OACS</b> for short.</p>
+  <p>The SDK is planned to have two parts: The JSWrapper Client and the RESTful Client. Currently only the JSWrapper is included in this version, which is based on the <a href="http://code.google.com/apis/opensocial/docs/0.8/reference/" target="_blank">0.8 API reference</a>.</p>
+  <p>If you are interested, please join <a href="http://groups.google.com/group/opensocial-client-libraries" target="_parent">this group</a> and discuss.</p>
+  <a name="gettingstart"></a>
+  <h2>Getting start</h2>
+  <p>We are preparing some sample apps for tutorial. But right now you can simply follow these steps and consult the api reference.</p>
+  <ol>
+    <li>
+      <p>Checkout the <a href="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-actionscript-client/0.8/src/org/opensocial/client/" target="_blank">source codes</a> and include those packages in your flash project. </p>
+    </li>
+    <li>
+      <p>Use the <a href="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-actionscript-client/0.8/doc/asdoc/org/opensocial/client/jswrapper/JsWrapperClient.html" target="_blank"><code>JsWrapperClient</code></a> object and several <a href="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-actionscript-client/0.8/src/org/opensocial/client/jswrapper/JsFeature.html" target="_blank"><code>JsFeature</code></a> instances(e.g. <a href="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-actionscript-client/0.8/src/org/opensocial/client/jswrapper/Opensocial.html" target="_blank"><code>Opensocial</code></a>, <a href="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-actionscript-client/0.8/src/org/opensocial/client/jswrapper/GadgetsIo.html" target="_blank"><code>GadgetsIo</code></a>) to due with RPC data operations and fill your app with social data. Build your flash project to a SWF file. </p>
+    </li>
+    <li>
+      <p>Take the spec XML listed below and edit it in your case. Then upload the spec, swf file together with the <a href="http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-actionscript-client/0.8/doc/jsdoc/src_01.html" target="_blank">opensocial-flashsdk.js</a> file to somewhere publicly accessible. And you app are done.
+        <pre>
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;Module&gt;
+&lt;ModulePrefs title="Your App Name"&gt;
+  &lt;Require feature="flash"/&gt;
+  &lt;Require feature="views"/&gt;
+  &lt;Require feature="dynamic-height"/&gt;
+  &lt;Require feature="opensocial-0.8"/&gt;
+&lt;/ModulePrefs&gt;
+&lt;Content type="html"&gt;
+&lt;![CDATA[
+  &lt;!-- The JS-Side javascript code lib used in the Flash API. --&gt;
+  &lt;script src="http://some-where/opensocial-flashsdk.js" type="text/javascript"&gt;&lt;/script&gt;
+
+  &lt;!-- The flash element --&gt;
+  &lt;div id="flashcontainer" style="text-align: center;"&gt;&lt;/div&gt;
+
+  &lt;!-- Embed the swf file --&gt;
+  &lt;script type="text/javascript"&gt;
+    opensocial.flash.embedFlash(
+      "http://some-where/yourfile.swf",
+      "flashcontainer", "9", {
+        quality: "high",
+        wmode: "window",
+        allowScriptAccess: "always"
+      });
+    gadgets.window.adjustHeight();
+  &lt;/script&gt;
+]]&gt;
+&lt;/Content&gt;
+&lt;/Module&gt;
+        </pre>
+      </p>
+    </li>
+    <li>
+      <p>Try your app on some containers like orkut.com, xiaonei.com, 51.com, opensocial.org, and many many others ...</p>
+    </li>
+  </ol>
+  </p>
+  
+  <a name="todo"></a>
+  <h2>TODO list</h2>
+  <p>This SDK is just draftly hit its first milestone and for sure there are a lot bugs. Please come and join us to shape these codes to make it better. </p>
+  <p>Key things that are still missing:</p>
+  <ul>
+    <li>
+      <p>Unittests.</p>
+    </li>
+    <li>
+      <p>Tutorial and Reference Game.</p>
+    </li>
+    <li>
+      <p>The RESTful part of the client.</p>
+    </li>
+  </ul>
+  <a name="todo"></a>
+  <h2>Contacts</h2>
+  <ul>
+    <li style="display:inline;"><a href="mailto:yiziwu@google.com">Yizi Wu</a></li>
+    <li style="display:inline;"><a href="mailto:opensocial-china-eng@google.com">Team</a></li>
+    
+  <ul>
+</div>
+<hr>
+<center style="color:#808080; padding:10px;">&copy;2009 Opensocial</center>
+</body>
+</html>
