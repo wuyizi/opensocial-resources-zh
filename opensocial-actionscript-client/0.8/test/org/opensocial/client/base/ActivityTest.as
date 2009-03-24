@@ -24,8 +24,6 @@ import flash.external.ExternalInterface;
 import flexunit.framework.Assert;
 import flexunit.framework.TestCase;
 
-import org.opensocial.client.util.*;
-
 /**
  * Tests for Activity.as
  * 
@@ -33,11 +31,8 @@ import org.opensocial.client.util.*;
  */
 public class ActivityTest extends TestCase {
   
-  private static var logger:Logger = new Logger(ActivityTest);
-  
   override public function setUp():void {
     ConstType.setUseDefault(true);
-    Logger.initialize(new FirebugPrinter());
   }
   
   public function testNewInstance():void {
@@ -59,13 +54,13 @@ public class ActivityTest extends TestCase {
     assertEquals("testTitle", activity.toString());
   }
  
-  public function testFields():void {
+  public function testField():void {
     // No test if javascript is not available.
     if (!ExternalInterface.available) return;
-    var realFields:Object = ExternalInterface.call(
+    var realField:Object = ExternalInterface.call(
         "function() {return opensocial.Activity.Field;}");
     for (var name:String in Activity.Field) {
-      Assert.assertEquals(realFields[name], Activity.Field[name]);
+      Assert.assertEquals(realField[name], Activity.Field[name]);
     }
   } 
 }
