@@ -19,7 +19,7 @@
 <script type="text/javascript">
   var DEBUG = true;
   var nocache = new Date().getTime();
-  var baseUrl = "http://www.unickway.org.cn/asClient/release/";
+  var baseUrl = "http://opensocial-resources-zh.googlecode.com/svn/trunk/opensocial-actionscript-client/0.8/";
   function loadJs() {
     var script = document.createElement("script");
     script.src = baseUrl + "src/org/opensocial/client/jswrapper/javascript/opensocial-flashsdk.js?bpc=" + nocache;
