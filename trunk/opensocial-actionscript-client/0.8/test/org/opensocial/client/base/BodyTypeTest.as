@@ -42,13 +42,13 @@ public class BodyTypeTest extends TestCase {
     Assert.assertEquals("fat", bodyType.toString());
   }
  
-  public function testFields():void {
+  public function testField():void {
     // No test if javascript is not available.
     if (!ExternalInterface.available) return;
-    var realFields:Object = ExternalInterface.call(
+    var realField:Object = ExternalInterface.call(
         "function() {return opensocial.BodyType.Field;}");
     for (var name:String in BodyType.Field) {
-      Assert.assertEquals(realFields[name], BodyType.Field[name]);
+      Assert.assertEquals(realField[name], BodyType.Field[name]);
     }
   } 
 }

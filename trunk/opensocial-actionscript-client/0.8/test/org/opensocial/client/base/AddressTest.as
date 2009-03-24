@@ -54,13 +54,13 @@ public class AddressTest extends TestCase {
     Assert.assertEquals(null, address.toString());
   }
  
-  public function testFields():void {
+  public function testField():void {
     // No test if javascript is not available.
     if (!ExternalInterface.available) return;
-    var realFields:Object = ExternalInterface.call(
+    var realField:Object = ExternalInterface.call(
         "function() {return opensocial.Address.Field;}");
     for (var name:String in Address.Field) {
-      Assert.assertEquals(realFields[name], Address.Field[name]);
+      Assert.assertEquals(realField[name], Address.Field[name]);
     }
   } 
 }

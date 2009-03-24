@@ -21,6 +21,8 @@
         ts.addTestSuite(org.opensocial.client.base.AddressTest);
         ts.addTestSuite(org.opensocial.client.base.ArrayTypeTest);
         ts.addTestSuite(org.opensocial.client.base.BodyTypeTest);
+        ts.addTestSuite(org.opensocial.client.base.CollectionTest);
+        ts.addTestSuite(org.opensocial.client.base.DataRequestTest);
         return ts;
       }
 
