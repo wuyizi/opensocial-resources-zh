@@ -179,7 +179,7 @@ shindig.monitor = (function() {
                        '<div>App Title</div>' +
                        '<ul class="timer-list">' +
                          '<li><div>Timer</div>' +
-                           '<ul class="item-list"><li></li></ul>'
+                           '<ul class="item-list"><li></li></ul>' +
                          '</li>' + 
                        '</ul>' +
                      '</li>').appendTo(elAppList);
@@ -210,12 +210,10 @@ shindig.monitor = (function() {
         $('<ul class="item-list"></ul>').append('<li><div>' + ifrReadyLatency + '</div></li>')
                                         .appendTo(elIfrReady);
 
-        var elNpXhr = $('<li></li>').append('<div>NonProxied Xhr</div>')
-                                                  .appendTo(elTimerList);
+        var elNpXhr = $('<li></li>').append('<div>NonProxied Xhr</div>').appendTo(elTimerList);
         var elNpXhrList = $('<ul class="item-list"></ul>').appendTo(elNpXhr);
         
-        var elPXhr = $('<li></li>').append('<div>Proxied Xhr</div>')
-                                                 .appendTo(elTimerList);
+        var elPXhr = $('<li></li>').append('<div>Proxied Xhr</div>').appendTo(elTimerList);
         var elPXhrList = $('<ul class="item-list"></ul>').appendTo(elPXhr);
         
         var ioTimes = monitor['ioTimes'];
