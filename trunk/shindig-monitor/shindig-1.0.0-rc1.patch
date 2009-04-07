@@ -133,7 +133,7 @@ Index: features/monitor/monitor.js
 ===================================================================
 --- features/monitor/monitor.js	(revision 0)
 +++ features/monitor/monitor.js	(revision 0)
-@@ -0,0 +1,248 @@
+@@ -0,0 +1,246 @@
 +/*
 + * Licensed to the Apache Software Foundation (ASF) under one
 + * or more contributor license agreements.  See the NOTICE file
@@ -315,7 +315,7 @@ Index: features/monitor/monitor.js
 +                       '<div>App Title</div>' +
 +                       '<ul class="timer-list">' +
 +                         '<li><div>Timer</div>' +
-+                           '<ul class="item-list"><li></li></ul>'
++                           '<ul class="item-list"><li></li></ul>' +
 +                         '</li>' + 
 +                       '</ul>' +
 +                     '</li>').appendTo(elAppList);
@@ -346,12 +346,10 @@ Index: features/monitor/monitor.js
 +        $('<ul class="item-list"></ul>').append('<li><div>' + ifrReadyLatency + '</div></li>')
 +                                        .appendTo(elIfrReady);
 +
-+        var elNpXhr = $('<li></li>').append('<div>NonProxied Xhr</div>')
-+                                                  .appendTo(elTimerList);
++        var elNpXhr = $('<li></li>').append('<div>NonProxied Xhr</div>').appendTo(elTimerList);
 +        var elNpXhrList = $('<ul class="item-list"></ul>').appendTo(elNpXhr);
 +        
-+        var elPXhr = $('<li></li>').append('<div>Proxied Xhr</div>')
-+                                                 .appendTo(elTimerList);
++        var elPXhr = $('<li></li>').append('<div>Proxied Xhr</div>').appendTo(elTimerList);
 +        var elPXhrList = $('<ul class="item-list"></ul>').appendTo(elPXhr);
 +        
 +        var ioTimes = monitor['ioTimes'];
