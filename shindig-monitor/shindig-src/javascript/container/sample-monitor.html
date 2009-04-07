@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sample Monitor</title>
+<!-- default container look and feel -->
+<link rel="stylesheet" href="gadgets.css">
+<style>
+  .gadgets-gadget-chrome {
+    width: 80%;
+    float: none;
+    margin: auto;
+  }
+  .gadgets-gadget {
+    width: 100%;
+  }
+</style>
+
+<link rel="stylesheet" href="monitor.css">
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">
+	google.load("jquery", "1.2.6");
+</script>
+
+<script type="text/javascript" src="/gadgets/js/rpc:shindig.monitor.js?c=1&debug=1"></script>
+<script type="text/javascript" src="util.js"></script>
+<script type="text/javascript" src="gadgets.js"></script>
+<script type="text/javascript">
+
+var my = {};
+
+my.LayoutManager = function() {
+  gadgets.LayoutManager.call(this);
+};
+my.LayoutManager.inherits(gadgets.LayoutManager);
+my.LayoutManager.prototype.getGadgetChrome = function(gadget) {
+  var chromeId = 'gadget-chrome-' + gadget.id;
+  return chromeId ? document.getElementById(chromeId) : null;
+};
+my.renderGadgets = function() {
+  for (var i = 0; i < my.gadgetSpecUrls.length; ++i) {
+    var gadget = gadgets.container.createGadget(
+        {specUrl: my.gadgetSpecUrls[i], title: ("Sample App - " + i)});
+    gadgets.container.addGadget(gadget);
+    gadgets.container.renderGadget(gadget);
+    
+    shindig.monitor.add(gadget);
+  }
+};
+
+my.gadgetSpecUrls = [
+  'http://www.unickway.org.cn/vcdemo/oauth-client.xml',
+  'http://www.unickway.org.cn/asClient/release/sample/SampleApp.xml'
+];
+
+my.init = function() {
+  gadgets.container.layoutManager = new my.LayoutManager();
+
+  shindig.monitor.init();
+};
+
+</script>
+</head>
+<body onLoad="my.init(); my.renderGadgets();">
+  <center>
+    <h2>Shindig Monitor Demo</h2>
+  </center>
+  <div id="gadget-chrome-0" class="gadgets-gadget-chrome"></div>
+  <hr>
+  <div id="gadget-chrome-1" class="gadgets-gadget-chrome"></div>
+  <div id="output" style="clear: left;">
+  </div>
+
+  <!-- The monitor -->
+  <hr>
+  <button onclick="shindig.monitor.dump();">Dump Cosnole</button>
+  <button onclick="shindig.monitor.report();">View Report</button>
+  <button onclick="shindig.monitor.clear();">Clear</button>
+  <div id="monitor-report"></div>
+</body>
+</html>
