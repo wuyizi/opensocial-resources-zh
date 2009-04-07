@@ -1,0 +1,266 @@
+<html>
+<head><title>Shindig Client Side Monitor</title>
+
+<style>
+p {
+  margin-left:20px;
+}
+blockquote {
+  background-color:#EEE;
+  border: 1px dashed #DDD;
+  padding:5px;
+  margin-left:40px;
+  width:950px;
+}
+pre {
+  margin:0px;
+}
+.n {
+  font-weight:bold;
+  color:#000;
+}
+.o {
+  color:#888;
+}
+.f {
+
+}
+.add a{
+  color:#F00;
+  font-size: 1.1em;
+  font-family:tahoma;
+}
+.edit a{
+  color:#00F;
+  font-size: 1.1em;
+  font-family:tahoma;
+}
+.desc {
+  font-style:italic;
+  color:#7A7;
+}
+iframe {
+  background-color:#EEE;
+  border: 1px dashed #DDD;
+  padding:5px;
+  margin-left:40px;
+  font-family:courier new;
+  width:950px;
+  height:400px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Code Changes</h1>
+
+<h3>Files Modified:</h3>
+<p class=desc>(Bolded codes are modified or added.)</p>
+
+<p class=edit><a href="shindig-src/config/container.js">config/container.js</a></p>
+<blockquote><pre class=o>
+"gadgets.features" : {
+
+</pre><pre class=n>
+  "shindig.monitor" : {
+    "enabled" : true
+  }
+</pre><pre class=o>
+
+  "core.io" : {
+  ...
+</pre></blockquote>
+
+<p class=edit><a href="shindig-src/features/features.txt">features/features.txt</a></p>
+<blockquote><pre class=o>
+  ...
+
+</pre><pre class=n>
+  features/monitor/feature.xml
+</pre><pre class=o>
+
+</pre></blockquote>
+
+
+<p class=edit><a href="shindig-src/features/core/util.js">features/core/util.js</a></p>
+<blockquote><pre class=o>
+  runOnLoadHandlers : function () {
+    for (var i = 0, j = onLoadHandlers.length; i < j; ++i) {
+      onLoadHandlers[i]();
+    }
+
+</pre><pre class=n>
+    if (shindig && shindig.monitor) {
+      gadgets.rpc.call(null, 'shindig.monitor.onAppReady', null);
+    }
+</pre><pre class=o>
+
+  },
+</pre></blockquote>
+    
+      
+<p class=edit><a href="shindig-src/features/core.io/io.js">features/core.io/io.js</a></p>
+<blockquote><pre class=o>
+  function processNonProxiedResponse(url, callback, params, xobj) {
+
+</pre><pre class=n>
+    if (shindig && shindig.monitor && xobj.readyState == 4) {
+      gadgets.rpc.call(null, 'shindig.monitor.onResponse', null, url, params, xobj.responseText.length, false);
+    }
+</pre><pre class=o>
+
+    if (hadError(xobj, callback)) {
+    ...
+</pre></blockquote>
+<blockquote><pre class=o>
+  function processResponse(url, callback, params, xobj) {
+
+</pre><pre class=n>
+    if (shindig && shindig.monitor && xobj.readyState == 4) {
+      gadgets.rpc.call(null, 'shindig.monitor.onResponse', null, url, params, xobj.responseText.length, true);
+    }
+</pre><pre class=o>
+
+    if (hadError(xobj, callback)) {
+    ...
+</pre></blockquote>
+<blockquote><pre class=o>
+  function makeXhrRequest(realUrl, proxyUrl, callback, paramData, method,
+      params, processResponseFunction, opt_contentType) {
+
+</pre><pre class=n>
+    if (shindig && shindig.monitor) {
+      gadgets.rpc.call(null, 'shindig.monitor.onRequest', null, realUrl, params);
+    }
+</pre><pre class=o>
+
+    var xhr = makeXhr();
+    ...
+</pre></blockquote>
+    
+<p class=edit><a href="shindig-src/features/opensocial-current/feature.xml">features/opensocial-current/feature.xml</a></p>
+<blockquote><pre class=o>
+  &lt;dependency&gt;opensocial-jsonrpc&lt;/dependency&gt;
+  &lt;dependency&gt;opensocial-rest&lt;/dependency&gt;
+
+</pre><pre class=n>
+  &lt;dependency&gt;shindig.monitor&lt;/dependency&gt;
+</pre><pre class=o>
+
+  &lt;!-- &lt;dependency&gt;caja&lt;/dependency&gt; --&gt;
+  ...
+</pre></blockquote>
+
+<h3><br></h3>
+<h3>Files Added:</h3>
+<p class=add><a href="shindig-src/features/monitor/feature.xml">features/monitor/feature.xml</a></p>
+<iframe class=f src="shindig-src/features/monitor/feature.xml"></iframe>
+
+<p class=add><a href="shindig-src/features/monitor/monitor.js">features/monitor/monitor.js</a></p>
+<iframe class=f src="shindig-src/features/monitor/monitor.js"></iframe>
+
+<p class=add><a href="shindig-src/javascript/container/monitor.css">javascript/container/monitor.css</a></p>
+<iframe class=f src="shindig-src/javascript/container/monitor.css"></iframe>
+
+
+<h3><br></h3>
+
+
+<h3>Sample Page:</h3>
+<p class=desc>(Bolded codes are important.)</p>
+<p class=add><a href="shindig-src/javascript/container/sample-monitor.html">javascript/container/sample-monitor.html</a></p>
+<blockquote><pre class=o>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Sample Monitor&lt;/title&gt;
+&lt;!-- default container look and feel --&gt;
+&lt;link rel="stylesheet" href="gadgets.css"&gt;
+&lt;style&gt;
+  .gadgets-gadget-chrome {
+    width: 80%;
+    float: none;
+    margin: auto;
+  }
+  .gadgets-gadget {
+    width: 100%;
+  }
+&lt;/style&gt;
+<div class=n>
+&lt;link rel="stylesheet" href="monitor.css"&gt;
+&lt;script src="http://www.google.com/jsapi" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+	google.load("jquery", "1.2.6");
+&lt;/script&gt;
+</div>
+<div class=n>
+&lt;script type="text/javascript" src="/gadgets/js/rpc:shindig.monitor.js?c=1"&gt;&lt;/script&gt;
+</div>
+&lt;script type="text/javascript" src="util.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="gadgets.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+
+var my = {};
+
+my.LayoutManager = function() {
+  gadgets.LayoutManager.call(this);
+};
+my.LayoutManager.inherits(gadgets.LayoutManager);
+my.LayoutManager.prototype.getGadgetChrome = function(gadget) {
+  var chromeId = 'gadget-chrome-' + gadget.id;
+  return chromeId ? document.getElementById(chromeId) : null;
+};
+my.renderGadgets = function() {
+  for (var i = 0; i &lt; my.gadgetSpecUrls.length; ++i) {
+    var gadget = gadgets.container.createGadget(
+        {specUrl: my.gadgetSpecUrls[i], title: ("Sample App - " + i)});
+    gadgets.container.addGadget(gadget);
+    gadgets.container.renderGadget(gadget);
+<div class=n>
+    shindig.monitor.add(gadget);
+</div>
+  }
+};
+
+my.gadgetSpecUrls = [
+  'http://www.unickway.org.cn/vcdemo/oauth-client.xml',
+  'http://www.unickway.org.cn/asClient/release/sample/SampleApp.xml'
+];
+
+my.init = function() {
+  gadgets.container.layoutManager = new my.LayoutManager();
+<div class=n>
+  shindig.monitor.init();
+</div>
+};
+
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body onLoad="my.init(); my.renderGadgets();"&gt;
+  &lt;center&gt;
+    &lt;h2&gt;Shindig Monitor Demo&lt;/h2&gt;
+  &lt;/center&gt;
+  &lt;div id="gadget-chrome-0" class="gadgets-gadget-chrome"&gt;&lt;/div&gt;
+  &lt;hr&gt;
+  &lt;div id="gadget-chrome-1" class="gadgets-gadget-chrome"&gt;&lt;/div&gt;
+  &lt;div id="output" style="clear: left;"&gt;
+  &lt;/div&gt;
+
+<div class=n>
+  &lt;!-- The monitor --&gt;
+  &lt;hr&gt;
+  &lt;button onclick="shindig.monitor.dump();"&gt;Dump Cosnole&lt;/button&gt;
+  &lt;button onclick="shindig.monitor.report();"&gt;View Report&lt;/button&gt;
+  &lt;button onclick="shindig.monitor.clear();"&gt;Clear&lt;/button&gt;
+  &lt;div id="monitor-report"&gt;&lt;/div&gt;
+</div>
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></blockquote>
+
+<h3><br></h3>
+
+</body>
+</html>

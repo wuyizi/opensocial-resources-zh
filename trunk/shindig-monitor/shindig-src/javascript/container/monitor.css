@@ -1,0 +1,85 @@
+#monitor-report {
+  font-family: courier new;
+  font-size:12px;
+  margin:20px 0px 40px 0px;
+}
+
+#monitor-report a{
+  text-decoration:none;
+}
+#monitor-report ul{
+  padding-left:0px;
+  margin:0px;
+}
+
+#report-header {
+  font-style:italic;
+  color:#808080;
+}
+
+#report-header > ul {
+  border-bottom:1px solid #808080;
+}
+
+#report-header  li {
+  border-top:none;
+}
+
+.app-list{
+  list-style: none;
+}
+
+.app-list > li {
+  clear:both;
+  padding:20px;
+}
+
+.app-list > li > div{
+  font-weight: bold;
+  float:left;
+  width: 120px;
+  display:inline;
+}
+
+.timer-list {
+  float:left;
+  list-style: none;
+}
+
+.timer-list > li {
+  clear:both;
+  border-top:1px solid #808080;
+}
+
+.timer-list > li > div{
+  font-weight: bold;
+  float:left;
+  width: 120px;
+  padding:0px 2px;
+  display:inline;
+  border-left: 1px solid #808080;
+}
+
+.item-list {
+  float:left;
+  list-style: none;
+}
+
+.item-list > li{
+  clear:both;
+}
+
+.item-list > li > div {
+  float:left;
+  display:inline;
+  width:60px;
+  padding:0px 2px;
+  border-left: 1px solid #808080;
+}
+
+.item-list > li > div.long {
+  width:300px;
+  overflow:hidden;
+  white-space:nowrap;
+  margin-right:20px;
+}
